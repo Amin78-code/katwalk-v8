@@ -1,9 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import katwalkBag from "../../assets/images/designers/katwalk-bag.jpg";
-import styles from "./textImgSection.module.css";
-import allIcons from "../../assets/images/icons/all-icons.svg";
+ 
 import ImgLazyLoad from "../img-lazy-load/ImgLazyLoad";
 
 function TextImgSection({ data }) {
