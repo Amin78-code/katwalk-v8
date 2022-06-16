@@ -9,13 +9,13 @@ import img1 from "../assets/images/products/orange-1/img1.jpg";
 import img2 from "../assets/images/products/orange-1/img2.jpg";
 import img3 from "../assets/images/products/orange-1/img3.jpg";
 import img4 from "../assets/images/products/orange-1/img4.jpg";
-import ColorBox from "../components/color-box/ColorBox";
+import ColorBox from "../components/ColorBox/ColorBox";
 import { BsChevronDown } from "react-icons/bs";
-import ProductSlider from "../components/product-slider/Product-slider";
+import ProductSlider from "../components/ProductSlider/ProductSlider";
 import OtherProducts from "../components/other-products/OtherProducts";
 import styles from "../styles/ProductDetails.module.css";
 import SizeGuideModal from "../components/size-guide-modal/SizeGuideModal";
-import MessageModal from "../components/message-modal/MessageModal";
+import MessageModal from "../components/MessageModal/MessageModal";
 import MSD_Box from "../components/msd-box/MSD_Box";
 
 const basicColors = [
