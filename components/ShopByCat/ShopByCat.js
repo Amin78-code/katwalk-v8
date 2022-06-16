@@ -5,7 +5,7 @@ import blackImg from "../../assets/images/categories/black.jpg";
 import eveningImg from "../../assets/images/categories/evening.jpg";
 import formalImg from "../../assets/images/categories/formal.jpg";
 import casualImg from "../../assets/images/categories/casual.jpg";
-import ShopByCategorySection from "../shop-by-category-section/ShopByCategorySection";
+import ShopByCatSection from "./ShopByCatSection";
 
 function ShopByCat() {
   const shopByStyle = {
@@ -46,8 +46,8 @@ function ShopByCat() {
   };
   return (
     <>
-      <ShopByCategorySection data={shopByStyle} />
-      <ShopByCategorySection data={shopByOccasion} />
+      <ShopByCatSection data={shopByStyle} />
+      <ShopByCatSection data={shopByOccasion} />
     </>
   );
 }
