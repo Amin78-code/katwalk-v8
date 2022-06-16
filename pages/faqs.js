@@ -1,4 +1,4 @@
-import React from "react";
+
 import HeadingAndText from "../components/HeadingAndText/HeadingAndText";
 import Layout from "../components/layout/Layout"; 
 
