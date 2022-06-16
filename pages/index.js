@@ -1,6 +1,5 @@
  
  import Layout from "../components/layout/Layout";
-//  import ShopByCateg from "../components/shop-by-category/ShopByCateg";
  import katwalkBag from "../assets/images/designers/katwalk-bag.jpg";
  import bestSellingProduct from "../assets/images/best-selling/best-selling-product.jpg";
  import Features from "../components/features/Features";
@@ -8,6 +7,7 @@
  
 import { useEffect } from "react";
 import TextImageSection from "../components/TextImageSection/TextImageSection";
+import ShopByCat from "../components/ShopByCat/ShopByCat";
 
 export default function Home() {
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Home() {
 
     <Layout>
     <WebTopSection />
-    {/* <ShopByCateg /> */}
+    <ShopByCat />
     <TextImageSection data={designerData} />
     <TextImageSection data={bestSellingData} />
     <Features />
