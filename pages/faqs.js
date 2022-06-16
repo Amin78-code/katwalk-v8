@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout/Layout";
-import HeadingAndText from "../components/heading-and-text/HeadingAndText";
+import HeadingAndText from "../components/HeadingAndText/HeadingAndText";
+import Layout from "../components/layout/Layout"; 
 
 function FAQ() {
   const FAQ_Content = [
