@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 import nadaLineLogo from "../../assets/images/logo/nada-line.jpg";
 import nadaLineCover from "../../assets/images/designers/nada-line/cover.jpg";
-import Layout from "../../components/rtl/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import productImg1 from "../../assets/images/products/orange-1/img3.jpg";
 import productImg2 from "../../assets/images/products/product2.jpg";
 import productImg3 from "../../assets/images/products/product3.jpg";
 import productImg4 from "../../assets/images/products/product4.jpg";
-import ShopFilters from "../../components/rtl/shop-filters/ShopFilters";
-import ProductCard from "../../components/rtl/product-card/ProductCard";
-import ImgLazyLoad from "../../components/rtl/img-lazy-load/ImgLazyLoad";
+import ShopFilters from "../../components/ShopFilters/ShopFilters";
+import ProductCard from "../../components/product-card/ProductCard";
+import ImgLazyLoad from "../../components/img-lazy-load/ImgLazyLoad";
 
 function DesignerDetail() {
   const otherProducts = [

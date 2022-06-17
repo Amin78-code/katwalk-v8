@@ -304,6 +304,13 @@ html {
 .light-brown-btn:hover {
   background: #e62e04;
 }
+.not-allowed {
+  cursor: not-allowed;
+}
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
+}
 /* common end */
 
 .container-for-checkout {
