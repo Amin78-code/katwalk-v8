@@ -1,0 +1,31 @@
+.modal_main {
+  display: flex;
+  animation: showOverlay 1s forwards;
+}
+.modal_div {
+  display: block;
+  animation: fadeInModal 1s forwards;
+}
+@keyframes showOverlay {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #00000099;
+  }
+}
+
+@keyframes fadeInModal {
+  0% {
+  }
+  50% {
+    display: none;
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    display: block !important;
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

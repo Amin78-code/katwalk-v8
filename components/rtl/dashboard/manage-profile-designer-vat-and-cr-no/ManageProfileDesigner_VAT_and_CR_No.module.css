@@ -1,0 +1,11 @@
+.slide_card_body {
+    height: unset;
+    max-height: 500px;
+}
+.disable_div {
+    cursor: not-allowed;
+    border-color: #efefef;
+}
+.disable_div::before {
+    position: absolute;
+}

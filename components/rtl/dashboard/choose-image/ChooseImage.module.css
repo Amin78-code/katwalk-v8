@@ -1,0 +1,8 @@
+
+.disable_div {
+    cursor: not-allowed;
+    border-color: #efefef;
+}
+.disable_div::before {
+    position: absolute;
+}

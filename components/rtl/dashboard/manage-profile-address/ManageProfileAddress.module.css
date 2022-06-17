@@ -1,0 +1,8 @@
+.slide_card_body {
+    height: unset;
+    max-height: 500px;
+}
+.active_option {
+    color: #fff;
+    background-color: #c53a24;
+}

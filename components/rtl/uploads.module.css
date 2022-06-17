@@ -1,0 +1,14 @@
+.active_option {
+    color: #fff;
+    background-color: #c53a24;
+}
+.disable_div {
+    cursor: not-allowed;
+    border-color: #efefef;
+}
+.disable_div::before {
+    position: absolute;
+}
+.red_border {
+    border-color: #c53a24;
+}
