@@ -1,0 +1,14 @@
+.modal {
+  height: calc(100vh - 230px);
+}
+.active {
+  border: 1px solid #e5e7eb;
+  border-bottom: 3px solid #fff;
+  background-color: #fff;
+}
+.images_main_div {
+    height: calc(100% - 40px);
+}
+.inner_browse_div {
+  height: calc(100% - 50px);
+}

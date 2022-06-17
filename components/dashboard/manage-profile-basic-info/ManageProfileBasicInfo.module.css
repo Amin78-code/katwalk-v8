@@ -1,0 +1,4 @@
+.slide_card_body {
+    height: unset;
+    max-height: 500px;
+}

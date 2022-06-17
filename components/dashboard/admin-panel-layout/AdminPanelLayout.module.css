@@ -1,0 +1,21 @@
+.admin_main_div {
+  /* max-height: calc(100vh - 80px); */
+}
+.right_main_div {
+  width: calc(100% - 267px);
+}
+@media (max-width: 768px) {
+  .right_main_div {
+    width: calc(100%);
+  }
+  
+}
+
+.show_sidebar {
+  width: calc(100% + 20px);
+  background: #00000099;
+  z-index: 21;
+}
+.slide_sidebar {
+  transform: translateX(0);
+}
