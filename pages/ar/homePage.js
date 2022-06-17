@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../components/rtl/layout/Layout";
-import ShopByCateg from "../../components/rtl/shop-by-category/shopByCateg";
+import ShopByCateg from "../../components/rtl/shop-by-category/ShopByCateg";
 
 
 import TextImgSection from "../../components/rtl/text-img-section/TextImgSection";

@@ -17,7 +17,7 @@ import ChooseImageModal from "../../../../components/rtl/dashboard/choose-image-
 import TwoTabs from "../../../../components/rtl/dashboard/two-tabs/TwoTabs";
 import ThinTable from "../../../../components/rtl/dashboard/thin-table/ThinTable";
 import img1 from "../../../../assets/images/uploaded/IMG 3136.jpg";
-import Options from "../../../../components/rtl/dashboard/options";
+import Options from "../../../../components/rtl/dashboard/Options";
 
 const ordersData = [
   { title: "Total orders", value: "0" },

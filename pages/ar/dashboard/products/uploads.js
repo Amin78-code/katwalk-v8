@@ -14,7 +14,7 @@ import Sleeves from "../../../../components/rtl/dashboard/sleeves/Sleeves";
 import ProductPriceStock from "../../../../components/rtl/dashboard/product-price-stock/ProductPriceStock";
 import ChooseImage from "../../../../components/rtl/dashboard/choose-image/ChooseImage";
 import ChooseImageModal from "../../../../components/rtl/dashboard/choose-image-modal/ChooseImageModal";
-import Options from "../../../../components/rtl/dashboard/options";
+import Options from "../../../../components/rtl/dashboard/Options";
 
 const ordersData = [
   { title: "Total orders", value: "0" },
