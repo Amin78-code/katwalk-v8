@@ -6,7 +6,7 @@ import productImg2 from "../assets/images/products/product2.jpg";
 import productImg3 from "../assets/images/products/product3.jpg";
 import productImg4 from "../assets/images/products/product4.jpg";
 import styles from "../styles/Shop.module.css";
-import ShopFilters from "../components/shop-filters/ShopFilters";
+import ShopFilters from "../components/ShopFilters/ShopFilters";
 import ProductCard from "../components/product-card/ProductCard";
 import Link from "next/link";
 
