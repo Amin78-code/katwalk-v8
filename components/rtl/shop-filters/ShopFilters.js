@@ -221,32 +221,32 @@ function ShopFilters({ forDesigner }) {
     resetAllFilterAndCrossDiv.current.classList.remove("dflex");
   };
 
-  useEffect(() => {
-    const scrollFuntion = () => {
-      category_dropdown.current.classList.remove("f-in");
-      size_dropdown.current.classList.remove("f-in");
-      designer_dropdown.current.classList.remove("f-in");
-      color_dropdown.current.classList.remove("f-in");
-      price_dropdown.current.classList.remove("f-in");
-      sort_by_dropdown.current.classList.remove("f-in");
+  // useEffect(() => {
+    // const scrollFuntion = () => {
+    //   category_dropdown.current.classList.remove("f-in");
+    //   size_dropdown.current.classList.remove("f-in");
+    //   designer_dropdown.current.classList.remove("f-in");
+    //   color_dropdown.current.classList.remove("f-in");
+    //   price_dropdown.current.classList.remove("f-in");
+    //   sort_by_dropdown.current.classList.remove("f-in");
 
-      categoryChevron.current.classList.remove("rotate180b");
+    //   categoryChevron.current.classList.remove("rotate180b");
 
-      sizeChevron.current.classList.remove("rotate180b");
+    //   sizeChevron.current.classList.remove("rotate180b");
 
-      priceChevron.current.classList.remove("rotate180b");
+    //   priceChevron.current.classList.remove("rotate180b");
 
-      designerChevron.current.classList.remove("rotate180b");
+    //   designerChevron.current.classList.remove("rotate180b");
 
-      colorChevron.current.classList.remove("rotate180b");
+    //   colorChevron.current.classList.remove("rotate180b");
 
-      sortByChevron.current.classList.remove("rotate180b");
-    };
-    window.addEventListener("scroll", scrollFuntion());
-    return () => {
-      window.removeEventListener("scroll", scrollFuntion());
-    };
-  }, []);
+    //   sortByChevron.current.classList.remove("rotate180b");
+    // };
+    // window.addEventListener("scroll", scrollFuntion());
+    // return () => {
+    //   window.removeEventListener("scroll", scrollFuntion());
+    // };
+  // }, []);
 
   function openDropdown(dropdownName) {
     if (category_dropdown !== dropdownName) {

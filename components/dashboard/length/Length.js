@@ -75,7 +75,7 @@ function Length({ data, isDisableAllAlterations , openAltration}) {
         <div className="fwl w-[100%]     lg:w-[62.5%] pl-0         lg:pl-[15px] pr-0         lg:pr-[5px]">
           <div
             className={`
-            $ {
+            ${
               isDisableAllAlterations == true
                 ? styles.disable_div
                 : isDisableLength
