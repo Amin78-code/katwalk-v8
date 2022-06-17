@@ -167,32 +167,32 @@ function ShopFilters({ forDesigner }) {
     resetAllFilterAndCrossDiv.current.classList.remove("dflex");
   };
 
-  useEffect(() => {
-    const scrollFuntion = () => {
-      category_dropdown.current.classList.remove("f-in");
-      size_dropdown.current.classList.remove("f-in");
-      designer_dropdown.current.classList.remove("f-in");
-      color_dropdown.current.classList.remove("f-in");
-      price_dropdown.current.classList.remove("f-in");
-      sort_by_dropdown.current.classList.remove("f-in");
+  // useEffect(() => {
+    // const scrollFuntion = () => {
+    //   category_dropdown.current.classList.remove("f-in");
+    //   size_dropdown.current.classList.remove("f-in");
+    //   designer_dropdown.current.classList.remove("f-in");
+    //   color_dropdown.current.classList.remove("f-in");
+    //   price_dropdown.current.classList.remove("f-in");
+    //   sort_by_dropdown.current.classList.remove("f-in");
 
-      categoryChevron.current.classList.remove("rotate180b");
+    //   categoryChevron.current.classList.remove("rotate180b");
 
-      sizeChevron.current.classList.remove("rotate180b");
+    //   sizeChevron.current.classList.remove("rotate180b");
 
-      priceChevron.current.classList.remove("rotate180b");
+    //   priceChevron.current.classList.remove("rotate180b");
 
-      designerChevron.current.classList.remove("rotate180b");
+    //   designerChevron.current.classList.remove("rotate180b");
 
-      colorChevron.current.classList.remove("rotate180b");
+    //   colorChevron.current.classList.remove("rotate180b");
 
-      sortByChevron.current.classList.remove("rotate180b");
-    };
-    window.addEventListener("scroll", scrollFuntion());
-    return () => {
-      window.removeEventListener("scroll", scrollFuntion());
-    };
-  }, []);
+    //   sortByChevron.current.classList.remove("rotate180b");
+    // };
+    // window.addEventListener("scroll", scrollFuntion());
+    // return () => {
+    //   window.removeEventListener("scroll", scrollFuntion());
+    // };
+  // }, []);
 
   function openDropdown(dropdownName) {
     if (category_dropdown !== dropdownName) {
@@ -374,7 +374,7 @@ function ShopFilters({ forDesigner }) {
                   <div className="w-[100%]">
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ1"
@@ -388,7 +388,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ2"
@@ -402,7 +402,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ3"
@@ -416,7 +416,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ4"
@@ -430,7 +430,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ5"
@@ -445,7 +445,7 @@ function ShopFilters({ forDesigner }) {
 
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ6"
@@ -459,7 +459,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ7"
@@ -473,7 +473,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ8"
@@ -487,7 +487,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ9"
@@ -501,7 +501,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ10"
@@ -515,7 +515,7 @@ function ShopFilters({ forDesigner }) {
                     </div>
                     <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="w-[28px] form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ11"
