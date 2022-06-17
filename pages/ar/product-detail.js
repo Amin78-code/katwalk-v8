@@ -500,23 +500,23 @@ function ProductDetail() {
   return (
     <>
       <Layout>
-        <div className="container-for-product-detail mt-[60px] lg:mt-[80px] mx-auto">
+        <div className="far container-for-product-detail mt-[60px] lg:mt-[80px] mx-auto">
           <div className="w-[100%] max-w-[ ] flex flex-col      lg:flex-row">
             <div className="max-w-[1090p x] w-[100%] product-slider-div     lg:w-[68%]">
               <ProductSlider data={productImages} />
             </div>
             <div className="product-detail-content-div min-w-[500p x] w-[100%] pl-[45px] pr-[60px]     lg:w-[32%]">
-              <p className="work-regular text-[#1b1b28] text-[12px] tracking-[0.1em] mt-[20px] mb-[10px] hidden      md:block">
-                Home / Abaya / Multicolor Printed Abaya with Fringe Detail
+              <p className=" text-[#1b1b28] text-[12px] tracking-[0.1em] mt-[20px] mb-[10px] hidden      md:block">
+              الرئيسية / العباءات / عباية بطبعة متعددة الألوان وشرّابات
               </p>
-              <h2 className="fahkwang-regular text-[#1b1b28] text-[18px] tracking-[0.5px] leading-[1.5] mt-[25px]     md:mt-[0]">
-                Nada Line
+              <h2 className="text-[#1b1b28] text-[18px] tracking-[0.5px] leading-[1.5] mt-[25px]     md:mt-[0]">
+              ندى لاين
               </h2>
-              <p className="work-regular text-[#7e7e7e] text-[12px] leading-[1.1] tracking-[0.5px] mt-[12px] uppercase mb-[10px]">
-                MULTICOLOR PRINTED ABAYA WITH FRINGE DETAIL
+              <p className=" text-[#7e7e7e] text-[12px] leading-[1.1] tracking-[0.5px] mt-[12px] uppercase mb-[10px]">
+              عباية بطبعة متعددة الألوان وشرّابات
               </p>
-              <p className="work-regular text-[#7e7e7e] text-[20px] leading-[1.1] tracking-[0.5px] mt-[12px] uppercase mb-[10px]      md:text-[12px]">
-                SAR 640
+              <p className=" text-[#7e7e7e] text-[20px] leading-[1.1] tracking-[0.5px] mt-[12px] uppercase mb-[10px]      md:text-[12px]">
+              ر.س. 640
               </p>
 
               {/* color */}
@@ -526,8 +526,8 @@ function ProductDetail() {
                   onClick={() => colorsDivToggler()}
                 >
                   <div>
-                    <h6 className="work-regular text-[12px] mt-[5px] mb-[2px] uppercase">
-                      <span className="text-[#ff0032]">*</span>color:
+                    <h6 className=" text-[12px] mt-[5px] mb-[2px] uppercase">
+                      <span className="text-[#ff0032]">*</span>اللون:
                     </h6>
                     <p className="work-regular text-[11px] text-[#7e7e7e] capitalize py-[2px]">
                       Orange
@@ -552,7 +552,7 @@ function ProductDetail() {
                   )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <h6 className="fwb text-[#1b1b28] text-[13px] pt-[10px] pb-[10px]">
-                    Color:
+                  اللون:
                   </h6>
                   <div className="flex gap-x-[3px] pl-[2px] h-[110px]">
                     {basicColors.map((value, index) => {
@@ -577,11 +577,11 @@ function ProductDetail() {
                   onClick={() => sheilaColorsDivToggler()}
                 >
                   <div>
-                    <h6 className="work-regular text-[12px] mt-[5px] mb-[2px] uppercase">
-                      <span className="text-[#ff0032]">*</span>sheila color:
+                    <h6 className=" text-[12px] mt-[5px] mb-[2px] uppercase">
+                      <span className="text-[#ff0032]">*</span>لون الشيلة:
                     </h6>
-                    <p className="work-regular text-[11px] text-[#7e7e7e] capitalize py-2px]">
-                      select sheila color
+                    <p className=" text-[11px] text-[#7e7e7e] capitalize py-2px]">
+                    اختاري لون الشيلة
                     </p>
                   </div>
                   <div className="w-[20px] h-[20px] relative">
@@ -603,7 +603,7 @@ function ProductDetail() {
                   )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <h6 className="fwb text-[#1b1b28] text-[13px] pt-[10px] pb-[10px]">
-                    Sheila Color:
+                  لون الشيلة:
                   </h6>
                   <div className="flex gap-x-[3px] pl-[2px]">
                     {sheilaColor.map((value, index) => {
@@ -627,8 +627,8 @@ function ProductDetail() {
               <div className="w-[100%] cursor-pointer">
                 <div className="w-[100%] flex justify-start items-center mb-[20px]">
                   <div className="min-w-[60px] max-w-[60px]">
-                    <h6 className="fwl text-[12px] mt-[-13px] mb-[2px] uppercase">
-                      <span className="text-[#ff0032]">*</span>size:
+                    <h6 className="far text-[12px] mt-[-13px] mb-[2px] uppercase">
+                      <span className="text-[#ff0032]">*</span>بحجم:
                     </h6>
                   </div>
 
@@ -637,10 +637,10 @@ function ProductDetail() {
                       className="flex justify-between items-center"
                       onClick={() => sizeToggler()}
                     >
-                      <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
+                      <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
                         {selectedBasicSize && selectedBasicSize !== ""
                           ? selectedBasicSize
-                          : "select size:"}
+                          : "اختاري بحجم:"}
                       </p>
 
                       <BsChevronDown
@@ -673,8 +673,8 @@ function ProductDetail() {
               <div className="w-[100%] cursor-pointer">
                 <div className="w-[100%} flex justify-start items-center mb-[20px]">
                   <div className="min-w-[60px] max-w-[60px]">
-                    <h6 className="fwl text-[12px] mt-[5px] mb-[2px] uppercase">
-                      <span className="text-[#ff0032]">*</span>sheila length:
+                    <h6 className="far text-[12px] mt-[5px] mb-[2px] uppercase">
+                      <span className="text-[#ff0032]">*</span>طول الشيلة:
                     </h6>
                   </div>
 
@@ -683,10 +683,10 @@ function ProductDetail() {
                       className="flex justify-between items-center"
                       onClick={() => sheilaLengthToggler()}
                     >
-                      <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
+                      <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
                         {selectedSheilaSize && selectedSheilaSize !== ""
                           ? selectedSheilaSize
-                          : "select sheila length:"}
+                          : "اختاري طول الشيلة:"}
                       </p>
 
                       <BsChevronDown
@@ -721,20 +721,21 @@ function ProductDetail() {
                   <div className="flex cursor-pointer">
                     <div className="animated-circle relative mr-[25px]"></div>
                     <p
-                      className="work-regular text-[12px] uppercase"
+                      className=" text-[12px] uppercase"
                       onClick={() => alterationDivToggler()}
                     >
-                      ANY ALTERATION?
+            أي تعديل؟
                     </p>
                   </div>
                   <div className="flex slide-underline relative  cursor-pointer">
                     {/* <BsRulers className="mr-[5px]"></BsRulers> */}
                     <div className="w-[21px] h-[19px] cursor-pointer mr-[5px] bgAllIcon bg-[left_-4px_top_-659px]"></div>
                     <p
-                      className="work-regular text-[12px] uppercase"
+                      className=" text-[12px] uppercase"
                       onClick={() => toggleSizeGuideModal()}
                     >
-                      size guide
+                    جدول المقاسات
+
                     </p>
                     <div
                       className={`${togglerSizeGuideModal.join(" ")}  dnone`}
@@ -755,8 +756,8 @@ function ProductDetail() {
                   >
                     <div className="w-[100%} flex items-center mb-[20px]">
                       <div className="min-w-[60px] max-w-[60px]">
-                        <h6 className="fwl text-[12px] mb-[2px] uppercase">
-                          length:
+                        <h6 className="far text-[12px] mb-[2px] uppercase">
+                        الطول:
                         </h6>
                       </div>
 
@@ -765,8 +766,11 @@ function ProductDetail() {
                           className="flex justify-between items-center"
                           onClick={() => lengthToggler()}
                         >
-                          <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            select length
+                          <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
+                          
+                          
+                          اختاري الطول
+                                                                                                                                       
                           </p>
 
                           <BsChevronDown
@@ -779,22 +783,24 @@ function ProductDetail() {
                           className={`${togglerLength.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
                         >
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
-                            Select Length
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
+                         
+                          اختاري الطول
+                                                                         
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             50
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             52
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             54
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             56
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             58
                           </div>
                         </div>
@@ -807,8 +813,8 @@ function ProductDetail() {
                   >
                     <div className="w-[100%} flex items-center mb-[20px]">
                       <div className="min-w-[60px] max-w-[60px]">
-                        <h6 className="fwl text-[12px] mb-[2px] uppercase">
-                          bust:
+                        <h6 className="far text-[12px] mb-[2px] uppercase">
+                        العرض:
                         </h6>
                       </div>
 
@@ -817,8 +823,9 @@ function ProductDetail() {
                           className="flex justify-between items-center"
                           onClick={() => bustToggler()}
                         >
-                          <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            select bust
+                          <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
+                           
+                          اختاري العرض                                                                        
                           </p>
 
                           <BsChevronDown
@@ -831,25 +838,26 @@ function ProductDetail() {
                           className={`${togglerBust.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
                         >
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
-                            Select Bust
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
+                         
+                          اختاري العرض                                                                        
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             20
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             22
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             23
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             25
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             26
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             28
                           </div>
                         </div>
@@ -863,8 +871,8 @@ function ProductDetail() {
                   >
                     <div className="w-[100%} flex items-center mb-[20px]">
                       <div className="min-w-[60px] max-w-[60px]">
-                        <h6 className="fwl text-[12px] mb-[2px] uppercase">
-                          sleeve:
+                        <h6 className="far text-[12px] mb-[2px] uppercase">
+                        طول الكم:
                         </h6>
                       </div>
 
@@ -873,8 +881,9 @@ function ProductDetail() {
                           className="flex justify-between items-center"
                           onClick={() => sleeveToggler()}
                         >
-                          <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            select sleeve
+                          <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
+                        
+                          اختاري طول الكم                                                                        
                           </p>
 
                           <BsChevronDown
@@ -887,22 +896,23 @@ function ProductDetail() {
                           className={`${togglerSleeve.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
                         >
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
-                            Select Sleeve
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
+                            
+                          اختاري طول الكم                                                                        
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             25
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             26
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             27
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             28
                           </div>
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             29
                           </div>
                         </div>
@@ -913,17 +923,17 @@ function ProductDetail() {
               </div>
 
               <button
-                className="add-to-bag-btn relative ffr overflow-hidden h-[40px] text-[14px] w-full text-[#fff] uppercase bg-[#111723] mt-[20px]"
+                className="add-to-bag-btn relative far overflow-hidden h-[40px] text-[14px] w-full text-[#fff] uppercase bg-[#111723] mt-[20px]"
                 onClick={() => addToBag()}
               >
-                <span className="relative z-[5]">add to bag</span>
+                <span className="relative z-[5]">إضافة إلى حقيبة التسوق</span>
               </button>
 
               <div
                 className={`${styles.need_help_div} slide-underline relative inline-block h-[20px] cursor-pointer pt-[20px] mb-[38px]`}
               >
-                <p className="work-regular text-[12px] text-[#7e7e7e] uppercase ">
-                  need help?
+                <p className="text-[12px] text-[#7e7e7e] uppercase ">
+                محتاجة مساعدة؟
                 </p>
 
                 <div
@@ -977,8 +987,8 @@ function ProductDetail() {
                   onClick={() => tab1Toggler()}
                 >
                   <div>
-                    <h6 className="fwr text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
-                      description:
+                    <h6 className="far text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
+                    التفاصيل:
                     </h6>
                   </div>
                   <div>
@@ -995,37 +1005,36 @@ function ProductDetail() {
                   <table className="w-[100%]">
                     <tbody>
                       <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Product Type
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        نوع القطعة
                         </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Made-to-Measure (MTM)
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        تفصيل بحسب المقاس
                         </td>
                       </tr>
 
                       <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Fabric Type
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        نوع القماش
                         </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Silk
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Fabric Weight
-                        </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Cool Lightweight
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        حرير
                         </td>
                       </tr>
                       <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          Style
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        وزن القماش
                         </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          {" "}
-                          Spring, Print, Multicolor, Floral Print,
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        خفيف وبارد
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        الموضة
+                        </td>
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        الربيع, طبعة, ملون, طبعة أزهار
                         </td>
                       </tr>
                     </tbody>
@@ -1040,8 +1049,8 @@ function ProductDetail() {
                   onClick={() => tab2Toggler()}
                 >
                   <div>
-                    <h6 className="fwr text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
-                      save & fit:
+                    <h6 className="far text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
+                    المقاس والحجم
                     </h6>
                   </div>
                   <div>
@@ -1058,11 +1067,11 @@ function ProductDetail() {
                   <table className="w-[100%]">
                     <tbody>
                       <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          SIZE
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        المقاس
                         </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          OVERSIZED FIT
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        فضفاض
                         </td>
                       </tr>
                     </tbody>
@@ -1077,8 +1086,8 @@ function ProductDetail() {
                   onClick={() => tab3Toggler()}
                 >
                   <div>
-                    <h6 className="fwr text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
-                      Care Instructions
+                    <h6 className="far text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
+                    تعليمات العناية
                     </h6>
                   </div>
                   <div>
@@ -1095,11 +1104,11 @@ function ProductDetail() {
                   <table className="w-[100%]">
                     <tbody>
                       <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          CARE INSTRUCTION:
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        تعليمات العناية
                         </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          STEAM IRON,
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        كوي بخار,
                         </td>
                       </tr>
                     </tbody>
@@ -1114,8 +1123,8 @@ function ProductDetail() {
                   onClick={() => tab4Toggler()}
                 >
                   <div>
-                    <h6 className="fwr text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
-                      Shipping & Returns
+                    <h6 className="far text-[#7e7e7e] text-[13px] mt-[5px] mb-[12px] capitalize">
+                    الشحن والإرجاع
                     </h6>
                   </div>
                   <div>
@@ -1132,46 +1141,41 @@ function ProductDetail() {
                   <table className="w-[100%]">
                     <tbody>
                       <tr>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase align-top">
-                          SHIPPING & RETURNS
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase align-top">
+                        الشحن والإرجاع
                         </td>
-                        <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                          THIS IS A MADE TO MEASURE PRODUCT WHICH TAKES 10 – 14
-                          DAYS TO PREPARE BEFORE HANDING TO THE CARRIER.
+                        <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                        هذه القطعة مفصلة حسب المقاس وقد تستغرق 10-14 يوم للتسليم إلى الناقل
                           <br />
                           <br />
-                          ALL ORDERS ARE SHIPPED BY ARAMEX.
+                          يتم تسليم الطلبات إلى الناقل الحصري أرامكس.
                           <table className="w-[100%] mb-[20px]">
                             <tbody className="text-center border-[#ededed] border-b-[1px]">
                               <tr className="tr-hover-pink">
-                                <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                                  SHIPPING COST
+                                <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                                تكلفة الشحن
                                 </td>
-                                <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                                  DELIVERY TIME
+                                <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                                مدة الشحن
                                 </td>
                               </tr>
                               <tr className="tr-hover-blue">
-                                <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                                  PRICE INCLUDES SHIPPING. DETAILS IN CHECKOUT
+                                <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                                السعر شامل الشحن. التفاصيل عند اتمام الطلب
                                 </td>
-                                <td className="fwr text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
-                                  6 – 10 BUSINESS DAYS MADE IN BAHRAIN
+                                <td className="far text-[12px] tracking-[0.5px] border-[#ededed] border-t-[1px] py-[.75rem] uppercase">
+                                6-10 أيام عمل
                                 </td>
                               </tr>
                             </tbody>
                           </table>
-                          ABOVE TABLE IS JUST AN ESTIMATE DELIVERY TIMESCALE;
-                          OUR SELLERS WILL DO THEIR BEST TO DELIVER YOUR ORDER
-                          ON TIME.
+                          هذا الجدول مجرد تقدير زمني للتسليم، والبائعين لدينا يبذلون قصارى جهودهم لتسليم الطلبات الخاصة بك في الوقت المحدد.
                           <br />
                           <br />
-                          PLEASE NOTE THAT THERE MIGHT BE SOME DELAYS DURING
-                          PEAK OR SALE SEASONS, AND HOLIDAYS.
+                          يرجى ملاحظة أنه قد يكون هناك بعض التأخير خلال مواسم الذروة والترويج والعطلات.
                           <br />
                           <br />
-                          MADE-TO-MEASURE AND BESPOKE PRODUCTS ARE UNRETURNABLE
-                          UNLESS DAMAGED OR INCORRECT
+                          القطع المفصّلة حسب المقاس غير قابلة للاسترجاع عدا الطلبات التالفة أو الغير صحيحة.
                         </td>
                       </tr>
                     </tbody>
@@ -1224,7 +1228,7 @@ function Options({
     <div
       key={data + 1}
       className={` ${currectSelectedValue == data ? "active-variation" : ""
-        } fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px] `}
+        } far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px] `}
       onClick={() => settingVariation(data, variationName)}
     >
       {data}

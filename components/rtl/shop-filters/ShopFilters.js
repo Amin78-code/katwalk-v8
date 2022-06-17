@@ -347,7 +347,7 @@ function ShopFilters({ forDesigner }) {
 
   return (
     <>
-      <div className="w-[100%] pt-[0px] px-[16px]       lg:pt-[30px]">
+      <div className="far w-[100%] pt-[0px] px-[16px]       lg:pt-[30px]">
         {forDesigner == true ? (
           <>
             <div
@@ -361,9 +361,9 @@ function ShopFilters({ forDesigner }) {
         ) : (
           <>
             <div
-              className={`${styles.center_heading_div} flex text-center main-title`}
+              className={`$ {styles.center_heading_div}    flex text-center main-title`}
             >
-              <p className="text-[20px] tracking-[0.5px] uppercase mt-[-2px] pb-[22px]">
+              <p className="fal text-[20px] tracking-[0.5px] uppercase mt-[-2px] pb-[22px]">
                 كل منتجات
               </p>
             </div>
@@ -398,7 +398,7 @@ function ShopFilters({ forDesigner }) {
             </h3>
             <div className="flex  items-center hidden mb-[20px]" ref={resetAllFilterAndCrossDiv}>
               <h3
-                className="text-[#000] text-[13px] uppercase h-[34px] leading-[40px] cursor-pointer"
+                className="text-[#000] text-[13px] uppercase h-[34px] leading-[40px] cursor-pointer pb-[50px]"
                 onClick={() => resetAllFilters()}
               >
                 مسح التصنيفات
@@ -421,7 +421,7 @@ function ShopFilters({ forDesigner }) {
                 className={`flex justify-between items-center border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
                 onClick={() => openDropdown(category_dropdown)}
               >
-                <p className="uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="uppercase lg:capitalize text-[#9b9b9b] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={categoryPlus}
                     className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
@@ -432,7 +432,7 @@ function ShopFilters({ forDesigner }) {
                   ref={categoryChevron}
                   className="taPoint3 hidden     lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[#6c6c6c]" />
                 </div>
               </div>
               <div
@@ -606,7 +606,7 @@ function ShopFilters({ forDesigner }) {
                 className={`flex justify-between items-center border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
                 onClick={() => openDropdown(designer_dropdown)}
               >
-                <p className="uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="uppercase lg:capitalize text-[#9b9b9b] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={designerPlus}
                     className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
@@ -617,7 +617,7 @@ function ShopFilters({ forDesigner }) {
                   ref={designerChevron}
                   className="taPoint3 hidden     lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[#6c6c6c]" />
                 </div>
               </div>
               <DesignerFilter
@@ -636,7 +636,7 @@ function ShopFilters({ forDesigner }) {
                 onClick={() => openDropdown(size_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="uppercase lg:capitalize text-[#9b9b9b] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={sizePlus}
                     className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
@@ -644,7 +644,7 @@ function ShopFilters({ forDesigner }) {
                   بحجم
                 </p>
                 <div ref={sizeChevron} className="taPoint3 hidden     lg:block">
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[#6c6c6c]" />
                 </div>
               </div>
               <SizeFilter
@@ -663,7 +663,7 @@ function ShopFilters({ forDesigner }) {
                 onClick={() => openDropdown(color_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="uppercase lg:capitalize text-[#9b9b9b] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={colorPlus}
                     className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
@@ -674,7 +674,7 @@ function ShopFilters({ forDesigner }) {
                   ref={colorChevron}
                   className="taPoint3 hidden      lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[#6c6c6c]" />
                 </div>
               </div>
               <ColorFilter
@@ -693,7 +693,7 @@ function ShopFilters({ forDesigner }) {
                 onClick={() => openDropdown(price_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="uppercase lg:capitalize text-[#9b9b9b] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={pricePlus}
                     className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
@@ -704,7 +704,7 @@ function ShopFilters({ forDesigner }) {
                   ref={priceChevron}
                   className="taPoint3 hidden      lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[#6c6c6c]" />
                 </div>
               </div>
               <PriceFilter
@@ -723,7 +723,7 @@ function ShopFilters({ forDesigner }) {
                 onClick={() => openDropdown(sort_by_dropdown)}
                 className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="uppercase lg:capitalize text-[#9b9b9b] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={sortByPlus}
                     className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] ml-[15px]`}

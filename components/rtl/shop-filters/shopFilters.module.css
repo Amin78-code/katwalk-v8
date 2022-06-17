@@ -1,6 +1,6 @@
 .active {
-  border-left: 1px solid #fbf1e8;
-  border-right: 1px solid #fbf1e8;
+  /* border-left: 1px solid #fbf1e8;
+  border-right: 1px solid #fbf1e8; */
 }
 .filter_main_div:hover .form-check-input {
   border-color: #c53a19 !important;

@@ -432,7 +432,7 @@ function ShopFilters({ forDesigner }) {
                   ref={categoryChevron}
                   className="taPoint3 hidden     lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[" />
                 </div>
               </div>
               <div
@@ -617,7 +617,7 @@ function ShopFilters({ forDesigner }) {
                   ref={designerChevron}
                   className="taPoint3 hidden     lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[" />
                 </div>
               </div>
               <DesignerFilter
@@ -641,7 +641,7 @@ function ShopFilters({ forDesigner }) {
                   size
                 </p>
                 <div ref={sizeChevron} className="taPoint3 hidden     lg:block">
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[" />
                 </div>
               </div>
               <SizeFilter
@@ -668,7 +668,7 @@ function ShopFilters({ forDesigner }) {
                   ref={colorChevron}
                   className="taPoint3 hidden      lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[" />
                 </div>
               </div>
               <ColorFilter
@@ -695,7 +695,7 @@ function ShopFilters({ forDesigner }) {
                   ref={priceChevron}
                   className="taPoint3 hidden      lg:block"
                 >
-                  <IoChevronDown className="mr-[10px]" />
+                  <IoChevronDown className="mr-[10px] text-[" />
                 </div>
               </div>
               <PriceFilter

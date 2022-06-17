@@ -28,6 +28,7 @@ function ColorFilter({ data, color_dropdown, choosingFilterOption,
                       <p className="fwl text-[#fff] text-[11px] capitalize">
                         {value.name}
                       </p>
+                      <i className="las la-times text-[25px] absol ute top-[10px] right-[10px]"   onClick={() => openSidebar()}></i>
                     </div>
                   );
                 })}
@@ -48,7 +49,9 @@ function ColorFilter({ data, color_dropdown, choosingFilterOption,
                     >
                       <p className="fwl text-[#fff] text-[11px] capitalize">
                         {value.name}
-                      </p>
+                      </p>  
+                      <i className="las la-times text-[25px] absol ute top-[10px] right-[10px]"   onClick={() => openSidebar()}></i>
+                
                     </div>
                   );
                 })}

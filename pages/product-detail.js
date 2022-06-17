@@ -646,7 +646,7 @@ function ProductDetail() {
                     </div>
                     <div
                       className={`${togglerSize.join(" ")} ${styles.variation_dropdowns
-                        } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
+                        } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                     >
                       {selectSize.map((value) => {
                         return (
@@ -692,7 +692,7 @@ function ProductDetail() {
                     </div>
                     <div
                       className={`${togglerSheilaLength.join(" ")} ${styles.variation_dropdowns
-                        } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
+                        } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                     >
                       {selectSheilaLength.map((value) => {
                         return (
@@ -772,7 +772,7 @@ function ProductDetail() {
                         </div>
                         <div
                           className={`${togglerLength.join(" ")} ${styles.variation_dropdowns
-                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
+                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Length
@@ -824,7 +824,7 @@ function ProductDetail() {
                         </div>
                         <div
                           className={`${togglerBust.join(" ")} ${styles.variation_dropdowns
-                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
+                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Bust
@@ -880,7 +880,7 @@ function ProductDetail() {
                         </div>
                         <div
                           className={`${togglerSleeve.join(" ")} ${styles.variation_dropdowns
-                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
+                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Sleeve

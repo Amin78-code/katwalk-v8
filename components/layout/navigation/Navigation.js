@@ -277,7 +277,7 @@ function Navigation() {
               ></div>
 
               <div
-                className={`mt-[0px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] hidden`}
+                className={`mt-[0px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] before:absolute before:w-[100%] before:h-[30px] before:top-[-10px] before:left-0 hidden`}
               >
                 <div
                   className={` mt-[20px] ${styles.card_sm_box} bg-[#fff]  p-[20px] border-[#fbf1e8] border-[1px] `}
