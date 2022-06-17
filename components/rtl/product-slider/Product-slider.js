@@ -54,7 +54,7 @@ function ProductSlider({ data }) {
   return (
     <>
       <div className="relative">
-        <div className="my-icon heart-for-product-detail w-[25px] h-[25px] cursor-pointer absolute right-[14px] top-[6px] z-[1] bgAllIcon bg-[left_-3px_top_-69px]"></div>
+        <div className="my-icon heart-for-product-detail w-[25px] h-[25px] cursor-pointer absolute left-[14px] top-[6px] z-[1] bgAllIcon bg-[left_-3px_top_-69px]"></div>
         <Slider {...settings}>
           {data.map((value, index) => {
             return (
