@@ -549,7 +549,7 @@ function ProductDetail() {
                 <div
                   className={`${togglerColorsDiv.join(
                     " "
-                  )} taPoint3 h-[0] overflow-hidden`}
+                  )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <h6 className="fwb text-[#1b1b28] text-[13px] pt-[10px] pb-[10px]">
                     Color:
@@ -600,7 +600,7 @@ function ProductDetail() {
                 <div
                   className={`${togglerSheilaColorsDiv.join(
                     " "
-                  )} taPoint3 h-[0] overflow-hidden`}
+                  )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <h6 className="fwb text-[#1b1b28] text-[13px] pt-[10px] pb-[10px]">
                     Sheila Color:
@@ -990,7 +990,7 @@ function ProductDetail() {
                 <div
                   className={`${togglerTab1.join(
                     " "
-                  )} taPoint3 h-[0] overflow-hidden`}
+                  )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <table className="w-[100%]">
                     <tbody>
@@ -1053,7 +1053,7 @@ function ProductDetail() {
                 <div
                   className={`${togglerTab2.join(
                     " "
-                  )} taPoint3 h-[0] overflow-hidden`}
+                  )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <table className="w-[100%]">
                     <tbody>
@@ -1090,7 +1090,7 @@ function ProductDetail() {
                 <div
                   className={`${togglerTab3.join(
                     " "
-                  )} taPoint3 h-[0] overflow-hidden`}
+                  )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <table className="w-[100%]">
                     <tbody>
@@ -1127,7 +1127,7 @@ function ProductDetail() {
                 <div
                   className={`${togglerTab4.join(
                     " "
-                  )} taPoint3 h-[0] overflow-hidden`}
+                  )} taPoint3 max-h-[0] overflow-hidden`}
                 >
                   <table className="w-[100%]">
                     <tbody>
