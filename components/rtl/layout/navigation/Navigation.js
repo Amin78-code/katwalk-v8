@@ -26,8 +26,8 @@ function Navigation() {
     }
   };
   const cartToggler = () => {
-    if (!cartToggleClasses.includes("visibility-visible")) {
-      setCartToggleClasses(["visibility-visible"]);
+    if (!cartToggleClasses.includes("visibility-visible-rtl")) {
+      setCartToggleClasses(["visibility-visible-rtl"]);
     } else {
       setCartToggleClasses([]);
     }
@@ -409,7 +409,7 @@ function Navigation() {
             onClick={() => navigationToggler()}
           ></div>
           <div
-            className={`mob_menu_black_div h-[100%] bg-[#000000bf] px-[20px] py-[20px] absolute translate-x-[-100%]`}
+            className={`mob_menu_black_div h-[100%] bg-[#000000bf] px-[20px] py-[20px] absolute translate-x-[100%]`}
           >
             <div className="flex justify-end border-b-[1px] border-[#fff]">
               <div className="my-icon search w-[21px] h-[24px] cursor-pointer relative z-4 bgAllIcon bg-[left_-64px_top_-442px] mx-[3px] mb-[18px] mt-[-3px]"></div>
@@ -620,7 +620,7 @@ function Navigation() {
                 </li>
               </ul>
               <div className="flex">
-                <BsInstagram className="text-[#ffffff] mr-[20px]" />
+                <BsInstagram className="text-[#ffffff] ml-[20px]" />
                 <BsWhatsapp className="text-[#ffffff]" />
               </div>
             </div>
@@ -639,7 +639,7 @@ function Navigation() {
           ></div>
           <AiOutlineClose className="text-[26px] text-[#fff] absolute top-[15px] right-[20px]" />
           <div
-            className={`mob-menu-white-div h-[100vh] bg-[#fff] px-[20px] py-[20px] absolute translate-x-[140%] border-l-[1px] border-[#fbf1e8]`}
+            className={`mob-menu-white-div h-[100vh] bg-[#fff] px-[20px] py-[20px] absolute translate-x-[-140%] border-l-[1px] border-[#fbf1e8]`}
           >
             <div className="flex justify-between border-b-[1px] border-[#ededed]">
               <h6 className=" text-[13px] text-[#1b1b28] tracking-[0.5px] capitalize pb-[15px]">

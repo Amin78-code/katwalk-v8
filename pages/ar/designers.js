@@ -22,7 +22,7 @@ import { useEffect } from "react";
 function Designers() {
   useEffect(() => {
     document.querySelector("body").style.direction = 'rtl'
-  }, [])
+  }, []);
   const designers = [
     {
       name: "ثمانية",

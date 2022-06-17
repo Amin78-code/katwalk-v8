@@ -330,6 +330,9 @@ html {
 .visibility-visible {
   visibility: visible !important;
 }
+.visibility-visible-rtl {
+  visibility: visible !important;
+}
 
 /* navigation start */
 .cart-icon-div:hover .card-sm-box {
@@ -349,6 +352,10 @@ html {
   opacity: 1;
   transition: all 0.3s ease;
 }
+.visibility-visible-rtl .menu_overlay {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
 .visibility-visible .mob_menu_black_div {
   transform: translateX(0);
   transition: all 0.3s ease;
@@ -357,6 +364,18 @@ html {
   transform: translateX(calc(0px + 70px));
   transition: all 0.3s ease;
 }
+
+
+.visibility-visible-rtl .mob_menu_black_div {
+  transform: translateX(0);
+  transition: all 0.3s ease;
+}
+.visibility-visible-rtl .mob-menu-white-div {
+  transform: translateX(calc(-70px));
+  transition: all 0.3s ease;
+}
+
+
 .cart-box .image_container img {
   object-fit: contain;
 }
@@ -733,6 +752,13 @@ li.relative:hover .contact-box {
 }
 @media (min-width: 640px) {
   .visibility-visible .mob-menu-white-div {
+    transform: unset !important;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+    right: 0;
+  }
+  .visibility-visible-rtl .mob-menu-white-div {
     transform: unset !important;
     transition: all 0.3s ease;
     width: 100%;
