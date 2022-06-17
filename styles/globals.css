@@ -291,7 +291,7 @@ html {
   border-bottom: 1px solid #c53a19;
 }
 .show-colors {
-  height: 170px !important;
+  max-height: 170px !important;
   padding-bottom: 18px;
   border-bottom: 1px solid #c53a19;
 }

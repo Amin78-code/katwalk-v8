@@ -51,7 +51,7 @@ function DesignerFilterItem({ data, parentIndex }) {
                 className="form-check w-[100%] py-[7px] flex items-center border-[#e2e5ec] border-b-[1px] pb-[20px] cursor-pointer"
               >
                 <input
-                  className="min-w-[25px] relative form-check-input appearance-none h-4 w-4 border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px] ml-[10px]"
+                  className="min-w-[25px] relative form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px] ml-[10px]"
                   type="checkbox"
                   value=""
                   id={`designer${parentIndex}${inde > 0 ? "0" : ""}`}

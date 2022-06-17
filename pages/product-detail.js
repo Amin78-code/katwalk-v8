@@ -515,7 +515,7 @@ function ProductDetail() {
               </p>
 
               {/* color */}
-              <div className="w-[100%] mb-[20px]">
+              <div className="w-[100%] mb-[20px] cursor-pointer">
                 <div
                   className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
                   onClick={() => colorsDivToggler()}
@@ -566,7 +566,7 @@ function ProductDetail() {
               </div>
 
               {/* sheila color */}
-              <div className="w-[100%]">
+              <div className="w-[100%]  cursor-pointer">
                 <div
                   className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] mb-[20px]"
                   onClick={() => sheilaColorsDivToggler()}
@@ -619,7 +619,7 @@ function ProductDetail() {
               </div>
 
               {/* size */}
-              <div className="w-[100%]">
+              <div className="w-[100%]  cursor-pointer">
                 <div className="w-[100%] flex justify-start items-center mb-[20px]">
                   <div className="min-w-[60px] max-w-[60px]">
                     <h6 className="fwl text-[12px] mt-[-13px] mb-[2px] uppercase">
@@ -665,7 +665,7 @@ function ProductDetail() {
               </div>
 
               {/* sheila length */}
-              <div className="w-[100%]">
+              <div className="w-[100%]  cursor-pointer">
                 <div className="w-[100%] flex justify-start items-center mb-[20px]">
                   <div className="min-w-[60px] max-w-[60px]">
                     <h6 className="fwl text-[12px] mt-[5px] mb-[2px] uppercase">
@@ -711,7 +711,7 @@ function ProductDetail() {
               </div>
 
               {/* any alteration */}
-              <div className="w-[100%]">
+              <div className="w-[100%]  cursor-pointer">
                 <div className="w-[100%] flex justify-between max-w-[400px]     lg:max-w-[100%]">
                   <div className="flex cursor-pointer">
                     <div className="animated-circle relative mr-[25px]"></div>
@@ -966,7 +966,7 @@ function ProductDetail() {
 
               {/* toggle tabs */}
               {/* tab1 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
                 <div
                   className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
                   onClick={() => tab1Toggler()}
@@ -1029,7 +1029,7 @@ function ProductDetail() {
               </div>
 
               {/* tab2 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
                 <div
                   className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
                   onClick={() => tab2Toggler()}
@@ -1066,7 +1066,7 @@ function ProductDetail() {
               </div>
 
               {/* tab3 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
                 <div
                   className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
                   onClick={() => tab3Toggler()}
@@ -1103,7 +1103,7 @@ function ProductDetail() {
               </div>
 
               {/* tab4 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
                 <div
                   className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
                   onClick={() => tab4Toggler()}

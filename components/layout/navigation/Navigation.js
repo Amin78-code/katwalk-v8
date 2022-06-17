@@ -268,7 +268,7 @@ function Navigation() {
               onClick={() => searchToggler()}
             ></div>
           </div>
-          <div className="px-[10px] py-[10px] flex items-center border-r-[0px] border-[#e2e5ec] order-3     sm:order-[unset] sm:border-r-[1px]">
+          <div className="pl-[10px] pr-[12px] py-[10px] flex items-center border-r-[0px ] border-[#e2e5ec ] order-3     sm:order-[unset] sm:border-r-[1px ]">
             {/* cart icon for desktop */}
             <div className="cart-icon-div relative hidden     lg:block">
               <div
@@ -352,8 +352,8 @@ function Navigation() {
             <span className="work-regular text-[12px] ml-[7px] pt-[3px]">
               1
             </span>
-          </div>
-          <div className="px-[8px] flex items-center border-r-[1px] border-[#e2e5ec] hidden       lg:flex">
+          </div> 
+          <div className="pl-[10px] pr-[8px] flex items-center border-r-[1px] border-l-[1px] border-[#e2e5ec] hidden       lg:flex">
             <Link href="/dashboard/wishlists">
               <a className="flex items-center">
                 <div className="my-icon heart w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-1px_top_-385px]"></div>
@@ -363,7 +363,7 @@ function Navigation() {
               </a>
             </Link>
           </div>
-          <div className="px-[7px] border-r-[1px] border-[#e2e5ec] hidden       lg:flex">
+          <div className="pl-[8px] pr-[7px] border-r-[1px] border-[#e2e5ec] hidden       lg:flex">
             <Link href="/dashboard/home">
               <div className="my-icon user w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-4px_top_-121px]"></div>
             </Link>
