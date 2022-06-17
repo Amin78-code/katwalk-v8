@@ -107,7 +107,7 @@ function Navigation() {
               </a>
             </Link>
             <ul
-              className={`${styles.dropdown_for_desktop} fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap left-0 hidden`}
+              className={`${styles.dropdown_for_desktop} fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap right-0 hidden`}
             >
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
@@ -168,7 +168,7 @@ function Navigation() {
                 المناسبات
               </a>
             </Link>
-            <ul className="fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap left-0 hidden">
+            <ul className="fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap right-0 hidden">
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
                   <a className="text-[13px] text-[#fff] uppercase">
@@ -199,7 +199,7 @@ function Navigation() {
                 تسوقي الكل
               </a>
             </Link>
-            <ul className="fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap left-0 hidden">
+            <ul className="fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap right-0 hidden">
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
                   <a className="text-[13px] text-[#fff] uppercase">
