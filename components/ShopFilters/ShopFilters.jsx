@@ -145,6 +145,55 @@ function ShopFilters({ forDesigner }) {
   const [currectSelectedPrice, setCurrectSelectedPrice] = useState("");
   const [currectSelectedSortBy, setCurrectSelectedSortBy] = useState("");
 
+  const [allDesignersForShow, setAllDesignersForShow] = useState([
+    {
+      alphabet: "C",
+      designers: ["Clue"],
+    },
+    {
+      alphabet: "E",
+      designers: ["Estilo Designs"],
+    },
+    {
+      alphabet: "F",
+      designers: ["Fouz Couture", "Fourteen Ten"],
+    },
+    {
+      alphabet: "G",
+      designers: ["Gmash"],
+    },
+  
+    {
+      alphabet: "K",
+      designers: ["Kaf By Kaf"],
+    },
+  
+    {
+      alphabet: "M",
+      designers: ["Maliha", "Muna Mattar"],
+    },
+  
+    {
+      alphabet: "N",
+      designers: ["Nada Line", "Nakhlah"],
+    },
+  
+    {
+      alphabet: "R",
+      designers: ["Raw Mestika"],
+    },
+  
+    {
+      alphabet: "Z",
+      designers: ["Zahra Line"],
+    },
+  
+    {
+      alphabet: "",
+      designers: ["ثمانية", "ولاء كاظم"],
+    },
+  ])
+
   const choosingFilterOption = (selectedOption, filterName) => {
     if (filterName == "sizeFilter") {
       setCurrectSelectedSize(selectedOption);
@@ -271,6 +320,27 @@ function ShopFilters({ forDesigner }) {
     setCurrectSelectedPrice("");
     setCurrectSelectedSortBy("");
   };
+
+  
+  const changeHandler = (e, filterName) => {
+
+    // console.log("initialData==>", e, filterName);
+
+    let _allDesigners = filterName;
+    
+    let __allDesigners = [];
+    
+    for (let i = 0; i < _allDesigners.length; i++) {
+      __allDesigners.push(filterName[i])
+    }
+    console.log("e.target.value",e.target.value)
+    console.log("__allDesigners", __allDesigners)
+    const startsWithN = __allDesigners.filter((country) => country.alphabet.startsWith(e.target.value.toUpperCase()));
+    setAllDesignersForShow([]);
+    setAllDesignersForShow(startsWithN);
+    console.log("startsWithN",startsWithN);
+  };
+
 
   return (
     <>
@@ -552,7 +622,10 @@ function ShopFilters({ forDesigner }) {
               </div>
               <DesignerFilter
                 designer_dropdown={designer_dropdown}
-                data={allDesigners}
+                // data={allDesigners}
+                data={allDesignersForShow}
+                changeHandler={changeHandler}
+                allDesigners={allDesigners}
               />
             </div>
             <div className="flex-1 single-filter relative cursor-pointer">

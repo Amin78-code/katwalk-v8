@@ -184,14 +184,10 @@ const productCategories = ["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]
 
 
 function AddNewProduct() {
-  useEffect(() => {
-    document.querySelector("body").style.direction = 'rtl'
-  }, [])
+
   const [productCategoriesForShow, setProductCategoriesForShow] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
 
-
   const [matchedOptions, setMatchedOptions] = useState([])
-
 
 
   // let initialData = [];
@@ -201,7 +197,6 @@ function AddNewProduct() {
   //     initialData.push(productCategories[i])
   //   }
   // }, []);
-
 
 
 
@@ -630,7 +625,7 @@ function AddNewProduct() {
   const changeHandler = (e, filterName) => {
 
 
-    console.log("initialData", e, filterName);
+    // console.log("initialData", e, filterName);
 
     let _productCategories = filterName;
     // setProductCategories(_productCategories);
