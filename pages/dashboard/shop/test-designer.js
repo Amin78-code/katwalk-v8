@@ -9,7 +9,7 @@ import productImg1 from "../../../assets/images/products/orange-1/img3.jpg";
 import productImg2 from "../../../assets/images/products/product2.jpg";
 import productImg3 from "../../../assets/images/products/product3.jpg";
 import productImg4 from "../../../assets/images/products/product4.jpg";
-import ShopFilters from "../../../components/shop-filters/ShopFilters";
+import ShopFilters from "../../../components/ShopFilters/ShopFilters";
 import ProductCard from "../../../components/product-card/ProductCard";
 import ImgLazyLoad from "../../../components/img-lazy-load/ImgLazyLoad";
 
