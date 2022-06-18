@@ -1,3 +1,7 @@
+.active_option {
+  color: #fff;
+  background-color: #c53a24;
+}
 .modal_main {
   display: flex;
   animation: showOverlay 1s forwards;

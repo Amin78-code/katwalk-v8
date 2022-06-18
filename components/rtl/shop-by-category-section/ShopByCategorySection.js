@@ -36,7 +36,7 @@ function ShopByCategorySection({ data }) {
       <section className="h-[auto] pt-[30px] pb-[0px]      sm:pt-[50px] sm:pb-[20px] lg:pt-[40px] lg:pb-[60px] lg:h-[450px]">
         <div className="container flex justify-start flex-col px-[0]     lg:flex-row lg:px-[20px]">
           <div className="w-[100%] pr-[20px]      lg:w-[44%]">
-            <h2 className=" text-[#231F20] text-[22px] leading-[1.1] uppercase pb-[5px] mb-[10px]     sm:text-[28px]">
+            <h2 className="fal text-[#231F20] text-[22px] leading-[1.1] uppercase pb-[5px] mb-[10px]     sm:text-[28px]">
               {data.title}
             </h2>
             <p className=" text-[16px] leading-[1.5] mb-[3px]     sm:mb-[0]">

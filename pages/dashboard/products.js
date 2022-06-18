@@ -7,15 +7,7 @@ import TitleAndTableCard from "../../components/dashboard/title-and-table-card/T
 import TableHeader from "../../components/dashboard/table-header/TableHeader";
 import TwoColTableWithHeading from "../../components/dashboard/two-col-table-with-heading/TwoColTableWithHeading";
 import CardBody from "../../components/dashboard/card-body/CardBody";
-import TwoColTable from "../../components/dashboard/two-col-table/TwoColTable";
 import HeadingBar from "../../components/heading-bar/HeadingBar";
-import ContrastPipingTrimAbaya from "../../assets/images/products/Contrast Piping Trim Abaya.jpg";
-import CurvyFrontLinebuttonAbaya from "../../assets/images/products/Curvy Front Line button Abaya.jpg";
-import PearlEmbroideryAbaya from "../../assets/images/products/Pearl Embroidery Abaya.jpg";
-import PrintedSleeveAbaya from "../../assets/images/products/Printed Sleeve Abaya.jpg";
-import AbayaSetwithSideSlet from "../../assets/images/products/Abaya Set with Side Slet.jpg";
-import WishListCard from "../../components/dashboard/wishlist-card/WishListCard";
-import BottomShadowCard from "../../components/dashboard/bottom-shadow-card/BottomShadowCard";
 import Modal from "../../components/dashboard/modal/Modal";
 
 const productsData = {
@@ -72,7 +64,7 @@ function Products() {
                     <TwoColTableWithHeading
                       data={productsData}
                       tableType={true}
-                      toggleModal={toggleModal}
+                    toggleModal={toggleModal}
                     />
                   </div>
                 </CardBody>

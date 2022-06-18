@@ -54,7 +54,10 @@ function ManageProfileAddress({ data, title }) {
               <div className="p-[1rem] relative">
                 {data.map((value) => {
                   return (
-                    <p key={value.name} className="fwb text-[13px] text-[#1b1b28]">
+                    <p
+                      key={value.name}
+                      className="fwb text-[13px] text-[#1b1b28]"
+                    >
                       {value.name}: &nbsp;&nbsp;&nbsp;
                       <span className="fwr">{value.value}</span>
                     </p>
@@ -62,7 +65,10 @@ function ManageProfileAddress({ data, title }) {
                 })}
 
                 <div className="absolute right-[10px] top-[10px]">
-                  <i className="las la-ellipsis-v mx-[5px] cursor-pointer" onClick={() => openSelect("editOrDelete")}></i>
+                  <i
+                    className="las la-ellipsis-v mx-[5px] cursor-pointer"
+                    onClick={() => openSelect("editOrDelete")}
+                  ></i>
 
                   <div
                     className="absolute w-[165px] right-[-10px] top-[25px] z-[2] dnone"
@@ -72,16 +78,18 @@ function ManageProfileAddress({ data, title }) {
                       <ul>
                         <li
                           onClick={() => setOption("edit")}
-                          className={`${editOrDelete == "edit" ? styles.active_option : ""
-                            }
+                          className={`${
+                            editOrDelete == "edit" ? styles.active_option : ""
+                          }
                           block text-[#212529] text-[1rem] capitalize py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                         >
                           edit
                         </li>
                         <li
                           onClick={() => setOption("delete")}
-                          className={`${editOrDelete == "delete" ? styles.active_option : ""
-                            }
+                          className={`${
+                            editOrDelete == "delete" ? styles.active_option : ""
+                          }
                           block text-[#212529] text-[1rem] capitalize py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                         >
                           delete
@@ -112,7 +120,7 @@ function ManageProfileAddress({ data, title }) {
 function AddNewAddress() {
   return (
     <div
-      className={`border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[1rem] mt-[15px] flex justify-center items-center flex-col`}
+      className={`border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[1rem] mt-[15px] flex justify-center items-center flex-col cursor-pointer`}
     >
       <i className="las la-plus text-[26px] cursor-pointer mr-[5px]"></i>
       <p className="fwr capitalize text-[13px] text-[#1b1b28] mt-[3px]">

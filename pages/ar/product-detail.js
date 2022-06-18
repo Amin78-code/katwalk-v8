@@ -926,7 +926,7 @@ function ProductDetail() {
                 className="add-to-bag-btn relative far overflow-hidden h-[40px] text-[14px] w-full text-[#fff] uppercase bg-[#111723] mt-[20px]"
                 onClick={() => addToBag()}
               >
-                <span className="relative z-[5]">إضافة إلى حقيبة التسوق</span>
+                <span className="relative z-[1]">إضافة إلى حقيبة التسوق</span>
               </button>
 
               <div

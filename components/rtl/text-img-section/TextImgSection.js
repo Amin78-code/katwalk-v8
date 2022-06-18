@@ -12,7 +12,7 @@ function TextImgSection({ data }) {
       <section className="pt-[30px]     sm:pt-[50px]">
         <div className="container flex justify-start pb-[50px] px-[0]      lg:px-[20px]">
           <div className="w-[100%] pr-[20px]      lg:w-[44%]">
-            <h2 className=" text-[#231F20] text-[22px] leading-[1.1] capitalize pb-[5px] mb-[10px]     sm:text-[28px] sm:uppercase">
+            <h2 className="fal text-[#231F20] text-[22px] leading-[1.1] capitalize pb-[5px] mb-[10px]     sm:text-[28px] sm:uppercase">
               {data.title}
             </h2>
             <p className=" text-[16px] leading-[1.5] mb-[24px]">

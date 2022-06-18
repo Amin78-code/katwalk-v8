@@ -2,6 +2,7 @@
     cursor: not-allowed;
     border-color: #efefef;
     opacity: .7;
+    overflow: hidden;
 }
 .disable_div::before {
     position: absolute;

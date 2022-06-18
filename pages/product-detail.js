@@ -41,6 +41,32 @@ const sheilaColor = [
 
 const selectSize = ["50", "52", "54"];
 
+const alterationLength = [ 
+"Select Length",
+"50",
+"52",
+"54",
+"56",
+"58",
+];
+
+const alterationBust = [ 
+"Select Bust",
+"20",
+"22",
+"23",
+"25",
+"26",
+"28",
+];
+const alterationSleeve = [ "Select Bust",
+"25",
+"26",
+"27",
+"28",
+"29",
+];
+
 const selectSheilaLength = ["200cm", "170cm", "150cm"];
 
 const otherProducts = [
@@ -75,6 +101,10 @@ function ProductDetail() {
   const [basicColor, setBasicColor] = useState({});
   const [selectedBasicSize, setSelectedBasicSize] = useState("");
   const [selectedSheilaSize, setSelectedSheilaSize] = useState("");
+  const [selectedAlterationLength, setSelectedAlterationLength] = useState("");
+  const [selectedAlterationBust, setSelectedAlterationBust] = useState("");
+  const [selectedAlterationSleeve, setSelectedAlterationSleeve] = useState("");
+  selectedAlterationSleeve
 
   const productImages = [
     { image: img1 },
@@ -97,7 +127,21 @@ function ProductDetail() {
     } else if (variationName == "sheila-size") {
       setSelectedSheilaSize(selectedVariation);
       sheilaLengthToggler();
+    } else if (variationName == "alteration-length") {
+      setSelectedAlterationLength(selectedVariation);
+      // sheilaLengthToggler();
+      lengthToggler();
+    } else if (variationName == "alteration-bust") {
+      setSelectedAlterationBust(selectedVariation);
+      // sheilaLengthToggler();
+      bustToggler();
+    } else if (variationName == "alteration-sleeve") {
+      setSelectedAlterationSleeve(selectedVariation);
+      // sheilaLengthToggler();
+      sleeveToggler();
     }
+    
+    
   };
   const [itemAdded, setItemAdded] = useState("[]");
   const [isSecureCheckout, setIsSecureCheckout] = useState("[]");
@@ -761,7 +805,9 @@ function ProductDetail() {
                           onClick={() => lengthToggler()}
                         >
                           <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            select length
+                            {selectedAlterationLength && selectedAlterationLength !== ""
+                          ? selectedAlterationLength
+                          : "select length:"}
                           </p>
 
                           <BsChevronDown
@@ -774,7 +820,19 @@ function ProductDetail() {
                           className={`${togglerLength.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                            {alterationLength.map((value) => {
+                              return (
+                                <Options
+                                  key={value + 1}
+                                  data={value}
+                                  variationName={"alteration-length"}
+                                  settingVariation={settingVariation}
+                                  currectSelectedValue={selectedAlterationLength}
+                                />
+                              );
+                            })}
+                            
+                          {/* <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Length
                           </div>
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
@@ -791,7 +849,7 @@ function ProductDetail() {
                           </div>
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             58
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -813,7 +871,10 @@ function ProductDetail() {
                           onClick={() => bustToggler()}
                         >
                           <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            select bust
+                            
+                            {selectedAlterationBust && selectedAlterationBust !== ""
+                          ? selectedAlterationBust
+                          : "select bust:"}
                           </p>
 
                           <BsChevronDown
@@ -826,7 +887,20 @@ function ProductDetail() {
                           className={`${togglerBust.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+
+                          {alterationBust.map((value) => {
+                              return (
+                                <Options
+                                  key={value + 1}
+                                  data={value}
+                                  variationName={"alteration-bust"}
+                                  settingVariation={settingVariation}
+                                  currectSelectedValue={selectedAlterationBust}
+                                />
+                              );
+                            })}
+
+                          {/* <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Bust
                           </div>
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
@@ -846,7 +920,7 @@ function ProductDetail() {
                           </div>
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             28
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -869,7 +943,10 @@ function ProductDetail() {
                           onClick={() => sleeveToggler()}
                         >
                           <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            select sleeve
+                            
+                            {selectedAlterationSleeve && selectedAlterationSleeve !== ""
+                          ? selectedAlterationSleeve
+                          : "select sleeve:"}
                           </p>
 
                           <BsChevronDown
@@ -882,7 +959,18 @@ function ProductDetail() {
                           className={`${togglerSleeve.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
-                          <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
+                           {alterationSleeve.map((value) => {
+                              return (
+                                <Options
+                                  key={value + 1}
+                                  data={value}
+                                  variationName={"alteration-sleeve"}
+                                  settingVariation={settingVariation}
+                                  currectSelectedValue={selectedAlterationSleeve}
+                                />
+                              );
+                            })}
+                          {/* <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Sleeve
                           </div>
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
@@ -899,7 +987,7 @@ function ProductDetail() {
                           </div>
                           <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             29
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -911,7 +999,7 @@ function ProductDetail() {
                 className="add-to-bag-btn relative ffr overflow-hidden h-[40px] text-[14px] w-full text-[#fff] uppercase bg-[#111723] mt-[20px]"
                 onClick={() => addToBag()}
               >
-                <span className="relative z-[5]">add to bag</span>
+                <span className="relative z-[1]">add to bag</span>
               </button>
 
               <div

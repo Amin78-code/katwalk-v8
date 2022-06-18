@@ -8,7 +8,7 @@ import Link from "next/link";
 function Footer() {
   return (
     <>
-      <footer className="far w-[100%] h-[94px] bg-[#c53a19] py-[15px] items-center flex justify-between px-[3%]">
+      <footer className="far w-[100%] h-[94px] bg-[#c53a19] py-[15px] items-center flex justify-between pl-[4.5%] pr-[3%]">
         <div className="flex  items-center">
           <div className={`${styles.image_div} max-w-[80px] mr-[0px] mt-[5px]       sm:max-w-[65px] sm:ml-[10px] md:ml-[50px]`}>
             <span className="image_container">
@@ -89,7 +89,7 @@ function Footer() {
                 </a>
               </Link>
             </li>
-            <li >
+            <li className="ml-[12px] mr-[22px]">
               <Link href="/ar/privacypolicy">
                 <a className="far text-[#fff] whitespace-nowrap text-[12px] tracking-[0.05em] uppercase cursor-pointer">
                   سياسة الخصوصية والشروط والأحكام
@@ -99,7 +99,7 @@ function Footer() {
           </ul>
         </div>
         <div className="flex justify-end  items-center sm:justify-center ">
-          <p className={`${styles.footer_right_div} text-[#fff] text-[10px] tracking-[0.05em] uppercase cursor-pointer pr-[20px] pb-[4px] text-right     sm:text-right sm:text-[12px] sm:pb-[0]`}>
+          <p className={`${styles.footer_right_div} text-[#fff] text-[10px] tracking-[0.05em] uppercase cursor-pointer pr-[20px] pb-[4px] text-right     sm:text-right sm:text-[11px] sm:pb-[0]`}>
             © كات ووك ٢٠٢١ ٢٠٦٢٦١٧٥٩١ الرقم الضريبي ٣١٠٤٠١٦٩١٢٠٠٠٠٣
           </p>
           <div className={`${styles.right_img_div} max-w-[40px] mt-[5px] mr-[10px]     sm:mr-[25px] sm:max-w-[45px]`}>

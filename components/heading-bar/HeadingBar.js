@@ -20,7 +20,7 @@ function HeadingBar({ heading, lightHeadingBar, shopsPage }) {
           )}
           <Link href="/dashboard/shop/test-designer">
             <a target="_blank">
-            <button className="ffr text-[0.8125rem] text-[#e62e04] uppercase px-[1rem] h-[40px] leading-[40px] tracking-[.2em] border-[#e62e04] border-b-[1px] ml-[5px] flex items-center">
+            <button className="ffr text-[13px] text-[#e62e04] uppercase px-[.5rem] h-[30px] leading-[40px] tracking-[.2em] border-[#e62e04] border-b-[1px] ml-[10px] flex items-center mt-[0.3rem] mb-[1.5rem]">
               (visit shop)
               <i className="las la-external-link-alt"></i>
             </button>

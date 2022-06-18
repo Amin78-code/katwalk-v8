@@ -12,7 +12,7 @@ function Modal({ isShowModal, toggleModal, page }) {
       <div
         className={`${
           isShowModal && isShowModal == true ? styles.modal_main : ""
-        } w-[100%] h-[100%] fixed top-0 left-0 z-[3] hidden bg-[#00000099] flex justify-center items-center`}
+        } w-[100%] h-[100%] fixed top-0 left-0 z-[11] hidden bg-[#00000099] flex justify-center items-center`}
       >
         <div
           className={`${
@@ -22,9 +22,13 @@ function Modal({ isShowModal, toggleModal, page }) {
           <TableHeader>
             <div className="flex justify-between">
               <span className="capitalize">
-                {page && page == "withdraw"
+                {page && page =="profile" ? "New Address":
+                 <>
+                  {page && page == "withdraw"
                   ? "send a withdraw request"
-                  : "Cancel Confirmation"}
+                  : "Cancel Confirmation"}</>
+                  }
+              
               </span>
               <i
                 onClick={() => toggleModal()}
@@ -57,6 +61,7 @@ function Modal({ isShowModal, toggleModal, page }) {
               </div>
             </div>
           )}
+          
         </div>
       </div>
     </>

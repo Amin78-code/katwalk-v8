@@ -709,7 +709,6 @@ function AddNewProduct() {
                         </div>
                       </div>
                     </div>
-
                     <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
                       <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                         SKU Code

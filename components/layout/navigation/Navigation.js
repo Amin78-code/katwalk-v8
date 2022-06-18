@@ -8,8 +8,10 @@ import logo from "../../../assets/images/logo/logo.svg";
 import styles from "./Navigation.module.css";
 import logoSquare from "../../../assets/images/logo/logo-square.png";
 import dress1 from "../../../assets/images/products/dress1.jpg";
+import { useRouter } from "next/router";
 
 function Navigation() {
+  const router = useRouter();
   const dropdown1 = useRef(null);
   const [togglerClasses, setTogglerClasses] = useState([]);
   const [cartToggleClasses, setCartToggleClasses] = useState([]);
@@ -26,7 +28,7 @@ function Navigation() {
     }
   };
   const cartToggler = () => {
-    console.log("cartogg called")
+    console.log("cartogg called");
     if (!cartToggleClasses.includes("visibility-visible")) {
       setCartToggleClasses(["visibility-visible"]);
     } else {
@@ -77,11 +79,17 @@ function Navigation() {
       setShopAllClasses(["orange_dropdown"]);
     }
   };
+  const handleArabic = () => {
+    const path = "/ar" + router.pathname;
+    document.querySelector("html").dir = "rtl";
+    document.querySelector("body").style.direction = "rtl";
+    router.push(path);
+  };
   return (
     <>
       <nav
         id="navbar"
-        className="fixed top-0 w-[100%] h-[60px] bg-[#fff] px-[3%] flex justify-between items-center z-[3] drop-shadow-[0_0px_6px_rgba(0,0,0,0.08)]     lg:h-[80px]"
+        className="fixed top-0 w-[100%] h-[60px] bg-[#fff] px-[3%] flex justify-between items-center z-[10] drop-shadow-[0_0px_6px_rgba(0,0,0,0.08)]     lg:h-[80px]"
       >
         <div className="max-w-[115px] pt-[8px]     sm:max-w-[125px] sm:pt-[0]">
           <Link href="/">
@@ -348,11 +356,14 @@ function Navigation() {
             </div>
             {/* cart icon for mob */}
 
-            <div onClick={() => cartToggler()} className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[0] bgAllIcon bg-[left_-10px_top_-151px] block     lg:hidden"></div>
+            <div
+              onClick={() => cartToggler()}
+              className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[0] bgAllIcon bg-[left_-10px_top_-151px] block     lg:hidden"
+            ></div>
             <span className="work-regular text-[12px] ml-[7px] pt-[3px]">
               1
             </span>
-          </div> 
+          </div>
           <div className="pl-[10px] pr-[8px] flex items-center border-r-[1px] border-l-[1px] border-[#e2e5ec] hidden       lg:flex">
             <Link href="/dashboard/wishlists">
               <a className="flex items-center">
@@ -369,7 +380,10 @@ function Navigation() {
             </Link>
           </div>
           <div className="pl-[0px] pr-[18px] pb-[9px] order-1      sm:order-[unset] sm:pl-[5px] sm:pr-[10px] sm:pb-[4px]">
-            <a href=" /ar" className="almarai-regular text-[13px] cursor-pointer">
+            <a
+              onClick={() => handleArabic()}
+              className="almarai-regular text-[13px] cursor-pointer"
+            >
               عربي
             </a>
           </div>

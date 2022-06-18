@@ -4,12 +4,14 @@ import { useRef, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsInstagram, BsWhatsapp } from "react-icons/bs";
 import { IoChevronDown, IoCloseOutline } from "react-icons/io5";
-import logoSquare from "../../../../assets/images/logo/logo-square.png";
 import logo from "../../../../assets/images/logo/katwalk_logo_arabic.svg";
 import dress1 from "../../../../assets/images/products/dress1.jpg";
+import logoSquare from "../../../../assets/images/logo/logo-square.png";
 import styles from "./Navigation.module.css";
+import { useRouter } from 'next/router';
 
 function Navigation() {
+  const router = useRouter()
   const dropdown1 = useRef(null);
   const [togglerClasses, setTogglerClasses] = useState([]);
   const [cartToggleClasses, setCartToggleClasses] = useState([]);
@@ -76,13 +78,25 @@ function Navigation() {
       setShopAllClasses(["orange_dropdown"]);
     }
   };
+
+  const handleEnglish = () => {
+    let path;
+    if (router.pathname === "/ar") {
+      path = router.pathname.replace("/ar", "/");
+    } else {
+      path = router.pathname.replace("/ar/", "/");
+    }
+    document.querySelector("html").dir = "ltr";
+    document.querySelector("body").style.direction = "ltr";
+    router.push(path);
+  };
   return (
     <>
       <nav
         id="navbar"
-        className="fixed top-0 w-[100%] h-[60px] bg-[#fff] px-[3%] flex justify-between items-center z-[3] drop-shadow-[0_0px_6px_rgba(0,0,0,0.08)]     lg:h-[80px]"
+        className="fixed top-0 w-[100%] h-[60px] bg-[#fff] px-[3%] flex justify-between items-center z-[10] drop-shadow-[0_0px_6px_rgba(0,0,0,0.08)]     lg:h-[80px]"
       >
-        <div className="max-w-[151px] pt-[8px]     sm:max-w-[125px] sm:pt-[0]">
+        <div className="max-w-[151px] pt-[8px]     sm:max-w-[150px] sm:pt-[0]">
           <Link href="/ar">
             <span className="image_container">
               <Image src={logo} className="cursor-pointer" alt="logo image" />
@@ -118,9 +132,7 @@ function Navigation() {
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-                    الربيع
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">الربيع</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
@@ -132,25 +144,17 @@ function Navigation() {
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-
-                    مطبوع
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">مطبوع</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-                    تطريز
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">تطريز</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-
-                    طقم
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">طقم</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
@@ -171,24 +175,17 @@ function Navigation() {
             <ul className="fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap right-0 hidden">
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-                    كاجوال
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">كاجوال</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-
-                    سهرة
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">سهرة</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-                    رسمي
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">رسمي</a>
                 </Link>
               </li>
             </ul>
@@ -202,32 +199,22 @@ function Navigation() {
             <ul className="fadeDown w-[620px] bg-[#000000bf] px-[50px] py-[25px] absolute z-[1] top-[25px] flex flex-wrap right-0 hidden">
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-                    عباءات
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">عباءات</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-
-                    قفاطين
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">قفاطين</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-                    فساتين
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">فساتين</a>
                 </Link>
               </li>
               <li className="w-[50%] my-[10px]">
                 <Link href="/ar/shop">
-                  <a className="text-[13px] text-[#fff] uppercase">
-
-                    كيمونو
-                  </a>
+                  <a className="text-[13px] text-[#fff] uppercase">كيمونو</a>
                 </Link>
               </li>
             </ul>
@@ -277,12 +264,12 @@ function Navigation() {
               {/* cart icon for desktop */}
               <div className="cart-icon-div relative hidden     lg:block">
                 <div
-                  className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[4] bgAllIcon bg-[left_-10px_top_-151px]"
+                  className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-[0] bgAllIcon bg-[left_-10px_top_-151px]"
                   onClick={() => cartToggler()}
                 ></div>
 
                 <div
-                  className={`mt-[-20px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] hidden`}
+                  className={`mt-[0px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] before:absolute before:w-[100%] before:h-[30px] before:top-[-10px] before:left-0 hidden`}
                 >
                   <div
                     className={` mt-[20px] ${styles.card_sm_box} bg-[#fff]  p-[20px] border-[#fbf1e8] border-[1px] `}
@@ -341,7 +328,9 @@ function Navigation() {
                             </div>
                             <button className="add-to-bag-btn relative overflow-hidden text-[0.875rem] text-[#fff] uppercase bg-[#111723] px-[10px] py-[10px]">
                               <Link href="/ar/checkout">
-                                <span className="relative z-[5]">متابعة الشراء</span>
+                                <span className="relative z-[5]">
+                                  متابعة الشراء
+                                </span>
                               </Link>
                             </button>
                           </div>
@@ -353,20 +342,17 @@ function Navigation() {
               </div>
               {/* cart icon for mob */}
 
-              <div  onClick={() => cartToggler()} className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-10px_top_-151px] block     lg:hidden"></div>
-              <span className="text-[12px] mr-[7px] pt-[3px]">
-                1
-              </span>
-
-              
+              <div
+                onClick={() => cartToggler()}
+                className="my-icon bag w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-10px_top_-151px] block     lg:hidden"
+              ></div>
+              <span className="text-[12px] mr-[7px] pt-[3px]">1</span>
             </div>
             <div className="px-[8px] flex items-center border-l-[1px] border-[#e2e5ec] hidden       lg:flex">
               <Link href="/ar/dashboard/wishlists">
                 <a className="flex items-center">
                   <div className="my-icon heart w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-1px_top_-385px]"></div>
-                  <span className="text-[12px] mr-[7px] pt-[3px]">
-                    0
-                  </span>
+                  <span className="text-[12px] mr-[7px] pt-[3px]">0</span>
                 </a>
               </Link>
             </div>
@@ -376,7 +362,10 @@ function Navigation() {
               </Link>
             </div>
             <div className="pr-[0px] pr-[18px] order-1  sm:pr-[5px] sm:pr-[10px]">
-              <a href=" /" className="fwl text-[13px] tracking-[0.5px] cursor-pointer">
+              <a
+                onClick={() => handleEnglish()}
+                className="fwl text-[13px] tracking-[0.5px] cursor-pointer"
+              >
                 English
               </a>
             </div>
@@ -593,7 +582,13 @@ function Navigation() {
               </ul>
               <div className=" relative">
                 <Link href="/ar">
-                  <Image className="absolute" width={"55px"} height={"55px"} src={logoSquare} alt="logo image" />
+                  <Image
+                    className="absolute"
+                    width={"55px"}
+                    height={"55px"}
+                    src={logoSquare}
+                    alt="logo image"
+                  />
                 </Link>
               </div>
               <ul>
@@ -711,7 +706,7 @@ function Navigation() {
         >
           <div
             className={`menu_overlay absolute top-0 left-0 w-[100%] h-[100%] bg-[#fff] px-[20px] pt-[110px] opacity-0`}
-          > 
+          >
             <label className="block">
               <input
                 type="email"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Layout from "../../../components/rtl/layout/Layout";
 import ShopByCategory from "../../../components/rtl/shop-by-category/ShopByCateg";
@@ -11,23 +11,29 @@ import styles from "../../../components/rtl/login.module.css";
 import ImgLazyLoad from "../../../components/rtl/img-lazy-load/ImgLazyLoad";
 
 function Login() {
+  useEffect(() => {
+    document.querySelector("body").style.direction = "rtl";
+  }, []);
   return (
-
     <Layout footer={"none"}>
       {/* object-position: 'top' */}
       <div
         className={`${styles.login_main_div} overflow-hidden relative w-[100%] pt-[50px] flex justify-end items-start `}
       >
-        <div className={`${styles.login_bg_img_div} absolute w-[100%] h-[100%] z-[-1] hidden     sm:block`}>
+        <div
+          className={`${styles.login_bg_img_div} absolute w-[100%] h-[100%] z-[-1] hidden     sm:block`}
+        >
           <span className="image_container ">
             {/* <Image src={loginBgImg} alt="image" />  */}
-            <ImgLazyLoad src={loginBgImg} alt={"image"} classes={''} />
+            <ImgLazyLoad src={loginBgImg} alt={"image"} classes={""} />
           </span>
         </div>
-        <div className={`${styles.login_bg_img_div} absolute w-[100%] h-[100%] z-[-1] block      sm:hidden`}>
+        <div
+          className={`${styles.login_bg_img_div} absolute w-[100%] h-[100%] z-[-1] block      sm:hidden`}
+        >
           <span className="image_container ">
             {/* <Image src={loginBgImgMob} alt="image" /> */}
-            <ImgLazyLoad src={loginBgImgMob} alt={"image"} classes={''} />
+            <ImgLazyLoad src={loginBgImgMob} alt={"image"} classes={""} />
           </span>
         </div>
         <div className="w-[100%] mx-auto h-[210px] bg-[#000000bf] p-[25px] mt-[130px] ml-[15px] mr-[15px]     sm:ml-[50px] sm:mr-[50px] sm:w-[90%] lg:w-[34%] lg:mr-[60px]">

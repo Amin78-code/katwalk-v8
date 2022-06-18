@@ -372,7 +372,7 @@ function ShopFilters({ forDesigner }) {
 
         <div className={`${styles.right_heading_div} flex justify-end`}>
           <p
-            className=" self-end text-[13px] text-[#c53a19] tracking-[0.5px] pr-[20px] cursor-pointer"
+            className=" self-end text-[13px] text-[#c53a19] tracking-[0.5px] pr-[20px] cursor-pointer pb-[20px] mt-[-40px]"
             onClick={() => resetAllFilters()}
           >
             {forDesigner == true ? "Reset filters" : "مسح التصنيفات"}
