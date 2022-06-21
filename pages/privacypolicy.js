@@ -378,43 +378,43 @@ function PrivacyPolicy() {
               1. Introduction
             </h3>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
-              "Welcome to Katwalk, an online shopping marketplace that connects
+              Welcome to Katwalk, an online shopping marketplace that connects
               sellers with buyers and provides marketing services to create
               added value for designers in Saudi Arabia particular and in wider
               GCC. Katwalk provides an unmatched shopping experience for modern
-              Arab women through its website ('Platform', 'katwalk', 'we',
-              'our', 'us')",
+              Arab women through its website (&#39;Platform&#39;, &#39;katwalk&#39;, &#39;we&#39;,
+              &#39;our&#39;, &#39;us&#39;)
             </p>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
-              "'Katwalk' is a registered trademark owned by Fashion Platform
-              Est., commercial registration number:{" "}
+              &#39;Katwalk&#39; is a registered trademark owned by Fashion Platform
+              Est., commercial registration number:
               <a href="tel:2062617591">2062617591</a>, and VAT registration
-              number: <a href="tel:310401691200003">310401691200003</a>",
+              number: <a href="tel:310401691200003">310401691200003</a>
             </p>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
-              "- These Terms of Service (“Terms”, “Terms of Service”) govern
+              - These Terms of Service (&#34;Terms&#34;, &#34;Terms of Service&#34;) govern
               your use of our website/app located at (together or individually
-              “Service”) operated by Katwalk.",
+              &#34;Service&#34;) operated by Katwalk.
             </p>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
-              "- Our Privacy Policy also governs your use of our Service and
+              - Our Privacy Policy also governs your use of our Service and
               explains how we collect, safeguard and disclose information that
-              results from your use of our website",
+              results from your use of our website
             </p>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
-              "- Your agreement with us includes these Terms and our Privacy
-              Policy (“Agreements”). You acknowledge that you have read and
-              understood the Agreements and agreed to be bound of them.",
+              - Your agreement with us includes these Terms and our Privacy
+              Policy (&#34;Agreements&#34;). You acknowledge that you have read and
+              understood the Agreements and agreed to be bound of them.
             </p>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
-              "-If you do not agree with (or cannot comply with) the Agreements,
+              -If you do not agree with (or cannot comply with) the Agreements,
               then you may not use the Service. In order to find a solution,
-              please let us know by emailing us at{" "}
+              please let us know by emailing us at
               <a href="mailto:customercare@katwalk.sa">
                 customercare@katwalk.sa
               </a>
               These Terms apply to all visitors, users and others who wish to
-              access or use the Service.",
+              access or use the Service.
             </p>
             <h3 className="work-regular text-[20px] pt-[20px] mt-[16px]">
               2. Communications
@@ -424,7 +424,7 @@ function PrivacyPolicy() {
               marketing or promotional materials and other information we may
               send. However, you may opt out of receiving any, or all, of these
               communications from us by following the unsubscribe link or by
-              emailing us at{" "}
+              emailing us at
               <a href="mailto:customercare@katwalk.sa">
                 customercare@katwalk.sa
               </a>
@@ -479,7 +479,7 @@ function PrivacyPolicy() {
             <ul className="list-disc ml-[15px] mt-[15px]">
               <li className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px]">
                 If you have received damaged or incorrect items, you will be
-                eligible for a free return. Please visit{" "}
+                eligible for a free return. Please visit
                 <a href="katwalk.sa/contact">katwalk.sa/contact</a> to arrange
                 pick up and we will get back to you as soon as possible.
               </li>
