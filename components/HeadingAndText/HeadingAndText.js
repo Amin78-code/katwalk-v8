@@ -1,12 +1,27 @@
-
-
 function HeadingAndText({ data }) {
   return (
     <>
       <h3 className="work-regular text-[20px] pt-[20px] mt-[16px]">
-        {data.title}
+        {data ? <>{data.title ? data.title : ""}</> : ""}
       </h3>
-      {data.content ? (
+      {data.text ? (
+        <>
+          {data.text.map((val, ind) => {
+            return (
+              <p
+                key={ind}
+                className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]"
+              >
+                {val}
+              </p>
+            )
+          })}
+        </>
+      ) : (
+        ""
+      )}
+
+      {/* {data.content ? (
         <>
           {data.content.map((valu, inde) => {
             return (
@@ -152,10 +167,7 @@ function HeadingAndText({ data }) {
         </>
       ) : (
         ""
-      )}
-      {/* <p className="work-regular text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] py-[15px]">
-       ffffff
-      </p> */}
+      )} */}
     </>
   );
 }

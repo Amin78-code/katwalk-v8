@@ -9,14 +9,14 @@ import { data } from "autoprefixer";
 function HeadingAndText({ data }) {
   return (
     <>
-      <h3 className=" text-[20px] pt-[20px] mt-[16px]">
+      <h3 className="fal text-[20px] pt-[20px] mt-[16px]">
         {data.title}
       </h3>
       {data.content ? (
         <>
           {data.content.map((valu, inde) => {
             return (
-              <div key={inde}>
+              <div key={inde} className="fal">
                 {valu.type == "paragraph" ? (
                   <>
                     {valu.text ? (
@@ -132,7 +132,7 @@ function HeadingAndText({ data }) {
                                   <>
                                     {valu.text ? (
                                       <a
-                                        href="#"
+                                        href={valu.text}
                                         className=" text-[13px] mt-[15px] block"
                                       >
                                         {valu.text}

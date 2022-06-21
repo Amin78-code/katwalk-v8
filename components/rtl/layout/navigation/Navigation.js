@@ -8,10 +8,10 @@ import logo from "../../../../assets/images/logo/katwalk_logo_arabic.svg";
 import dress1 from "../../../../assets/images/products/dress1.jpg";
 import logoSquare from "../../../../assets/images/logo/logo-square.png";
 import styles from "./Navigation.module.css";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 function Navigation() {
-  const router = useRouter()
+  const router = useRouter();
   const dropdown1 = useRef(null);
   const [togglerClasses, setTogglerClasses] = useState([]);
   const [cartToggleClasses, setCartToggleClasses] = useState([]);
@@ -269,7 +269,7 @@ function Navigation() {
                 ></div>
 
                 <div
-                  className={`mt-[0px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] before:absolute before:w-[100%] before:h-[30px] before:top-[-10px] before:left-0 hidden`}
+                  className={`mt-[0px] card-sm-box min-w-[110px] w-[322px] absolute top-[30px] left-[50%] translate-x-[-43%] shadow-sm  before:absolute before:w-[100%] before:h-[30px] before:top-[-10px] before:left-0 hidden`}
                 >
                   <div
                     className={` mt-[20px] ${styles.card_sm_box} bg-[#fff]  p-[20px] border-[#fbf1e8] border-[1px] `}
@@ -280,7 +280,7 @@ function Navigation() {
                       </p>
                     </div>
                     <div>
-                      <div className="text-cente r">
+                      <div className="">
                         {isCartEmpty == false ? (
                           <p className="text-[#000000] text-[13px] mt-[10px] text-center">
                             حقیبة التسوق فارغة
@@ -293,18 +293,18 @@ function Navigation() {
                                   <Image src={dress1} alt="ploduct image" />
                                 </span>
                               </div>
-                              <div className="text-right">
-                                <div className="flex">
+                              <div className="text-left flex flex-col items-end">
+                                <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mt-[-5px] ml-[-5px]"></div>
+                                <div className="pt-[5px]">
                                   <p className="text-[13px] leading-[1.5] tracking-[0.5px]">
-                                    Floral Embroidery Tulle Sleeve Abaya
+                                    عباية بأشرطة بلون مغاير
                                   </p>
-                                  <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mr-[3px]"></div>
                                 </div>
                                 <p className="text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
                                   Clue
                                 </p>
-                                <p className="text-[13px] leading-[1.5] mt-[10px] pl-[10px]">
-                                  1x SAR 1,030
+                                <p className="text-[13px] leading-[1.5] mt-[10px] pl-[10px ]">
+                                  1x ر.س. 750
                                 </p>
                               </div>
                               {/* <div className="absolute right-[-5px]">
@@ -317,13 +317,13 @@ function Navigation() {
                                 href="#"
                                 className="text-[#000] text-[13px] py-[13px] block capitalize pl-[10px]"
                               >
-                                Subtotal
+                                المجموع الفرعي
                               </p>
                               <p
                                 href="#"
                                 className="text-[#000] text-[13px] py-[13px] block uppercase"
                               >
-                                SAR 1,030
+                                ر.س. 750
                               </p>
                             </div>
                             <button className="add-to-bag-btn relative overflow-hidden text-[0.875rem] text-[#fff] uppercase bg-[#111723] px-[10px] py-[10px]">
@@ -650,22 +650,22 @@ function Navigation() {
             </div>
 
             <div className="flex flex-col flex-col justify-between h-[89vh]    hidd en">
-              <div className="flex justify-between pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
+              <div className="flex justify-start pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
                 <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
                   <span className="image_container">
                     <Image src={dress1} alt="ploduct image" />
                   </span>
                 </div>
-                <div className="flex">
+                <div className="flex flex-[2] justify-around">
                   <div className="text-[#1b1b28]">
                     <p className="text-[13px] leading-[1.5] tracking-[0.5px]">
-                      Floral Embroidery Tulle Sleeve Abaya
+                      عباية بأشرطة بلون مغاير
                     </p>
                     <p className="text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
                       Clue
                     </p>
                     <p className="text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
-                      1x SAR 1,030
+                      1x ر.س. 750
                     </p>
                   </div>
                   <div>
@@ -680,13 +680,13 @@ function Navigation() {
                     href="#"
                     className="text-[#000] text-[13px] py-[13px] block uppercase"
                   >
-                    Subtotal
+                    المجموع الفرعي
                   </p>
                   <p
                     href="#"
                     className="text-[#000] text-[13px] py-[13px] block uppercase"
                   >
-                    SAR 1,030
+                    ر.س. 750
                   </p>
                 </div>
                 <button className="w-[100%] text-[14px] text-[#fff] uppercase bg-[#000] px-[10px] py-[10px]">

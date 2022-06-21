@@ -9,8 +9,8 @@ import { useEffect } from "react";
 
 function PrivacyPolicy() {
   useEffect(() => {
-    document.querySelector("body").style.direction = 'rtl'
-  }, [])
+    document.querySelector("body").style.direction = "rtl";
+  }, []);
   const privacyPolicyContent = [
     {
       title: "١. المقدمة",
@@ -90,242 +90,246 @@ function PrivacyPolicy() {
         {
           type: "bulletList",
           text: [
-            "Placing order: all orders are owned, managed, and sold by our sellers.",
-            "Availability and order confirmation: orders will take up to one business day to be accepted by sellers. Once the order is approved/rejected, a confirmation will be sent by SMS, email, or WhatsApp.",
-            "Payment: your card will be charged once your order has been approved. By placing an order, you authorize our third party, to process your chosen payment details for the order.",
-            "Cancellation: orders can be cancelled only if they have not been approved and payment has not been processed.",
-            "You authorize us to save your details for your next orders including but not limited to your name, addresses and sizes. However, Katwalk will not save any payment details.",
+            "‌أ. تقديم الطلب: جميع الطلبات مملوكة ومدارة ويتم بيعها من قبل البائعين لدينا.",
+            "‌ب. التوفر وتأكيد الطلب: تستغرق الطلبات ما يصل إلى يوم عمل حتى يتم قبولها من قبل البائعين. بمجرد قبول الطلب / رفضه، سيتم إرسال تأكيد عبر الرسائل القصيرة أو البريد الإلكتروني أو WhatsApp",
+            "‌ج. الدفع: سيتم احتساب مبلغ الشراء من بطاقتك بمجرد إتمام الطلب. من خلال تقديم الطلب، فإنك تخول الطرف الثالث لدينا، لمعالجة تفاصيل الدفع التي اخترتها للطلب.",
+            "‌د. الإلغاء: لا يمكن إلغاء الطلبات إلا في حال عدم قبول الطلب أو في حال لم تتم عملية الدفع.",
+            "‌ه. أنت تفوضنا بحفظ التفاصيل الخاصة بك لطلباتك القادمة على سبيل المثال لا الحصر اسمك وعناوينك ومقاساتك . ومع ذلك، لن تقوم Katwalk بحفظ أي تفاصيل دفع خاصة بك على سبيل المثال لا الحصر، رقم بطاقة الائتمان أو تاريخ انتهاء صلاحيتها.",
           ],
         },
       ],
     },
     {
-      title: "6. Returns and Refunds",
+      title: "٦. إرجاع الطلبات والمبالغ المستردة",
       content: [
         {
           type: "paragraph",
-          text: ["A. Return process"],
+          text: ["‌أ. عملية إرجاع الطلبات:"],
         },
         {
           type: "bulletList",
           text: [
-            "Katwalk follows the Regulations of E-commerce in Saudi Arabia,",
-            "Ready-to-wear products are eligible for return within 7 days from receiving the order.",
-            "Products must be new, unused, in their original condition as received and all tags attached if any.",
-            "The customer is responsible for carrier return cost (except for damaged/incorrect orders.)",
-            "Katwalk will facilitate the return process between the customer and the sellers.",
-            "If you wish to return your order, please visit katwalk.sa/contact and choose your preferred contacting method and we will get back to you as soon as possible.",
-            "Any customizable product that has been made or tailored especially for you is not eligible for a return (Made-to-measure and Bespoke products are unreturnable).",
+            "تنتظم Katwalk بأنظمة التجارة الإلكترونية في المملكة العربية السعودية.",
+            " القطع الجاهزة مؤهلة للاسترجاع في غضون 7 أيام بعد استلام الطلب.",
+            " يجب أن تكون القطع جديدة وغير مستخدمة وبحالتها الأصلية كما استُلِمت ومع جميع العلامات والبطاقات المرفقة إن وجدت",
+            " العميل هو المسؤول عن تكاليف الناقل للاسترجاع (عدا الطلبات التالفة/غير صحيحة)",
+            " سوف تسهل Katwalk عملية الإرجاع بين العميل والبائعين.",
+            "إذا كنت ترغب في إرجاع طلبك الرجاء زيارة katwalk.sa/contact واختيار طريقة الاتصال المفضلة لديك، ونحن سوف نعود إليك في أقرب وقت ممكن.",
+            "القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك) غير قابلة للاسترجاع.",
           ],
         },
-      ],
-    },
-    {
-      title: "B. Damaged/Incorrect orders",
-      content: [
+        {
+          type: "paragraph",
+          text: ["‌ب. الطلبات التالفة/ غير صحيحة:"],
+        },
         {
           type: "bulletList",
           text: [
-            "If you have received damaged or incorrect items, you will be eligible for a free return. Please visit katwalk.sa/contact to arrange pick up and we will get back to you as soon as possible.",
+            "إذا كنت قد تلقيت طلبك وكان تالفًا أو غير صحيح، فسيكون طلبك مؤهلًا للاسترجاع المجاني عن طريق زيارة katwalk.sa/contact واختيار طريقة الاتصال المفضلة لديك وذلك خلال 7 أيام من استلام الطلب",
           ],
         },
-      ],
-    },
-    {
-      title: "C. Refund process",
-      content: [
+        {
+          type: "paragraph",
+          text: ["‌ج. عملية الاسترداد:"],
+        },
         {
           type: "bulletList",
           text: [
-            "Refund will only be processed after inspecting and approving the returned item(s).",
-            "For returned items, you will be refunded the product amount including VAT (excluding cash-on-delivery fees). Customer will be responsible for carrier return costs.",
-            "For damaged or incorrect items, you will be refunded the full paid amount. Including, if applicable, cash-on-delivery fees and customer will not be liable for carrier return cost.",
-            "You will be refunded to your original payment method and it can take up to 30 days for the amount to be show on your account.",
+            " لن تتم معالجة المبالغ المستردة إلا بعد الفحص و الموافقة على المنتج/المنتجات التي تم إرجاعها.",
+            " بالنسبة للمنتجات المسترجعة، سيتم رد مبلغ المنتج بما في ذلك ضريبة القيمة المضافة (باستثناء رسوم الدفع عند التسليم). سيكون العميل مسؤولًا عن تكاليف الناقل للاسترجاع.",
+            " بالنسبة للمنتجات التالفة/غير صحيحة، سيتم رد المبلغ المدفوع بالكامل. بما في ذلك، إن وجد، رسوم الدفع عند التسليم و لن يكون العميل مسؤولًا عن تكاليف الناقل للاسترجاع.",
+          ],
+        },
+
+        {
+          type: "paragraph",
+          text: ["‌د. المنتجات الغير قابلة للاسترجاع:"],
+        },
+        {
+          type: "bulletList",
+          text: [
+            " القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك) غير قابلة للاسترجاع.",
+            " الإكسسوارات ، و الملابس الداخلية ، و العطور و أدوات التجميل جميعاً غير قابلة للاسترجاع",
           ],
         },
       ],
     },
 
     {
-      title: "D. Non-returnable items",
+      title: "٧. المحتوى",
       content: [
         {
-          type: "bulletList",
+          type: "paragraph",
           text: [
-            "Any customizable product that has been made or tailored especially for you (Made-to-measure and Bespoke products are unreturnable).",
+            "المحتوى الموجود على أو من خلال هذه الخدمة هو ملك لـ Katwalk. لا يجوز لك توزيع أو تعديل أو نقل أو إعادة استخدام أو تنزيل أو إعادة نشر أو نسخ أو استخدام المحتوى المذكور، سواء كليًا أو جزئيًا، لأغراض تجارية أو لتحقيق مكاسب شخصية، دون الحصول على إذن كتابي مسبق صريح منا.",
           ],
         },
       ],
     },
     {
-      title: "7. Content",
+      title: "٨. الاستخدامات المحظورة",
       content: [
         {
           type: "paragraph",
           text: [
-            "Content found on or through this Service is the property of Katwalk. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without obtaining advance written permission from us.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "8. Prohibited Uses",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "You may use the Service only for lawful purposes and in accordance with the Terms. You agree not to use the Service:",
+            "يمكنك استخدام الخدمة فقط لأغراض قانونية ووفقا للشروط. أنت توافق على عدم استخدام الخدمة:",
           ],
         },
         {
           type: "bulletList",
           text: [
-            "In any way that violates any applicable national or international law or regulation.",
-            "For the purpose of exploiting, harming or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.",
-            "To transmit, or procure the sending of, any advertising or promotional material, including any “junk mail”, “chain letter,” “spam,” or any other similar solicitation.",
-            "To impersonate or attempt to impersonate Katwalk, Katwalk’s employee, another user, or any other person or entity.",
-            "In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity.",
-            "To engage in any other conduct that restricts or inhibits anyone’s use or enjoyment of the Service, or which, as determined by us, may harm or offend Katwalk or users of the Service or expose them to liability.",
+            " بأي شكل ينتهك أي قانون أو لائحة وطنية أو دولية سارية.",
+            " لغرض استغلال أو إيذاء أو محاولة استغلال أو إيذاء القاصرين بأي شكل من الأشكال من خلال تعريضهم لمحتوى غير لائق أو غير ذلك.",
+            " لنقل أو شراء إرسال أي مواد إعلانية أو ترويجية، بما في ذلك أي 'بريد غير هام' أو 'رسالة متسلسلة' أو 'بريد مزعج' أو أي طلب آخر مماثل",
+            " انتحال شخصية أو محاولة انتحال شخصية المنصة أو المؤسسة المالكة لـ Katwalk أو أحد موظفيها أو مستخدم آخر أو أي شخص أو كيان آخر.",
+            " بأي شكل من الأشكال ينتهك حقوق الآخرين، أو بأي شكل من الأشكال غير قانوني أو مهدد أو احتيالي أو ضار، أو فيما يتعلق بأي غرض أو نشاط غير قانوني أو احتيالي أو ضار.",
+            " الانخراط في أي سلوك آخر يقيد أو يمنع استخدام أي شخص أو التمتع بالخدمة، أو التي، كما حددنا، قد تضر أو تسيء إلى المنصة أو مستخدمي الخدمة أو تعرضهم للمسؤولية",
           ],
         },
       ],
     },
     {
-      title: "9. Analytics",
+      title: "٩. التحليلات",
       content: [
         {
           type: "paragraph",
           text: [
-            "We may use third-party service providers to monitor and analyse the use of our Service",
+            " قد نستخدم مزودي خدمة من جهات خارجية لمراقبة وتحليل استخدام خدمتنا.",
           ],
         },
       ],
     },
 
     {
-      title: "10. No Use By Minors",
+      title: "١٠. العمر",
       content: [
         {
           type: "paragraph",
           text: [
-            "The Service is intended only for access and use by individuals at least eighteen (18) years old. By accessing or using the Service, you warrant and represent that you are at least eighteen (18) years of age and with the full authority, right, and capacity to enter into this agreement and abide by all the Terms. If you are not at least eighteen (18) years old, you are prohibited from both the access and usage of the Service.",
+            " الخدمة مخصصة فقط للوصول والاستخدام من قبل الأفراد الذين لا يقل أعمارهم عن ثمانية عشر (18) عامًا. من خلال الوصول إلى الخدمة أو استخدامها، فإنك تضمن وتقر بأنك تبلغ من العمر ثمانية عشر (18) عامًا على الأقل وتتمتع بالسلطة الكاملة والح والقدرة على الدخول في هذه الاتفاقية والالتزام بجميع الشروط. إذا لم يكن عمرك ثمانية عشر (18) عاما على الأقل، يحظر عليك الوصول إلى الخدمة واستخدامها.",
           ],
         },
       ],
     },
     {
-      title: "11. Intellectual Property",
+      title: "١١. الملكية الفكرية",
       content: [
         {
           type: "paragraph",
           text: [
-            "The Service and its original content (excluding content provided by users), features and functionality are and will remain exclusive property of Katwalk and its licensors and sellers. The Service is protected by copyright, trademark, and other laws. Our trademarks may not be used in connection with any product or service without the prior written consent of Katwalk. We, or our sellers, have right and interest to all or some of our website and any information or materials in connection to the use of our website. You agree that you have no right to use, reproduce, or redistribute any of our property without a written consent from us.",
+            "الخدمة ومحتواها الأصلي (باستثناء المحتوى المقدم من قبل المستخدمين) والميزات والوظائف ستظل ملكاً حصرياً لـــ Katwalk والمرخصين أو البائعين. الخدمة محمية بموجب حقوق الطبع والنشر والعلامات التجارية والقوانين الأخرى. لا يجوز استخدام علاماتنا التجارية فيما يتعلق بأي منتج أو خدمة دون موافقة خطية مسبقة من Katwalk. نحن، أو البائعين عبر المنصة، لدينا كل الحق والاهتمام بالموقع وجميع المعلومات والمواد المتعلقة باستخدام موقعنا. وبذلك، أنت توافق على أنه ليس لديك الحق في استخدام أو إعادة إنتاج أو إعادة توزيع أي من ممتلكاتنا دون موافقة خطية منا.",
           ],
         },
       ],
     },
     {
-      title: "12. Liability",
+      title: "١٢. المسؤولية",
       content: [
         {
           type: "paragraph",
           text: [
-            "No liability of any nature shall be incurred or accepted by the seller in respect of any representation made by the seller, or on its behalf, to the buyer, or to any party acting on its behalf, prior to the making of these Agreements where such representations were made or given in relation to:",
+            "‌أ. لا يتحمل البائع أي مسؤولية من أي نوع أو يقبلها فيما يتعلق بأي تمثيل يقدمه البائع، أو نيابة عنه، إلى المشتري، أو إلى أي طرف يتصرف نيابة عنه، قبل إبرام هذا العقد في الحالات التي قدمت فيها هذه الإقرارات أو قدمت فيما يتعلق بما يلي:",
           ],
         },
         {
           type: "bulletList",
           text: [
-            "the correspondence of the goods with any description or sample;",
-            "the quality of the goods; or",
-            "the quality of the goods for any purpose whatsoever",
+            " مراسلات البضائع مع أي وصف أو عينة;",
+            " جودة البضائع او",
+            " جودة البضائع لأي غرض كان.",
           ],
         },
         {
           type: "paragraph",
           text: [
-            "No liability of any nature shall be accepted by the seller to the buyer in respect of any express term of these Agreements where such term relates in any way to the correspondence of the goods with any description.",
-            "Except where the buyer deals as a consumer all other warranties, conditions or terms relating to quality for purpose, quality or condition of the goods, whether express or implied by statute or common law or otherwise are hereby excluded from the Agreements to the fullest extent permitted by law.",
-            "For the avoidance of doubt, the seller will not accept any claim for consequential or financial loss of any kind however caused.",
+            "‌ب. لا يجوز قبول أي مسؤولية من أي نوع من قبل البائع للمشتري فيما يتعلق بأي مادة صريحة من هذا العقد عندما يتعلق هذا المصطلح بأي شكل من الأشكال ل:",
+          ],
+        },
+        {
+          type: "bulletList",
+          text: [
+            " مراسلات البضائع مع أي وصف;",
+            " جودة البضائع لأي غرض كان؛",
+            " باستثناء الحالات التي يتعامل فيها المشتري كمستهلك، فإن جميع الضمانات أو الشروط أو الشروط الأخرى المتعلقة بالغرض أو الجودة أو الحالة للبضائع، سواء كانت صريحة أو ضمنية بموجب القانون أو القانون العام أو غير ذلك مستثناة من العقد إلى أقصى حد يسمح به القانون.",
+            " لتجنب الشك، لن يقبل البائع أي مطالبة بالتعويض عن الخسارة التبعية أو المالية من أي نوع مهما كان سببها.",
           ],
         },
       ],
     },
     {
-      title: "13. Termination",
+      title: "١٣. الإنهاء",
       content: [
         {
           type: "bulletList",
           text: [
-            "We may terminate or suspend your account and block you access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms.",
-            "If you wish to terminate your account, you may simply discontinue using the Service by accessing your profile page in the website.",
+            "‌أ. يجوز لنا إنهاء أو تعليق حسابك ومنع الوصول إلى الخدمة على الفور، دون إشعار مسبق أو مسؤولية، وفقا لتقديرنا الخاص، لأي سبب من الأسباب وعلى سبيل المثال لا الحصر خرق الشروط والأحكام",
+            "‌ب. يمكنك إلغاء حسابك عن طريق الدخول على صفحتك الخاصة في الموقع في قسم إدارة الحساب.",
+            "‌ج. جميع أحكام الشروط التي بطبيعتها ينبغي أن تبقى في العقد، يجب أن تبقى في العقد ،بما في ذلك، على سبيل المثال لا الحصر، أحكام الملكية، إخلاء المسؤولية عن الضمان و التعويض",
           ],
         },
       ],
     },
     {
-      title: "14. Governing law",
+      title: "١٤. القانون الحاكم",
       content: [
         {
           type: "paragraph",
           text: [
-            "This Agreement shall be governed by and construed in accordance with the law of Saudi Arabia and the parties hereby submit to the exclusion jurisdiction of the Saudi Arabian courts.",
+            "تخضع هذه الاتفاقية وتفسر وفقاً لقانون المملكة العربية السعودية، ويخضع الطرفان بموجب هذا الاختصاص القضائي للمحاكم السعودية.",
           ],
         },
       ],
     },
     {
-      title: "15. Changes to the Service",
+      title: "١٥. تغييرات في الخدمة",
       content: [
         {
           type: "paragraph",
           text: [
-            "We reserve the right to withdraw or amend our Service, and any service or material we provide via the Platform, in our sole discretion without notice. We will not be liable if, for any reason, all or any part of the Service is unavailable at any time or for any period. From time to time, we may restrict access to some parts of the Service, or the entire Service, to users, including registered users.",
+            "نحن نحتفظ بالحق في سحب أو تعديل خدماتنا، وأي خدمة أو مواد نقدمها عبر المنصة، وفقا لتقديرنا الخاص دون إشعار. لن نكون مسؤولين إذا كان لأي سبب من الأسباب عدم توفر كل أو أي جزء من الخدمة في أي وقت أو لأي فترة. من وقت لآخر، قد نقيد الوصول إلى بعض أجزاء الخدمة، أو الخدمة بأكملها، للمستخدمين، بما في ذلك المستخدمين المسجلين.",
           ],
         },
       ],
     },
     {
-      title: "16. Amendments to Terms",
+      title: "١٦. تعديلات على الشروط",
       content: [
         {
           type: "paragraph",
           text: [
-            "We may amend the Terms at any time by posting the amended terms on our website and sending an email to our users one week prior to their application. It is your responsibility to review these Terms periodically.",
-            "Your continued use of the Platform following the posting of revised Terms means that you accept and agree to the changes. You are expected to check this page frequently to be aware of any changes as they are binding on you.",
+            "يجوز لنا تعديل الشروط في أي وقت عن طريق نشر الشروط المعدلة على الموقع و إرسال بريد إلكتروني إلى مستخدمينا قبل أسبوع من تطبيقها. تقع على عاتقك مسؤولية مراجعة هذه الشروط بشكل دوري. استمرار استخدامك للمنصة بعد نشر الشروط المنقحة يعني أنك تقبل التغييرات وتوافق عليها. من المتوقع أن تتحقق من هذه الصفحة بشكل متكرر حتى تكون على دراية بأي تغييرات، لأنها ملزمة لك.",
           ],
         },
       ],
     },
     {
       // title: "17. Shipping and Delivery (Shipping methods, timescales, delays)",
-      title: "rtr",
+      title: "(١٧. الشحن والتسليم (طرق الشحن، الجداول الزمنية، التأخير",
       content: [
         {
           type: "paragraph",
           text: [
-            "A. Ready-to-wear products take up to 2 days to be handled to the carrier and made-to-measure and bespoke products take 10-14 days.",
-            ,
-            "B. All orders are shipped by Aramex and it may take the following timescale:",
+            "‌أ. القطع الجاهزة تستغرق يومين للتسليم إلى الناقل و القطع المفصلة حسب التصميم والمقاس تستغرق 10-14 يوم للتسليم إلى الناقل",
+            "‌ب. يتم تسليم الطلبات إلى الناقل الحصري أرامكس ويستغرق المدة التالية:",
           ],
         },
         {
           type: "table",
-          tableHead: ["Shipping Costs", "Delivery Timescales	", "Location"],
+          tableHead: ["الموقع", "المدة الزمنية	", "تكلفة الشحن"],
           tableBody: [
             {
               rowData: [
-                "Free",
-                "2-5 Business Days",
-                "	Seller and customer in the same country",
+                "	المشتري والبائع في بلد واحد",
+                "2-٥ أيام عمل",
+                "مجاناً",
               ],
             },
 
             {
               rowData: [
-                "Customer is responsible for shipping costs",
-                "6-10 Business Days",
-                "Seller and customer in different countries",
+                "المشتري في بلد مختلف عن البائع",
+                "٦-١٠ أيام عمل",
+                "على المشتري",
               ],
             },
           ],
@@ -333,226 +337,219 @@ function PrivacyPolicy() {
         {
           type: "bulletList",
           text: [
-            "Above table is just an estimate delivery timescale; our sellers will do their best to deliver your order on time.",
-            "Please note that there might be some delays during peak or sale seasons, and holidays.",
-            "Above timescales are expected after your order has been confirmed.",
-            "Any cash-on-delivery orders are anticipated to a fee of SAR 20.",
-            "When your order is put for delivery you will be contacted by the carrier to confirm your location and time. Kindly note that you only have 3 attempts for delivery before your order is cancelled or additional charges will apply.",
+            "‌ج. هذا الجدول مجرد تقدير زمني للتسليم، والبائعين لدينا يبذلون قصارى جهودهم لتسليم الطلبات الخاصة بك في الوقت المحدد",
+            "‌د. يرجى ملاحظة أنه قد يكون هناك بعض التأخير خلال مواسم الذروة والترويج والعطلات",
+            "‌ه. من المتوقع أن تدفع أي طلبات نقدية عند التسليم 20 ريال سعودي للشحن المحلي",
+            "‌و. عندما يتم وضع طلبك للتسليم سيتم الاتصال بك من قبل الناقل لتأكيد موقعك والوقت. يرجى ملاحظة أن لديك فقط 3 محاولات لاستلام الطلب قبل إلغاء طلبك أو سيتم تطبيق رسوم إضافية",
           ],
         },
       ],
     },
     {
-      title: "18. Prices and Value Added Tax",
+      title: "١٨. الأسعار وضريبة القيمة المضافة",
     },
 
     {
-      title: "A. Payment methods",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "A. Ready-to-wear products take up to 2 days to be handled to the carrier and made-to-measure and bespoke products take 10-14 days.",
-          ],
-        },
-        {
-          type: "bulletList",
-          text: [
-            "Visa, Master Card, Mada, Apple Pay, STC Pay",
-            "Cash-on-delivery (fees apply)",
-          ],
-        },
-      ],
-    },
-    {
-      title: "B. Prices",
+      title: "‌أ. طرق الدفع",
       content: [
         {
           type: "bulletList",
           text: [
-            "All our prices are inclusive of VAT applied in Saudi Arabia.",
-            "All our prices are displayed on Saudi Arabian Riyals.",
-            "If you are shopping outside Saudi Arabia, you are responsible to know currency exchange rates.",
-            "Kindly note that we do our best to provide a convenient checkout experience, if you encounter any errors in your order, please visit katwalk.sa/contact",
+            " فيزا، ماستر كارد، مدى، Apple Pay، STC pay",
+            " دفع نقدي عن الاستلام (مع الرسوم)",
           ],
         },
       ],
     },
     {
-      title: "C. VAT",
+      title: "‌‌ب. الأسعار",
       content: [
         {
           type: "bulletList",
           text: [
-            "All our prices are inclusive of VAT applied in Saudi Arabia. Any changes in the VAT will be immediately reflected on our prices.",
+      " جميع أسعارنا شاملة لضريبة القيمة المضافة المطبقة في المملكة العربية السعودية.",  
+      " يتم عرض جميع أسعارنا بالريال السعودي.",  
+      " إذا كنت تتسوق خارج المملكة العربية السعودية، فأنت مسؤول عن معرفة أسعار صرف العملات المطبقة",  
+      " يرجى ملاحظة أننا نبذل قصارى جهدنا لتوفير طرق دفع مريحة. إذا واجهت أي أخطاء لطلبك، يرجى زيارة katwalk.sa/contact",  
+         
+    ],
+        },
+      ],
+    },
+    {
+      title: "‌ج. ضريبة القيمة المضافة",
+      content: [
+        {
+          type: "bulletList",
+          text: [
+            " جميع أسعارنا شاملة لضريبة القيمة المضافة المطبقة في الممكلة العربية السعودية. سوف تنعكس أي تغييرات في ضريبة القيمة المضافة على الفور على أسعارنا.",
           ],
         },
       ],
     },
     {
-      title: "19. Privacy Policy",
+      title: "١٩. سياسة الخصوصية",
     },
     {
-      title: "A. Data",
+      title: "‌أ. البيانات",
       content: [
         {
           type: "paragraph",
           text: [
-            "When you register to our website, you accept our Privacy Policy, Terms and Conditions, and you agree to keep your details and information saved to your account for easier checkout experience and for research, marketing, improvement, and development purposes. You have the option to close your account at any time for any reason by clicking 'Close My Account' on your account page.",
+            "عندما تقوم بالتسجيل في موقعنا، فإنك تقبل الشروط والأحكام الخاصة بنا، وتوافق على حفظ التفاصيل والمعلومات الخاصة بك في حسابك لتسهيل تجربة الخروج ولأغراض البحث والتسويق والتحسين والتطوير. لديك الخيار لإغلاق حسابك في أي وقت ولأي سبب من خلال النقر على 'إغلاق حسابي' على صفحة حسابك.",
           ],
         },
       ],
     },
     {
-      title: "B. Storing information",
+      title: "ب‌. تخزين المعلومات",
       content: [
         {
           type: "paragraph",
           text: [
-            "Although we do our best to secure and protect all your data and information by preventing any unauthorized attempts, we cannot guarantee full security. We are not responsible for any unauthorized accesses, uses or disclosures to our servers. However, we apply strict procedures and security features to prevent any unauthorized accesses. We will not store any payment information.",
+            "على الرغم من أننا نبذل قصارى جهدنا لتأمين وحماية كافة البيانات والمعلومات الخاصة بك عن طريق منع أي محاولات غير مصرح بها، لا يمكننا ضمان الأمن الكامل. نحن لسنا مسؤولين عن أي وصول غير مصرح به إلى موقعنا. ومع ذلك، نقوم بتطبيق إجراءات صارمة وميزات أمان لمنع أي وصول غير مصرح به. بالاضافة، لن نقوم بتخزين أي معلومات دفع خاصة بك.",
           ],
         },
       ],
     },
     {
-      title: "C. E-mail",
+      title: "‌ج. البريد الإلكتروني",
       content: [
         {
           type: "paragraph",
           text: [
-            "We may send e-mails to customers regarding any news, offers or events. You have the option to stop receiving emails from us at any time by clicking unsubscribe at the end of any email or contacting us at ",
+            "قد نرسل رسائل بريد إلكتروني إلى العملاء فيما يتعلق بأي أخبار أو عروض. لديك الخيار لإيقاف تلقي رسائل البريد الإلكتروني من قبلنا في أي وقت عن طريق النقر فوق إلغاء الاشتراك في نهاية أي بريد إلكتروني",
           ],
         },
       ],
     },
 
     {
-      title: "D. Cookies",
+      title: "‌د. ملفات تعريف الارتباط",
+      content: [
+        
+        {
+          type: "bulletList",
+          text: [
+            " نحن نستخدم ملفات تعريف الارتباط لتحسين تجربة التسوق الخاصة بك.",
+            " تقوم ملفات تعريف الارتباط الخاصة بوظائف الموقع بتصفح موقعنا على الانترنت واستخدام الميزات لدينا",
+            " تقوم ملفات تعريف الارتباط لتحليل الموقع بتحليل كيفية استخدام موقعنا على الانترنت",
+            " تقوم ملفات تعريف الارتباط لتفضيلات العميل بحفظ تفضيلاتك، مثل اللغة والاسم الكامل وعنوان البريد الإلكتروني وتفاصيل التسليم.",
+          
+          ],
+        },
+      ],
+    },
+    {
+      title: "٢٠. روابط لمواقع ويب أخرى ",
       content: [
         {
           type: "paragraph",
-          text: ["We use cookies to improve your shopping experience."],
+          text: [
+            "‌أ. قد تحتوي خدمتنا على روابط لمواقع أو خدمات تابعة لجهات خارجية لا تملكها أو تسيطر عليها Katwalk.",
+            "‌ب. لا تملك Katwalk أي سيطرة على، ولا تتحمل أي مسؤولية عن، المحتوى أو سياسات الخصوصية أو ممارسات أي مواقع ويب أو خدمات تابعة لجهات خارجية. نحن لا نضمن عروض أي من هذه الكيانات أو الأفراد أو مواقعهم الإلكترونية.",
+            "‌ج. أنت تقر وتوافق على أن katwalk لن تكون مسؤولة، بشكل مباشر أو غير مباشر، عن أي ضرر أو خسارة ناجمة أو يزعم أنها ناجمة عن أو فيما يتعلق باستخدام أو الاعتماد على أي من هذه المحتويات أو السلع أو الخدمات المتاحة على أو من خلال أي من مواقع أو خدمات الطرف الثالث. ننصحك بشدة بقراءة شروط الخدمة وسياسات الخصوصية الخاصة بأي مواقع ويب أو خدمات تابعة لجهات خارجية تقوم بزيارتها",
+          ],
+        },
+      ],
+    },
+    {
+      title: "٢١. حقوق الطرف الثالث",
+      content: [
+        {
+          type: "paragraph",
+          text: ["أ‌. يجوز للطرف الثالث استخدام معلوماتك للأغراض التالية:"],
         },
         {
           type: "bulletList",
           text: [
-            "Website functionality cookies: browse our website and use our features",
-            "Website Analytics cookies: analyse how you use our website",
-            "Customer preference cookies: memorize your preference, such as language, full name, email address, delivery details.",
+            " تنفيذ طلبك أو أي خدمة مطلوبة",
+            "التحقق من المعلومات المالية وإكمالها",
+            "دارة حسابك",
+            " ارسال بريد إلكتروني",
+            " تحليل تجربة التسوق الشخصية أو أي غرض تحليلي أو إحصائي.",
+            " أغراض البحث و التطوير و التسويق أو التحسين",
+            " منع الوصول غير المصرح بهم وحماية حقوقك والسلامة بما في ذلك عمليات الاحتيال",
+            " أي أغراض قانونية أو تنظيمية",
           ],
         },
-      ],
-    },
-    {
-      title: "20. Links to Other Websites",
-      content: [
         {
           type: "paragraph",
-          text: [
-            "Our Service may contain links to third party websites or services that are not owned or controlled by Katwalk. Katwalk has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third-party websites or services. We do not warrant the offerings of any of these entities/individuals or their websites. You acknowledge and agree that Katwalk shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any third-party websites or services. We strongly advise you to read the terms of service and privacy policies of any third-party websites or services that you visit.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "21. Third party rights",
-      content: [
-        {
-          type: "paragraph",
-          text: ["A. Third party, may use information for:"],
+          text: ["ب‌. من قد نشارك المعلومات معه؟"],
         },
         {
           type: "bulletList",
           text: [
-            "execution of orders or any requested services",
-            "Verifying and completing financial transactions",
-            "Managing your account",
-            "Confirmation, invoice or marketing e-mails",
-            "Personalizing shopping experience",
-            "Analytical or statistical purposes",
-            "Research, development, marketing, or improvement purposes",
-            "the prevent of unauthorized accesses and for the protection of your rights and safety including fraud.",
-            "Any law or regulation purposes",
-          ],
-        },
-        {
-          type: "paragraph",
-          text: ["B. Who we may share information with:"],
-        },
-        {
-          type: "bulletList",
-          text: [
-            "Selected authorized third parties,",
-            "Representatives, assignees,",
-            "Service providers such as payment integration companies, carrier services, website developers, information technology companies, marketing companies.",
-            "Professional service providers, auditors, financial advisors, lawyers, government, or municipal bodies, legal or regulatory enforcement",
-            "e-gift recipients",
+            " الممثلون والمحال إليهم",
+            " أطراف ثالثة من مقدمي الخدمات مثل شركات الدفع، وخدمات الشحن، ومطوري المواقع، وتكنولوجيا المعلومات، والدراسات الاستقصائية، ورسائل البريد الإلكتروني ، والإعلان أو التسويق ، والبحث، والتنمية.",
+            " مقدمي الخدمات المهنية، ومدققي الحسابات، والمستشارين الماليين، والمحامين والحكومة، أو الهيئات البلدية، والإنفاذ القانوني أو التنظيمي",
+            " مستلمو بطاقات الهدايا الإلكترونية",
           ],
         },
       ],
     },
     {
-      title: "22. Relationship of the parties",
+      title: "٢٢. علاقة الطرفين",
       content: [
         {
           type: "paragraph",
           text: [
-            "Nothing contained in these Agreements shall be construed as establishing or implying any partnership or joint venture between the parties and nothing in these Agreements shall be deemed to construe either of the parties as the agent of the other.",
+            "لا يجوز تفسير أي شيء وارد في هذه الشروط على أنه إنشاء أو يعني أي شراكة أو مشروع مشترك بين الطرفين ولا يعتبر أي شيء في هذه الشروط يفسر أي من الطرفين كوكيل للطرف الآخر.",
           ],
         },
       ],
     },
     {
-      title: "23. Force Majeure",
+      title: "٢٣. القوة القاهرة",
       content: [
         {
           type: "paragraph",
           text: [
-            "Katwalk shall not be liable for any delay or failure to perform any of its obligations if the delay or failure results from events or circumstances outside its reasonable control, including but not limited to, strikes, lock outs, accidents, war, fire, breakdown of plant or machinery or shortage or unavailability of raw materials from a natural source of supply, and Katwalk shall be entitled to a reasonable extension of its obligations. If the delay persists for such time as Katwalk considers unreasonable, it may without liability on its part, terminate the Agreements or any part of it.",
+            "لا تتحمل Katwalk أي مسؤولية عن أي تأخير أو فشل في أداء أي من التزاماتها إذا كان التأخير أو الفشل ناتجًا عن أحداث أو ظروف خارجة عن سيطرتها المعقولة، بما في ذلك على سبيل المثال لا الحصر الأمراض والأوبئة الخارجة عن المألوف أو الإضرابات أو الإغلاق أو الحوادث أو الحرب أو الحريق أو انهيار المصنع أو الآلات أو نقص أو عدم توفر المواد الخام من مصدر طبيعي للتوريد، ويحق لـ Katwalk تمديد معقول لالتزاماتها. إذا استمر التأخير في الوقت الذي تعتبره المنصة غير معقول، يجوز لها دون مسؤولية من جانبها، إنهاء العقد أو أي جزء منه.",
           ],
         },
       ],
     },
     {
-      title: "24. No waiver",
+      title: "٢٤. التنازل",
       content: [
         {
           type: "paragraph",
           text: [
-            "The failure by either party to enforce at any time or for any period any one or more of the terms or provisions of the Agreements herein shall not be a waiver of them or of the right at any time subsequently to enforce all conditions of the Agreements.",
+            "إن فشل أي من الطرفين في فرض أي شرط أو أكثر من الشروط الواردة في هذه الاتفاقية في أي وقت أو لأي فترة لن يكون تنازلاً عنها أو عن الحق في أي وقت لاحق في إنفاذ جميع شروط هذه الاتفاقية",
           ],
         },
       ],
     },
     {
-      title: "25. Language.",
+      title: "٢٥. اللغة",
       content: [
         {
           type: "paragraph",
           text: [
-            "The Agreements and all related documents are drafted in the English and Arabic languages.",
+            "صياغة هذا العقد وجميع الوثائق ذات الصلة تمت باللغة العربية و الإنجليزية",
           ],
         },
       ],
     },
     {
-      title: "26. Severability",
+      title: "٢٦. الفصل",
       content: [
         {
           type: "paragraph",
           text: [
-            "If any term or provision of these Agreements is held invalid, illegal or unenforceable for any reason by any court of competent jurisdiction such provision shall be severed and the remainder of the provisions hereof shall continue in full force and effect as if these Agreements had been agreed with the invalid, illegal or unenforceable provision eliminated.",
+            "إذا تم اعتبار أي بند أو حكم من هذه الشروط غير صالح أو غير قانوني أو غير قابل للتنفيذ لأي سبب من الأسباب من قبل أي محكمة ذات اختصاص قضائي، فسيتم قطع هذا الحكم وسيستمر ما تبقى من الأحكام الواردة هنا في القوة والتأثير الكامل كما لو كانت هذه الشروط قد تم الاتفاق عليها مع البند أو الحكم الغير صالح أو الغير قانوني أو الغير قابل للتنفيذ.",
           ],
         },
       ],
     },
     {
-      title: "27. Dispute Resolution:",
+      title: "٢٧. تسوية المنازعات",
       content: [
         {
-          type: "bulletList",
+          type: "paragraph",
           text: [
-            "Any dispute arising out of or in connection with these Agreements, including any disputes regarding the existence, validity or termination thereof, shall be settled by the Saudi Arabian Court in accordance with the rules and laws of Saudi Arabia.",
+            "يتم تسوية أي نزاع ينشأ عن أو فيما يتعلق بهذه الشروط والأحكام، بما في ذلك أي نزاعات تتعلق بوجودها أو صلاحيتها أو إنهائها، من قبل المحكمة العربية السعودية وفقًا لقواعد وقوانين المملكة العربية السعودية",
           ],
         },
       ],
@@ -563,7 +560,7 @@ function PrivacyPolicy() {
     <>
       <Layout>
         <div className="container-for-content-pages border-[1px] border-[#f9f9f9]">
-          <h1 className=" fahkwang-light text-[28px] text-center leading-[1.5] tracking-[0.5] mb-[23px]">
+          <h1 className="far text-[28px] text-center leading-[1.5] tracking-[0.5] mb-[23px]">
             سياسية الخصوصية والشروط والأحكام
           </h1>
           <div className="px-[20px] md:p-0">

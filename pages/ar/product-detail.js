@@ -719,7 +719,7 @@ function ProductDetail() {
               <div className="w-[100%] cursor-pointer">
                 <div className="w-[100%] flex justify-between max-w-[400px]     lg:max-w-[100%]">
                   <div className="flex cursor-pointer">
-                    <div className="animated-circle relative mr-[25px]"></div>
+                    <div className="animated-circle relative ml-[25px]"></div>
                     <p
                       className=" text-[12px] uppercase"
                       onClick={() => alterationDivToggler()}
@@ -729,7 +729,7 @@ function ProductDetail() {
                   </div>
                   <div className="flex slide-underline relative  cursor-pointer">
                     {/* <BsRulers className="mr-[5px]"></BsRulers> */}
-                    <div className="w-[21px] h-[19px] cursor-pointer mr-[5px] bgAllIcon bg-[left_-4px_top_-659px]"></div>
+                    <div className="w-[21px] h-[19px] cursor-pointer ml-[5px] bgAllIcon bg-[left_-4px_top_-659px]"></div>
                     <p
                       className=" text-[12px] uppercase"
                       onClick={() => toggleSizeGuideModal()}

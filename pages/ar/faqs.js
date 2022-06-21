@@ -6,8 +6,8 @@ import HeadingAndText from "../../components/rtl/heading-and-text/HeadingAndText
 import { useEffect } from "react";
 function FAQ() {
   useEffect(() => {
-    document.querySelector("body").style.direction = 'rtl'
-  }, [])
+    document.querySelector("body").style.direction = "rtl";
+  }, []);
 
   const FAQ_Content = [
     {
@@ -51,9 +51,7 @@ function FAQ() {
       content: [
         {
           type: "paragraph",
-          text: [
-            "كوني جزءًا من مستقبل الأزياء العربية عن طريق زيارة",
-          ],
+          text: ["كوني جزءًا من مستقبل الأزياء العربية عن طريق زيارة"],
         },
         {
           type: "anchor",
@@ -85,21 +83,29 @@ function FAQ() {
         },
         {
           type: "table",
-          tableHead: ["تكلفة الشحن", "المدة الزمنية	", "الموقع"],
+          tableHead: [
+            "الموقع",
+            "المدة الزمنية	",
+            "تكلفة الشحن",
+          ],
           tableBody: [
             {
               rowData: [
-                "مجاناً",
-                "2-٥ أيام عمل",
                 "	المشتري والبائع في بلد واحد",
+                "2-٥ أيام عمل",
+                "مجاناً",
+
               ],
+
             },
+
 
             {
               rowData: [
-                "على المشتري",
-                "٦-١٠ أيام عمل",
                 "المشتري في بلد مختلف عن البائع",
+                "٦-١٠ أيام عمل",
+                "على المشتري",
+
               ],
             },
           ],
@@ -121,9 +127,7 @@ function FAQ() {
       content: [
         {
           type: "paragraph",
-          text: [
-            "يمكنكِ تتبع شحنتكِ عبر حسابي > طلباتي",
-          ],
+          text: ["يمكنكِ تتبع شحنتكِ عبر حسابي > طلباتي"],
         },
       ],
     },
@@ -135,7 +139,9 @@ function FAQ() {
       content: [
         {
           type: "paragraph",
-          text: ["يمكنكِ التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact"],
+          text: [
+            "يمكنكِ التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact",
+          ],
         },
       ],
     },
@@ -175,7 +181,7 @@ function FAQ() {
         {
           type: "paragraph_sm",
           text: [
-            "يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)"
+            "يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
           ],
         },
       ],
@@ -194,308 +200,303 @@ function FAQ() {
         {
           type: "paragraph_sm",
           text: [
-            "يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)"
+            "يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
           ],
         },
       ],
     },
     {
-      title: "How can I share my feedback about my Katwalk experience?",
+      title: "لم أستلم طلبي، ماذا أفعل؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "We’re always happy to hear from you. You can share your experience via our 10-sec shopping survey  or you can reach us through  We’re all ears!",
+            "يمكنكِ ذلك فقط في حال عدم تأكيد طلبكِ من قِبَل المصممة. ",
+            "بإمكانكِ تتبع حالة الطلب عبر حسابي > طلباتي",
+            "في حال كانت حالة طلبكِ غير مؤكدة، يمكنكِ تغيير، تعديل أو إلغاء طلبكِ من خلال التواصل مع خدمة العملاء عن طريق زيارة:  katwalk.sa/contact يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
           ],
         },
       ],
     },
+    // {
+    //   title: "Bespoke and Sizing",
+    // },
     {
-      title: "Bespoke and Sizing",
-    },
-    {
-      title: "What are bespoke designs?",
+      title: "لم أستلم طلبي، ماذا أفعل؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "Katwalk’s bespoke designs provide the ultimate personalised and unique pieces tailored to your tastes and exact size and fit. We complement your look with exclusivity and a variety of colours, cuts, and shapes to provide you with the experience and pieces you desire.",
+            "يمكنكِ تتبع الطلب عبر حسابي > طلباتي ",
+            "في حالة وجود خطأ أو عدم مقدرتكِ على تتبع الطلب، يرجى التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact",
           ],
         },
       ],
     },
 
     {
-      title: "What size should I get?",
+      title: "استلمت طلبًا خاطئًا/تالفًا، ماذا أفعل؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "We have provided below Guide to help you decide which size to buy!",
+            "نعتذر على ذلك! إذا كنتِ قد تلقيتِ طلبكِ وكان تالفًا أو غير صحيح، سيكون طلبكِ مؤهل للاسترجاع المجاني عن طريق زيارة: katwalk.sa/contact واختيار طريقة الاتصال المفضلة لديكِ، وذلك خلال ٧ أيام من استلام الطلب.",
           ],
+        },
+      ],
+    },
+
+    {
+      title: "كيف يمكنني مشاركة تجربتي مع كات ووك؟      ",
+      content: [
+        {
+          type: "paragraph",
+          text: [
+            "نسعد لسماع رأيكِ!",
+            "يمكنكِ تعبئة استبيان كات ووك عن طريق زيارة: https://4v3p9b7mvnx.typeform.com/katwalksurvey",
+            "أو التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact",
+          ],
+        },
+      ],
+    },
+
+    {
+      title: "بيسبوك والمقاسات",
+      content: [
+        {
+          type: "paragraph",
+        },
+      ],
+    },
+
+    {
+      title: "ماهي تصاميم بيسبوك؟",
+      content: [
+        {
+          type: "paragraph",
+          text: [
+            "نقدّم تصاميم بيسبوك الحصرية لتوفير التجربة الشخصية المطلقة للقِطَع المُصمَّمة خصيصًا لمن يبحثن عن قِطَع فريدة تتناسب مع ذوقهن ومقاساتهن بدقة. خدمة بيسبوك تُكمّل مظهرك بمجموعة حصرية متنوعة من الألوان والخصائص والأشكال؛ لمنحك التجربة التي ترغبين بها.",
+          ],
+        },
+      ],
+    },
+
+    {
+      title: "كيف يمكنني معرفة مقاسي؟",
+      content: [
+        {
+          type: "paragraph",
+          text: ["جدول المقاسات أدناه سيساعدكِ في تحديد المقاس!"],
         },
         {
           type: "table",
           tableHead: [
-            "Size",
-            "Your Height (cm)",
-            "Length (in)",
-            "Bust (in)",
-            "Sleeve Length (in)",
+            "طول الكم (إنش)	",
+            "العرض (إنش)	",
+            "طول القطعة (إنش)	",
+            "طولكِ (سم)	",
+            "المقاس",
           ],
           tableBody: [
             {
-              rowData: ["50", "146-150", "50", "20", "25"],
+              rowData: ["٢٥", "٢٠", "٥٠", "١٤٦-١٥٠", "٥٠"],
             },
             {
-              rowData: ["52", "152-154", "52", "22", "26"],
+              rowData: ["٢٦", "٢٢", "٥٢", "١٥٢-١٥٤", "٥٢"],
             },
             {
-              rowData: ["54", "157-160", "54", "23", "27"],
+              rowData: ["٢٧", "٢٣", "٥٤", "١٥٧-١٦٠", "٥٤"],
             },
             {
-              rowData: ["56", "162-165", "56", "25", "28"],
+              rowData: ["٢٨", "٢٥", "٥٦", "١٦٢-١٦٥	", "٥٦"],
             },
             {
-              rowData: ["58", "167-170", "58", "26", "29"],
+              rowData: ["٢٩", "٢٦", "٥٨", "١٦٧-١٧٠	", "٥٨"],
             },
             {
-              rowData: ["60", "172-175", "60", "28", "30"],
+              rowData: ["٣٠	", "٢٨", "٦٠", "١٧٢-١٧٥	", "٦٠"],
             },
           ],
         },
         {
           type: "paragraph",
           text: [
-            "*Please note that the above measurements are for the piece itself, NOT YOUR BODY MEASUREMENTS.",
-            "**Some pieces may vary from these measurements due to different fabrics, styles, cuts, and designers, but you can still use them as a reference.",
-            "***Please note that if you like to wear maxi length abayas, we recommend ordering one size smaller to what has been recommended for your height.",
+            ".نرجو ملاحظة أن القياسات المذكورة أعلاه هي قياسات القطعة، وليست قياسات جسمكِ*",
+            ".قد تختلف بعض القطع عن هذه القياسات نظرًا لاختلاف الأقمشة والقصات والمصممات، ولكن بإمكانكِ استخدامها كمرجع**",
+            ".إذا كنتِ ترغبين بارتداء عباية أقل من طول كعب القدم، فننصحكِ بطلب مقاس واحد أصغر مما هو موصى به لطولكِ***",
+          ],
+        },
+      ],
+    },
+
+    {
+      title: "كيف يمكنني أخذ مقاساتي بشكل صحيح؟",
+      content: [
+        {
+          type: "paragraph",
+          text: ["نرجو الاطلاع على جدول المقاسات الموجود في صفحة المنتج."],
+        },
+      ],
+    },
+    {
+      title: "الاسترجاع والمبالغ المستردة",
+    },
+    {
+      title: "كيف يمكنني استرجاع طلبي؟",
+      content: [
+        {
+          type: "paragraph",
+          text: [
+            "إذا كنتِ ترغبين في استرجاع طلبكِ، يرجى زيارة: ",
+            "واختيار طريقة الاتصال المفضلة لديكِ، وسوف نعود إليكِ في أقرب وقت ممكن",
+            "- القطع الجاهزة قابلة للاسترجاع في خلال ٧ أيام من استلام الطلب.",
+            "- يجب أن تكون المنتجات جديدة وغير مستخدمة وبحالتها الأصلية مع جميع الملصقات المرفقة إن وُجِدَتْب.",
           ],
         },
       ],
     },
     {
-      title: "How can I take my measurements?",
-      content: [
-        {
-          type: "paragraph",
-          text: ["Please check Size Guide in product page."],
-        },
-      ],
-    },
-    {
-      title: "Order Issues",
-    },
-    {
-      title: "I have not received my order. What should I do?",
+      title: "ما هي رسوم الشحن والإرجاع؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "You can track your order by visiting My Account > Purchase History.",
-            "If you are still experiencing issues with your order, reach out to us at , and we’ll help work everything out.",
+            "العميل هو المسؤول عن تكاليف الاسترجاع للناقل.",
+            " إذا كنتِ قد تلقيت طلبكِ، وكان تالفًا أو غير صحيح، سيكون طلبكِ مؤهل للاسترجاع المجاني عن طريق زيارة: واختيار طريقة الاتصال المفضلة لديكِ وذلك خلال ٧ أيام من استلام الطلب",
           ],
         },
       ],
     },
     {
-      title: "I received an incorrect/damaged product. What should I do?",
+      title: "كم يومًا لدي لاسترجاع المنتج؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "We’re sorry for that! All incorrect/accidentally damaged orders are eligible for a free return.",
-            "If you are experiencing any issues with your order, simply visit us at  and we’ll help work everything out.",
+            "تتبع كات ووك أنظمة التجارة الإلكترونية في المملكة العربية السعودية.",
+            "- القطع الجاهزة قابلة للاسترجاع خلال ٧ أيام من استلام الطلب.",
+            "- المنتجات غير القابلة للاسترجاع: القطع المفصلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
+            "- يجب أن تكون المنتجات جديدة وغير مستخدَمة، وبحالتها الأصلية، مع جميع الملصقات المرفقة إن وُجِدَتْ",
           ],
         },
       ],
     },
     {
-      title: "I gave the wrong measurements. What should I do?",
+      title: "ماهي المنتجات القابلة للاسترجاع؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "It is possible to change or cancel an order that has not yet been accepted by the seller. Once an order has been accepted, it cannot be changed or cancelled.",
-            "You can check the status of your order by visiting My Account > Purchase History.",
-            "If you wish to change, edit or cancel a non-approved order, please visit .",
-            "Kindly note that following the Electronic Commerce Law in Saudi Arabia, made-to-measure pieces and bespoke designs cannot be returned.",
+            "تتبع كات ووك أنظمة التجارة الإلكترونية في المملكة العربية السعودية",
+            "- القطع الجاهزة قابلة للاسترجاع خلال ٧ أيام من استلام الطلب.",
+            "- المنتجات غير القابلة للاسترجاع: القطع المفصلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
+            "- يجب أن تكون المنتجات جديدة، وغير مستخدَمة، وبحالتها الأصلية، مع جميع الملصقات المرفقة إن وُجِدَتْ",
+          ],
+        },
+      ],
+    },
+
+    {
+      title: "كيف يمكنني استرداد المبلغ؟",
+      content: [
+        {
+          type: "paragraph",
+          text: [
+            "سيتم استرداد المبلغ بعد الفحص والموافقة على المنتج/المنتجات التي تم إرجاعها",
+            "- المنتجات المسترجعة، سيتم استرداد مبلغ المنتج بما في ذلك ضريبة القيمة المضافة (باستثناء رسوم الدفع عند التسليم). سيكون العميل مسؤولاً عن تكاليف إرجاع الناقل",
+            "- بالنسبة للمنتجات التالفة/غير الصحيحة، سيتم رد المبلغ المدفوع بالكامل. بما في ذلك، إن وُجِدَ، رسوم الدفع عند التسليم ولن يكون العميل مسؤولاً عن تكاليف إرجاع الناقل.",
+            "- قد يستغرق المبلغ حتى ٣٠ يومًا ليظهر في رصيدك.",
           ],
         },
       ],
     },
     {
-      title: "Can I change, edit, or cancel my order once it has been placed?",
+      title: "حسابي",
+    },
+    {
+      title: "هل أحتاج إنشاء حساب للتسوق في كات ووك؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "It is possible to change or cancel an order that has not yet been accepted by the seller. Once an order has been accepted, it cannot be changed or cancelled.",
-            "You can check the status of your order by visiting My Account > Purchase History.",
-            "If you wish to change, edit or cancel a non-approved order, please visit .",
-            "Kindly note that following the Electronic Commerce Law in Saudi Arabia, made-to-measure pieces and bespoke designs cannot be returned.",
+            "نعم. يحب إنشاء حساب في خلال ثوان قليلة باستخدام رقم هاتفك المحمول وذلك لإتمام الطلب.",
           ],
         },
       ],
     },
     {
-      title: "Returns and Refunds",
-    },
-    {
-      title: "How can I return a product?",
+      title: "كيف يمكنني إنشاء حساب؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "If you wish to return your order, please visit  and select your preferred contact method. We will get back to you as soon as possible.",
-            "- Please note that ready-to-wear products are eligible for return within 7 days of delivery.",
-            "- Products must be new, unused, and in their original condition with all tags attached.",
+            "يمكنكِ إنشاء حساب من خلال النقر على أيقونة الحساب في الزاوية اليمنى في أعلى الصفحة.",
           ],
         },
       ],
     },
     {
-      title: "How much does it cost to return a product?",
+      title: "كيف يمكنني تغيير معلومات الحساب؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "If you wish to return a product, you are responsible for the carrier return costs.",
-            "If you have received a damaged or incorrect order, you are eligible for a free return.",
+            "يمكنكِ تغيير تفاصيل الحساب بمجرد النقر على حسابي > تعديل معلومات الحساب",
           ],
         },
       ],
     },
     {
-      title: "How long do I have to return a product?",
+      title: "الدفع",
+    },
+    {
+      title: "ما هي وسائل الدفع في كات ووك؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "Katwalk follows Saudi Arabian e-commerce regulations.",
-            "- Ready-to-wear products are eligible for return within 7 days of delivery.",
-            "- Products must be new, unused, and in their original condition with all tags attached.",
+            "نقبل الدفع عبر مدى، فيزا، ماستر كارد، اس تي سي باي، آبل باي، بطاقات الهدايا الإلكترونية والدفع نقدًا عند الاستلام. يرجى ملاحظة أنه من المتوقع دفع رسوم بقيمة 20 ريالاً سعوديًّا في حال الدفع نقدًا عند الاستلام.",
+          ],
+        },
+      ],
+    },
+
+    {
+      title: "كيف يمكنني اختيار عملة الدفع؟",
+      content: [
+        {
+          type: "paragraph",
+          text: [
+            "جميع أسعارنا بالريال السعودي. في حال تسوقكِ خارج المملكة العربية السعودية، يرجى التأكد من فرق صرف العملة. ",
           ],
         },
       ],
     },
     {
-      title: "What can I return?",
+      title: "هل الأسعار تشمل ضريبة القيمة المضافة؟",
       content: [
         {
           type: "paragraph",
-          text: [
-            "Katwalk follows Saudi Arabian e-commerce regulations.",
-            "- Non-returnable items: any customizable product that has been made or tailored especially for you (made-to-measure and bespoke designs).",
-            "Returnable items:",
-            "- Ready-to-wear products are eligible for return within 7 days of delivery.",
-            "- Products must be new, unused, and in their original condition with all tags attached.",
-          ],
+          text: ["جميع أسعارنا تشمل ضريبة القيمة المضافة."],
         },
       ],
     },
     {
-      title: "Do I get a refund or store credit for returns?",
+      title: "متى سيتم احتساب مبلغ الشراء؟",
       content: [
         {
           type: "paragraph",
-          text: [
-            "ou will receive a refund after the returned items have been inspected and approved.",
-            "- For returned items, you will be refunded the full paid amount, including VAT (excluding cash-on-delivery fees). You are responsible for any carrier return costs.",
-            "- For damaged or incorrect items, you will be refunded the full paid amount, including cash-on-delivery fees, if applicable. You are not liable for any carrier return costs for damaged or incorrect items.",
-            "- You will be refunded via your original payment method. It can take up to 30 days for the amount to appear in your account.",
-          ],
+          text: ["سيتم احتساب مبلغ الشراء مباشرةً عند إتمام الطلب."],
         },
       ],
     },
     {
-      title: "Account",
-    },
-    {
-      title: "Do I need to create an account to shop at Katwalk?",
+      title: "هل يمكنني الدفع نقدًا عند الاستلام؟",
       content: [
         {
           type: "paragraph",
           text: [
-            "Yes. You can create an account within a few seconds using your mobile number.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "How can I create an account?",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "You can create an account by clicking on the account icon at the top right corner of any page of the website.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "How can I change account details?",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "You can change account details by simply going to My Account > Manage Profile.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "Payments",
-    },
-    {
-      title: "What payment methods can I use?",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "We accept payments via Mada, Visa, Mastercard, STC Pay, Apple Pay, Katwalk eGift cards, and cash on delivery. Please be aware that any cash-on-delivery orders are subject to an anticipated fee of SAR 20",
-          ],
-        },
-      ],
-    },
-    {
-      title: "How do I select a payment currency?",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "All our prices are listed in SAR. Kindly note that if you are shopping outside Saudi Arabia, you are responsible for knowing currency exchange rates.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "Is VAT included in prices?",
-      content: [
-        {
-          type: "paragraph",
-          text: ["All our prices are VAT inclusive."],
-        },
-      ],
-    },
-    {
-      title: "When will I be charged for my order?",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "You will be charged directly once your order has been approved.",
-          ],
-        },
-      ],
-    },
-    {
-      title: "Can I pay cash on delivery?",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "Yes. Please be aware that any cash-on-delivery orders are subject to an anticipated fee of SAR 20.",
+            "نعم. يرجى ملاحظة أنه من المتوقع دفع رسوم بقيمة 20 ريالاً سعوديًّا في حال الدفع نقدًا عند الاستلام.",
           ],
         },
       ],
@@ -506,7 +507,7 @@ function FAQ() {
     <>
       <Layout>
         <div className="container-for-content-pages border-[1px] border-[#f9f9f9]">
-          <h1 className=" text-[28px] text-center leading-[1.5] tracking-[0.5] mb-[23px]">
+          <h1 className="fat text-[28px] text-center leading-[1.5] tracking-[0.5] mb-[23px]">
             الأسئلة المتكررة
           </h1>
           <div className="px-[20px] md:p-0">

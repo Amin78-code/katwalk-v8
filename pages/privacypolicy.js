@@ -1,21 +1,12 @@
 import Layout from "../components/layout/Layout";
 import HeadingAndText from "../components/HeadingAndText/HeadingAndText";
+import ListForContentPages from "../components/list-for-content-pages/ListForContentPages";
 
 function PrivacyPolicy() {
   const privacyPolicyContent = [
     {
       title: "1. Introduction",
-      content: [
-        {
-          type: "paragraph",
-          // text: [
-          //   "Welcome to Katwalk, an online shopping marketplace that connects sellers with buyers and provides marketing services to create added value for designers in Saudi Arabia particular and in wider GCC. Katwalk provides an unmatched shopping experience for modern Arab women through its website (&quot;Platform&quot;, &quot;katwalk&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;)",
-          //   "&quot;Katwalk&quot; is a registered trademark owned by Fashion Platform Est., commercial registration number: 2062617591, and VAT registration number: 310401691200003",
-          //   "- These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website/app located at  (together or individually “Service”) operated by Katwalk.",
-          //   "- Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our website",
-          //   "- Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood the Agreements and agreed to be bound of them.",
-          //   "-If you do not agree with (or cannot comply with) the Agreements, then you may not use the Service. In order to find a solution, please let us know by emailing us at customercare@katwalk.sa. These Terms apply to all visitors, users and others who wish to access or use the Service.",
-          // ],
+     
           text: [
             "Welcome to Katwalk, an online shopping marketplace that connects sellers with buyers and provides marketing services to create added value for designers in Saudi Arabia particular and in wider GCC. Katwalk provides an unmatched shopping experience for modern Arab women through its website ('Platform', 'katwalk', 'we', 'our', 'us')",
             "'Katwalk' is a registered trademark owned by Fashion Platform Est., commercial registration number: 2062617591, and VAT registration number: 310401691200003",
@@ -24,62 +15,49 @@ function PrivacyPolicy() {
             "- Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood the Agreements and agreed to be bound of them.",
             "-If you do not agree with (or cannot comply with) the Agreements, then you may not use the Service. In order to find a solution, please let us know by emailing us at customercare@katwalk.sa. These Terms apply to all visitors, users and others who wish to access or use the Service.",
           ],
-        },
-      ],
+     
     },
 
     {
       title: "2. Communications",
-      content: [
-        {
-          type: "paragraph",
+      
           text: [
             "By using our Service, you agree to subscribe to our newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or by emailing us at customercare@katwalk.sa",
           ],
-        },
-      ],
+       
     },
     {
       title: "3. Purchases",
-      content: [
-        {
-          type: "paragraph",
+      
           text: [
             "If you wish to purchase any product made available through the Service (“Purchase”), you may be asked to provide certain information relevant to your Purchase including but not limited to, your credit or debit card number, the expiration date of your card, your billing address and your shipping information.",
             "You represent and warrant that: (i) you have the legal right to use any card (s) or other payment method(s) in connection with any Purchase; and that (ii) information such as mobile number, name email address, payment details and shipping address you provide to us are all valid, correct and complete.",
             "We may employ the use of third-party services for the purpose of facilitating the payment and the completion of your Purchases. By submitting your information, you grant us the right to provide the information to these third parties subject to our Privacy Policy.",
-          ],
-        },
-        {
-          type: "paragraph_sm",
+             ],
+       
+    },
+
+    { 
+      
           text: [
-            "We reserve the right to refuse or cancel your order at any time for reasons including but not limited to product or service unavailability, errors in the description or the price of the product or service, errors in your order or other reasons.",
-          ],
-        },
-        {
-          type: "paragraph",
-          text: [
+         
             "We reserve the right to refuse or cancel your order if fraud, unauthorized or illegal transaction is suspected.",
           ],
-        },
-      ],
+       
     },
+
     {
       title: "4. Contests, Offers and Discount Coupons",
-      content: [
-        {
-          type: "paragraph",
+      
           text: [
             "Any contests or other promotions (collectively, “Promotions”) made available through the Service may be governed by rules that are separate from these Terms of Service. If you participate in any Promotions, please review the applicable rules as well as our Privacy Policy. We may use data for any contests or competitions to announce the winners. Offers cannot be used, transferred, or sold to any third party for commercial purposes. You may use one offer or discount per order.",
           ],
-        },
-      ],
+      
     },
+    // 5
     {
       title: "5. Orders (Process, Availability, Confirmation)",
-      content: [
-        {
-          type: "bulletList",
+      
           text: [
             "Placing order: all orders are owned, managed, and sold by our sellers.",
             "Availability and order confirmation: orders will take up to one business day to be accepted by sellers. Once the order is approved/rejected, a confirmation will be sent by SMS, email, or WhatsApp.",
@@ -87,18 +65,21 @@ function PrivacyPolicy() {
             "Cancellation: orders can be cancelled only if they have not been approved and payment has not been processed.",
             "You authorize us to save your details for your next orders including but not limited to your name, addresses and sizes. However, Katwalk will not save any payment details.",
           ],
-        },
-      ],
+      
     },
+    
+    
     {
-      title: "6. Returns and Refunds",
-      content: [
-        {
-          type: "paragraph",
-          text: ["A. Return process"],
-        },
-        {
-          type: "bulletList",
+       title: "6. Returns and Refunds",
+      
+      
+          text: ["A.  `Return process"],
+       
+      },
+      // 7 list
+    {
+      
+      
           text: [
             "Katwalk follows the Regulations of E-commerce in Saudi Arabia,",
             "Ready-to-wear products are eligible for return within 7 days from receiving the order.",
@@ -108,68 +89,58 @@ function PrivacyPolicy() {
             "If you wish to return your order, please visit katwalk.sa/contact and choose your preferred contacting method and we will get back to you as soon as possible.",
             "Any customizable product that has been made or tailored especially for you is not eligible for a return (Made-to-measure and Bespoke products are unreturnable).",
           ],
-        },
-      ],
+       
     },
+      // 8 list
     {
-      title: "B. Damaged/Incorrect orders",
-      content: [
-        {
-          type: "bulletList",
+      title:"B. Damaged/Incorrect orders",
           text: [
             "If you have received damaged or incorrect items, you will be eligible for a free return. Please visit katwalk.sa/contact to arrange pick up and we will get back to you as soon as possible.",
           ],
-        },
-      ],
+      
     },
+      // 9 list
+
     {
-      title: "C. Refund process",
-      content: [
-        {
-          type: "bulletList",
-          text: [
+      
+      title:"C. Refund process",
+      text: [
             "Refund will only be processed after inspecting and approving the returned item(s).",
             "For returned items, you will be refunded the product amount including VAT (excluding cash-on-delivery fees). Customer will be responsible for carrier return costs.",
             "For damaged or incorrect items, you will be refunded the full paid amount. Including, if applicable, cash-on-delivery fees and customer will not be liable for carrier return cost.",
             "You will be refunded to your original payment method and it can take up to 30 days for the amount to be show on your account.",
           ],
-        },
-      ],
+       
     },
-
+// 10 list
     {
       title: "D. Non-returnable items",
-      content: [
-        {
-          type: "bulletList",
+     
           text: [
             "Any customizable product that has been made or tailored especially for you (Made-to-measure and Bespoke products are unreturnable).",
           ],
-        },
-      ],
+     
     },
     {
       title: "7. Content",
-      content: [
-        {
-          type: "paragraph",
+      
           text: [
             "Content found on or through this Service is the property of Katwalk. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without obtaining advance written permission from us.",
           ],
-        },
-      ],
+      
     },
     {
       title: "8. Prohibited Uses",
-      content: [
-        {
-          type: "paragraph",
-          text: [
-            "You may use the Service only for lawful purposes and in accordance with the Terms. You agree not to use the Service:",
-          ],
-        },
-        {
-          type: "bulletList",
+      
+      text: [
+        "You may use the Service only for lawful purposes and in accordance with the Terms. You agree not to use the Service:",
+      ],
+      
+    },
+    // 13 list
+    {
+     
+      
           text: [
             "In any way that violates any applicable national or international law or regulation.",
             "For the purpose of exploiting, harming or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.",
@@ -178,8 +149,7 @@ function PrivacyPolicy() {
             "In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity.",
             "To engage in any other conduct that restricts or inhibits anyone’s use or enjoyment of the Service, or which, as determined by us, may harm or offend Katwalk or users of the Service or expose them to liability.",
           ],
-        },
-      ],
+     
     },
     {
       title: "9. Analytics",
@@ -558,9 +528,36 @@ function PrivacyPolicy() {
             Privacy Policy, Terms and Conditions
           </h1>
           <div className="px-[20px] md:p-0">
-            {privacyPolicyContent.map((value, index) => {
-              return <HeadingAndText data={value} key={index} />;
-            })}
+            
+
+
+
+            <HeadingAndText data={privacyPolicyContent[0]} />
+            <HeadingAndText data={privacyPolicyContent[1]} />
+            <HeadingAndText data={privacyPolicyContent[2]} />
+
+<p className="work-regular text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
+We reserve the right to refuse or cancel your order at any time for reasons including but not limited to product or service unavailability, errors in the description or the price of the product or service, errors in your order or other reasons.
+            </p>
+
+
+            <HeadingAndText data={privacyPolicyContent[3]} />
+            <HeadingAndText data={privacyPolicyContent[4]} />
+ 
+            <HeadingAndText data={privacyPolicyContent[5]} />
+            <HeadingAndText data={privacyPolicyContent[6]} />
+            <ListForContentPages data={privacyPolicyContent[7]} />
+
+            <ListForContentPages data={privacyPolicyContent[8]} />
+            <ListForContentPages data={privacyPolicyContent[9]} />
+            <ListForContentPages data={privacyPolicyContent[10]} />
+              
+            <HeadingAndText data={privacyPolicyContent[11]} />
+            <HeadingAndText data={privacyPolicyContent[12]} />
+
+            <ListForContentPages data={privacyPolicyContent[13]} />
+
+
           </div>
         </div>
       </Layout>

@@ -348,7 +348,8 @@ function ShopFilters({ forDesigner }) {
   return (
     <>
       <div className="far w-[100%] pt-[0px] px-[16px]       lg:pt-[30px]">
-        {forDesigner == true ? (
+      <div className="flex justify-between items-center">
+      {forDesigner == true ? (
           <>
             <div
               className={`text-center pb-0 mb-[20px] block pt-[30px]      lg:mb-0 lg:text-left lg:pt-0 sm:mb-[30px]`}
@@ -372,12 +373,14 @@ function ShopFilters({ forDesigner }) {
 
         <div className={`${styles.right_heading_div} flex justify-end`}>
           <p
-            className=" self-end text-[13px] text-[#c53a19] tracking-[0.5px] pr-[20px] cursor-pointer pb-[20px] mt-[-40px]"
+            className=" self-end text-[13px] text-[#c53a19] tracking-[0.5px] pr-[20px] cursor-pointer pb-[20px ] mt-[-40px]"
             onClick={() => resetAllFilters()}
           >
             {forDesigner == true ? "Reset filters" : "مسح التصنيفات"}
           </p>
         </div>
+      </div>
+
         <div
           className={`filter-main-div border-[#b1b1b1] border-t-[0px] border-b-[0px]      md:border-t-[1px] md:border-b-[1px]`}
         >
