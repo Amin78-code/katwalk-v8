@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../../components/rtl/layout/Layout";
 import katwalkBag from "../../assets/images/designers/katwalk-bag.jpg";
 import Features from "../../components/rtl/features/Features";
-import HeadingAndText from "../../components/rtl/heading-and-text/HeadingAndText";
+import HeadingAndText from "../../components/rtl/HeadingAndText/HeadingAndText";
 import { useEffect } from "react";
 function FAQ() {
   useEffect(() => {

@@ -16,7 +16,7 @@ import Features from "../../components/rtl/features/Features";
 import ColorBox from "../../components/rtl/color-box/ColorBox";
 import OtherProducts from "../../components/rtl/other-products/OtherProducts";
 import ProductSlider from "../../components/rtl/product-slider/Product-slider";
-import HeadingAndText from "../../components/rtl/heading-and-text/HeadingAndText";
+import HeadingAndText from "../../components/rtl/HeadingAndText/HeadingAndText";
 import SizeGuideModal from "../../components/rtl/size-guide-modal/SizeGuideModal";
 import MessageModal from "../../components/rtl/message-modal/MessageModal";
 import ShopFilters from "../../components/rtl/shop-filters/ShopFilters";
