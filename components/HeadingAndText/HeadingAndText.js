@@ -1,9 +1,20 @@
 function HeadingAndText({ data }) {
   return (
     <>
-      <h3 className="work-regular text-[20px] pt-[20px] mt-[16px]">
-        {data ? <>{data.title ? data.title : ""}</> : ""}
-      </h3>
+      {data ? (
+        <>
+          {data.title ? (
+            <h3 className="work-regular text-[20px] pt-[20px] mt-[16px]">
+              {data.title}
+            </h3>
+          ) : (
+            ""
+          )}
+        </>
+      ) : (
+        ""
+      )}
+
       {data.text ? (
         <>
           {data.text.map((val, ind) => {
@@ -14,7 +25,7 @@ function HeadingAndText({ data }) {
               >
                 {val}
               </p>
-            )
+            );
           })}
         </>
       ) : (

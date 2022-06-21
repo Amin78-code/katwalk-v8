@@ -426,8 +426,8 @@ function FAQ() {
             <HeadingAndText data={FAQ_Content[37]} />
             <HeadingAndText data={FAQ_Content[38]} />
             <HeadingAndText data={FAQ_Content[39]} />
-            <HeadingAndText data={FAQ_Content[40]} />asdf
-            <HeadingAndText data={FAQ_Content[41]} />dsdddddd
+            <HeadingAndText data={FAQ_Content[40]} />
+            <HeadingAndText data={FAQ_Content[41]} />
             <HeadingAndText data={FAQ_Content[42]} />
           </div>
         </div>

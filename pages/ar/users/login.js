@@ -6,7 +6,7 @@ import TextImgSection from "../../../components/rtl/text-img-section/TextImgSect
 import loginBgImg from "../../../assets/images/login-bg.jpg";
 import loginBgImgMob from "../../../assets/images/login-bg-mob.jpg";
 import Features from "../../../components/rtl/features/Features";
-import HeadingAndText from "../../../components/rtl/heading-and-text/HeadingAndText";
+import HeadingAndText from "../../../components/rtl/HeadingAndText/HeadingAndText";
 import styles from "../../../components/rtl/login.module.css";
 import ImgLazyLoad from "../../../components/rtl/img-lazy-load/ImgLazyLoad";
 
