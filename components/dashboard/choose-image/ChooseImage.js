@@ -60,35 +60,24 @@ function ChooseImage({ data, editpage, shopsPage,currentImages,setCurrentImages 
           ) : (
             ""
           )}
+{currentImages ? <>
+            <div className="pt-[8px]">
+              {currentImages.map((value, index) => {
+                return (
+                  <CurrentImgCard
+                    key={value.sizeInKB + 1}
+                    data={value}
+                    index={index}
+                    deletethisImg={deletethisImg}
+                    // selectedImgs={selectedImgs}
+                    // selecImg={selecImg}
+                  />
+                );
+              })}
+            </div>
+          </> : ""}
+          
 
-          <>
-            {editpage ? (
-              <>
-                {editpage == true ? (
-                  <>
-                    <div className="pt-[8px]">
-                      {currentImages.map((value, index) => {
-                        return (
-                          <CurrentImgCard
-                            key={value.sizeInKB + 1}
-                            data={value}
-                            index={index}
-                            deletethisImg={deletethisImg}
-                            // selectedImgs={selectedImgs}
-                            // selecImg={selecImg}
-                          />
-                        );
-                      })}
-                    </div>
-                  </>
-                ) : (
-                  ""
-                )}
-              </>
-            ) : (
-              ""
-            )}
-          </>
         </div>
       </div>
       {/* <ChooseImageModal /> */}

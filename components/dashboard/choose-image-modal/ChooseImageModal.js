@@ -40,6 +40,11 @@ function ChooseImageModal({ data }) {
     { img: img1 },
     { img: img2 },
   ]);
+  const [selectedPicutre, setSelectedPicture] = useState(null);
+  // const [error, setError] = useState("");
+const imgTypes = ["image/png", "image/jpeg"]
+
+const [uploadedImg, setUploadedImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
 
   const tab1 = useRef(null);
   const tab2 = useRef(null);
@@ -99,6 +104,32 @@ function ChooseImageModal({ data }) {
     // console.log("rrr selectedImgs", selectedImgs);
   };
 
+  // const changeHandle =(e)=> {
+  //   let selectedImg = e.target.files[0];
+  //   console.log("selectedImg",selectedImg);
+
+  //   if(selectedImg && imgTypes.includes(selectedImg.type)) {
+  //     setSelectedPicture(selectedImg)
+  //   } else {
+  //     setSelectedPicture("")
+  //     // setError("Please select any image.")
+  //   }
+
+  //   console.log("selectedpicture", selectedPicutre)
+  // }
+
+
+
+  const changeHandle =(e)=> {
+const reader = new FileReader();
+reader.onload=()=> {
+  if(reader.readyState === 2) {
+    setUploadedImg(reader.result)
+  }
+}
+reader.readAs
+  }
+
   return (
     <>
       <Overlay>
@@ -115,7 +146,7 @@ function ChooseImageModal({ data }) {
             <li className="mr-2" onClick={() => tabToggle("tab1")}>
               <a
                 ref={tab1btn}
-                className={`fwr inline-block p-[13px] text-[12px] bg-[#f8f9fa] rounded-t-lg uppercase mb-[-1px] ${styles.active}`}
+                className={`fwr inline-block p-[13px] text-[12px] bg-[#f8f9fa] rounded-t-lg uppercase mb-[-1px] cursor-pointer ${styles.active}`}
               >
                 select file
               </a>
@@ -123,7 +154,7 @@ function ChooseImageModal({ data }) {
             <li className="mr-2" onClick={() => tabToggle("tab2")}>
               <a
                 ref={tab2btn}
-                className={`fwr inline-block p-[13px] text-[12px] bg-[#f8f9fa] rounded-t-lg uppercase mb-[-1px]`}
+                className={`fwr inline-block p-[13px] text-[12px] bg-[#f8f9fa] rounded-t-lg uppercase mb-[-1px] cursor-pointer`}
               >
                 upload new
               </a>
@@ -200,21 +231,13 @@ function ChooseImageModal({ data }) {
                 </div>
               </div> */}
               <div className="w-[100%] h-[100%] relative overflow-hidden z-[1]">
-                {/* <div
-                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]          border-[4px]   border-[red]`}
-                >
-                  <div className="w-[100%] min-h-[50px] h-[50px] flex justify-between items-center px-[10px]">
-                    <div className="w-[90px]"></div>
-                    <p className="fwr text-[14px] text-[#333] ">
-                      Upload complete
-                    </p>
-                    <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                      <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
-                      Add more
-                    </button>
-                  </div>
 
-                  <div
+
+
+{selectedPicutre == null ?     <div
+                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
+                >
+                   <div
                     className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
                   >
                     <h1 className="text-[#525252] text-[27px]">
@@ -228,60 +251,62 @@ function ChooseImageModal({ data }) {
                             name="img"
                             accept="image/*"
                             className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
+                            onChange={changeHandle}
                           />
                         </span>
                       </span>
                     </h1>
                   </div>
-                </div> */}
-
-                <div
-                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
-                >
-                  <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
-                    <div className="w-[90px]"></div>
-                    <p className="fwr text-[14px] text-[#333] ">
-                      Upload complete
-                    </p>
-                    <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                      <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
-                      Add more
-                    </button>
-                  </div>
-                  <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
-                    {uploadNewImg.map((value) => {
-                      return <UploadNewImgCard key={value} data={value} />;
-                    })}
-                  </div>
-
-                  {uploadFailed && uploadFailed == true ? (
-                    <div className="w-[100%] h-[45px] bg-[#fff]">
-                      <div className="w-[100%] h-[2px] ">
-                        <div className={`w-[60%] h-[2px] bg-[#e32437] `}></div>
-                      </div>
-                      <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
-                        <p className="capitalize text-[12px] text-[#333] flex">
-                          <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
-                          upload failed
-                          <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
-                          {/* <i className="lar la-question text-[16px] text-[#e32437] ml-[5px]"></i> */}
-                        </p>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="w-[100%] h-[45px] bg-[#fff]">
-                      <div className="w-[100%] h-[2px] ">
-                        <div className={`w-[60%] h-[2px] bg-[#1bb240]`}></div>
-                      </div>
-                      <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
-                        <p className="capitalize text-[12px] text-[#333] flex">
-                          <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
-                          complete
-                        </p>
-                      </div>
-                    </div>
-                  )}
                 </div>
+                :
+                  <div
+                   className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
+                 >
+                   <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
+                     <div className="w-[90px]"></div>
+                     <p className="fwr text-[14px] text-[#333] ">
+                       Upload complete
+                     </p>
+                     <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
+                       <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                       Add more
+                     </button>
+                   </div>
+                   <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
+                     {uploadNewImg.map((value) => {
+                       return <UploadNewImgCard key={value} data={value} />;
+                     })}
+                   </div>
+
+                   {uploadFailed && uploadFailed == true ? (
+                     <div className="w-[100%] h-[45px] bg-[#fff]">
+                       <div className="w-[100%] h-[2px] ">
+                         <div className={`w-[60%] h-[2px] bg-[#e32437] `}></div>
+                       </div>
+                       <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                         <p className="capitalize text-[12px] text-[#333] flex">
+                           <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
+                           upload failed
+                           <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
+                  {/* qqqqq            <i className="lar la-question text-[16px] text-[#e32437] ml-[5px]"></i>     */}
+                         </p>
+                       </div>
+                     </div>
+                   ) : (
+                     <div className="w-[100%] h-[45px] bg-[#fff]">
+                       <div className="w-[100%] h-[2px] ">
+                         <div className={`w-[60%] h-[2px] bg-[#1bb240]`}></div>
+                       </div>
+                       <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                         <p className="capitalize text-[12px] text-[#333] flex">
+                           <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
+                           complete
+                         </p>
+                       </div>
+                     </div>
+                   )}
+                 </div>
+                }
 
                 
               </div>

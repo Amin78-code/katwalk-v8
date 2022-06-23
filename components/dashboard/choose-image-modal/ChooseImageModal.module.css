@@ -10,5 +10,6 @@
     height: calc(100% - 40px);
 }
 .inner_browse_div {
-  height: calc(100% - 50px);
+  /* height: calc(100% - 50px); */
+  height: 100%;
 }
