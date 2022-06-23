@@ -8,6 +8,7 @@ import img2 from "../../../assets/images/uploaded/IMG_2376.jpg";
 import img3 from "../../../assets/images/uploaded/IMG_2377.jpg";
 import img4 from "../../../assets/images/uploaded/IMG_2378.jpg";
 import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
+import ImgLazyLoad from "../../img-lazy-load/ImgLazyLoad";
 
 const uploadedPictures = [
   {
@@ -44,7 +45,7 @@ function ChooseImageModal({ data }) {
   // const [error, setError] = useState("");
 const imgTypes = ["image/png", "image/jpeg"]
 
-const [uploadedImg, setUploadedImg] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png")
+const [uploadedImg, setUploadedImg] = useState(null)
 
   const tab1 = useRef(null);
   const tab2 = useRef(null);
@@ -121,13 +122,17 @@ const [uploadedImg, setUploadedImg] = useState("https://cdn.pixabay.com/photo/20
 
 
   const changeHandle =(e)=> {
+    console.log("uploadedImg",uploadedImg)
 const reader = new FileReader();
-reader.onload=()=> {
-  if(reader.readyState === 2) {
+    console.log("reader",reader)
+    reader.onload=()=> {
+    console.log("reader.result",reader.result)
+    if(reader.readyState === 2) {
     setUploadedImg(reader.result)
   }
 }
-reader.readAs
+reader.readAsDataURL(e.target.files[0])
+console.log("uploadedImg",uploadedImg)
   }
 
   return (
@@ -198,7 +203,7 @@ reader.readAs
                 {uploadedPictures.map((value, index) => {
                   return (
                     <ImgCard
-                      key={value + 1}
+                      key={index + 1}
                       data={value}
                       index={index}
                       selectedImgs={selectedImgs}
@@ -234,7 +239,8 @@ reader.readAs
 
 
 
-{selectedPicutre == null ?     <div
+                {selectedPicutre == null ?     
+                <div
                   className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
                 >
                    <div
@@ -256,6 +262,18 @@ reader.readAs
                         </span>
                       </span>
                     </h1>
+
+                 <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
+                  {
+                    uploadedImg == null ? 
+                    <Image src={img4} alt="image" />
+                    :
+                    <>
+                    no
+                    <Image src={uploadedImg} alt={"image"} classes={""} layout='fill' width="30" height="30" />
+                    </>
+                  }
+                 </div>
                   </div>
                 </div>
                 :
