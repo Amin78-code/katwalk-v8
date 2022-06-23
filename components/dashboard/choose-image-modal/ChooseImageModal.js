@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./ChooseImageModal.module.css";
 import Overlay from "../overlay/Overlay";
@@ -106,7 +106,7 @@ function ChooseImageModal({ data }) {
           className={`${styles.modal} mt-[30px] w-[100%] max-w-[1050px]  bg-[#f8f9fa] rounded-[0.3rem] relative`}
         >
           <span
-            className="text-[20px] absolute right-[25px] top-[20px]"
+            className="text-[20px] absolute right-[25px] top-[20px] cursor-pointer"
             onClick={() => hideModal()}
           >
             <i className="las la-times"></i>

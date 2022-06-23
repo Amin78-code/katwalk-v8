@@ -106,7 +106,7 @@ function ChooseImageModal({ data }) {
           className={`${styles.modal} mt-[30px] w-[100%] max-w-[1050px]  bg-[#f8f9fa] rounded-[0.3rem] relative`}
         >
           <span
-            className="text-[20px] absolute right-[25px] top-[20px]"
+            className="text-[20px] absolute left-[25px] top-[20px] cursor-pointer"
             onClick={() => hideModal()}
           >
             <i className="las la-times"></i>
@@ -142,7 +142,7 @@ function ChooseImageModal({ data }) {
 
                 <div className="flex items-center mx-[20px]">
                   <input
-                    className="radio-btn-orange relative form-check-input appearance-none rounded-full w-[12px] h-[12px] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                    className="radio-btn-orange relative form-check-input appearance-none rounded-full w-[12px] h-[12px] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left ml-2 cursor-pointer"
                     type="radio"
                     name="select_only"
                     id="select_only"
@@ -289,7 +289,7 @@ function ChooseImageModal({ data }) {
           </div>
           <div className="w-[100%] h-[89px] bg-[#f8f9fa] border-t-[1px] border-[#ebedf2] py-[10px] px-[25px] flex justify-between items-center">
             <div className="flex">
-              <div className="flex flex-col items-end mr-[1rem]">
+              <div className="flex flex-col items-end ml-[1rem]">
                 <p className="fwr text-[13px] text-[#1b1b28]">
                   <span>0</span> File selected
                 </p>
@@ -302,7 +302,7 @@ function ChooseImageModal({ data }) {
                 prev
               </button>
 
-              <button className="h-[40px] light-brown-btn ffr text-[0.875rem] text-[#fff] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] ml-[10px]">
+              <button className="h-[40px] light-brown-btn ffr text-[0.875rem] text-[#fff] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] mr-[10px]">
                 next
               </button>
             </div>

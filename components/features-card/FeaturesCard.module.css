@@ -2,14 +2,18 @@
   .features_car_div {
     padding: 0;
   }
+  .features_car_div p {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 769px) {
-    .features_car_div {
-      padding: 20px;
-    }
+  .features_car_div {
+    padding: 20px;
   }
-  
+}
+
 @media (min-width: 880px) and (max-width: 1200px) {
   .features_car_div {
     flex: 1;

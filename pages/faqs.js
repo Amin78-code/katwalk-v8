@@ -4,15 +4,18 @@ import TableForTextPages from "../components/TableForTextPages/TableForTextPages
 
 function FAQ() {
   const FAQ_Content = [
+    // 0
     {
       title: "About Katwalk",
     },
+    // 1
     {
       title: "What’s Katwalk?",
       text: [
         "Katwalk is an elegant and sophisticated marketplace that connects creative designers with fashion-forward customers, bringing what’s new in the world of Arabian fashion.",
       ],
     },
+    // 2
     {
       title: "What are bespoke designs?",
       type: "paragraph",
@@ -20,13 +23,14 @@ function FAQ() {
         "Katwalk’s bespoke designs provide the ultimate personalised and unique pieces tailored to your tastes and exact size and fit. We complement your look with exclusive pieces and a variety of colours, cuts, and shapes to provide you with the experience and pieces you desire.",
       ],
     },
+    // 3
     {
       title: "Is Katwalk a designer?",
       text: [
         "Katwalk is not a designer. We connect creative designers with shoppers for a convenient shopping experience.",
       ],
     },
-
+    // 4
     {
       title: "Delivery",
 
@@ -44,7 +48,7 @@ function FAQ() {
         "- All orders are shipped by Aramex and it may take the following timescale:",
       ],
     },
-
+    // 6
     {
       type: "table",
       tableHead: ["Shipping Costs", "Delivery Timescales	", "Location"],
@@ -66,7 +70,7 @@ function FAQ() {
         },
       ],
     },
-
+    // 7
     {
       text: [
         "- Ready-to-wear products take 2 days to be handled to the carrier and made-to-measure and bespoke products take 10-14 days.",
@@ -100,6 +104,7 @@ function FAQ() {
 
       text: ["We’re here to help! Please visit  for customer support."],
     },
+    // 11
     {
       title: "Can I place an order via WhatsApp?",
 
@@ -107,6 +112,7 @@ function FAQ() {
         "We require that all orders be placed through our website. You can reach us via WhatsApp if you need assistance!",
       ],
     },
+    // 12
     {
       title: "How will I know if a seller has accepted my order?",
 
@@ -114,6 +120,7 @@ function FAQ() {
         "Once the order is accepted/rejected, a confirmation will be sent by SMS, email, or WhatsApp. Kindly note that it may take up to one business day for orders to be accepted by the designer.",
       ],
     },
+    // 13
     {
       title: "Can I change, edit, or cancel my order once it has been placed?",
 
@@ -133,7 +140,6 @@ function FAQ() {
         "If you wish to change, edit or cancel a non-approved order, please visit .",
       ],
     },
-
     // 15
     {
       title: "How can I share my feedback about my Katwalk experience?",
@@ -142,9 +148,11 @@ function FAQ() {
         "We’re always happy to hear from you. You can share your experience via our 10-sec shopping survey  or you can reach us through  We’re all ears!",
       ],
     },
+    // 16
     {
       title: "Bespoke and Sizing",
     },
+    // 17
     {
       title: "What are bespoke designs?",
 
@@ -160,7 +168,6 @@ function FAQ() {
         "We have provided below Guide to help you decide which size to buy!",
       ],
     },
-
     //  19
     {
       type: "table",
@@ -192,7 +199,7 @@ function FAQ() {
         },
       ],
     },
-
+    // 20
     {
       title: "What size should I get?",
 
@@ -202,15 +209,17 @@ function FAQ() {
         "***Please note that if you like to wear maxi length abayas, we recommend ordering one size smaller to what has been recommended for your height.",
       ],
     },
-
+    // 21
     {
       title: "How can I take my measurements?",
 
       text: ["Please check Size Guide in product page."],
     },
+    // 22
     {
       title: "Order Issues",
     },
+    // 23
     {
       title: "I have not received my order. What should I do?",
       text: [
@@ -357,7 +366,7 @@ function FAQ() {
   return (
     <>
       <Layout>
-        <div className="container-for-content-pages border-[1px] border-[#f9f9f9]">
+        <div className="container-for-content-pages border-[1px] border-[#f9f9f9] px-[24px] pb-[25px] ">
           <h1 className=" fahkwang-light text-[28px] text-center leading-[1.5] tracking-[0.5] mb-[23px]">
             Frequently Asked Questions
           </h1>

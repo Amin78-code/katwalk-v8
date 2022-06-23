@@ -144,8 +144,7 @@ function ShopFilters({ forDesigner }) {
   const allFiltersMainDiv = useRef(null);
   const resetAllFilterAndCrossDiv = useRef(null);
 
-
-  const [currectSelectedSize, setCurrectSelectedSize] = useState("");
+  const [currentSelectedSizeee, setCurrentSelectedSizeee] = useState([]);
   const [currectSelectedColor, setCurrectSelectedColor] = useState("");
   const [currectSelectedPrice, setCurrectSelectedPrice] = useState("");
   const [currectSelectedSortBy, setCurrectSelectedSortBy] = useState("");
@@ -201,7 +200,21 @@ function ShopFilters({ forDesigner }) {
 
   const choosingFilterOption = (selectedOption, filterName) => {
     if (filterName == "sizeFilter") {
-      setCurrectSelectedSize(selectedOption);
+      if(currentSelectedSizeee.length == 0) {
+        let _currentSelectedSizeee = currentSelectedSizeee
+        for (let i = 0; i < allSizes.length; i++) {
+          _currentSelectedSizeee.push({value:allSizes[i], status: false})
+        }
+        setCurrentSelectedSizeee(_currentSelectedSizeee)
+      }
+
+      let __currentSelectedSizeee = currentSelectedSizeee
+      for (let j = 0; j < __currentSelectedSizeee.length; j++) {
+        if(__currentSelectedSizeee[j].value == selectedOption) {
+          __currentSelectedSizeee[j].status = !__currentSelectedSizeee[j].status;
+        }
+      }
+        setCurrentSelectedSizeee([...__currentSelectedSizeee])
     } else if (filterName == "colorFilter") {
       setCurrectSelectedColor(selectedOption);
     } else if (filterName == "prizeFilter") {
@@ -654,7 +667,7 @@ function ShopFilters({ forDesigner }) {
                 size_dropdown={size_dropdown}
                 data={allSizes}
                 choosingFilterOption={choosingFilterOption}
-                currectSelected={currectSelectedSize}
+                currentSelectedSizeee={currentSelectedSizeee}
                 filterName={"sizeFilter"}
               />
             </div>

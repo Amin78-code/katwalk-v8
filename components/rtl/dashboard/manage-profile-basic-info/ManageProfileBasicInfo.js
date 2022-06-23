@@ -6,7 +6,7 @@ import styles from "./ManageProfileBasicInfo.module.css";
 import TitleAndTableCard from "../title-and-table-card/TitleAndTableCard";
 import ChooseImage from "../choose-image/ChooseImage";
 
-function ManageProfileBasicInfo({ data, title }) {
+function ManageProfileBasicInfo({ data, title, showModal }) {
   const basicInfoCardBody = useRef("");
   const openCardBody = () => {
     basicInfoCardBody.current.classList.toggle(styles.slide_card_body);
@@ -41,14 +41,14 @@ function ManageProfileBasicInfo({ data, title }) {
                     <ChooseImage data={value} shopsPage={true} />
                   ) : (
                     <div key={value.name} className="fwr flex mb-[1rem] flex-col      lg:flex-row">
-                      <p className="w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                      <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
                         {value.name}
                       </p>
                       <div className="w-[100%] px-0     lg:px-[15px]">
                         {value.name == "Photo" ? (
                           <div className={`"w-[100%]"`}>
                             <div
-                              className="flex admin-input relative w-[100%] h-[44px] leading-[30px] bg-[#fff] border-[1px]  rounded-[.25rem]  border-[#ced4da]"
+                              className="flex admin-input relative w-[100%] h-[44px] leading-[30px] bg-[#fff] border-[1px]  rounded-[.25rem]  border-[#ced4da] cursor-pointer"
                               onClick={() => showModal()}
                             >
                               <div className="fwl text-[#495057] text-[1rem] py-[0.375rem] px-[0.75rem]">

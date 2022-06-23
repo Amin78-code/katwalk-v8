@@ -694,11 +694,42 @@ h3.steps:after {
   top: 0;
   right: -10px;
 }
+.rtl h3.steps:before {
+  width: 0;
+  height: 0;
+  border-top: 23px inset transparent;
+  border-bottom: 23px inset transparent;
+  border-left: 10px solid #ffffff;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0px;
+  transform: rotate(180deg);
+}
+.rtl h3.steps:after {
+  width: 0;
+  height: 0;
+  border-top: 23px inset transparent;
+  border-bottom: 23px inset transparent;
+  border-left: 10px solid #c53a24;
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: -10px !important;
+  right: unset;
+  transform: rotate(180deg);
+}
 h3.steps-first:before {
   display: none;
 }
 h3.steps-last:after {
   display: none;
+}
+.rtl h3.steps-first:before {
+  display: block;
+}
+.rtl h3.steps-last:after {
+  display: block;
 }
 .radio-btn-orange:before {
   border: 1px solid #ddd;

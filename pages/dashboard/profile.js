@@ -9,6 +9,7 @@ import ManageProfileAddress from "../../components/dashboard/manage-profile-addr
 import ManageProfilePaymentSetting from "../../components/dashboard/manage-profile-payment-setting/ManageProfilePaymentSetting";
 import ManageProfileDesigner_VAT_and_CR_No from "../../components/dashboard/manage-profile-designer-vat-and-cr-no/ManageProfileDesigner_VAT_and_CR_No";
 import ManageProfileChangeYourEmail from "../../components/dashboard/manage-profile-change-your-email/ManageProfileChangeYourEmail";
+import ChooseImageModal from "../../components/dashboard/choose-image-modal/ChooseImageModal";
 
 function Profiles() {
   const [profileData, setProfileData] = useState({
@@ -44,6 +45,10 @@ function Profiles() {
     ],
   });
 
+  const showModal = () => {
+    document.getElementById("upload_overlay").classList.add("dblock");
+  };
+
   return (
     <>
       <Layout>
@@ -51,7 +56,7 @@ function Profiles() {
           <AdminPanelLayout active={"Profiles"}>
             <HeadingBar heading={"Manage Profile"} />
             <div className="w-[100%]">
-              <ManageProfileBasicInfo data={profileData.basicInfo} title={"Basic Info"} />
+              <ManageProfileBasicInfo data={profileData.basicInfo} title={"Basic Info"} showModal={showModal} />
               <ManageProfileAddress data={profileData.address} title={"Address"} />
               <ManageProfilePaymentSetting data={profileData.paymentSetting} title={"Payment Setting"} />
               <ManageProfileDesigner_VAT_and_CR_No data={profileData.designer_VAT_and_CR_No} title={"Designer VAT & CR No."} />
@@ -60,6 +65,9 @@ function Profiles() {
           </AdminPanelLayout>
         </div>
       </Layout>
+      <div id="upload_overlay" className="dnone">
+        <ChooseImageModal />
+      </div>
     </>
   );
 }

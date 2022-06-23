@@ -50,7 +50,7 @@ function Features() {
     <>
       <section className="my-[30px] px-[25px] py-[30px]">
         <div
-          className={`${styles.features_container} container flex flex-wrap justify-center flex-row-reverse gap-y-[50px] hidden     sm:flex md:gap-y-[0]`}
+          className={`${styles.features_container} container flex flex-wrap justify-around flex-row-reverse gap-y-[50px] hidden     sm:flex md:gap-y-[0]`}
         >
           {features.map((value, index) => {
             return <FeaturesCard key={index} data={value} />;

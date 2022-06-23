@@ -1054,9 +1054,9 @@ function ProductDetail() {
 
               {/* toggle tabs */}
               {/* tab1 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab1Toggler()}
                 >
                   <div>
@@ -1117,9 +1117,9 @@ function ProductDetail() {
               </div>
 
               {/* tab2 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab2Toggler()}
                 >
                   <div>
@@ -1154,9 +1154,9 @@ function ProductDetail() {
               </div>
 
               {/* tab3 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab3Toggler()}
                 >
                   <div>
@@ -1191,9 +1191,9 @@ function ProductDetail() {
               </div>
 
               {/* tab4 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab4Toggler()}
                 >
                   <div>
@@ -1265,9 +1265,10 @@ function ProductDetail() {
               <div className="flex justify-end">
                 <div className="share-icon-div w-[34px] h-[34px] flex justify-center items-center cursor-pointer border-[1px] border-[#ededed] text-[20px]">
                   {/* <IoShareSocialOutline /> */}
-                  <div className="w-[21px] h-[19px] cursor-pointer relative z-4 bgAllIcon bg-[left_-47px_top_-260px]"></div>
+                  <div className="w-[21px] h-[19px] relative z-4 bgAllIcon bg-[left_-47px_top_-260px]"></div>
                 </div>
               </div>
+              
             </div>
           </div>
 

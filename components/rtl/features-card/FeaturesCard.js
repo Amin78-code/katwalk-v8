@@ -17,7 +17,7 @@ function FeaturesCard({ data }) {
         <h6 className=" text-[#111111] text-[15px] leading-[1.5] tracking-[0.5px] font-[600] mt-[10px]">
           {data.title}
         </h6>
-        <p className=" text-[#656565] mx-auto text-[12px] leading-[1.333] tracking-[0.5px] max-w-[31 0px] mt-[8px]">
+        <p className=" text-[#656565] mx-auto text-[12px] leading-[1.333] tracking-[0.5px] max-w-[31 0px] mt-[8px]p">
           {data.text}
         </p>
       </div>

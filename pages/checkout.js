@@ -7,14 +7,19 @@ import img3 from "../assets/images/products/orange-1/img3.jpg";
 import img4 from "../assets/images/products/orange-1/img4.jpg";
 import visa from "../assets/images/payment-methods/visa.png";
 import mada from "../assets/images/payment-methods/mada.png";
-import stcPay from "../assets/images/payment-methods/stc-pay.png"; 
+import stcPay from "../assets/images/payment-methods/stc-pay.png";
 import { IoCloseOutline } from "react-icons/io5";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Link from "next/link";
+import { useEffect } from "react";
 
 function ProductDetail() {
+
+
+
   const [productToCheckout, setProductToCheckout] = useState([
     {
+      id: "35435",
       name: "Multicolor Printed Abaya with Fringe Detail",
       info: "-",
       brand: "Nada Line",
@@ -224,8 +229,8 @@ function ProductDetail() {
     }
     // console.log("arr after", _p);
 
-    // setProductToCheckout([]);
-    // setProductToCheckout(_p);
+    setProductToCheckout([]);
+    setProductToCheckout([..._p]);
     // console.log("productToCheckout", productToCheckout);
   };
 
@@ -429,6 +434,8 @@ function ProductDetail() {
                         index={index}
                         data={value}
                         deletItem={deletItem}
+                        setProductToCheckout={setProductToCheckout}
+                        productToCheckout={productToCheckout}
                       />
                     );
                   })}
@@ -478,8 +485,46 @@ function ProductDetail() {
 
 export default ProductDetail;
 
-function ProductInCart({ data, index, deletItem }) {
-  console.log("k", index);
+function ProductInCart({
+  data,
+  index,
+  deletItem,
+  setProductToCheckout,
+  productToCheckout,
+}) {
+  const increment = (productId) => {
+    let _productToCheckout = productToCheckout;
+    let clickedProduct = {};
+    let id = "";
+    for (let i = 0; i < productToCheckout.length; i++) {
+      if (productToCheckout[i].id == productId) {
+        clickedProduct = productToCheckout[i];
+        id = i;
+      }
+    }
+    if (clickedProduct.quantity == 1 || clickedProduct.quantity > 1) {
+      clickedProduct.quantity = clickedProduct.quantity + 1;
+      _productToCheckout.splice(id, 1, clickedProduct);
+      setProductToCheckout([..._productToCheckout]);
+    }
+  };
+  const decrement = (productId) => {
+    let _productToCheckout = productToCheckout;
+    let clickedProduct = {};
+    let id = "";
+    for (let i = 0; i < productToCheckout.length; i++) {
+      if (productToCheckout[i].id == productId) {
+        clickedProduct = productToCheckout[i];
+        id = i;
+      }
+    }
+    if (clickedProduct.quantity > 1) {
+      clickedProduct.quantity = clickedProduct.quantity - 1;
+      _productToCheckout.splice(id, 1, clickedProduct);
+      setProductToCheckout([..._productToCheckout]);
+    }
+  };
+
   return (
     <>
       <div className="pb-[20px]">
@@ -491,10 +536,10 @@ function ProductInCart({ data, index, deletItem }) {
           </div>
           <div className="pl-[20px] pt-[20px ] relative w-[100%]     lg:w-[82%] ">
             <IoCloseOutline
-              className="absolute right-[-7px] top-[3px]"
+              className="absolute right-[-7px] top-[3px] cursor-pointer"
               onClick={() => deletItem(index)}
             />
-            <p className="fwr text-[13px] leading-[1.5] text-[#00] tracking-[0.5px] pt-[3px]">
+            <p className="fwr text-[13px] leading-[1.5] text-[#00] tracking-[0.5px] pt-[3px] pr-[10px]">
               {data.name}
             </p>
             <p className="fwr text-[13px] leading-[1.5] text-[#00] tracking-[0.5px] pb-[3px]">
@@ -529,7 +574,7 @@ function ProductInCart({ data, index, deletItem }) {
             </p>
             <div className="flex justify-between w-[100%] mt-[10px]">
               <div className="flex justify-between min-w-[80px]">
-                <button>
+                <button onClick={() => decrement(data.id)}>
                   <AiOutlineMinus className="text-[14px] text-[#8c8c8c]" />
                 </button>
                 <input
@@ -537,7 +582,7 @@ function ProductInCart({ data, index, deletItem }) {
                   id="product_qty"
                   className="w-[40px] text-center"
                 />
-                <button>
+                <button onClick={() => increment(data.id)}>
                   <AiOutlinePlus className="text-[14px] text-[#8c8c8c]" />
                 </button>
               </div>

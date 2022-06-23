@@ -93,20 +93,6 @@ const allColors = {
       colorCode: "bg-[#FFC0CB]",
     },
   ],
-  group2: [
-    {
-      name: "Dark Green",
-      colorCode: "bg-[#006400]",
-    },
-    {
-      name: "BurlyWood",
-      colorCode: "bg-[#DEB887]",
-    },
-    {
-      name: "DardkGolderod",
-      colorCode: "bg-[#B8860B]",
-    },
-  ],
 };
 const sortByMethods = [
   "What's New",
@@ -140,7 +126,7 @@ function ShopFilters({ forDesigner }) {
   const allFiltersMainDiv = useRef(null);
   const resetAllFilterAndCrossDiv = useRef(null);
 
-  const [currectSelectedSize, setCurrectSelectedSize] = useState("");
+  const [currentSelectedSizeee, setCurrentSelectedSizeee] = useState([]);
   const [currectSelectedColor, setCurrectSelectedColor] = useState("");
   const [currectSelectedPrice, setCurrectSelectedPrice] = useState("");
   const [currectSelectedSortBy, setCurrectSelectedSortBy] = useState("");
@@ -162,41 +148,55 @@ function ShopFilters({ forDesigner }) {
       alphabet: "G",
       designers: ["Gmash"],
     },
-  
+
     {
       alphabet: "K",
       designers: ["Kaf By Kaf"],
     },
-  
+
     {
       alphabet: "M",
       designers: ["Maliha", "Muna Mattar"],
     },
-  
+
     {
       alphabet: "N",
       designers: ["Nada Line", "Nakhlah"],
     },
-  
+
     {
       alphabet: "R",
       designers: ["Raw Mestika"],
     },
-  
+
     {
       alphabet: "Z",
       designers: ["Zahra Line"],
     },
-  
+
     {
       alphabet: "",
       designers: ["ثمانية", "ولاء كاظم"],
     },
-  ])
+  ]);
 
   const choosingFilterOption = (selectedOption, filterName) => {
     if (filterName == "sizeFilter") {
-      setCurrectSelectedSize(selectedOption);
+      if(currentSelectedSizeee.length == 0) {
+        let _currentSelectedSizeee = currentSelectedSizeee
+        for (let i = 0; i < allSizes.length; i++) {
+          _currentSelectedSizeee.push({value:allSizes[i], status: false})
+        }
+        setCurrentSelectedSizeee(_currentSelectedSizeee)
+      }
+
+      let __currentSelectedSizeee = currentSelectedSizeee
+      for (let j = 0; j < __currentSelectedSizeee.length; j++) {
+        if(__currentSelectedSizeee[j].value == selectedOption) {
+          __currentSelectedSizeee[j].status = !__currentSelectedSizeee[j].status;
+        }
+      }
+        setCurrentSelectedSizeee([...__currentSelectedSizeee])
     } else if (filterName == "colorFilter") {
       setCurrectSelectedColor(selectedOption);
     } else if (filterName == "prizeFilter") {
@@ -217,30 +217,30 @@ function ShopFilters({ forDesigner }) {
   };
 
   // useEffect(() => {
-    // const scrollFuntion = () => {
-    //   category_dropdown.current.classList.remove("f-in");
-    //   size_dropdown.current.classList.remove("f-in");
-    //   designer_dropdown.current.classList.remove("f-in");
-    //   color_dropdown.current.classList.remove("f-in");
-    //   price_dropdown.current.classList.remove("f-in");
-    //   sort_by_dropdown.current.classList.remove("f-in");
+  // const scrollFuntion = () => {
+  //   category_dropdown.current.classList.remove("f-in");
+  //   size_dropdown.current.classList.remove("f-in");
+  //   designer_dropdown.current.classList.remove("f-in");
+  //   color_dropdown.current.classList.remove("f-in");
+  //   price_dropdown.current.classList.remove("f-in");
+  //   sort_by_dropdown.current.classList.remove("f-in");
 
-    //   categoryChevron.current.classList.remove("rotate180b");
+  //   categoryChevron.current.classList.remove("rotate180b");
 
-    //   sizeChevron.current.classList.remove("rotate180b");
+  //   sizeChevron.current.classList.remove("rotate180b");
 
-    //   priceChevron.current.classList.remove("rotate180b");
+  //   priceChevron.current.classList.remove("rotate180b");
 
-    //   designerChevron.current.classList.remove("rotate180b");
+  //   designerChevron.current.classList.remove("rotate180b");
 
-    //   colorChevron.current.classList.remove("rotate180b");
+  //   colorChevron.current.classList.remove("rotate180b");
 
-    //   sortByChevron.current.classList.remove("rotate180b");
-    // };
-    // window.addEventListener("scroll", scrollFuntion());
-    // return () => {
-    //   window.removeEventListener("scroll", scrollFuntion());
-    // };
+  //   sortByChevron.current.classList.remove("rotate180b");
+  // };
+  // window.addEventListener("scroll", scrollFuntion());
+  // return () => {
+  //   window.removeEventListener("scroll", scrollFuntion());
+  // };
   // }, []);
 
   function openDropdown(dropdownName) {
@@ -316,31 +316,30 @@ function ShopFilters({ forDesigner }) {
   }
 
   const resetAllFilters = () => {
-    setCurrectSelectedSize("");
+    setCurrentSelectedSizeee("");
     setCurrectSelectedPrice("");
     setCurrectSelectedSortBy("");
   };
 
-  
   const changeHandler = (e, filterName) => {
-
     // console.log("initialData==>", e, filterName);
 
     let _allDesigners = filterName;
-    
+
     let __allDesigners = [];
-    
+
     for (let i = 0; i < _allDesigners.length; i++) {
-      __allDesigners.push(filterName[i])
+      __allDesigners.push(filterName[i]);
     }
-    console.log("e.target.value",e.target.value)
-    console.log("__allDesigners", __allDesigners)
-    const startsWithN = __allDesigners.filter((country) => country.alphabet.startsWith(e.target.value.toUpperCase()));
+    console.log("e.target.value", e.target.value);
+    console.log("__allDesigners", __allDesigners);
+    const startsWithN = __allDesigners.filter((country) =>
+      country.alphabet.startsWith(e.target.value.toUpperCase())
+    );
     setAllDesignersForShow([]);
     setAllDesignersForShow(startsWithN);
-    console.log("startsWithN",startsWithN);
+    console.log("startsWithN", startsWithN);
   };
-
 
   return (
     <>
@@ -648,7 +647,7 @@ function ShopFilters({ forDesigner }) {
                 size_dropdown={size_dropdown}
                 data={allSizes}
                 choosingFilterOption={choosingFilterOption}
-                currectSelected={currectSelectedSize}
+                currentSelectedSizeee={currentSelectedSizeee}
                 filterName={"sizeFilter"}
               />
             </div>

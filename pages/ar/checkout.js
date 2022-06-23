@@ -19,6 +19,7 @@ function ProductDetail() {
   }, [])
   const [productToCheckout, setProductToCheckout] = useState([
     {
+      id: "35435",
       name: "Multicolor Printed Abaya with Fringe Detail",
       info: "-",
       brand: "Nada Line",
@@ -228,8 +229,8 @@ function ProductDetail() {
     }
     // console.log("arr after", _p);
 
-    // setProductToCheckout([]);
-    // setProductToCheckout(_p);
+    setProductToCheckout([]);
+    setProductToCheckout([..._p]);
     // console.log("productToCheckout", productToCheckout);
   };
 
@@ -244,9 +245,9 @@ function ProductDetail() {
               </p>
             </div>
 
-            <div className="w-[100%] flex gap-x-[30px] flex-col      lg:flex-row">
+            <div className="rtl w-[100%] flex gap-x-[30px] flex-col      lg:flex-row">
               <div className="w-[100%]      lg:w-[38%]">
-                <h3 className="steps steps-first fwl tracking-[0.5px] py-[13px] pr-[12px] pl-[20px] bg-[#c53a19] relative mb-15px] text-[#fff] text-[14px] uppercase">
+                <h3 className="steps steps-first fwl tracking-[0.5px] py-[13px] pr-[12px] pr-[20px] bg-[#c53a19] relative mb-15px] text-[#fff] text-[14px] uppercase">
                   1. user info and billing address
                 </h3>
 
@@ -339,7 +340,7 @@ function ProductDetail() {
                 </div>
               </div>
               <div className="w-[100%]      lg:w-[31%] mt-[30px]      lg:mt-[0]">
-                <h3 className="steps fwl tracking-[0.5px] py-[13px] pr-[12px] pl-[20px] bg-[#c53a19] relative mb-15px] text-[#fff] text-[14px] uppercase">
+                <h3 className="steps fwl tracking-[0.5px] py-[13px] pr-[12px] pr-[20px] bg-[#c53a19] relative mb-15px] text-[#fff] text-[14px] uppercase">
                   2. payment and shipping
                 </h3>
 
@@ -420,7 +421,7 @@ function ProductDetail() {
                 </div>
               </div>
               <div className="w-[100%]      lg:w-[31%]">
-                <h3 className="steps steps-last fwl tracking-[0.5px] py-[13px] pr-[12px] pl-[20px] bg-[#c53a19] relative mb-15px] text-[#fff] text-[14px] uppercase">
+                <h3 className="steps steps-last fwl tracking-[0.5px] py-[13px] pr-[12px] pr-[20px] bg-[#c53a19] relative mb-15px] text-[#fff] text-[14px] uppercase">
                   3. order summary
                 </h3>
 
@@ -429,10 +430,12 @@ function ProductDetail() {
                   {productToCheckout.map((value, index) => {
                     return (
                       <ProductInCart
-                        key={index}
-                        index={index}
-                        data={value}
-                        deletItem={deletItem}
+                      key={index}
+                      index={index}
+                      data={value}
+                      deletItem={deletItem}
+                      setProductToCheckout={setProductToCheckout}
+                      productToCheckout={productToCheckout}
                       />
                     );
                   })}
@@ -482,8 +485,45 @@ function ProductDetail() {
 
 export default ProductDetail;
 
-function ProductInCart({ data, index, deletItem }) {
-  console.log("k", index);
+function ProductInCart({ 
+  data,
+  index,
+  deletItem,
+  setProductToCheckout,
+  productToCheckout,
+ }) {
+  const increment = (productId) => {
+    let _productToCheckout = productToCheckout;
+    let clickedProduct = {};
+    let id = "";
+    for (let i = 0; i < productToCheckout.length; i++) {
+      if (productToCheckout[i].id == productId) {
+        clickedProduct = productToCheckout[i];
+        id = i;
+      }
+    }
+    if (clickedProduct.quantity == 1 || clickedProduct.quantity > 1) {
+      clickedProduct.quantity = clickedProduct.quantity + 1;
+      _productToCheckout.splice(id, 1, clickedProduct);
+      setProductToCheckout([..._productToCheckout]);
+    }
+  };
+  const decrement = (productId) => {
+    let _productToCheckout = productToCheckout;
+    let clickedProduct = {};
+    let id = "";
+    for (let i = 0; i < productToCheckout.length; i++) {
+      if (productToCheckout[i].id == productId) {
+        clickedProduct = productToCheckout[i];
+        id = i;
+      }
+    }
+    if (clickedProduct.quantity > 1) {
+      clickedProduct.quantity = clickedProduct.quantity - 1;
+      _productToCheckout.splice(id, 1, clickedProduct);
+      setProductToCheckout([..._productToCheckout]);
+    }
+  };
   return (
     <>
       <div className="pb-[20px]">
@@ -493,12 +533,12 @@ function ProductInCart({ data, index, deletItem }) {
               <Image src={img3} alt="image" />
             </span>
           </div>
-          <div className="pl-[20px] pt-[20px ] relative w-[100%]     lg:w-[82%] ">
+          <div className="pr-[20px] pt-[20px ] relative w-[100%]     lg:w-[82%] ">
             <IoCloseOutline
-              className="absolute right-[-7px] top-[3px]"
+              className="absolute left-[-7px] top-[3px] cursor-pointer"
               onClick={() => deletItem(index)}
             />
-            <p className="fwr text-[13px] leading-[1.5] text-[#00] tracking-[0.5px] pt-[3px]">
+            <p className="fwr text-[13px] leading-[1.5] text-[#00] tracking-[0.5px] pt-[3px] pl-[10px]">
               {data.name}
             </p>
             <p className="fwr text-[13px] leading-[1.5] text-[#00] tracking-[0.5px] pb-[3px]">
@@ -533,7 +573,7 @@ function ProductInCart({ data, index, deletItem }) {
             </p>
             <div className="flex justify-between w-[100%] mt-[10px]">
               <div className="flex justify-between min-w-[80px]">
-                <button>
+                <button onClick={() => decrement(data.id)}>
                   <AiOutlineMinus className="text-[14px] text-[#8c8c8c]" />
                 </button>
                 <input
@@ -541,7 +581,7 @@ function ProductInCart({ data, index, deletItem }) {
                   id="product_qty"
                   className="w-[40px] text-center"
                 />
-                <button>
+                <button onClick={() => increment(data.id)}>
                   <AiOutlinePlus className="text-[14px] text-[#8c8c8c]" />
                 </button>
               </div>

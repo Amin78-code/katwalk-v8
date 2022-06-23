@@ -48,6 +48,10 @@ function Profiles() {
     ],
   });
 
+  const showModal = () => {
+    document.getElementById("upload_overlay").classList.add("dblock");
+  };
+
   return (
     <>
       <Layout>
@@ -55,7 +59,7 @@ function Profiles() {
           <AdminPanelLayout active={"Profiles"}>
             <HeadingBar heading={"Manage Profile"} />
             <div className="w-[100%]">
-              <ManageProfileBasicInfo data={profileData.basicInfo} title={"Basic Info"} />
+              <ManageProfileBasicInfo data={profileData.basicInfo} title={"Basic Info"} showModal={showModal} />
               <ManageProfileAddress data={profileData.address} title={"Address"} />
               <ManageProfilePaymentSetting data={profileData.paymentSetting} title={"Payment Setting"} />
               <ManageProfileDesigner_VAT_and_CR_No data={profileData.designer_VAT_and_CR_No} title={"Designer VAT & CR No."} />

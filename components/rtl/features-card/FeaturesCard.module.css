@@ -15,4 +15,10 @@
     flex: 1;
   }
 }
- 
+
+@media (min-width: 640px) and (max-width: 880px)   {
+  .features_car_div {
+    width: 50%;
+  }
+}
+  

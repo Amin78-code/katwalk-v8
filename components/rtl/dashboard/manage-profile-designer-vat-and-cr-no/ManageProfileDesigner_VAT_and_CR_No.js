@@ -53,7 +53,7 @@ function ManageProfileDesigner_VAT_and_CR_No({ data, title }) {
                       key={value.name}
                       className="fwr flex mb-[1rem] flex-col      lg:flex-row"
                     >
-                      <p className="w-[100%]     lg:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                      <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
                         {value.name}
                       </p>
                       <div className="w-[100%] px-0     lg:px-[15px] flex flex-col      lg:flex-row">

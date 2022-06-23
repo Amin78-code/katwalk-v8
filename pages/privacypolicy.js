@@ -369,7 +369,7 @@ function PrivacyPolicy() {
   return (
     <>
       <Layout>
-        <div className="container-for-content-pages border-[1px] border-[#f9f9f9]">
+        <div className="container-for-content-pages border-[1px] border-[#f9f9f9] px-[24px] pb-[25px] ">
           <h1 className=" fahkwang-light text-[28px] text-center leading-[1.5] tracking-[0.5] mb-[23px]">
             Privacy Policy, Terms and Conditions
           </h1>

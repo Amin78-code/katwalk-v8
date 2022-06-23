@@ -38,8 +38,8 @@ function ProductSlider({ data }) {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SamplePrevArrow />,
+    prevArrow: <SampleNextArrow />,
     responsive: [
       {
         breakpoint: 640,

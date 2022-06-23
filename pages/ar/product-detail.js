@@ -981,9 +981,9 @@ function ProductDetail() {
 
               {/* toggle tabs */}
               {/* tab1 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab1Toggler()}
                 >
                   <div>
@@ -1043,9 +1043,9 @@ function ProductDetail() {
               </div>
 
               {/* tab2 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab2Toggler()}
                 >
                   <div>
@@ -1080,9 +1080,9 @@ function ProductDetail() {
               </div>
 
               {/* tab3 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab3Toggler()}
                 >
                   <div>
@@ -1117,9 +1117,9 @@ function ProductDetail() {
               </div>
 
               {/* tab4 */}
-              <div className="w-[100%] mt-[5px] mb-[8px] cursor-pointer max-w-[100%]      lg:max-w-[400px]">
+              <div className="w-[100%] mt-[5px] mb-[8px] max-w-[100%]      lg:max-w-[400px]">
                 <div
-                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed]"
+                  className="w-[100%} flex justify-between items-center border-b-[1px] border-[#ededed] cursor-pointer"
                   onClick={() => tab4Toggler()}
                 >
                   <div>

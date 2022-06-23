@@ -31,7 +31,7 @@ function ImgCard({ data ,selecImg , index, selectedImgs}) {
     // console.log("ac  data",_imgPath);
 
   return (
-    <div className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff]     -----${selectedImgs}  /   ${_imgPath} ----- ${selectedImgs[index] == _imgPath ? " bg-[#007bff0d] border-[#007bff] ": "no"}    border-[#00000020]  border-[1px] mb-[10px]`}
+    <div className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm     -----${selectedImgs}  /   ${_imgPath} ----- ${selectedImgs[index] == _imgPath ? " bg-[#007bff0d] border-[#007bff] ": "no"}    border-[#00000020]  border-[1px] mb-[10px]`}
     onClick={()=>selecImg(data, index)}
     >
       <div className={`${styles.card_img_div}`}>
