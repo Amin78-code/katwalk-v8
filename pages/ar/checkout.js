@@ -30,6 +30,8 @@ function ProductDetail() {
       productBust: "20",
       productSleeves: "25",
       quantity: 1,
+      priceForOneProduct: 640,
+      price: 640,
     },
   ]);
 
@@ -495,15 +497,18 @@ function ProductInCart({
   const increment = (productId) => {
     let _productToCheckout = productToCheckout;
     let clickedProduct = {};
+     let priceOfsingleProduct = '';
     let id = "";
     for (let i = 0; i < productToCheckout.length; i++) {
       if (productToCheckout[i].id == productId) {
         clickedProduct = productToCheckout[i];
         id = i;
+        priceOfsingleProduct = productToCheckout[i].priceForOneProduct;
       }
     }
     if (clickedProduct.quantity == 1 || clickedProduct.quantity > 1) {
       clickedProduct.quantity = clickedProduct.quantity + 1;
+      clickedProduct.price = clickedProduct.price + priceOfsingleProduct;
       _productToCheckout.splice(id, 1, clickedProduct);
       setProductToCheckout([..._productToCheckout]);
     }
@@ -511,15 +516,18 @@ function ProductInCart({
   const decrement = (productId) => {
     let _productToCheckout = productToCheckout;
     let clickedProduct = {};
+     let priceOfsingleProduct = '';
     let id = "";
     for (let i = 0; i < productToCheckout.length; i++) {
       if (productToCheckout[i].id == productId) {
         clickedProduct = productToCheckout[i];
         id = i;
+        priceOfsingleProduct = productToCheckout[i].priceForOneProduct;
       }
     }
     if (clickedProduct.quantity > 1) {
       clickedProduct.quantity = clickedProduct.quantity - 1;
+      clickedProduct.price = clickedProduct.price - priceOfsingleProduct;
       _productToCheckout.splice(id, 1, clickedProduct);
       setProductToCheckout([..._productToCheckout]);
     }
@@ -586,7 +594,7 @@ function ProductInCart({
                 </button>
               </div>
               <p className="fwr text-[13px] text-[#1b1b28] leading-[25px] tracking-[0.5px]">
-                SAR 640
+              SAR {data.price}
               </p>
             </div>
           </div>

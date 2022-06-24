@@ -239,8 +239,7 @@ console.log("uploadedImg",uploadedImg)
 
 
 
-                {selectedPicutre == null ?     
-                <div
+{uploadedImg == null ?     <div
                   className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
                 >
                    <div
@@ -263,17 +262,17 @@ console.log("uploadedImg",uploadedImg)
                       </span>
                     </h1>
 
-                 <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
-                  {
-                    uploadedImg == null ? 
-                    <Image src={img4} alt="image" />
-                    :
-                    <>
-                    no
-                    <Image src={uploadedImg} alt={"image"} classes={""} layout='fill' width="30" height="30" />
-                    </>
-                  }
-                 </div>
+                 {/* <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
+            {
+              uploadedImg == null ? 
+              <Image src={img4} alt="image" />
+              :
+              <>
+              no
+              <Image src={uploadedImg} alt={"image"} classes={""} layout='fill' width="30" height="30" />
+              </>
+            }
+                 </div> */}
                   </div>
                 </div>
                 :
@@ -291,9 +290,30 @@ console.log("uploadedImg",uploadedImg)
                      </button>
                    </div>
                    <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
-                     {uploadNewImg.map((value) => {
+                     {/* {uploadNewImg.map((value) => {
                        return <UploadNewImgCard key={value} data={value} />;
-                     })}
+                     })} */}
+
+
+{
+              uploadedImg == null ? 
+          ""
+              :
+              <>
+          
+                <div className="w-[166px] mb-[10px]">
+        <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
+          <span className="image_container">
+          <Image src={uploadedImg} alt={"image"} width="30" height="30" />
+          </span>
+        </div>
+        <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden"></h6>
+        <p className="text-[11px] leading-[1.3] text-[#757575]">
+          <span>00</span>KB
+        </p>
+      </div>
+               </>
+            }
                    </div>
 
                    {uploadFailed && uploadFailed == true ? (
