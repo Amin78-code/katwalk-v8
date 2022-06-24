@@ -374,7 +374,7 @@ function ChooseImageModal({ data }) {
                           {fileType == "video/mp4" ? (
                             <div className="w-[166px] mb-[10px]">
                               <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
-                                <i class="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
+                                <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
                               </div>
 
                               <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">

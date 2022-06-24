@@ -56,7 +56,7 @@ else {
   
 <div className="w-[166px] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm     border-[#00000020]  border-[1px] mb-[10px]"  onClick={()=>selecImg(data, index)}>
 <div className="w-[100%] h-[105px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
-  <i class="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
+  <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
 </div>
  
 <p className="fwb text-[#1b1b28] text-[0.8rem] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">{data.name}</p>
