@@ -1,3 +1,7 @@
+.active_option {
+  color: #fff;
+  background-color: #c53a24;
+}
 .modal_main {
   display: flex;
   animation: showOverlay 1s forwards;
@@ -5,6 +9,9 @@
 .modal_div {
   display: block;
   animation: fadeInModal 1s forwards;
+}
+.red_border {
+  border-color: #c53a24;
 }
 @keyframes showOverlay {
   0% {
