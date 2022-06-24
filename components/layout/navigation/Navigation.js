@@ -700,8 +700,11 @@ function Navigation() {
                     SAR 1,030
                   </p>
                 </div>
-                <button className="w-[100%] text-[14px] text-[#fff] uppercase bg-[#000] px-[10px] py-[10px]">
-                  checkout
+                <button className="add-to-bag-btn relative overflow-hidden w-[100%] text-[14px] text-[#fff] uppercase bg-[#000] px-[10px] py-[10px]">
+                 
+                <Link href="/checkout">
+                              <span className="relative z-[5]">checkout</span>
+                            </Link> 
                 </button>
               </div>
             </div>
