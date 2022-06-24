@@ -28,7 +28,6 @@ function PriceFilter({
                   data={value}
                   filterName={filterName}
                   choosingFilterOption={choosingFilterOption}
-                  currectSelected={currectSelected}
                   index={index}
                   currentSelectedPricee={currentSelectedPricee}
                 />
@@ -50,14 +49,14 @@ function PriceFilterItem({
   index,
   currentSelectedPricee,
 }) {
-
-  console.log("--> currentSelectedPricee",currentSelectedPricee? currentSelectedPricee[index]?.status:"ff")
   return (
     <>
       {/* ${styles.active} */}
       <div
         className={`${
-          currentSelectedPricee && currentSelectedPricee.length && currentSelectedPricee.length !== 0
+          currentSelectedPricee &&
+          currentSelectedPricee.length &&
+          currentSelectedPricee.length !== 0
             ? currentSelectedPricee[index].status == true
               ? styles.active
               : ""

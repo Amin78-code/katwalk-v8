@@ -145,6 +145,7 @@ function ShopFilters({ forDesigner }) {
   const resetAllFilterAndCrossDiv = useRef(null);
 
   const [currentSelectedSizeee, setCurrentSelectedSizeee] = useState([]);
+  const [currentSelectedPricee, setCurrentSelectedPricee] = useState([]);
   const [currectSelectedColor, setCurrectSelectedColor] = useState("");
   const [currectSelectedPrice, setCurrectSelectedPrice] = useState("");
   const [currectSelectedSortBy, setCurrectSelectedSortBy] = useState("");
@@ -218,7 +219,25 @@ function ShopFilters({ forDesigner }) {
     } else if (filterName == "colorFilter") {
       setCurrectSelectedColor(selectedOption);
     } else if (filterName == "prizeFilter") {
-      setCurrectSelectedPrice(selectedOption);
+      if (currentSelectedPricee.length == 0) {
+        let _currentSelectedPricee = currentSelectedPricee;
+        for (let i = 0; i < allPriceRanges.length; i++) {
+          _currentSelectedPricee.push({
+            value: allPriceRanges[i],
+            status: false,
+          });
+        }
+        setCurrentSelectedPricee(_currentSelectedPricee);
+      }
+
+      let __currentSelectedPricee = currentSelectedPricee;
+      for (let j = 0; j < __currentSelectedPricee.length; j++) {
+        if (__currentSelectedPricee[j].value == selectedOption) {
+          __currentSelectedPricee[j].status =
+            !__currentSelectedPricee[j].status;
+        }
+      }
+      setCurrentSelectedPricee([...__currentSelectedPricee]);
     } else if (filterName == "sortByFilter") {
       setCurrectSelectedSortBy(selectedOption);
     }
@@ -727,7 +746,7 @@ function ShopFilters({ forDesigner }) {
                 price_dropdown={price_dropdown}
                 data={allPriceRanges}
                 choosingFilterOption={choosingFilterOption}
-                currectSelected={currectSelectedPrice}
+                currentSelectedPricee={currentSelectedPricee}
                 filterName={"prizeFilter"}
               />
             </div>

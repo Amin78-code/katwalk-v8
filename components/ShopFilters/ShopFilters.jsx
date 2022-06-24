@@ -182,56 +182,45 @@ function ShopFilters({ forDesigner }) {
   ]);
 
   const choosingFilterOption = (selectedOption, filterName) => {
-    console.log("filterName",filterName)
     if (filterName == "sizeFilter") {
-
-
-
-      if(currentSelectedSizeee.length == 0) {
-        let _currentSelectedSizeee = currentSelectedSizeee
+      if (currentSelectedSizeee.length == 0) {
+        let _currentSelectedSizeee = currentSelectedSizeee;
         for (let i = 0; i < allSizes.length; i++) {
-          _currentSelectedSizeee.push({value:allSizes[i], status: false})
+          _currentSelectedSizeee.push({ value: allSizes[i], status: false });
         }
-        setCurrentSelectedSizeee(_currentSelectedSizeee)
+        setCurrentSelectedSizeee(_currentSelectedSizeee);
       }
 
-      let __currentSelectedSizeee = currentSelectedSizeee
+      let __currentSelectedSizeee = currentSelectedSizeee;
       for (let j = 0; j < __currentSelectedSizeee.length; j++) {
-        if(__currentSelectedSizeee[j].value == selectedOption) {
-          __currentSelectedSizeee[j].status = !__currentSelectedSizeee[j].status;
+        if (__currentSelectedSizeee[j].value == selectedOption) {
+          __currentSelectedSizeee[j].status =
+            !__currentSelectedSizeee[j].status;
         }
       }
-        setCurrentSelectedSizeee([...__currentSelectedSizeee])
-
-
-        console.log("tt> currentSelectedSizeee",currentSelectedSizeee)
-
+      setCurrentSelectedSizeee([...__currentSelectedSizeee]);
     } else if (filterName == "colorFilter") {
       setCurrectSelectedColor(selectedOption);
     } else if (filterName == "prizeFilter") {
-      
-      console.log("yes",filterName)
-      console.log("currentSelectedPricee.length",currentSelectedPricee.length)
-
-      if(currentSelectedPricee.length == 0) {
-        let _currentSelectedPricee = currentSelectedPricee
+      if (currentSelectedPricee.length == 0) {
+        let _currentSelectedPricee = currentSelectedPricee;
         for (let i = 0; i < allPriceRanges.length; i++) {
-          _currentSelectedPricee.push({value:allPriceRanges[i], status: false})
+          _currentSelectedPricee.push({
+            value: allPriceRanges[i],
+            status: false,
+          });
         }
-        setCurrentSelectedPricee(_currentSelectedPricee)
-        console.log("currentSelectedPricee",currentSelectedPricee)
+        setCurrentSelectedPricee(_currentSelectedPricee);
       }
 
-      let __currentSelectedPricee = currentSelectedPricee
+      let __currentSelectedPricee = currentSelectedPricee;
       for (let j = 0; j < __currentSelectedPricee.length; j++) {
-        if(__currentSelectedPricee[j].value == selectedOption) {
-          __currentSelectedPricee[j].status = !__currentSelectedPricee[j].status;
+        if (__currentSelectedPricee[j].value == selectedOption) {
+          __currentSelectedPricee[j].status =
+            !__currentSelectedPricee[j].status;
         }
       }
-        setCurrentSelectedPricee([...__currentSelectedPricee])
-
-
-console.log("tt> currentSelectedPricee",currentSelectedPricee)
+      setCurrentSelectedPricee([...__currentSelectedPricee]);
     } else if (filterName == "sortByFilter") {
       setCurrectSelectedSortBy(selectedOption);
     }
