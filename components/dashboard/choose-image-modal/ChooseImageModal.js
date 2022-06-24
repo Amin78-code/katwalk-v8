@@ -1,4 +1,4 @@
- import React, { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./ChooseImageModal.module.css";
 import Overlay from "../overlay/Overlay";
@@ -10,31 +10,63 @@ import img4 from "../../../assets/images/uploaded/IMG_2378.jpg";
 import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
 import ImgLazyLoad from "../../img-lazy-load/ImgLazyLoad";
 
-const uploadedPictures = [
+const data_uploadedPictures = [
   {
     img: img1,
     name: "",
     sizeInKB: "199",
+    fileType: "",
   },
   {
     img: img2,
     name: "",
     sizeInKB: "248",
+    fileType: "",
   },
   {
     img: img3,
     name: "",
     sizeInKB: "80",
+    fileType: "",
   },
   {
     img: img4,
     name: "",
     sizeInKB: "83",
+    fileType: "",
   },
 ];
 
 function ChooseImageModal({ data }) {
   // console.log("image--", img1);
+
+  const [uploadedPictures, setUploadedPictures] = useState([
+    {
+      img: img1,
+      name: "",
+      sizeInKB: "199",
+      fileType: "",
+    },
+    {
+      img: img2,
+      name: "",
+      sizeInKB: "248",
+      fileType: "",
+    },
+    {
+      img: img3,
+      name: "",
+      sizeInKB: "80",
+      fileType: "",
+    },
+    {
+      img: img4,
+      name: "",
+      sizeInKB: "83",
+      fileType: "",
+    },
+  ]);
+
   const [selectedImgs, setSelectedImgs] = useState([]);
   const [uploadFailed, setUploadFailed] = useState(true);
   const [uploadNewImg, setUploadNewImg] = useState([
@@ -43,9 +75,12 @@ function ChooseImageModal({ data }) {
   ]);
   const [selectedPicutre, setSelectedPicture] = useState(null);
   // const [error, setError] = useState("");
-const imgTypes = ["image/png", "image/jpeg"]
+  const imgTypes = ["image/png", "image/jpeg"];
 
-const [uploadedImg, setUploadedImg] = useState(null)
+  const [uploadedImg, setUploadedImg] = useState(null);
+  const [imgSize, setImgSize] = useState(null);
+  const [imgName, setImgName] = useState(null);
+  const [fileType, setFileType] = useState(null);
 
   const tab1 = useRef(null);
   const tab2 = useRef(null);
@@ -75,7 +110,6 @@ const [uploadedImg, setUploadedImg] = useState(null)
   };
 
   const selecImg = (data, id) => {
-    // console.log("selecImg called")
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
@@ -100,9 +134,6 @@ const [uploadedImg, setUploadedImg] = useState(null)
     }
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
-
-    // console.log("_rrr _selectedImgs", _selectedImgs);
-    // console.log("rrr selectedImgs", selectedImgs);
   };
 
   // const changeHandle =(e)=> {
@@ -119,21 +150,61 @@ const [uploadedImg, setUploadedImg] = useState(null)
   //   console.log("selectedpicture", selectedPicutre)
   // }
 
+  const types = ["image/png", "image/jpeg", "video/mp4"];
 
+  const changeHandle = (e) => {
+    let file = e.target.files[0];
 
-  const changeHandle =(e)=> {
-    console.log("uploadedImg",uploadedImg)
-const reader = new FileReader();
-    console.log("reader",reader)
-    reader.onload=()=> {
-    console.log("reader.result",reader.result)
-    if(reader.readyState === 2) {
-    setUploadedImg(reader.result)
-  }
-}
-reader.readAsDataURL(e.target.files[0])
-console.log("uploadedImg",uploadedImg)
-  }
+    console.log("e.target.files",e.target.files)
+
+    if (file && types.includes(file.type)) {
+      let fileName = file.name;
+      let fileSize = file.size;
+
+      if (fileSize <= 1000000) {
+        fileSize = (fileSize / 1000).toFixed(2) + "kb";
+      }
+      if (fileSize == 1000000 || fileSize <= 1000000000) {
+        fileSize = (fileSize / 1000000).toFixed(2) + "mb";
+      }
+      if (fileSize == 1000000000 || fileSize <= 1000000000000) {
+        fileSize = (fileSize / 1000000000).toFixed(2) + "gb";
+      }
+
+      const reader = new FileReader();
+      let imgUploadedNow = null;
+
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setUploadedImg(reader.result);
+          imgUploadedNow = reader.result;
+
+          setImgSize(fileSize);
+          setImgName(fileName);
+          setFileType(file.type);
+
+          let _uploadedPictures = uploadedPictures;
+          _uploadedPictures.unshift({
+            img: imgUploadedNow,
+            name: fileName,
+            sizeInKB: fileSize,
+            fileType: file.type,
+          });
+
+          setUploadedPictures(_uploadedPictures);
+        }
+      };
+      reader.readAsDataURL(e.target.files[0]);
+
+      setUploadFailed(false);
+    } else {
+      setUploadFailed(true);
+    }
+  };
+
+  const addMoreImages = () => {
+    setUploadedImg(null);
+  };
 
   return (
     <>
@@ -236,33 +307,32 @@ console.log("uploadedImg",uploadedImg)
                 </div>
               </div> */}
               <div className="w-[100%] h-[100%] relative overflow-hidden z-[1]">
-
-
-
-{uploadedImg == null ?     <div
-                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
-                >
-                   <div
-                    className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
+                {uploadedImg == null ? (
+                  <div
+                    className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
                   >
-                    <h1 className="text-[#525252] text-[27px]">
-                      Drop files here, paste or&nbsp;
-                      <span className="cursor-pointer">
-                        <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
-                          Browse
-                          <input
-                            type="file"
-                            id="img"
-                            name="img"
-                            accept="image/*"
-                            className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
-                            onChange={changeHandle}
-                          />
+                    <div
+                      className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
+                    >
+                      <h1 className="text-[#525252] text-[27px]">
+                        Drop files here, paste or&nbsp;
+                        <span className="cursor-pointer">
+                          <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
+                            Browse
+                            <input
+                              type="file"
+                              id="img"
+                              name="img"
+                              // accept="image/*"
+                              multiple 
+                              className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
+                              onChange={changeHandle}
+                            />
+                          </span>
                         </span>
-                      </span>
-                    </h1>
+                      </h1>
 
-                 {/* <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
+                      {/* <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
             {
               uploadedImg == null ? 
               <Image src={img4} alt="image" />
@@ -273,80 +343,104 @@ console.log("uploadedImg",uploadedImg)
               </>
             }
                  </div> */}
+                    </div>
                   </div>
-                </div>
-                :
+                ) : (
                   <div
-                   className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
-                 >
-                   <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
-                     <div className="w-[90px]"></div>
-                     <p className="fwr text-[14px] text-[#333] ">
-                       Upload complete
-                     </p>
-                     <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                       <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
-                       Add more
-                     </button>
-                   </div>
-                   <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
-                     {/* {uploadNewImg.map((value) => {
+                    className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
+                  >
+                    <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
+                      <div className="w-[130px]"></div>
+                      <p className="fwr text-[14px] text-[#333] ">
+                        Upload complete
+                      </p>
+                      <button
+                        onClick={() => addMoreImages()}
+                        className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center"
+                      >
+                        <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                        Add more
+                      </button>
+                    </div>
+                    <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
+                      {/* {uploadNewImg.map((value) => {
                        return <UploadNewImgCard key={value} data={value} />;
                      })} */}
 
+                      {uploadedImg == null ? (
+                        ""
+                      ) : (
+                        <>
+                          {fileType == "video/mp4" ? (
+                            <div className="w-[166px] mb-[10px]">
+                              <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
+                                <i class="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
+                              </div>
 
-{
-              uploadedImg == null ? 
-          ""
-              :
-              <>
-          
-                <div className="w-[166px] mb-[10px]">
-        <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
-          <span className="image_container">
-          <Image src={uploadedImg} alt={"image"} width="30" height="30" />
-          </span>
-        </div>
-        <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden"></h6>
-        <p className="text-[11px] leading-[1.3] text-[#757575]">
-          <span>00</span>KB
-        </p>
-      </div>
-               </>
-            }
-                   </div>
+                              <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                                {imgName !== null ? imgName : ""}
+                              </h6>
 
-                   {uploadFailed && uploadFailed == true ? (
-                     <div className="w-[100%] h-[45px] bg-[#fff]">
-                       <div className="w-[100%] h-[2px] ">
-                         <div className={`w-[60%] h-[2px] bg-[#e32437] `}></div>
-                       </div>
-                       <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
-                         <p className="capitalize text-[12px] text-[#333] flex">
-                           <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
-                           upload failed
-                           <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
-                  {/* qqqqq            <i className="lar la-question text-[16px] text-[#e32437] ml-[5px]"></i>     */}
-                         </p>
-                       </div>
-                     </div>
-                   ) : (
-                     <div className="w-[100%] h-[45px] bg-[#fff]">
-                       <div className="w-[100%] h-[2px] ">
-                         <div className={`w-[60%] h-[2px] bg-[#1bb240]`}></div>
-                       </div>
-                       <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
-                         <p className="capitalize text-[12px] text-[#333] flex">
-                           <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
-                           complete
-                         </p>
-                       </div>
-                     </div>
-                   )}
-                 </div>
-                }
+                              <p className="text-[11px] leading-[1.3] text-[#757575]">
+                                <span>{imgSize !== null ? imgSize : ""}</span>
+                              </p>
+                            </div>
+                          ) : (
+                            <div className="w-[166px] mb-[10px]">
+                              <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
+                                <span className="image_container">
+                                  <Image
+                                    src={uploadedImg}
+                                    alt={"image"}
+                                    width="30"
+                                    height="30"
+                                  />
+                                </span>
+                              </div>
 
-                
+                              <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                                {imgName !== null ? imgName : ""}
+                              </h6>
+
+                              <p className="text-[11px] leading-[1.3] text-[#757575]">
+                                <span>{imgSize !== null ? imgSize : ""}</span>
+                              </p>
+                            </div>
+                          )}
+                        </>
+                      )}
+                    </div>
+
+                    {uploadFailed && uploadFailed == true ? (
+                      <div className="w-[100%] h-[45px] bg-[#fff]">
+                        <div className="w-[100%] h-[2px] ">
+                          <div
+                            className={`w-[100%] h-[2px] bg-[#e32437] `}
+                          ></div>
+                        </div>
+                        <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                          <p className="capitalize text-[12px] text-[#333] flex">
+                            <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
+                            upload failed
+                            <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-[100%] h-[45px] bg-[#fff]">
+                        <div className="w-[100%] h-[2px] ">
+                          <div className={`w-[100%] h-[2px] bg-[#1bb240]`}></div>
+                        </div>
+                        <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                          <p className="capitalize text-[12px] text-[#333] flex">
+                            <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
+                            complete
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
