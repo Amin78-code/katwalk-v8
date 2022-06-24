@@ -127,6 +127,7 @@ function ShopFilters({ forDesigner }) {
   const resetAllFilterAndCrossDiv = useRef(null);
 
   const [currentSelectedSizeee, setCurrentSelectedSizeee] = useState([]);
+  const [currentSelectedPricee, setCurrentSelectedPricee] = useState([]);
   const [currectSelectedColor, setCurrectSelectedColor] = useState("");
   const [currectSelectedPrice, setCurrectSelectedPrice] = useState("");
   const [currectSelectedSortBy, setCurrectSelectedSortBy] = useState("");
@@ -181,7 +182,11 @@ function ShopFilters({ forDesigner }) {
   ]);
 
   const choosingFilterOption = (selectedOption, filterName) => {
+    console.log("filterName",filterName)
     if (filterName == "sizeFilter") {
+
+
+
       if(currentSelectedSizeee.length == 0) {
         let _currentSelectedSizeee = currentSelectedSizeee
         for (let i = 0; i < allSizes.length; i++) {
@@ -197,10 +202,36 @@ function ShopFilters({ forDesigner }) {
         }
       }
         setCurrentSelectedSizeee([...__currentSelectedSizeee])
+
+
+        console.log("tt> currentSelectedSizeee",currentSelectedSizeee)
+
     } else if (filterName == "colorFilter") {
       setCurrectSelectedColor(selectedOption);
     } else if (filterName == "prizeFilter") {
-      setCurrectSelectedPrice(selectedOption);
+      
+      console.log("yes",filterName)
+      console.log("currentSelectedPricee.length",currentSelectedPricee.length)
+
+      if(currentSelectedPricee.length == 0) {
+        let _currentSelectedPricee = currentSelectedPricee
+        for (let i = 0; i < allPriceRanges.length; i++) {
+          _currentSelectedPricee.push({value:allPriceRanges[i], status: false})
+        }
+        setCurrentSelectedPricee(_currentSelectedPricee)
+        console.log("currentSelectedPricee",currentSelectedPricee)
+      }
+
+      let __currentSelectedPricee = currentSelectedPricee
+      for (let j = 0; j < __currentSelectedPricee.length; j++) {
+        if(__currentSelectedPricee[j].value == selectedOption) {
+          __currentSelectedPricee[j].status = !__currentSelectedPricee[j].status;
+        }
+      }
+        setCurrentSelectedPricee([...__currentSelectedPricee])
+
+
+console.log("tt> currentSelectedPricee",currentSelectedPricee)
     } else if (filterName == "sortByFilter") {
       setCurrectSelectedSortBy(selectedOption);
     }
@@ -317,7 +348,7 @@ function ShopFilters({ forDesigner }) {
 
   const resetAllFilters = () => {
     setCurrentSelectedSizeee("");
-    setCurrectSelectedPrice("");
+    setCurrectSelectedPricee("");
     setCurrectSelectedSortBy("");
   };
 
@@ -701,7 +732,7 @@ function ShopFilters({ forDesigner }) {
                 price_dropdown={price_dropdown}
                 data={allPriceRanges}
                 choosingFilterOption={choosingFilterOption}
-                currectSelected={currectSelectedPrice}
+                currentSelectedPricee={currentSelectedPricee}
                 filterName={"prizeFilter"}
               />
             </div>

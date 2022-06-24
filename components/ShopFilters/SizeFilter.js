@@ -48,6 +48,7 @@ function SizeFilterItem({
   index,
   currentSelectedSizeee,
 }) {
+  console.log("--> currentSelectedSizeee",currentSelectedSizeee? currentSelectedSizeee[index]?.status:"ggg")
   return (
     <>
       {/* ${styles.active} */}
