@@ -45,7 +45,7 @@ function Otp() {
 verify
             </Link>
           </button>
-          <p className="text-[13px] mt-[10px]"><span className="opacity-[0.6]">Did't receive the verification OTP?</span> <span className="text-[#c53a19] cursor-pointer">Resend again</span></p>
+          <p className="text-[13px] mt-[10px]"><span className="opacity-[0.6]">Did&#39;t receive the verification OTP?</span> <span className="text-[#c53a19] cursor-pointer">Resend again</span></p>
      
         
         </div>
