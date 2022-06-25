@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./ChooseImageModal.module.css";
 import Overlay from "../overlay/Overlay";
@@ -10,35 +10,8 @@ import img4 from "../../../assets/images/uploaded/IMG_2378.jpg";
 import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
 import ImgLazyLoad from "../../img-lazy-load/ImgLazyLoad";
 
-const data_uploadedPictures = [
-  {
-    img: img1,
-    name: "",
-    sizeInKB: "199",
-    fileType: "",
-  },
-  {
-    img: img2,
-    name: "",
-    sizeInKB: "248",
-    fileType: "",
-  },
-  {
-    img: img3,
-    name: "",
-    sizeInKB: "80",
-    fileType: "",
-  },
-  {
-    img: img4,
-    name: "",
-    sizeInKB: "83",
-    fileType: "",
-  },
-];
 
 function ChooseImageModal({ data }) {
-  // console.log("image--", img1);
 
   const [uploadedPictures, setUploadedPictures] = useState([
     {
@@ -66,6 +39,43 @@ function ChooseImageModal({ data }) {
       fileType: "",
     },
   ]);
+  //  useEffect(() => {
+  //   for (let i = 0; i < uploadedPictures.length; i++) {
+
+  //     let imgPath = null;
+  //     let _imgPath = null;
+  //     if (uploadedPictures[i].img.src == undefined) {
+  //       console.log(">> yes");
+  //     } else {
+  //       console.log(">> else");
+  //       imgPath = uploadedPictures[i].img?.src.split("/");
+  //       _imgPath = imgPath[imgPath.length - 1];
+  //   console.log(">> _imgPath",_imgPath)
+
+  //   let _uploadedPictures = uploadedPictures;
+  //   _uploadedPictures.push({
+  //     img: img1,
+  //     name: imgPath,
+  //     sizeInKB: "199",
+  //     fileType: "",
+  //   })
+  //   // setUploadedPictures(_uploadedPictures);
+  //       // for (let k = 0; k < selectedImgs.length; k++) {
+  //       //   if (selectedImgs[k] == _imgPath) {
+  //       //     console.log("yess");
+  //       //   }
+  //       // }
+  //     }
+
+
+  //   }
+
+
+    
+
+
+
+  // }, []);
 
   const [selectedImgs, setSelectedImgs] = useState([]);
   const [uploadFailed, setUploadFailed] = useState(true);
@@ -77,7 +87,7 @@ function ChooseImageModal({ data }) {
   // const [error, setError] = useState("");
   const imgTypes = ["image/png", "image/jpeg"];
 
-  const [uploadedImg, setUploadedImg] = useState(null);
+  const [uploadedImg, setUploadedImg] = useState([]);
   const [imgSize, setImgSize] = useState(null);
   const [imgName, setImgName] = useState(null);
   const [fileType, setFileType] = useState(null);
@@ -110,6 +120,7 @@ function ChooseImageModal({ data }) {
   };
 
   const selecImg = (data, id) => {
+    console.log("selecImg",data," - ", id)
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
@@ -153,57 +164,78 @@ function ChooseImageModal({ data }) {
   const types = ["image/png", "image/jpeg", "video/mp4"];
 
   const changeHandle = (e) => {
-    let file = e.target.files[0];
+    let files = e.target.files;
 
-    console.log("e.target.files",e.target.files)
+    let uploadedFiles = [];
 
-    if (file && types.includes(file.type)) {
-      let fileName = file.name;
-      let fileSize = file.size;
+    for (let i = 0; i < files.length; i++) {
+      if (files[i] && types.includes(files[i].type)) {
+        let fileName = files[i].name;
+        let fileSize = files[i].size;
 
-      if (fileSize <= 1000000) {
-        fileSize = (fileSize / 1000).toFixed(2) + "kb";
-      }
-      if (fileSize == 1000000 || fileSize <= 1000000000) {
-        fileSize = (fileSize / 1000000).toFixed(2) + "mb";
-      }
-      if (fileSize == 1000000000 || fileSize <= 1000000000000) {
-        fileSize = (fileSize / 1000000000).toFixed(2) + "gb";
-      }
-
-      const reader = new FileReader();
-      let imgUploadedNow = null;
-
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setUploadedImg(reader.result);
-          imgUploadedNow = reader.result;
-
-          setImgSize(fileSize);
-          setImgName(fileName);
-          setFileType(file.type);
-
-          let _uploadedPictures = uploadedPictures;
-          _uploadedPictures.unshift({
-            img: imgUploadedNow,
-            name: fileName,
-            sizeInKB: fileSize,
-            fileType: file.type,
-          });
-
-          setUploadedPictures(_uploadedPictures);
+        if (fileSize <= 1000000) {
+          fileSize = (fileSize / 1000).toFixed(2) + "kb";
         }
-      };
-      reader.readAsDataURL(e.target.files[0]);
+        if (fileSize == 1000000 || fileSize <= 1000000000) {
+          fileSize = (fileSize / 1000000).toFixed(2) + "mb";
+        }
+        if (fileSize == 1000000000 || fileSize <= 1000000000000) {
+          fileSize = (fileSize / 1000000000).toFixed(2) + "gb";
+        }
 
-      setUploadFailed(false);
-    } else {
-      setUploadFailed(true);
+        const reader = new FileReader();
+        let imgUploadedNow = null;
+
+        reader.onload = () => {
+          if (reader.readyState === 2) {
+            uploadedFiles.push({
+              img: reader.result,
+              name: files[i].name,
+              sizeInKB: fileSize,
+              fileType: files[i].type,
+            });
+
+            setUploadedImg([...uploadedFiles]);
+
+            let _uploadedPictures = uploadedPictures;
+            _uploadedPictures.unshift({
+              img: reader.result,
+              name: files[i].name,
+              sizeInKB: fileSize,
+              fileType: files[i].type,
+            });
+
+            setUploadedPictures(_uploadedPictures);
+
+            // setUploadedImg(reader.result);
+            // imgUploadedNow = reader.result;
+
+            // setImgSize(fileSize);
+            // setImgName(fileName);
+            // setFileType(file.type);
+
+            // let _uploadedPictures = uploadedPictures;
+            // _uploadedPictures.unshift({
+            //   img: imgUploadedNow,
+            //   name: fileName,
+            //   sizeInKB: fileSize,
+            //   fileType: file.type,
+            // });
+
+            // setUploadedPictures(_uploadedPictures);
+          }
+        };
+        reader.readAsDataURL(e.target.files[i]);
+
+        setUploadFailed(false);
+      } else {
+        setUploadFailed(true);
+      }
     }
   };
 
   const addMoreImages = () => {
-    setUploadedImg(null);
+    setUploadedImg([]);
   };
 
   return (
@@ -307,7 +339,7 @@ function ChooseImageModal({ data }) {
                 </div>
               </div> */}
               <div className="w-[100%] h-[100%] relative overflow-hidden z-[1]">
-                {uploadedImg == null ? (
+                {uploadedImg?.length == 0 ? (
                   <div
                     className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
                   >
@@ -324,7 +356,7 @@ function ChooseImageModal({ data }) {
                               id="img"
                               name="img"
                               // accept="image/*"
-                              multiple 
+                              multiple
                               className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
                               onChange={changeHandle}
                             />
@@ -367,46 +399,60 @@ function ChooseImageModal({ data }) {
                        return <UploadNewImgCard key={value} data={value} />;
                      })} */}
 
-                      {uploadedImg == null ? (
+                      {uploadedImg?.length == 0 ? (
                         ""
                       ) : (
                         <>
-                          {fileType == "video/mp4" ? (
-                            <div className="w-[166px] mb-[10px]">
-                              <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
-                                <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
-                              </div>
+                          {uploadedImg.map((value, index) => {
+                            return (
+                              <>
+                                {value.fileType == "video/mp4" ? (
+                                  <div className="w-[166px] mb-[10px]" key={value.name}>
+                                    <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
+                                      <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
+                                    </div>
 
-                              <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
-                                {imgName !== null ? imgName : ""}
-                              </h6>
+                                    <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                                      {value.name !== null ? value.name : ""}
+                                    </h6>
 
-                              <p className="text-[11px] leading-[1.3] text-[#757575]">
-                                <span>{imgSize !== null ? imgSize : ""}</span>
-                              </p>
-                            </div>
-                          ) : (
-                            <div className="w-[166px] mb-[10px]">
-                              <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
-                                <span className="image_container">
-                                  <Image
-                                    src={uploadedImg}
-                                    alt={"image"}
-                                    width="30"
-                                    height="30"
-                                  />
-                                </span>
-                              </div>
+                                    <p className="text-[11px] leading-[1.3] text-[#757575]">
+                                      <span>
+                                        {value.sizeInKB !== null
+                                          ? value.sizeInKB
+                                          : ""}
+                                      </span>
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div className="w-[166px] mb-[10px]" key={value.name}>
+                                    <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
+                                      <span className="image_container">
+                                        <Image
+                                          src={value.img}
+                                          alt={"image"}
+                                          width="30"
+                                          height="30"
+                                        />
+                                      </span>
+                                    </div>
 
-                              <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
-                                {imgName !== null ? imgName : ""}
-                              </h6>
+                                    <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                                      {value.name !== null ? value.name : ""}
+                                    </h6>
 
-                              <p className="text-[11px] leading-[1.3] text-[#757575]">
-                                <span>{imgSize !== null ? imgSize : ""}</span>
-                              </p>
-                            </div>
-                          )}
+                                    <p className="text-[11px] leading-[1.3] text-[#757575]">
+                                      <span>
+                                        {value.sizeInKB !== null
+                                          ? value.sizeInKB
+                                          : ""}
+                                      </span>
+                                    </p>
+                                  </div>
+                                )}
+                              </>
+                            );
+                          })}
                         </>
                       )}
                     </div>
@@ -429,7 +475,9 @@ function ChooseImageModal({ data }) {
                     ) : (
                       <div className="w-[100%] h-[45px] bg-[#fff]">
                         <div className="w-[100%] h-[2px] ">
-                          <div className={`w-[100%] h-[2px] bg-[#1bb240]`}></div>
+                          <div
+                            className={`w-[100%] h-[2px] bg-[#1bb240]`}
+                          ></div>
                         </div>
                         <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
                           <p className="capitalize text-[12px] text-[#333] flex">
