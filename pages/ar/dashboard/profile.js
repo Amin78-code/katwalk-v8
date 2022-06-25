@@ -9,6 +9,7 @@ import ManageProfileAddress from "../../../components/rtl/dashboard/manage-profi
 import ManageProfilePaymentSetting from "../../../components/rtl/dashboard/manage-profile-payment-setting/ManageProfilePaymentSetting";
 import ManageProfileDesigner_VAT_and_CR_No from "../../../components/rtl/dashboard/manage-profile-designer-vat-and-cr-no/ManageProfileDesigner_VAT_and_CR_No";
 import ManageProfileChangeYourEmail from "../../../components/rtl/dashboard/manage-profile-change-your-email/ManageProfileChangeYourEmail";
+import ChooseImageModal from "../../../components/rtl/dashboard/choose-image-modal/ChooseImageModal";
 
 function Profiles() {
   useEffect(() => {
@@ -68,6 +69,9 @@ function Profiles() {
           </AdminPanelLayout>
         </div>
       </Layout>
+      <div id="upload_overlay" className="dnone">
+        <ChooseImageModal />
+      </div>
     </>
   );
 }
