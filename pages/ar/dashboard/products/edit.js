@@ -181,15 +181,26 @@ const galleryImageData = {
 
 function AddNewProduct() {
   useEffect(() => {
-    document.querySelector("body").style.direction = 'rtl'
+    document.querySelector("body").style.direction = "rtl";
   }, []);
   const [selectedCategory, setSelectedCategory] = useState("Abaya");
-  const [productCategoriesForShow, setProductCategoriesForShow] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
+  const [selectedCategoryInArabic, setSelectedCategoryInArabic] =
+    useState("قفطان");
+  const [productCategoriesForShow, setProductCategoriesForShow] = useState([
+    "Abaya",
+    "Kaftan",
+    "Dress",
+    "Farwa",
+    "Kimono",
+  ]);
+  const [
+    productCategoriesForShowInArabic,
+    setProductCategoriesForShowInArabic,
+  ] = useState(["قفطان", "فستان", "فروة", "كيمونو", "Katwalk e-Gift Card"]);
 
   const [selectedType, setSelectedType] = useState("Bespoke");
   const [selectedSizeAndFit, setSelectedSizeAndFit] = useState("oversized fit");
-  const [selectedFabricType, setSelectedFabricType] =
-    useState("لا شيء محدد");
+  const [selectedFabricType, setSelectedFabricType] = useState("لا شيء محدد");
   const [selectedFabricWeight, setSelectedFabricWeight] = useState("warm");
   const [selectedCareInstructions, setSelectedCareInstructions] =
     useState("لا شيء محدد");
@@ -198,6 +209,12 @@ function AddNewProduct() {
   const [productInfromation, setProductInfromation] = useState([
     { name: "productName", value: "text 2" },
     { name: "category", value: "abaya" },
+    { name: "sku_Code", value: "SKU Code" },
+  ]);
+
+  const [productInfromationInArabic, setProductInfromationInArabic] = useState([
+    { name: "productName", value: "text 2" },
+    { name: "category", value: "قفطان" },
     { name: "sku_Code", value: "SKU Code" },
   ]);
 
@@ -219,8 +236,7 @@ function AddNewProduct() {
 
   const [colorTitle, setColorTitle] = useState("لا شيء محدد");
   const [sheilacolorTitle, setSheilaColorTitle] = useState("لا شيء محدد");
-  const [sheilaLengthTitle, setSheilaLengthTitle] =
-    useState("لا شيء محدد");
+  const [sheilaLengthTitle, setSheilaLengthTitle] = useState("لا شيء محدد");
   const [sizeTitle, setSizeTitle] = useState([]);
 
   const [isDisableSheila, setIsDisableSheila] = useState(false);
@@ -229,7 +245,7 @@ function AddNewProduct() {
   const [currentImages, setCurrentImages] = useState([
     {
       img: img1,
-      name: "",
+      name: "screenimg1.png",
       sizeInKB: "199",
     },
   ]);
@@ -250,6 +266,11 @@ function AddNewProduct() {
 
   const setCategory = (selectedOption) => {
     setSelectedCategory(selectedOption);
+    openCategorySelect();
+  };
+
+  const setCategoryForArabic = (selectedOption) => {
+    setSelectedCategoryInArabic(selectedOption);
     openCategorySelect();
   };
 
@@ -617,10 +638,55 @@ function AddNewProduct() {
     let _productCategories = values;
     let __productCategories = [];
     for (let i = 0; i < _productCategories.length; i++) {
-      __productCategories.push(values[i].toLowerCase())
+      __productCategories.push(values[i].toLowerCase());
     }
-    const startsWithN = __productCategories.filter((country) => country.startsWith(e.target.value.toLowerCase()));
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
     setProductCategoriesForShow(startsWithN);
+  };
+
+  const [enableArabic, setEnableArabic] = useState(false);
+
+  const toggleLang = (currentlanguage) => {
+    if (currentlanguage == "en") {setEnableArabic(true);}
+    else if (currentlanguage == "ar") {setEnableArabic(false);}
+  };
+
+  const handleChange = (e, name) => {
+    if (name == "productName") {
+      let _productInfromationInArabic = productInfromationInArabic;
+      _productInfromationInArabic.splice(0, 1, {
+        name: productInfromationInArabic[0].name,
+        value: e.target.value,
+      });
+      setProductInfromationInArabic([..._productInfromationInArabic]);
+    } else if (name == "sku_Code") {
+      let _productInfromationInArabic = productInfromationInArabic;
+      _productInfromationInArabic.splice(2, 1, {
+        name: productInfromationInArabic[2].name,
+        value: e.target.value,
+      });
+      setProductInfromationInArabic([..._productInfromationInArabic]);
+    }
+  };
+
+  const handleChangeForEng = (e, name) => {
+    if (name == "productName") {
+      let _productInfromation = productInfromation;
+      _productInfromation.splice(0, 1, {
+        name: productInfromation[0].name,
+        value: e.target.value,
+      });
+      setProductInfromation([..._productInfromation]);
+    } else if (name == "sku_Code") {
+      let _productInfromation = productInfromation;
+      _productInfromation.splice(2, 1, {
+        name: productInfromation[2].name,
+        value: e.target.value,
+      });
+      setProductInfromation([..._productInfromation]);
+    }
   };
 
   return (
@@ -636,77 +702,173 @@ function AddNewProduct() {
                   width={"w-[100% mb-[20px]"}
                   zindex={" z-[2] relative "}
                 >
-                  <TwoTabs />
-                  <CardBody>
-                    <div className=" flex mb-[1rem] flex-col      lg:flex-row">
-                      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
-                        <span className="text-[#ff0032]">*</span>اسم المنتج
-                      </p>
-                      <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
-                        <input
-                          className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
-                          placeholder="اسم المنتج"
-                          value={productInfromation[0].value}
-                        />
+                  <TwoTabs
+                    enableArabic={enableArabic}
+                    toggleLang={toggleLang}
+                  />
+                  {enableArabic == true ? (
+                    <CardBody>
+                      <div className="ltr flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          <span className="text-[#ff0032]">*</span> Product Name
+                        </p>
+                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                          <input
+                            className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            placeholder="اسم المنتج"
+                            value={productInfromationInArabic[0].value}
+                            onChange={(e) => handleChange(e, "productName")}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className=" flex mb-[1rem] flex-col      lg:flex-row">
-                      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
-                        <span className="text-[#ff0032]">*</span>الفئة
-                      </p>
-                      <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
-                        <div
-                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
-                          id="categorySelect"
-                        >
-                          <div onClick={() => openCategorySelect()}>
-                            {selectedCategory ? selectedCategory : ""}
-                          </div>
+                      <div className="ltr flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          <span className="text-[#ff0032]">*</span>الفئة
+                        </p>
+                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
                           <div
-                            ref={categorySelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                            id="categorySelect"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input
-                                  onChange={(e) => changeHandler(e, productCategories)}
-                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
-                              </div>
-                              <ul>
-                                {productCategoriesForShow.map((value) => {
-                                  return (
-                                    <li
-                                      key={value + 1}
-                                      onClick={() => setCategory(value)}
-                                      className={`${value == selectedCategory
-                                        ? styles.active_option
-                                        : ""
+                            <div onClick={() => openCategorySelect()}>
+                              {selectedCategory ? selectedCategory : ""}
+                            </div>
+                            <div
+                              ref={categorySelect}
+                              className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                            >
+                              <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                                <div className="py-[4px] px-[8px]">
+                                  <input
+                                    onChange={(e) =>
+                                      changeHandler(e, productCategories)
+                                    }
+                                    className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                  />
+                                </div>
+                                <ul>
+                                  {productCategoriesForShow.map((value) => {
+                                    return (
+                                      <li
+                                        key={value + 1}
+                                        onClick={() => setCategory(value)}
+                                        className={`${
+                                          value == selectedCategory
+                                            ? styles.active_option
+                                            : ""
                                         } block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
-                                    >
-                                      {value}
-                                    </li>
-                                  );
-                                })}
-                              </ul>
+                                      >
+                                        {value}
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className=" flex mb-[1rem] flex-col      lg:flex-row">
-                      <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
-                        رمز SKU
-                      </p>
-                      <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
-                        <input
-                          className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
-                          placeholder="رمز SKU"
-                          value={productInfromation[2].value}
-                        />
+                      <div className="ltr flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          SKU Code
+                        </p>
+                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                          <input
+                            className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            placeholder="رمز SKU"
+                            value={productInfromationInArabic[2].value}
+                            onChange={(e) => handleChange(e, "sku_Code")}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </CardBody>
+                    </CardBody>
+                  ) : (
+                    <CardBody>
+                      <div className=" flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          <span className="text-[#ff0032]">*</span>اسم المنتج
+                        </p>
+                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                          <input
+                            className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            placeholder="اسم المنتج"
+                            value={productInfromation[0].value}
+                            onChange={(e) =>
+                              handleChangeForEng(e, "productName")
+                            }
+                          />
+                        </div>
+                      </div>
+                      <div className=" flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          <span className="text-[#ff0032]">*</span>الفئة
+                        </p>
+                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                          <div
+                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                            id="categorySelect"
+                          >
+                            <div onClick={() => openCategorySelect()}>
+                              {selectedCategoryInArabic
+                                ? selectedCategoryInArabic
+                                : ""}
+                            </div>
+                            <div
+                              ref={categorySelect}
+                              className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                            >
+                              <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                                <div className="py-[4px] px-[8px]">
+                                  <input
+                                    onChange={(e) =>
+                                      changeHandler(e, productCategories)
+                                    }
+                                    className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                  />
+                                </div>
+                                <ul>
+                                  {productCategoriesForShowInArabic.map(
+                                    (value) => {
+                                      return (
+                                        <li
+                                          key={value + 1}
+                                          onClick={() =>
+                                            setCategoryForArabic(value)
+                                          }
+                                          className={`${
+                                            value == selectedCategory
+                                              ? styles.active_option
+                                              : ""
+                                          } block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
+                                        >
+                                          {value}
+                                        </li>
+                                      );
+                                    }
+                                  )}
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className=" flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          رمز SKU
+                        </p>
+                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                          <input
+                            className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            placeholder="رمز SKU"
+                            value={productInfromation[2].value}
+                            onChange={(e) => handleChangeForEng(e, "sku_Code")}
+                          />
+                        </div>
+                      </div>
+                    </CardBody>
+                  )}
                 </TitleAndTableCard>
                 {/* Product Images */}
                 <TitleAndTableCard width={"w-[100%] mb-[20px]"}>
@@ -734,7 +896,7 @@ function AddNewProduct() {
                         value="اللون"
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
+                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("colorSelect")
@@ -794,8 +956,9 @@ function AddNewProduct() {
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
                         <div
-                          className={`${isDisableSheila ? styles.disable_div : ""
-                            } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          className={`${
+                            isDisableSheila ? styles.disable_div : ""
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -868,8 +1031,9 @@ function AddNewProduct() {
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
                         <div
-                          className={`${isDisableSheila ? styles.disable_div : ""
-                            } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          className={`${
+                            isDisableSheila ? styles.disable_div : ""
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -932,7 +1096,7 @@ function AddNewProduct() {
                         value="بحجم"
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
+                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("sizeSelect")
@@ -1079,7 +1243,10 @@ function AddNewProduct() {
                 <CardBody>
                   {productDescription.map((value, index) => {
                     return (
-                      <div key={value + 1} className=" flex mb-[1rem] flex-col      lg:flex-row">
+                      <div
+                        key={value + 1}
+                        className=" flex mb-[1rem] flex-col      lg:flex-row"
+                      >
                         <p className="w-[100%]     lg:w-[37.5%] text-[#1b1b28] text-[13px] pl-0          lg:pl-[5px] capitalize pr-0          lg:pr-[5%]">
                           <span className="text-[#ff0032]">*</span>
                           {value.name}
@@ -1087,7 +1254,7 @@ function AddNewProduct() {
 
                         <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                             id={"optionMainDiv" + index}
                           >
                             <div
@@ -1127,7 +1294,11 @@ function AddNewProduct() {
                                   : ""
                                 : ""}
                             </div>
-                            <Options setOption={setOption} value={value} index={index} />
+                            <Options
+                              setOption={setOption}
+                              value={value}
+                              index={index}
+                            />
                           </div>
                         </div>
                       </div>
@@ -1140,7 +1311,10 @@ function AddNewProduct() {
         </div>
       </Layout>
       <div id="upload_overlay" className="dnone">
-        <ChooseImageModal />
+        <ChooseImageModal
+          currentImages={currentImages}
+          setCurrentImages={setCurrentImages}
+        />
       </div>
     </>
   );

@@ -180,17 +180,21 @@ const galleryImageData = {
   imageResolution: "(900x1200)",
 };
 
-const productCategories = ["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]
-
+const productCategories = ["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"];
 
 function AddNewProduct() {
   useEffect(() => {
-    document.querySelector("body").style.direction = 'rtl'
+    document.querySelector("body").style.direction = "rtl";
   }, []);
-  const [productCategoriesForShow, setProductCategoriesForShow] = useState(["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"]);
+  const [productCategoriesForShow, setProductCategoriesForShow] = useState([
+    "Abaya",
+    "Kaftan",
+    "Dress",
+    "Farwa",
+    "Kimono",
+  ]);
 
-
-  const [matchedOptions, setMatchedOptions] = useState([])
+  const [matchedOptions, setMatchedOptions] = useState([]);
 
   // let initialData = [];
   //  useEffect(() => {
@@ -202,13 +206,12 @@ function AddNewProduct() {
 
   const [selectedCategory, setSelectedCategory] = useState("Abaya");
   const [selectedType, setSelectedType] = useState("اختر النوع");
-  const [selectedSizeAndFit, setSelectedSizeAndFit] =
-    useState("اختر الحجم والتناسب");
-  const [selectedFabricType, setSelectedFabricType] =
-    useState("لا شيء محدد");
-  const [selectedFabricWeight, setSelectedFabricWeight] = useState(
-    "اختر وزن القماش"
+  const [selectedSizeAndFit, setSelectedSizeAndFit] = useState(
+    "اختر الحجم والتناسب"
   );
+  const [selectedFabricType, setSelectedFabricType] = useState("لا شيء محدد");
+  const [selectedFabricWeight, setSelectedFabricWeight] =
+    useState("اختر وزن القماش");
   const [selectedCareInstructions, setSelectedCareInstructions] =
     useState("لا شيء محدد");
   const [selectedShippingAndReturns, setSelectedShippingAndReturns] = useState(
@@ -222,12 +225,13 @@ function AddNewProduct() {
 
   const [colorTitle, setColorTitle] = useState("لا شيء محدد");
   const [sheilacolorTitle, setSheilaColorTitle] = useState("لا شيء محدد");
-  const [sheilaLengthTitle, setSheilaLengthTitle] =
-    useState("لا شيء محدد");
+  const [sheilaLengthTitle, setSheilaLengthTitle] = useState("لا شيء محدد");
   const [sizeTitle, setSizeTitle] = useState([]);
 
   const [isDisableSheila, setIsDisableSheila] = useState(false);
   const [isDisableAllAlterations, setIsDisableAllAlterations] = useState(false);
+
+  const [currentImages, setCurrentImages] = useState([]);
 
   const categorySelect = useRef("");
   const typeSelect = useRef("");
@@ -247,16 +251,17 @@ function AddNewProduct() {
     setSelectedCategory(selectedOption);
     openCategorySelect();
   };
-  const [newProductDescription, setNewProductDescription] = useState(productDescription)
+  const [newProductDescription, setNewProductDescription] =
+    useState(productDescription);
 
   function optionsHandler(e, values, value) {
-    let current = productDescription.find((item) => item.name == value.name)
-    console.log(current)
-    setNewProductDescription(newProductDescription)
-    let text = e.target.value.toUpperCase()
-    const items = values.filter((item) => item.startsWith(text))
-    setMatchedOptions(items)
-    console.log(value)
+    let current = productDescription.find((item) => item.name == value.name);
+    console.log(current);
+    setNewProductDescription(newProductDescription);
+    let text = e.target.value.toUpperCase();
+    const items = values.filter((item) => item.startsWith(text));
+    setMatchedOptions(items);
+    console.log(value);
   }
 
   const openSelect = (dropdownName, index) => {
@@ -621,8 +626,6 @@ function AddNewProduct() {
   };
 
   const changeHandler = (e, filterName) => {
-
-
     console.log("initialData", e, filterName);
 
     let _productCategories = filterName;
@@ -630,9 +633,11 @@ function AddNewProduct() {
     let __productCategories = [];
     // setProductCategoriesForShow(_productCategories);
     for (let i = 0; i < _productCategories.length; i++) {
-      __productCategories.push(filterName[i].toLowerCase())
+      __productCategories.push(filterName[i].toLowerCase());
     }
-    const startsWithN = __productCategories.filter((country) => country.startsWith(e.target.value.toLowerCase()));
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
     setProductCategoriesForShow(startsWithN);
   };
 
@@ -671,7 +676,10 @@ function AddNewProduct() {
                           className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                           id="categorySelect"
                         >
-                          <div onClick={() => openCategorySelect()} className="capitalize">
+                          <div
+                            onClick={() => openCategorySelect()}
+                            className="capitalize"
+                          >
                             {selectedCategory ? selectedCategory : ""}
                           </div>
                           <div
@@ -682,25 +690,30 @@ function AddNewProduct() {
                               <div className="py-[4px] px-[8px]">
                                 <input
                                   // kam
-                                  onChange={(e) => changeHandler(e, productCategories)}
+                                  onChange={(e) =>
+                                    changeHandler(e, productCategories)
+                                  }
                                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                                 />
                               </div>
                               <ul>
-                                {productCategoriesForShow.map((value, index) => {
-                                  return (
-                                    <li
-                                      key={index * 4}
-                                      onClick={() => setCategory(value)}
-                                      className={`${value == selectedCategory
-                                        ? styles.active_option
-                                        : ""
+                                {productCategoriesForShow.map(
+                                  (value, index) => {
+                                    return (
+                                      <li
+                                        key={index * 4}
+                                        onClick={() => setCategory(value)}
+                                        className={`${
+                                          value == selectedCategory
+                                            ? styles.active_option
+                                            : ""
                                         } capitalize block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
-                                    >
-                                      {value}
-                                    </li>
-                                  );
-                                })}
+                                      >
+                                        {value}
+                                      </li>
+                                    );
+                                  }
+                                )}
                               </ul>
                             </div>
                           </div>
@@ -725,7 +738,11 @@ function AddNewProduct() {
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>صور المنتج</TableHeader>
                   <CardBody>
-                    <ChooseImage data={galleryImageData} />
+                    <ChooseImage
+                      data={galleryImageData}
+                      currentImages={currentImages}
+                      setCurrentImages={setCurrentImages}
+                    />
                   </CardBody>
                 </TitleAndTableCard>
                 {/* Product Variation */}
@@ -759,7 +776,8 @@ function AddNewProduct() {
                               <div className="py-[4px] px-[8px]">
                                 <input
                                   // onChange={() => changeHandler(event,productVariations)}
-                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer" />
+                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer"
+                                />
                               </div>
                               <ul className="max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
@@ -804,8 +822,9 @@ function AddNewProduct() {
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
-                          className={`${isDisableSheila ? styles.disable_div : ""
-                            } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          className={`${
+                            isDisableSheila ? styles.disable_div : ""
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -878,8 +897,9 @@ function AddNewProduct() {
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
-                          className={`${isDisableSheila ? styles.disable_div : ""
-                            } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          className={`${
+                            isDisableSheila ? styles.disable_div : ""
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
                         >
                           <span
                             onClick={() =>
@@ -1131,7 +1151,11 @@ function AddNewProduct() {
                                   : ""
                                 : ""}
                             </div>
-                            <Options setOption={setOption} value={value} index={index} />
+                            <Options
+                              setOption={setOption}
+                              value={value}
+                              index={index}
+                            />
                           </div>
                         </div>
                       </div>
@@ -1144,7 +1168,10 @@ function AddNewProduct() {
         </div>
       </Layout>
       <div id="upload_overlay" className="dnone">
-        <ChooseImageModal />
+        <ChooseImageModal
+          currentImages={currentImages}
+          setCurrentImages={setCurrentImages}
+        />
       </div>
     </>
   );

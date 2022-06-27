@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import styles from "./CardBody.module.css";
 
-function CardBody({ children, broad, simple, p }) {
+function CardBody({ children, broad, simple, p, rtl, ltr }) {
   //  const {t,r,b,l}= p
   //   const pt= "pt-["+ t+ "px]";
   //   const pr= "pr-["+ r+ "px]";
@@ -13,7 +13,10 @@ function CardBody({ children, broad, simple, p }) {
       <div
         className={`w-[100%] ${
           broad && broad == true ? "p-[54px]" : simple && simple == true ? "p-[25px]"  : "py-[20px] px-[25px]"
-        } `}
+        } 
+        ${rtl? " rtl " : ""}
+        ${ltr? " ltr " : ""}
+        `}
       >
         {children}
       </div>

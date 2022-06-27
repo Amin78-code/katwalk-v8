@@ -8,31 +8,39 @@ import img2 from "../../../../assets/images/uploaded/IMG_2376.jpg";
 import img3 from "../../../../assets/images/uploaded/IMG_2377.jpg";
 import img4 from "../../../../assets/images/uploaded/IMG_2378.jpg";
 import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
+ 
 
-const uploadedPictures = [
-  {
-    img: img1,
-    name: "",
-    sizeInKB: "199",
-  },
-  {
-    img: img2,
-    name: "",
-    sizeInKB: "248",
-  },
-  {
-    img: img3,
-    name: "",
-    sizeInKB: "80",
-  },
-  {
-    img: img4,
-    name: "",
-    sizeInKB: "83",
-  },
-];
-
-function ChooseImageModal({ data }) {
+function ChooseImageModal({ data, currentImages, setCurrentImages  }) {
+  const [uploadedPictures, setUploadedPictures] = useState([
+    {
+      img: img1,
+      name: "landscape1.jpg",
+      sizeInKB: "199",
+      fileType: "",
+      isSelected: false,
+    },
+    {
+      img: img2,
+      name: "landscape2.jpg",
+      sizeInKB: "248",
+      fileType: "",
+      isSelected: false,
+    },
+    {
+      img: img3,
+      name: "landscape3.jpg",
+      sizeInKB: "80",
+      fileType: "",
+      isSelected: false,
+    },
+    {
+      img: img4,
+      name: "landscape4.jpg",
+      sizeInKB: "83",
+      fileType: "",
+      isSelected: false,
+    },
+  ]);
   // console.log("image--", img1);
   const [selectedImgs, setSelectedImgs] = useState([]);
   const [uploadFailed, setUploadFailed] = useState(true);
@@ -40,6 +48,8 @@ function ChooseImageModal({ data }) {
     { img: img1 },
     { img: img2 },
   ]);
+
+  const [uploadedImg, setUploadedImg] = useState([]);
 
   const tab1 = useRef(null);
   const tab2 = useRef(null);
@@ -68,35 +78,144 @@ function ChooseImageModal({ data }) {
     document.getElementById("upload_overlay").classList.remove("dblock");
   };
 
+  
   const selecImg = (data, id) => {
-    // console.log("selecImg called")
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
     for (let i = 0; i < _uploadedPictures.length; i++) {
       if (_uploadedPictures[i].img == data.img) {
-        let imgPath = _uploadedPictures[i].img.src.split("/");
-        let _imgPath = imgPath[imgPath.length - 1];
-
-        let alreadyExist = false;
-        for (let j = 0; j < _selectedImgs.length; j++) {
-          if (_selectedImgs[j] == _imgPath) {
-            alreadyExist = true;
-            _selectedImgs.splice(j, 1);
-            setSelectedImgs([]);
-            setSelectedImgs(_selectedImgs);
-          }
-        }
-        if (alreadyExist !== true) {
-          _selectedImgs.push(_imgPath);
-        }
+        console.log("matched");
+        let clickedItem = _uploadedPictures[i];
+        let itemForPush = {
+          img: _uploadedPictures[i].img,
+          name: _uploadedPictures[i].name,
+          sizeInKB: _uploadedPictures[i].sizeInKB,
+          fileType: _uploadedPictures[i].fileType,
+          isSelected: !_uploadedPictures[i].isSelected,
+        };
+        _uploadedPictures.splice(i, 1, itemForPush);
+        setUploadedPictures([..._uploadedPictures]);
       }
+
+      // if (_uploadedPictures[i].img == data.img) {
+      //   let imgPath = _uploadedPictures[i].img.src.split("/");
+      //   let _imgPath = imgPath[imgPath.length - 1];
+      //   let alreadyExist = false;
+      //   for (let j = 0; j < _selectedImgs.length; j++) {
+      //     if (_selectedImgs[j] == _imgPath) {
+      //       alreadyExist = true;
+      //       _selectedImgs.splice(j, 1);
+      //       setSelectedImgs([]);
+      //       setSelectedImgs(_selectedImgs);
+      //     }
+      //   }
+      //   if (alreadyExist !== true) {
+      //     _selectedImgs.push(_imgPath);
+      //   }
+      // }
     }
+
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
 
-    // console.log("_rrr _selectedImgs", _selectedImgs);
-    // console.log("rrr selectedImgs", selectedImgs);
+    console.log("setSelectedImgs", selectedImgs);
+  };
+
+
+
+  const types = ["image/png", "image/jpeg", "video/mp4"];
+
+  const changeHandle = (e) => {
+    let files = e.target.files;
+
+    let uploadedFiles = [];
+
+    for (let i = 0; i < files.length; i++) {
+      if (files[i] && types.includes(files[i].type)) {
+        let fileName = files[i].name;
+        let fileSize = files[i].size;
+
+        if (fileSize <= 1000000) {
+          fileSize = (fileSize / 1000).toFixed(2) + "kb";
+        }
+        if (fileSize == 1000000 || fileSize <= 1000000000) {
+          fileSize = (fileSize / 1000000).toFixed(2) + "mb";
+        }
+        if (fileSize == 1000000000 || fileSize <= 1000000000000) {
+          fileSize = (fileSize / 1000000000).toFixed(2) + "gb";
+        }
+
+        const reader = new FileReader();
+        let imgUploadedNow = null;
+
+        reader.onload = () => {
+          if (reader.readyState === 2) {
+            uploadedFiles.push({
+              img: reader.result,
+              name: files[i].name,
+              sizeInKB: fileSize,
+              fileType: files[i].type,
+              isSelected: false,
+            });
+
+            setUploadedImg([...uploadedFiles]);
+
+            let _uploadedPictures = uploadedPictures;
+            _uploadedPictures.unshift({
+              img: reader.result,
+              name: files[i].name,
+              sizeInKB: fileSize,
+              fileType: files[i].type,
+              isSelected: false,
+            });
+
+            setUploadedPictures(_uploadedPictures);
+
+            // setUploadedImg(reader.result);
+            // imgUploadedNow = reader.result;
+
+            // setImgSize(fileSize);
+            // setImgName(fileName);
+            // setFileType(file.type);
+
+            // let _uploadedPictures = uploadedPictures;
+            // _uploadedPictures.unshift({
+            //   img: imgUploadedNow,
+            //   name: fileName,
+            //   sizeInKB: fileSize,
+            //   fileType: file.type,
+            // });
+
+            // setUploadedPictures(_uploadedPictures);
+          }
+        };
+        reader.readAsDataURL(e.target.files[i]);
+
+        setUploadFailed(false);
+      } else {
+        setUploadFailed(true);
+      }
+    }
+  };
+
+  const addMoreImages = () => {
+    setUploadedImg([]);
+  };
+
+  const addSelectedFiles = () => {
+    let selectedPicturesToPush = [];
+
+    let _currentImages = currentImages;
+
+    for (let i = 0; i < uploadedPictures.length; i++) {
+      if (uploadedPictures[i].isSelected == true) {
+        _currentImages.unshift(uploadedPictures[i]);
+        setCurrentImages([]);
+        setCurrentImages([..._currentImages]);
+      }
+    }
+    hideModal();
   };
 
   return (
@@ -199,91 +318,163 @@ function ChooseImageModal({ data }) {
                   </h1>
                 </div>
               </div> */}
-              <div className="w-[100%] h-[100%] relative overflow-hidden z-[1]">
-                {/* <div
-                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]          border-[4px]   border-[red]`}
-                >
-                  <div className="w-[100%] min-h-[50px] h-[50px] flex justify-between items-center px-[10px]">
-                    <div className="w-[90px]"></div>
-                    <p className="fwr text-[14px] text-[#333] ">
-                      Upload complete
-                    </p>
-                    <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                      <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
-                      Add more
-                    </button>
-                  </div>
-
+             <div className="w-[100%] h-[100%] relative overflow-hidden z-[1]">
+                {uploadedImg?.length == 0 ? (
                   <div
-                    className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
+                    className={`w-[100%] h-[100%] border-[1px] border-[#00000020 ] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] p-[.5rem] translate-y-[-50 px]`}
                   >
-                    <h1 className="text-[#525252] text-[27px]">
-                      Drop files here, paste or&nbsp;
-                      <span className="cursor-pointer">
-                        <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
-                          Browse
-                          <input
-                            type="file"
-                            id="img"
-                            name="img"
-                            accept="image/*"
-                            className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
-                          />
+                    <div
+                      className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
+                    >
+                      <h1 className="text-[#525252] text-[27px]">
+                        Drop files here, paste or&nbsp;
+                        <span className="cursor-pointer">
+                          <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
+                            Browse
+                            <input
+                              type="file"
+                              id="img"
+                              name="img"
+                              // accept="image/*"
+                              multiple
+                              className="absolute cursor-pointer w-[100%] h-[100%] left-0 top-0 opacity-0"
+                              onChange={changeHandle}
+                            />
+                          </span>
                         </span>
-                      </span>
-                    </h1>
-                  </div>
-                </div> */}
+                      </h1>
 
-                <div
-                  className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
-                >
-                  <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
-                    <div className="w-[90px]"></div>
-                    <p className="fwr text-[14px] text-[#333] ">
-                      Upload complete
-                    </p>
-                    <button className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center">
-                      <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
-                      Add more
-                    </button>
-                  </div>
-                  <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
-                    {uploadNewImg.map((value) => {
-                      return <UploadNewImgCard key={value} data={value} />;
-                    })}
-                  </div>
-
-                  {uploadFailed && uploadFailed == true ? (
-                    <div className="w-[100%] h-[45px] bg-[#fff]">
-                      <div className="w-[100%] h-[2px] ">
-                        <div className={`w-[60%] h-[2px] bg-[#e32437] `}></div>
-                      </div>
-                      <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
-                        <p className="capitalize text-[12px] text-[#333] flex">
-                          <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
-                          upload failed
-                          <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
-                          {/* <i className="lar la-question text-[16px] text-[#e32437] ml-[5px]"></i> */}
-                        </p>
-                      </div>
+                      {/* <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
+                        {
+                          uploadedImg == null ? 
+                          <Image src={img4} alt="image" />
+                          :
+                          <>
+                          no
+                          <Image src={uploadedImg} alt={"image"} classes={""} layout='fill' width="30" height="30" />
+                          </>
+                        }
+                       </div> */}
                     </div>
-                  ) : (
-                    <div className="w-[100%] h-[45px] bg-[#fff]">
-                      <div className="w-[100%] h-[2px] ">
-                        <div className={`w-[60%] h-[2px] bg-[#1bb240]`}></div>
-                      </div>
-                      <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
-                        <p className="capitalize text-[12px] text-[#333] flex">
-                          <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
-                          complete
-                        </p>
-                      </div>
+                  </div>
+                ) : (
+                  <div
+                    className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
+                  >
+                    <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
+                      <div className="w-[130px]"></div>
+                      <p className="fwr text-[14px] text-[#333] ">
+                        Upload complete
+                      </p>
+                      <button
+                        onClick={() => addMoreImages()}
+                        className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center"
+                      >
+                        <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
+                        Add more
+                      </button>
                     </div>
-                  )}
-                </div>
+                    <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
+                      {/* {uploadNewImg.map((value) => {
+                       return <UploadNewImgCard key={value} data={value} />;
+                     })} */}
 
+                      {uploadedImg?.length == 0 ? (
+                        ""
+                      ) : (
+                        <>
+                          {uploadedImg.map((value, index) => {
+                            return (
+                              <>
+                                {value.fileType == "video/mp4" ? (
+                                  <div
+                                    className="w-[166px] mb-[10px]"
+                                    key={value.name}
+                                  >
+                                    <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
+                                      <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
+                                    </div>
 
+                                    <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                                      {value.name !== null ? value.name : ""}
+                                    </h6>
+
+                                    <p className="text-[11px] leading-[1.3] text-[#757575]">
+                                      <span>
+                                        {value.sizeInKB !== null
+                                          ? value.sizeInKB
+                                          : ""}
+                                      </span>
+                                    </p>
+                                  </div>
+                                ) : (
+                                  <div
+                                    className="w-[166px] mb-[10px]"
+                                    key={value.name}
+                                  >
+                                    <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
+                                      <span className="image_container">
+                                        <Image
+                                          src={value.img}
+                                          alt={"image"}
+                                          width="30"
+                                          height="30"
+                                        />
+                                      </span>
+                                    </div>
+
+                                    <h6 className="text-[12px] leading-[1.3] pt-[9px] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                                      {value.name !== null ? value.name : ""}
+                                    </h6>
+
+                                    <p className="text-[11px] leading-[1.3] text-[#757575]">
+                                      <span>
+                                        {value.sizeInKB !== null
+                                          ? value.sizeInKB
+                                          : ""}
+                                      </span>
+                                    </p>
+                                  </div>
+                                )}
+                              </>
+                            );
+                          })}
+                        </>
+                      )}
+                    </div>
+
+                    {uploadFailed && uploadFailed == true ? (
+                      <div className="w-[100%] h-[45px] bg-[#fff]">
+                        <div className="w-[100%] h-[2px] ">
+                          <div
+                            className={`w-[100%] h-[2px] bg-[#e32437] `}
+                          ></div>
+                        </div>
+                        <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                          <p className="capitalize text-[12px] text-[#333] flex">
+                            <i className="las la-times text-[16px] text-[#e32437] mr-[5px]"></i>
+                            upload failed
+                            <i className="las la-question text-[16px] text-[#e32437] cursor-help ml-[5px]"></i>
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-[100%] h-[45px] bg-[#fff]">
+                        <div className="w-[100%] h-[2px] ">
+                          <div
+                            className={`w-[100%] h-[2px] bg-[#1bb240]`}
+                          ></div>
+                        </div>
+                        <div className="w-[100%] h-[100%] p-[15px] flex justify-start items-center">
+                          <p className="capitalize text-[12px] text-[#333] flex">
+                            <i className="las la-check text-[16px] text-[#1bb240] mr-[5px]"></i>
+                            complete
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -306,7 +497,10 @@ function ChooseImageModal({ data }) {
                 next
               </button>
             </div>
-            <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
+            <button
+              onClick={() => addSelectedFiles()}
+              className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+            >
               add files
             </button>
           </div>

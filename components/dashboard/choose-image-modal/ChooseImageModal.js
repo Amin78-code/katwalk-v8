@@ -10,33 +10,35 @@ import img4 from "../../../assets/images/uploaded/IMG_2378.jpg";
 import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
 import ImgLazyLoad from "../../img-lazy-load/ImgLazyLoad";
 
-
-function ChooseImageModal({ data }) {
-
+function ChooseImageModal({ data, currentImages, setCurrentImages }) {
   const [uploadedPictures, setUploadedPictures] = useState([
     {
       img: img1,
-      name: "",
+      name: "landscape1.jpg",
       sizeInKB: "199",
       fileType: "",
+      isSelected: false,
     },
     {
       img: img2,
-      name: "",
+      name: "landscape2.jpg",
       sizeInKB: "248",
       fileType: "",
+      isSelected: false,
     },
     {
       img: img3,
-      name: "",
+      name: "landscape3.jpg",
       sizeInKB: "80",
       fileType: "",
+      isSelected: false,
     },
     {
       img: img4,
-      name: "",
+      name: "landscape4.jpg",
       sizeInKB: "83",
       fileType: "",
+      isSelected: false,
     },
   ]);
   //  useEffect(() => {
@@ -67,13 +69,7 @@ function ChooseImageModal({ data }) {
   //       // }
   //     }
 
-
   //   }
-
-
-    
-
-
 
   // }, []);
 
@@ -120,31 +116,46 @@ function ChooseImageModal({ data }) {
   };
 
   const selecImg = (data, id) => {
-    console.log("selecImg",data," - ", id)
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
     for (let i = 0; i < _uploadedPictures.length; i++) {
       if (_uploadedPictures[i].img == data.img) {
-        let imgPath = _uploadedPictures[i].img.src.split("/");
-        let _imgPath = imgPath[imgPath.length - 1];
-
-        let alreadyExist = false;
-        for (let j = 0; j < _selectedImgs.length; j++) {
-          if (_selectedImgs[j] == _imgPath) {
-            alreadyExist = true;
-            _selectedImgs.splice(j, 1);
-            setSelectedImgs([]);
-            setSelectedImgs(_selectedImgs);
-          }
-        }
-        if (alreadyExist !== true) {
-          _selectedImgs.push(_imgPath);
-        }
+        console.log("matched");
+        let clickedItem = _uploadedPictures[i];
+        let itemForPush = {
+          img: _uploadedPictures[i].img,
+          name: _uploadedPictures[i].name,
+          sizeInKB: _uploadedPictures[i].sizeInKB,
+          fileType: _uploadedPictures[i].fileType,
+          isSelected: !_uploadedPictures[i].isSelected,
+        };
+        _uploadedPictures.splice(i, 1, itemForPush);
+        setUploadedPictures([..._uploadedPictures]);
       }
+
+      // if (_uploadedPictures[i].img == data.img) {
+      //   let imgPath = _uploadedPictures[i].img.src.split("/");
+      //   let _imgPath = imgPath[imgPath.length - 1];
+      //   let alreadyExist = false;
+      //   for (let j = 0; j < _selectedImgs.length; j++) {
+      //     if (_selectedImgs[j] == _imgPath) {
+      //       alreadyExist = true;
+      //       _selectedImgs.splice(j, 1);
+      //       setSelectedImgs([]);
+      //       setSelectedImgs(_selectedImgs);
+      //     }
+      //   }
+      //   if (alreadyExist !== true) {
+      //     _selectedImgs.push(_imgPath);
+      //   }
+      // }
     }
+
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
+
+    console.log("setSelectedImgs", selectedImgs);
   };
 
   // const changeHandle =(e)=> {
@@ -193,6 +204,7 @@ function ChooseImageModal({ data }) {
               name: files[i].name,
               sizeInKB: fileSize,
               fileType: files[i].type,
+              isSelected: false,
             });
 
             setUploadedImg([...uploadedFiles]);
@@ -203,6 +215,7 @@ function ChooseImageModal({ data }) {
               name: files[i].name,
               sizeInKB: fileSize,
               fileType: files[i].type,
+              isSelected: false,
             });
 
             setUploadedPictures(_uploadedPictures);
@@ -236,6 +249,21 @@ function ChooseImageModal({ data }) {
 
   const addMoreImages = () => {
     setUploadedImg([]);
+  };
+
+  const addSelectedFiles = () => {
+    let selectedPicturesToPush = [];
+
+    let _currentImages = currentImages;
+
+    for (let i = 0; i < uploadedPictures.length; i++) {
+      if (uploadedPictures[i].isSelected == true) {
+        _currentImages.unshift(uploadedPictures[i]);
+        setCurrentImages([]);
+        setCurrentImages([..._currentImages]);
+      }
+    }
+    hideModal();
   };
 
   return (
@@ -365,16 +393,16 @@ function ChooseImageModal({ data }) {
                       </h1>
 
                       {/* <div className="W-[40px] h-[40px] border-[2px]  border-[#000]">
-            {
-              uploadedImg == null ? 
-              <Image src={img4} alt="image" />
-              :
-              <>
-              no
-              <Image src={uploadedImg} alt={"image"} classes={""} layout='fill' width="30" height="30" />
-              </>
-            }
-                 </div> */}
+                        {
+                          uploadedImg == null ? 
+                          <Image src={img4} alt="image" />
+                          :
+                          <>
+                          no
+                          <Image src={uploadedImg} alt={"image"} classes={""} layout='fill' width="30" height="30" />
+                          </>
+                        }
+                       </div> */}
                     </div>
                   </div>
                 ) : (
@@ -407,7 +435,10 @@ function ChooseImageModal({ data }) {
                             return (
                               <>
                                 {value.fileType == "video/mp4" ? (
-                                  <div className="w-[166px] mb-[10px]" key={value.name}>
+                                  <div
+                                    className="w-[166px] mb-[10px]"
+                                    key={value.name}
+                                  >
                                     <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
                                       <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
                                     </div>
@@ -425,7 +456,10 @@ function ChooseImageModal({ data }) {
                                     </p>
                                   </div>
                                 ) : (
-                                  <div className="w-[166px] mb-[10px]" key={value.name}>
+                                  <div
+                                    className="w-[166px] mb-[10px]"
+                                    key={value.name}
+                                  >
                                     <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
                                       <span className="image_container">
                                         <Image
@@ -511,7 +545,10 @@ function ChooseImageModal({ data }) {
                 next
               </button>
             </div>
-            <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
+            <button
+              onClick={() => addSelectedFiles()}
+              className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+            >
               add files
             </button>
           </div>

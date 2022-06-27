@@ -4,13 +4,7 @@ import styles from "./TwoTabs.module.css";
 import enIcon from "../../../assets/images/icons/en.png";
 import arIcon from "../../../assets/images/icons/ar.png";
 
-function TwoTabs({ heading, lightHeadingBar }) {
-  const [enableArabic, setEnableArabic] = useState(true);
-
-  const toggleLang = () => {
-    setEnableArabic(!enableArabic)
-  }
-
+function TwoTabs({ enableArabic, toggleLang }) {
   return (
     <div className="w-[100%] min-h-[50px] border-[#ebedf2] border-b-[1px] pt-[13px]">
       <div className="flex justify-between">
@@ -20,7 +14,7 @@ function TwoTabs({ heading, lightHeadingBar }) {
               ? "bg-[#fff] border-b-[3px] border-b-[#fff]"
               : "bg-[#2a324226]"
           }`}
-          onClick={() => toggleLang()}
+          onClick={() => toggleLang("en")}
         >
           <span className="image_container mr-[5px]">
             <Image src={enIcon} alt="image" />
@@ -33,7 +27,7 @@ function TwoTabs({ heading, lightHeadingBar }) {
               ? "bg-[#fff] border-b-[3px] border-b-[#fff]"
               : "bg-[#2a324226]"
           }`}
-          onClick={() => toggleLang()}
+          onClick={() => toggleLang("ar")}
         >
           <span className="image_container mr-[5px]">
             <Image src={arIcon} alt="image" />

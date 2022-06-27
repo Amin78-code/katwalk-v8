@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./ImgCard.module.css";
 
 function ImgCard({ data, selecImg, index, selectedImgs }) {
-  console.log("data >>>>>>", data);
+  // console.log("data >>>>>>", data);
 
   //   let isThisCardSelected = false;
 
@@ -15,7 +15,7 @@ function ImgCard({ data, selecImg, index, selectedImgs }) {
     // console.log("else");
     imgPath = data?.img?.src.split("/");
     _imgPath = imgPath[imgPath.length - 1];
-// console.log("_imgPath",_imgPath)
+    // console.log("_imgPath",_imgPath)
     for (let k = 0; k < selectedImgs.length; k++) {
       if (selectedImgs[k] == _imgPath) {
         console.log("yess");
@@ -23,11 +23,7 @@ function ImgCard({ data, selecImg, index, selectedImgs }) {
     }
   }
 
-  console.log("_imgPath",_imgPath)
-
-
-
-
+  console.log("_imgPath", _imgPath);
 
   // const [isDisableBust, setIsDisableBust] = useState(false);
 
@@ -50,14 +46,12 @@ function ImgCard({ data, selecImg, index, selectedImgs }) {
       {_imgPath == null ? (
         <>
           {data.fileType && data.fileType == "video/mp4" ? (
-
-
-
-
-
-
             <div
-              className="w-[166px] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm     border-[#00000020]  border-[1px] mb-[10px]"
+              className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm      --- ${data.isSelected} ----  ${
+                data.isSelected == true
+                  ? " bg-[#007bff0d] border-[#007bff] "
+                  : "no"
+              }   border-[#00000020]  border-[1px] mb-[10px]`}
               onClick={() => selecImg(data, index)}
             >
               <div className="w-[100%] h-[105px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
@@ -65,25 +59,19 @@ function ImgCard({ data, selecImg, index, selectedImgs }) {
               </div>
 
               <p className="fwb text-[#1b1b28] text-[0.8rem] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
-                {_imgPath}
+                {data.name}
               </p>
               <p className="text-[9px] text-[#8392a5] mt-[9px]">
                 <span>{data.sizeInKB}</span>
               </p>
             </div>
-
-
-
-
-
-
           ) : (
-
-
-
-
             <div
-              className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm     -----    border-[#00000020]  border-[1px] mb-[10px]`}
+              className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm      --- ${data.isSelected} ----  ${
+                data.isSelected == true
+                  ? " bg-[#007bff0d] border-[#007bff] "
+                  : "no"
+              }   border-[#00000020]  border-[1px] mb-[10px]`}
               onClick={() => selecImg(data, index)}
             >
               <div className={`${styles.card_img_div}`}>
@@ -92,23 +80,18 @@ function ImgCard({ data, selecImg, index, selectedImgs }) {
                 </span>
               </div>
               <p className="fwb text-[#1b1b28] text-[0.8rem] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
-                {_imgPath}
+                {data.name}
               </p>
               <p className="text-[9px] text-[#8392a5] mt-[9px]">
                 {data.sizeInKB}
               </p>
             </div>
-
-
-
-
-
           )}
         </>
       ) : (
         <div
-          className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm     -----${selectedImgs}  /   ${_imgPath} ----- ${
-            selectedImgs[index] == _imgPath
+          className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm   --- ${data.isSelected} ----  ${
+            data.isSelected == true
               ? " bg-[#007bff0d] border-[#007bff] "
               : "no"
           }    border-[#00000020]  border-[1px] mb-[10px]`}
@@ -120,7 +103,7 @@ function ImgCard({ data, selecImg, index, selectedImgs }) {
             </span>
           </div>
           <p className="fwb text-[#1b1b28] text-[0.8rem] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
-            {_imgPath}
+            {data.name}
           </p>
           <p className="text-[9px] text-[#8392a5] mt-[9px]">80 KB</p>
         </div>

@@ -5,6 +5,13 @@ html {
   scroll-behavior: smooth;
 }
 
+.ltr {
+  direction: ltr;
+}
+.rtl {
+  direction: rtl;
+}
+
 @font-face {
   font-family: "Work";
   src: url("../assets/fonts/work-sans/WorkSans-Regular.ttf");
