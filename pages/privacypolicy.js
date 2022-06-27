@@ -457,6 +457,7 @@ function PrivacyPolicy() {
                 The customer is responsible for carrier return cost (except for
                 damaged/incorrect orders.)
               </li>
+              
               <li className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px]">
                 Katwalk will facilitate the return process between the customer
                 and the sellers.

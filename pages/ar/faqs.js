@@ -4,6 +4,7 @@ import katwalkBag from "../../assets/images/designers/katwalk-bag.jpg";
 import Features from "../../components/rtl/features/Features";
 import HeadingAndText from "../../components/rtl/HeadingAndText/HeadingAndText";
 import { useEffect } from "react";
+import TableForTextPages from "../../components/rtl/TableForTextPages/TableForTextPages";
 function FAQ() {
   useEffect(() => {
     document.querySelector("body").style.direction = "rtl";
@@ -49,6 +50,7 @@ function FAQ() {
         },
       ],
     },
+    // 5
     {
       title: "الشحن والتوصيل",
       text: [
@@ -94,14 +96,13 @@ function FAQ() {
       title: "كيف يمكنني تتبع شحنتي؟",
       text: ["يمكنكِ تتبع شحنتكِ عبر حسابي > طلباتي"],
     },
+    // 10
     {
       title: "الطلب",
     },
     {
       title: "كيف يمكنني التواصل مع خدمة العملاء؟",
-      text: [
-        "يمكنكِ التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact",
-      ],
+      
     },
     {
       title: "هل يمكنني الطلب عبر WhatsApp؟",
@@ -120,16 +121,12 @@ function FAQ() {
       text: [
         "يمكنكِ ذلك فقط في حال عدم تأكيد طلبكِ من قِبَل المصممة.",
         "بإمكانكِ تتبع حالة الطلب عبر حسابي > طلباتي",
-        "في حال كانت حالة طلبكِ غير مؤكدة، يمكنكِ تغيير، تعديل أو إلغاء طلبكِ من خلال التواصل مع خدمة العملاء عن طريق زيارة:  katwalk.sa/contact",
-      ],
+         ],
     },
 
-    // small text
+    // 15 small text
     {
-      type: "paragraph_sm",
-      text: [
-        "يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
-      ],
+     
     },
 
     {
@@ -137,8 +134,7 @@ function FAQ() {
       text: [
         "يمكنكِ ذلك فقط في حال عدم تأكيد طلبكِ من قِبَل المصممة.",
         "بإمكانكِ تتبع حالة الطلب عبر حسابي > طلباتي",
-        "في حال كانت حالة طلبكِ غير مؤكدة، يمكنكِ تغيير، تعديل أو إلغاء طلبكِ من خلال التواصل مع خدمة العملاء عن طريق زيارة:  katwalk.sa/contact",
-      ],
+         ],
     },
 
     {
@@ -147,14 +143,12 @@ function FAQ() {
         "يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
       ],
     },
-
+// 18
     {
       title: "لم أستلم طلبي، ماذا أفعل؟",
       text: [
         "يمكنكِ ذلك فقط في حال عدم تأكيد طلبكِ من قِبَل المصممة. ",
-        "بإمكانكِ تتبع حالة الطلب عبر حسابي > طلباتي",
-        "في حال كانت حالة طلبكِ غير مؤكدة، يمكنكِ تغيير، تعديل أو إلغاء طلبكِ من خلال التواصل مع خدمة العملاء عن طريق زيارة:  katwalk.sa/contact يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)",
-      ],
+          ],
     },
     // {
     //   title: "Bespoke and Sizing",
@@ -163,14 +157,13 @@ function FAQ() {
       title: "لم أستلم طلبي، ماذا أفعل؟",
       text: [
         "يمكنكِ تتبع الطلب عبر حسابي > طلباتي ",
-        "في حالة وجود خطأ أو عدم مقدرتكِ على تتبع الطلب، يرجى التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact",
-      ],
+       ],
     },
-
+// 20
     {
       title: "استلمت طلبًا خاطئًا/تالفًا، ماذا أفعل؟",
       text: [
-        "نعتذر على ذلك! إذا كنتِ قد تلقيتِ طلبكِ وكان تالفًا أو غير صحيح، سيكون طلبكِ مؤهل للاسترجاع المجاني عن طريق زيارة: katwalk.sa/contact واختيار طريقة الاتصال المفضلة لديكِ، وذلك خلال ٧ أيام من استلام الطلب.",
+       
       ],
     },
 
@@ -178,9 +171,7 @@ function FAQ() {
       title: "كيف يمكنني مشاركة تجربتي مع كات ووك؟      ",
       text: [
         "نسعد لسماع رأيكِ!",
-        "يمكنكِ تعبئة استبيان كات ووك عن طريق زيارة: https://4v3p9b7mvnx.typeform.com/katwalksurvey",
-        "أو التواصل مع خدمة العملاء عن طريق زيارة: katwalk.sa/contact",
-      ],
+        ],
     },
 
     {
@@ -198,7 +189,7 @@ function FAQ() {
       title: "كيف يمكنني معرفة مقاسي؟",
       text: ["جدول المقاسات أدناه سيساعدكِ في تحديد المقاس!"],
     },
-
+//  25
     {
       type: "table",
       tableHead: [
@@ -247,12 +238,7 @@ function FAQ() {
     },
     {
       title: "كيف يمكنني استرجاع طلبي؟",
-      text: [
-        "إذا كنتِ ترغبين في استرجاع طلبكِ، يرجى زيارة: ",
-        "واختيار طريقة الاتصال المفضلة لديكِ، وسوف نعود إليكِ في أقرب وقت ممكن",
-        "- القطع الجاهزة قابلة للاسترجاع في خلال ٧ أيام من استلام الطلب.",
-        "- يجب أن تكون المنتجات جديدة وغير مستخدمة وبحالتها الأصلية مع جميع الملصقات المرفقة إن وُجِدَتْب.",
-      ],
+     
     },
     {
       title: "ما هي رسوم الشحن والإرجاع؟",
@@ -354,8 +340,7 @@ function FAQ() {
             <HeadingAndText data={FAQ_Content[0]} />
             <HeadingAndText data={FAQ_Content[1]} />
             <HeadingAndText data={FAQ_Content[2]} />
-            {/* <HeadingAndText data={FAQ_Content[3]} />
-            <h3 className="work-regular text-[20px] pt-[20px] mt-[16px]">
+            {/* <h3 className="work-regular text-[20px] pt-[20px] mt-[16px]">
               How can I become a Katwalk partner?
             </h3>
             <p className="work-light text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
@@ -367,43 +352,111 @@ function FAQ() {
               >
                 https://4v3p9b7mvnx.typeform.com/joinkatwalk
               </a>
-            </p>
+            </p> */}
+            <HeadingAndText data={FAQ_Content[3]} />
             <HeadingAndText data={FAQ_Content[4]} />
+            <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+            كوني جزءًا من مستقبل الأزياء العربية عن طريق زيارة
+              <a
+                href="https://4v3p9b7mvnx.typeform.com/joinkatwalk"
+                className="text-[#000] text-[13px] block"
+              >
+                https://4v3p9b7mvnx.typeform.com/joinkatwalk
+              </a>
+            </p>
             <HeadingAndText data={FAQ_Content[5]} />
-            <TableForTextPages data={FAQ_Content[6]} />
+            
+            <HeadingAndText data={FAQ_Content[6]} />
+            <TableForTextPages data={FAQ_Content[7]} />
+          
             <HeadingAndText data={FAQ_Content[7]} />
             <HeadingAndText data={FAQ_Content[8]} />
             <HeadingAndText data={FAQ_Content[9]} />
             <HeadingAndText data={FAQ_Content[10]} />
             <HeadingAndText data={FAQ_Content[11]} />
+            <p className="fal text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
+        
+         يمكنكِ التواصل مع خدمة العملاء عن طريق زيارة: <a href="katwalk.sa/contact">katwalk.sa/contact</a> 
+            </p>
             <HeadingAndText data={FAQ_Content[12]} />
             <HeadingAndText data={FAQ_Content[13]} />
-            <p className="work-regular text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
-              Kindly note that following the Electronic Commerce Law in Saudi
-              Arabia, made-to-measure pieces and bespoke designs cannot be
-              returned.
+     
+           <HeadingAndText data={FAQ_Content[14]} />
+           <p className="fal text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
+            في حال كانت حالة طلبكِ غير مؤكدة، يمكنكِ تغيير، تعديل أو إلغاء طلبكِ من خلال التواصل مع خدمة العملاء عن طريق زيارة:  <a href="katwalk.sa/contact">katwalk.sa/contact</a>
+           </p>
+    
+          <p className="fal text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
+            يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)
             </p>
-            <HeadingAndText data={FAQ_Content[14]} />
-            <p className="work-regular text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
-              Kindly note that following the Electronic Commerce Law in Saudi
-              Arabia, made-to-measure pieces and bespoke designs cannot be
-              returned.
-            </p>
-            <HeadingAndText data={FAQ_Content[15]} />
+           {/* a <HeadingAndText data={FAQ_Content[15]} /> */}
             <HeadingAndText data={FAQ_Content[16]} />
-            <HeadingAndText data={FAQ_Content[17]} />
-            <HeadingAndText data={FAQ_Content[18]} />
+            <p className="fal text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
+          
+            في حال كانت حالة طلبكِ غير مؤكدة، يمكنكِ تغيير، تعديل أو إلغاء طلبكِ من خلال التواصل مع خدمة العملاء عن طريق زيارة:  <a href="katwalk.sa/contact">katwalk.sa/contact</a>
+            </p>
+
+            <p className="fal text-[#6b6e73] text-[13px] leading-[1.5] pt-[15px]">
+            يُرْجَى ملاحظة أنه وفقًا لقانون التجارة الإلكترونية في المملكة العربية السعودية، لا يمكن إرجاع القطع المفصّلة حسب التصميم والمقاس (منتجات تفصيل وبيسبوك)
+            </p>
+             <HeadingAndText data={FAQ_Content[18]} />
+
+             <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+            ب. الأسعار
+         في حالة وجود خطأ أو عدم مقدرتكِ على تتبع الطلب، يرجى التواصل مع خدمة العملاء عن طريق زيارة: <a href="katwalk.sa/contact">katwalk.sa/contact</a>
+</p>
+
+<p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+         
+في حالة وجود خطأ أو عدم مقدرتكِ على تتبع الطلب، يرجى التواصل مع خدمة العملاء عن طريق زيارة: <a href="katwalk.sa/contact">katwalk.sa/contact</a>
+</p>
+
             <TableForTextPages data={FAQ_Content[19]} />
             <HeadingAndText data={FAQ_Content[20]} />
+
+            <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+         
+
+ نعتذر على ذلك! إذا كنتِ قد تلقيتِ طلبكِ وكان تالفًا أو غير صحيح، سيكون طلبكِ مؤهل للاسترجاع المجاني عن طريق زيارة: <a href="katwalk.sa/contact">katwalk.sa/contact</a> واختيار طريقة الاتصال المفضلة لديكِ، وذلك خلال ٧ أيام من استلام الطلب.
+
+</p>
+
             <HeadingAndText data={FAQ_Content[21]} />
+
+
+
+          <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+               يمكنكِ تعبئة استبيان كات ووك عن طريق زيارة:  <a
+                href="https://4v3p9b7mvnx.typeform.com/joinkatwalk"
+                className="text-[#000] text-[13px]"
+              >
+                https://4v3p9b7mvnx.typeform.com/joinkatwalk
+              </a>
+               </p>  <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+         
+                 أو التواصل مع خدمة العملاء عن طريق زيارة:  <a href="katwalk.sa/contact">katwalk.sa/contact</a>
+     </p>
+
             <HeadingAndText data={FAQ_Content[22]} />
             <HeadingAndText data={FAQ_Content[23]} />
             <HeadingAndText data={FAQ_Content[24]} />
-            <HeadingAndText data={FAQ_Content[25]} />
+            <TableForTextPages data={FAQ_Content[25]} />
             <HeadingAndText data={FAQ_Content[26]} />
             <HeadingAndText data={FAQ_Content[27]} />
             <HeadingAndText data={FAQ_Content[28]} />
             <HeadingAndText data={FAQ_Content[29]} />
+            <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+            إذا كنتِ ترغبين في استرجاع طلبكِ، يرجى زيارة: <a href="katwalk.sa/contact">katwalk.sa/contact</a>
+            </p>
+            <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+             واختيار طريقة الاتصال المفضلة لديكِ، وسوف نعود إليكِ في أقرب وقت ممكن
+             </p>
+             <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+            - القطع الجاهزة قابلة للاسترجاع في خلال ٧ أيام من استلام الطلب.
+            </p>
+            <p className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]">
+            - يجب أن تكون المنتجات جديدة وغير مستخدمة وبحالتها الأصلية مع جميع الملصقات المرفقة إن وُجِدَتْب.
+            </p>
             <HeadingAndText data={FAQ_Content[30]} />
             <HeadingAndText data={FAQ_Content[31]} />
             <HeadingAndText data={FAQ_Content[32]} />
@@ -416,7 +469,8 @@ function FAQ() {
             <HeadingAndText data={FAQ_Content[39]} />
             <HeadingAndText data={FAQ_Content[40]} />
             <HeadingAndText data={FAQ_Content[41]} />
-            <HeadingAndText data={FAQ_Content[42]} /> */}
+            <HeadingAndText data={FAQ_Content[42]} />
+            <HeadingAndText data={FAQ_Content[43]} />
           </div>
         </div>
       </Layout>

@@ -4,7 +4,7 @@ function HeadingAndText({ data }) {
       {data ? (
         <>
           {data.title ? (
-            <h3 className="text-[20px] pt-[20px] mt-[16px]">
+            <h3 className="fal text-[20px] pt-[20px] mt-[16px]">
               {data.title}
             </h3>
           ) : (
@@ -21,7 +21,7 @@ function HeadingAndText({ data }) {
             return (
               <p
                 key={ind}
-                className="text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]"
+                className="fal text-[#6b6e73] text-[15px] leading-[28px] tracking-[0.5px] pt-[15px]"
               >
                 {val}
               </p>
