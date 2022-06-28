@@ -251,7 +251,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages  }) {
 
           <div className="fwr bg-[#fff] w-[100%] h-[100%] py-[18px] px-[25px]">
             <div className="h-[100%] dnone dblock" ref={tab1}>
-              <div className="border-b-[1px] border-[#dee2e6] flex flex-col gap-y-[0]     sm:flex-row sm:gap-y-[0] pb-[16px]">
+              <div className="border-b-[1px] border-[#dee2e6] flex flex-col gap-y-[10px]     sm:flex-row sm:gap-y-[0] pb-[16px]">
                 <select className="fwl admin-input  w-[100%]     sm:w-[171px] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]">
                   <option>Sort by newest</option>
                   <option>Sort by oldest</option>
@@ -412,7 +412,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages  }) {
                                     className="w-[100%]     sm:w-[166px] mb-[10px] flex justify-start items-center h-[50px] overflow-hidden     sm:h-[auto]    sm:block"
                                     key={value.name}
                                   >
-                                    <div className="w-[90px]      sm:w-[100%] h-[50px]     sm:h-[140px] mr-[5px]      sm:mr-0 rounded-[3px] overflow-hidden">
+                                    <div className="w-[90px]      sm:w-[100%] h-[50px]     sm:h-[140px] ml-[5px]      sm:ml-0 rounded-[3px] overflow-hidden">
                                       <span className="image_container">
                                         <Image
                                           src={value.img}
