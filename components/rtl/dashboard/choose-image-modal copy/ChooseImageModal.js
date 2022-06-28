@@ -301,7 +301,7 @@ function ChooseImageModal({ data }) {
                 />
               </div>
               <div
-                className={`${styles.images_main_div} max-h-[100%] overflow-auto flex flex-wrap pt-[20px] gap-x-[20px]`}
+                className={`${styles.images_main_div} max-h-[65%]        sm:max-h-[100%] overflow-auto flex flex-wrap pt-[20px] gap-x-[20px]`}
               >
                 {uploadedPictures.map((value, index) => {
                   return (
@@ -382,19 +382,19 @@ function ChooseImageModal({ data }) {
                     className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
                   >
                     <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
-                      <div className="w-[130px]"></div>
+                      <div className="w-[20px]       sm:w-[130px]"></div>
                       <p className="fwr text-[14px] text-[#333] ">
                         Upload complete
                       </p>
                       <button
                         onClick={() => addMoreImages()}
-                        className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center"
+                        className="w-[20px]      sm:w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center"
                       >
                         <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
                         Add more
                       </button>
                     </div>
-                    <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
+                    <div className="w-[100%] flex-[4] flex-col      sm:flex-row border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-nowrap         sm:flex-wrap gap-x-[28px] overflow-auto">
                       {/* {uploadNewImg.map((value) => {
                        return <UploadNewImgCard key={value} data={value} />;
                      })} */}

@@ -6,11 +6,19 @@ import styles from "./ManageProfileBasicInfo.module.css";
 import TitleAndTableCard from "../title-and-table-card/TitleAndTableCard";
 import ChooseImage from "../choose-image/ChooseImage";
 
-function ManageProfileBasicInfo({ data, title, showModal }) {
+function ManageProfileBasicInfo({
+  data,
+  title,
+  showModal,
+  handleChange,
+  currentImages,
+  updateBasicInfo,
+}) {
   const basicInfoCardBody = useRef("");
   const openCardBody = () => {
     basicInfoCardBody.current.classList.toggle(styles.slide_card_body);
   };
+
   return (
     <>
       <TitleAndTableCard
@@ -25,55 +33,103 @@ function ManageProfileBasicInfo({ data, title, showModal }) {
               onClick={() => openCardBody("basicInfo")}
             >
               edit
-             <i className="las la-ellipsis-v mx-[5px]"></i>
+              <i className="las la-ellipsis-v mx-[5px]"></i>
             </p>
           </div>
         </TableHeader>
+
         <div
           ref={basicInfoCardBody}
           className={`max-h-0 h-auto overflow-hidden taPoint6`}
         >
           <CardBody>
-            {data.map((value) => {
-              return (
-                <>
-                  {value.value && value.value == "loadImg" ? (
-                    <ChooseImage data={value} shopsPage={true} />
-                  ) : (
-                    <div key={value.name} className="fwr flex mb-[1rem] flex-col      lg:flex-row">
-                      <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
-                        {value.name}
-                      </p>
-                      <div className="w-[100%] px-0     lg:px-[15px]">
-                        {value.name == "Photo" ? (
-                          <div className={`"w-[100%]"`}>
-                            <div
-                              className="flex admin-input relative w-[100%] h-[44px] leading-[30px] bg-[#fff] border-[1px]  rounded-[.25rem]  border-[#ced4da] cursor-pointer"
-                              onClick={() => showModal()}
-                            >
-                              <div className="fwl text-[#495057] text-[1rem] py-[0.375rem] px-[0.75rem]">
-                                Choose file
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          <input
-                            type="text"
-                            className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
-                            value={value.value}
-                            placeholder={
-                              value.placeHolder ? value.placeHolder : ""
-                            }
-                          />
-                        )}
-                      </div>
+            <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+              <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                {data[0].name}
+              </p>
+              <div className="w-[100%] px-0     lg:px-[15px]">
+                <input
+                  type="text"
+                  className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                  value={data[0].value}
+                  placeholder="Your Name"
+                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
+                />
+              </div>
+            </div>
+
+            <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+              <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                {data[1].name}
+              </p>
+              <div className="w-[100%] px-0     lg:px-[15px]">
+                <input
+                  type="text"
+                  className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                  value={data[1].value}
+                  placeholder="Your Phone"
+                  onChange={(e) => handleChange(e, "Your Phone", "basicInfo")}
+                />
+              </div>
+            </div>
+
+            <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+              <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                {data[2].name}
+              </p>
+              <div className="w-[100%] px-0     lg:px-[15px]">
+                <div className={`"w-[100%]"`}>
+                  <div
+                    className="flex admin-input relative w-[100%] h-[44px] leading-[30px] bg-[#fff] border-[1px]  rounded-[.25rem]  border-[#ced4da] cursor-pointer"
+                    onClick={() => showModal()}
+                  >
+                    <div className="fwl text-[#495057] text-[1rem] py-[0.375rem] px-[0.75rem]">
+                      {currentImages && currentImages.length
+                        ? currentImages[0].name
+                        : "Choose file"}
                     </div>
-                  )}
-                </>
-              );
-            })}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+              <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                {data[3].name}
+              </p>
+              <div className="w-[100%] px-0     lg:px-[15px]">
+                <input
+                  type="text"
+                  className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                  value={data[3].value}
+                  placeholder="New Password"
+                  onChange={(e) => handleChange(e, "New Password", "basicInfo")}
+                />
+              </div>
+            </div>
+
+            <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+              <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                {data[4].name}
+              </p>
+              <div className="w-[100%] px-0     lg:px-[15px]">
+                <input
+                  type="text"
+                  className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                  value={data[4].value}
+                  placeholder="Confirm Password"
+                  onChange={(e) =>
+                    handleChange(e, "Confirm Password", "basicInfo")
+                  }
+                />
+              </div>
+            </div>
+
             <div className="flex justify-end">
-              <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
+              <button
+                onClick={() => updateBasicInfo()}
+                className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+              >
                 update profile
               </button>
             </div>

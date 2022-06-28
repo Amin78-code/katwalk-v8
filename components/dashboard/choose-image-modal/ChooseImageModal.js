@@ -270,7 +270,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
     <>
       <Overlay>
         <div
-          className={`${styles.modal} mt-[30px] w-[100%] max-w-[1050px]  bg-[#f8f9fa] rounded-[0.3rem] relative`}
+          className={`${styles.modal} mt-[20px]     sm:mt-[30px] w-[96%]     sm:w-[100%] max-w-[1050px]  bg-[#f8f9fa] rounded-[0.3rem] relative`}
         >
           <span
             className="text-[20px] absolute right-[25px] top-[20px] cursor-pointer"
@@ -299,8 +299,8 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
 
           <div className="fwr bg-[#fff] w-[100%] h-[100%] py-[18px] px-[25px]">
             <div className="h-[100%] dnone dblock" ref={tab1}>
-              <div className="border-b-[1px] border-[#dee2e6] flex pb-[16px]">
-                <select className="fwl admin-input w-[171px] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]">
+              <div className="border-b-[1px] border-[#dee2e6] flex flex-col gap-y-[10px]     sm:flex-row sm:gap-y-[0] pb-[16px]">
+                <select className="fwl admin-input w-[100%]     sm:w-[171px] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]">
                   <option>Sort by newest</option>
                   <option>Sort by oldest</option>
                   <option>Sort by smallest</option>
@@ -324,12 +324,12 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
 
                 <input
                   type="text"
-                  className="fwl admin-input w-[256px] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                  className="fwl admin-input w-[100%]     sm:w-[256px] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Search for files"
                 />
               </div>
               <div
-                className={`${styles.images_main_div} max-h-[100%] overflow-auto flex flex-wrap pt-[20px] gap-x-[20px]`}
+                className={`${styles.images_main_div} max-h-[65%]        sm:max-h-[100%] overflow-auto flex flex-wrap pt-[20px] gap-x-[5px]       sm:gap-x-[20px]`}
               >
                 {uploadedPictures.map((value, index) => {
                   return (
@@ -374,7 +374,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
                     <div
                       className={`w-[100%] ${styles.inner_browse_div} border-[#dfdfdf] border-[1px] border-dashed p-[1rem] flex justify-center items-center flex-col`}
                     >
-                      <h1 className="text-[#525252] text-[27px]">
+                      <h1 className="text-[#525252] text-[16px]       sm:text-[27px]">
                         Drop files here, paste or&nbsp;
                         <span className="cursor-pointer">
                           <span className="text-[#2275d7e6] cursor-pointer hover:underline relative">
@@ -410,19 +410,19 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
                     className={`w-[100%] h-[100%] border-[1px] border-[#00000020] rounded-[.25rem] bg-[#f8f9fa] border-[#dee2e6] border-[1px] flex flex-col `}
                   >
                     <div className="w-[100%] min-h-[50px] h-[50px] border-[#dfdfdf] border-b-[1px] flex justify-between items-center px-[10px]">
-                      <div className="w-[130px]"></div>
+                      <div className="w-[20px]       sm:w-[130px]"></div>
                       <p className="fwr text-[14px] text-[#333] ">
                         Upload complete
                       </p>
                       <button
                         onClick={() => addMoreImages()}
-                        className="w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center"
+                        className="w-[20px]      sm:w-[90px] fwr leading-[1] text-[#2275d7] text-[14px] flex items-center"
                       >
                         <i className="las la-plus text-[#2275d7] text-[16px] mr-[3px]"></i>
-                        Add more
+                        <span className="hidden     sm:block">Add more</span>
                       </button>
                     </div>
-                    <div className="w-[100%] flex-[4] border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-wrap gap-x-[28px] overflow-auto">
+                    <div className="w-[100%] flex-[4] flex-col      sm:flex-row border-[#dfdfdf ] border-b-[1px ] p-[15px] flex flex-nowrap         sm:flex-wrap gap-x-[28px] overflow-auto">
                       {/* {uploadNewImg.map((value) => {
                        return <UploadNewImgCard key={value} data={value} />;
                      })} */}
@@ -436,10 +436,10 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
                               <>
                                 {value.fileType == "video/mp4" ? (
                                   <div
-                                    className="w-[166px] mb-[10px]"
+                                    className="w-[100%]     sm:w-[166px] mb-[10px] flex justify-start items-center h-[50px] overflow-hidden     sm:h-[auto]    sm:block"
                                     key={value.name}
                                   >
-                                    <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
+                                    <div className="w-[90px]      sm:w-[100%] h-[50px]     sm:h-[140px] mr-[5px]      sm:mr-0 rounded-[3px] overflow-hidden bg-[#19af67] flex justify-center items-center">
                                       <i className="las la-video text-[30px] px-[15px] py-[20px] rounded-[3px] bg-[#fff]"></i>
                                     </div>
 
@@ -457,10 +457,10 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
                                   </div>
                                 ) : (
                                   <div
-                                    className="w-[166px] mb-[10px]"
+                                    className="w-[100%]     sm:w-[166px] mb-[10px] flex justify-start items-center h-[50px] overflow-hidden     sm:h-[auto]    sm:block"
                                     key={value.name}
                                   >
-                                    <div className="w-[100%] h-[140px] rounded-[3px] overflow-hidden">
+                                    <div className="w-[90px]      sm:w-[100%] h-[50px]     sm:h-[140px] mr-[5px]      sm:mr-0 rounded-[3px] overflow-hidden">
                                       <span className="image_container">
                                         <Image
                                           src={value.img}
@@ -526,7 +526,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
               </div>
             </div>
           </div>
-          <div className="w-[100%] h-[89px] bg-[#f8f9fa] border-t-[1px] border-[#ebedf2] py-[10px] px-[25px] flex justify-between items-center">
+          <div className="w-[100%] h-[135px]      sm:h-[89px] bg-[#f8f9fa] border-t-[1px] border-[#ebedf2] py-[10px] px-[25px] flex justify-between items-start     sm:items-center flex-col     sm:flex-row">
             <div className="flex">
               <div className="flex flex-col items-end mr-[1rem]">
                 <p className="fwr text-[13px] text-[#1b1b28]">

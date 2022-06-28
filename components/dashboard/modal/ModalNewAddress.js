@@ -107,6 +107,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Address"
+
+                  onChange={(e) => handleChange(e, "Your Address", "basicInfo")}
                 />
               </div>
             </div>
@@ -213,6 +215,7 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Area"
+                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
                 />
               </div>
             </div>
@@ -227,6 +230,7 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Postal Code"
+                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
                 />
               </div>
             </div>
@@ -241,6 +245,7 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="+880"
+                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
                 />
               </div>
             </div>

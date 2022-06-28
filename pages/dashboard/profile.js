@@ -12,9 +12,26 @@ import ManageProfileChangeYourEmail from "../../components/dashboard/manage-prof
 import ChooseImageModal from "../../components/dashboard/choose-image-modal/ChooseImageModal";
 
 function Profiles() {
+  const [basicInfo, setBasicInfo] = useState([
+    { name: "Your Name", value: "Aliya Almusawi" },
+    { name: "Your Phone", value: "+966508011144" },
+    { name: "Photo", value: undefined },
+    { name: "New Password", placeHolder: "New Password" },
+    { name: "Confirm Password", placeHolder: "Confirm Password" },
+  ]);
+
+  const [address, setAddress] = useState([
+    { name: "Address", value: "Prince Nayef St." },
+      { name: "Postal Code", value: "32424" },
+      { name: "City", value: "Dammam" },
+      { name: "Area", value: "Al Aziziyah" },
+      { name: "Country", value: "SA" },
+      { name: "Phone", value: "+966508011144" },
+  ]);
+
   const [profileData, setProfileData] = useState({
     basicInfo: [
-      { name: "Your name", value: "Aliya Almusawi" },
+      { name: "Your Name", value: "Aliya Almusawi" },
       { name: "Your Phone", value: "+966508011144" },
       { name: "Photo", value: "" },
       { name: "New Password", placeHolder: "New Password" },
@@ -45,8 +62,70 @@ function Profiles() {
     ],
   });
 
+  const [currentImages, setCurrentImages] = useState([]);
+
   const showModal = () => {
     document.getElementById("upload_overlay").classList.add("dblock");
+  };
+
+  const handleChange = (e, name, dataName) => {
+    let extractDataFrom = undefined;
+    let dataToUpdate = undefined;
+
+    if (dataName == "basicInfo") {
+      extractDataFrom = basicInfo;
+      dataToUpdate = basicInfo;
+    }
+
+    if (name == "Your Name") {
+      dataToUpdate.splice(0, 1, {
+        name: extractDataFrom[0].name,
+        value: e.target.value,
+      });
+    } else if (name == "Your Phone") {
+      dataToUpdate.splice(1, 1, {
+        name: extractDataFrom[1].name,
+        value: e.target.value,
+      });
+    } else if (name == "New Password") {
+      dataToUpdate.splice(3, 1, {
+        name: extractDataFrom[3].name,
+        value: e.target.value,
+      });
+    }
+
+    // else if (name == "New Password") {
+    //   dataToUpdate.splice(3, 1, {
+    //     name: extractDataFrom[4].name,
+    //     value: e.target.value,
+    //   });
+    // }
+    else if (name == "Confirm Password") {
+      dataToUpdate.splice(4, 1, {
+        name: extractDataFrom[4].name,
+        value: e.target.value,
+      });
+    }
+    if (dataName == "basicInfo") {
+      setBasicInfo([...dataToUpdate]);
+    }
+  };
+
+  const updateBasicInfo = () => {
+    let extractDataFrom = undefined;
+    let dataToUpdate = undefined;
+
+    extractDataFrom = basicInfo;
+    dataToUpdate = basicInfo;
+
+    dataToUpdate.splice(2, 1, {
+      name: extractDataFrom[2].name,
+      value: currentImages[0].img,
+    });
+
+    setBasicInfo([...dataToUpdate]);
+
+    console.log("basicInfo", basicInfo);
   };
 
   return (
@@ -56,17 +135,43 @@ function Profiles() {
           <AdminPanelLayout active={"Profiles"}>
             <HeadingBar heading={"Manage Profile"} />
             <div className="w-[100%]">
-              <ManageProfileBasicInfo data={profileData.basicInfo} title={"Basic Info"} showModal={showModal} />
-              <ManageProfileAddress data={profileData.address} title={"Address"} />
-              <ManageProfilePaymentSetting data={profileData.paymentSetting} title={"Payment Setting"} />
-              <ManageProfileDesigner_VAT_and_CR_No data={profileData.designer_VAT_and_CR_No} title={"Designer VAT & CR No."} />
-              <ManageProfileChangeYourEmail data={profileData.changeYourEmail} title={"Change your email"} />
+              <ManageProfileBasicInfo
+                data={basicInfo}
+                title={"Basic Info"}
+                showModal={showModal}
+                handleChange={handleChange}
+                currentImages={currentImages}
+                updateBasicInfo={updateBasicInfo}
+              />
+
+              <ManageProfileAddress
+                data={profileData.address}
+                title={"Address"}
+              />
+
+              <ManageProfilePaymentSetting
+                data={profileData.paymentSetting}
+                title={"Payment Setting"}
+              />
+
+              <ManageProfileDesigner_VAT_and_CR_No
+                data={profileData.designer_VAT_and_CR_No}
+                title={"Designer VAT & CR No."}
+              />
+
+              <ManageProfileChangeYourEmail
+                data={profileData.changeYourEmail}
+                title={"Change your email"}
+              />
             </div>
           </AdminPanelLayout>
         </div>
       </Layout>
       <div id="upload_overlay" className="dnone">
-        <ChooseImageModal />
+        <ChooseImageModal
+          currentImages={currentImages}
+          setCurrentImages={setCurrentImages}
+        />
       </div>
     </>
   );

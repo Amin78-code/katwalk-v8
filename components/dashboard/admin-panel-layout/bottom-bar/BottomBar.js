@@ -6,7 +6,7 @@ import profileImg from "../../../../assets/images/icons/profile-img.png";
 
 function BottomBar({ active, openSidebar }) {
   return (
-    <div className="w-[100%] h-[60px] shadow-md border-t-[1px] border-[#dee2e6] bottom-0 fixed bg-[#dee2e6] flex gap-x-[.2%] left-0 z-[22]">
+    <div className="w-[100%] h-[60px] shadow-md border-t-[1px] border-[#dee2e6] bottom-0 fixed bg-[#dee2e6] flex gap-x-[.2%] left-0 z-[10]">
       <div
         className={`${
           active == "Dashboard" ? styles.active : ""

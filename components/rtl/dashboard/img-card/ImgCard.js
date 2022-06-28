@@ -23,7 +23,7 @@ function ImgCard({ data ,selecImg , index, selectedImgs}) {
     }
   }
 
-  console.log("_imgPath", _imgPath);
+  // console.log("_imgPath", _imgPath);
 
   // const [isDisableBust, setIsDisableBust] = useState(false);
 
@@ -47,7 +47,7 @@ function ImgCard({ data ,selecImg , index, selectedImgs}) {
       <>
         {data.fileType && data.fileType == "video/mp4" ? (
           <div
-            className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm      --- ${data.isSelected} ----  ${
+            className={`w-[49%] sm:w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm      --- ${data.isSelected} ----  ${
               data.isSelected == true
                 ? " bg-[#007bff0d] border-[#007bff] "
                 : "no"
@@ -67,7 +67,7 @@ function ImgCard({ data ,selecImg , index, selectedImgs}) {
           </div>
         ) : (
           <div
-            className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm      --- ${data.isSelected} ----  ${
+            className={`w-[49%] sm:w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm      --- ${data.isSelected} ----  ${
               data.isSelected == true
                 ? " bg-[#007bff0d] border-[#007bff] "
                 : "no"
@@ -90,7 +90,7 @@ function ImgCard({ data ,selecImg , index, selectedImgs}) {
       </>
     ) : (
       <div
-        className={`w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm   --- ${data.isSelected} ----  ${
+        className={`w-[49%] sm:w-[16.66666%] h-[160px] px-[8px] py-[8px] rounded-[0.25rem] bg-[#fff] shadow-sm   --- ${data.isSelected} ----  ${
           data.isSelected == true
             ? " bg-[#007bff0d] border-[#007bff] "
             : "no"
