@@ -13,7 +13,7 @@ function SampleNextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", width: "35px", height: "50px" }}
+      style={{ ...style, display: "block", width: "35px", height: "50px",   marginLeft:"50px", right: "40px", left:"unset" }}
       onClick={onClick}
     ></div>
   );
@@ -24,7 +24,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", width: "35px", height: "50px" }}
+      style={{ ...style, display: "block", width: "35px", height: "50px",   marginRight: "50px", left: "40px", right: "unset" }}
       onClick={onClick}
     />
   );
@@ -38,8 +38,8 @@ function ProductSlider({ data }) {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 2,
-    nextArrow: <SamplePrevArrow />,
-    prevArrow: <SampleNextArrow />,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 640,

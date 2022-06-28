@@ -135,6 +135,8 @@ function ProductDetail() {
   const [togglerSheilaLengthPlusIcon, settogglerSheilaLengthPlusIcon] =
     useState([]);
 
+
+
   const [togglerTab1, settogglerTab1] = useState([]);
   const [togglerTab1PlusIcon, settogglerTab1PlusIcon] = useState([]);
 
@@ -146,6 +148,8 @@ function ProductDetail() {
 
   const [togglerTab4, settogglerTab4] = useState([]);
   const [togglerTab4PlusIcon, settogglerTab4PlusIcon] = useState([]);
+
+
 
   const colorsDivToggler = () => {
     if (!togglerColorsDiv.includes("show-colors")) {

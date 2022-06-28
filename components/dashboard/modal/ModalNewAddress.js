@@ -9,6 +9,7 @@ function ModalNewAddress({
   isShowModal,
   toggleModal,
   data,
+  handleChangeAddress
 }) {
 
   const countrySelect = useRef("")
@@ -108,7 +109,7 @@ function ModalNewAddress({
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Address"
 
-                  onChange={(e) => handleChange(e, "Your Address", "basicInfo")}
+                  onChange={(e) => handleChangeAddress(e, "Your Address", "address")}
                 />
               </div>
             </div>
@@ -215,7 +216,7 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Area"
-                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
+                  onChange={(e) => handleChangeAddress(e, "Your Area", "address")}
                 />
               </div>
             </div>
@@ -230,7 +231,7 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Postal Code"
-                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
+                  onChange={(e) => handleChangeAddress(e, "Your Postal Code", "address")}
                 />
               </div>
             </div>
@@ -245,7 +246,7 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="+880"
-                  onChange={(e) => handleChange(e, "Your Name", "basicInfo")}
+                  onChange={(e) => handleChangeAddress(e, "Phone", "address")}
                 />
               </div>
             </div>

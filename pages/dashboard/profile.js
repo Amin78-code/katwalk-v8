@@ -93,13 +93,6 @@ function Profiles() {
         value: e.target.value,
       });
     }
-
-    // else if (name == "New Password") {
-    //   dataToUpdate.splice(3, 1, {
-    //     name: extractDataFrom[4].name,
-    //     value: e.target.value,
-    //   });
-    // }
     else if (name == "Confirm Password") {
       dataToUpdate.splice(4, 1, {
         name: extractDataFrom[4].name,
@@ -128,6 +121,10 @@ function Profiles() {
     console.log("basicInfo", basicInfo);
   };
 
+  const handleChangeAddress = (e, name, dataName) => {
+
+  }
+
   return (
     <>
       <Layout>
@@ -145,8 +142,9 @@ function Profiles() {
               />
 
               <ManageProfileAddress
-                data={profileData.address}
+                data={address}
                 title={"Address"}
+                handleChangeAddress={handleChangeAddress}
               />
 
               <ManageProfilePaymentSetting

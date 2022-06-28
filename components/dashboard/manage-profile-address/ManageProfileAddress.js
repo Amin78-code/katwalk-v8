@@ -294,7 +294,7 @@ const addAddressData = [
   },
 ];
 
-function ManageProfileAddress({ data, title }) {
+function ManageProfileAddress({ data, title, handleChangeAddress }) {
   const [isShowModal, setIsShowModal] = useState(false);
   const basicInfoCardBody = useRef("");
   const typeSelect = useRef("");
@@ -410,6 +410,7 @@ function ManageProfileAddress({ data, title }) {
         isShowModal={isShowModal}
         toggleModal={toggleModal}
         data={addAddressData}
+        handleChangeAddress={handleChangeAddress}
       />
 
     </>
