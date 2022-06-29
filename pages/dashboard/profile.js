@@ -22,45 +22,37 @@ function Profiles() {
 
   const [address, setAddress] = useState([
     { name: "Address", value: "Prince Nayef St." },
-      { name: "Postal Code", value: "32424" },
-      { name: "City", value: "Dammam" },
-      { name: "Area", value: "Al Aziziyah" },
-      { name: "Country", value: "SA" },
-      { name: "Phone", value: "+966508011144" },
+    { name: "Postal Code", value: "32424" },
+    { name: "City", value: "Dammam" },
+    { name: "Area", value: "Al Aziziyah" },
+    { name: "Country", value: "SA" },
+    { name: "Phone", value: "+966508011144" },
+  ]);
+  const [paymentSetting, setPaymentSetting] = useState([
+    { name: "Cash Payment", value: "", status: true },
+    { name: "Bank Payment", value: "", status: false },
+    { name: "Bank Name", placeHolder: "Bank Name", value: "" },
+    { name: "Bank Account Name", placeHolder: "Bank Account Name", value: "" },
+    {
+      name: "Bank Account Number",
+      placeHolder: "Bank Account Number",
+      value: "",
+    },
+    {
+      name: "Bank Routing Number",
+      placeHolder: "Bank Routing Number",
+      value: "",
+    },
   ]);
 
-  const [profileData, setProfileData] = useState({
-    basicInfo: [
-      { name: "Your Name", value: "Aliya Almusawi" },
-      { name: "Your Phone", value: "+966508011144" },
-      { name: "Photo", value: "" },
-      { name: "New Password", placeHolder: "New Password" },
-      { name: "Confirm Password", placeHolder: "Confirm Password" },
-    ],
-    address: [
-      { name: "Address", value: "Prince Nayef St." },
-      { name: "Postal Code", value: "32424" },
-      { name: "City", value: "Dammam" },
-      { name: "Area", value: "Al Aziziyah" },
-      { name: "Country", value: "SA" },
-      { name: "Phone", value: "+966508011144" },
-    ],
-    paymentSetting: [
-      { name: "Cash Payment", value: "", status: true },
-      { name: "Bank Payment", value: "", status: false },
-      { name: "Bank Name", placeHolder: "Bank Name" },
-      { name: "Bank Account Name", placeHolder: "Bank Account Name" },
-      { name: "Bank Account Number", placeHolder: "Bank Account Number" },
-      { name: "Bank Routing Number", placeHolder: "Bank Routing Number" },
-    ],
-    designer_VAT_and_CR_No: [
-      { name: "VAT Number", placeHolder: "Enter Vat Number", status: false },
-      { name: "CR Number", value: "123456789", status: true },
-    ],
-    changeYourEmail: [
-      { name: "Your Email", placeHolder: "azaamam@hotmail.com" },
-    ],
-  });
+  const [designer_VAT_and_CR_No, set_designer_VAT_and_CR_No] = useState([
+    { name: "VAT Number", placeHolder: "Enter Vat Number", status: false },
+    { name: "CR Number", value: "123456789", status: true },
+  ]);
+
+  const [changeYourEmail, set_changeYourEmail] = useState([
+    { name: "Your Email", placeHolder: "azaamam@hotmail.com" },
+  ]);
 
   const [currentImages, setCurrentImages] = useState([]);
 
@@ -92,8 +84,7 @@ function Profiles() {
         name: extractDataFrom[3].name,
         value: e.target.value,
       });
-    }
-    else if (name == "Confirm Password") {
+    } else if (name == "Confirm Password") {
       dataToUpdate.splice(4, 1, {
         name: extractDataFrom[4].name,
         value: e.target.value,
@@ -105,26 +96,123 @@ function Profiles() {
   };
 
   const updateBasicInfo = () => {
+    console.log("basicInfo", basicInfo);
     let extractDataFrom = undefined;
     let dataToUpdate = undefined;
 
     extractDataFrom = basicInfo;
     dataToUpdate = basicInfo;
 
-    dataToUpdate.splice(2, 1, {
-      name: extractDataFrom[2].name,
-      value: currentImages[0].img,
-    });
-
-    setBasicInfo([...dataToUpdate]);
-
-    console.log("basicInfo", basicInfo);
+    if (currentImages.length == 0) {
+      console.log("please select an image");
+    } else {
+      dataToUpdate.splice(2, 1, {
+        name: extractDataFrom[2].name,
+        value: currentImages[0].img,
+      });
+      setBasicInfo([...dataToUpdate]);
+      console.log("basicInfo", basicInfo);
+    }
   };
 
-  const handleChangeAddress = (e, name, dataName) => {
+  const handleChangeAddress = (e, index, type) => {
+    let _address = address;
 
-  }
+    if (type == "select") {
+      _address.splice(index, 1, {
+        name: address[index].name,
+        value: e,
+      });
+    } else {
+      _address.splice(index, 1, {
+        name: address[index].name,
+        value: e.target.value,
+      });
+    }
 
+    setAddress([..._address]);
+  };
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const saveAddress = () => {
+    toggleModal();
+  };
+  const toggleModal = () => {
+    // console.log("toggleModal called")
+    setIsShowModal(!isShowModal);
+  };
+
+  const updateAddress = () => {
+    // console.log("updateAddress c a l l")
+    // toggleModal();
+    console.log("address", address);
+  };
+
+  const handleChangePayment = () => (e, index, type) => {
+    let _paymentSetting = paymentSetting;
+
+    if (type == "checkbox") {
+      _paymentSetting.splice(index, 1, {
+        name: paymentSetting[index].name,
+        value: e,
+      });
+    } else {
+      _paymentSetting.splice(index, 1, {
+        name: paymentSetting[index].name,
+        value: e.target.value,
+      });
+    }
+
+    setPaymentSetting([..._paymentSetting]);
+  };
+
+  const handleChangeDesigner = (e, index, type) => {
+    let _designer_VAT_and_CR_No = designer_VAT_and_CR_No;
+
+    if (type == "select") {
+      _designer_VAT_and_CR_No.splice(index, 1, {
+        name: designer_VAT_and_CR_No[index].name,
+        value: e,
+      });
+    } else {
+      _designer_VAT_and_CR_No.splice(index, 1, {
+        name: designer_VAT_and_CR_No[index].name,
+        value: e.target.value,
+      });
+    }
+
+    set_designer_VAT_and_CR_No([..._designer_VAT_and_CR_No]);
+  };
+
+  const saveData_VAT_and_CR = () => {
+    console.log("designer_VAT_and_CR_No", designer_VAT_and_CR_No);
+  };
+
+  const handleChangeEmail = (e, index, type) => {
+    let _changeYourEmail = changeYourEmail;
+
+    if (type == "select") {
+      _changeYourEmail.splice(index, 1, {
+        name: changeYourEmail[index].name,
+        value: e,
+      });
+    } else {
+      _changeYourEmail.splice(index, 1, {
+        name: changeYourEmail[index].name,
+        value: e.target.value,
+      });
+    }
+
+    set_changeYourEmail([..._changeYourEmail]);
+  };
+
+  const updateEmail = () => {
+    if (changeYourEmail[0].value == "") {
+      console.log("please type your email");
+    } else {
+      console.log("changeYourEmail", changeYourEmail);
+    }
+  };
   return (
     <>
       <Layout>
@@ -145,21 +233,30 @@ function Profiles() {
                 data={address}
                 title={"Address"}
                 handleChangeAddress={handleChangeAddress}
+                saveAddress={saveAddress}
+                toggleModal={toggleModal}
+                isShowModal={isShowModal}
+                updateAddress={updateAddress}
               />
 
               <ManageProfilePaymentSetting
-                data={profileData.paymentSetting}
+                data={paymentSetting}
                 title={"Payment Setting"}
+                handleChangePayment={handleChangePayment}
               />
 
               <ManageProfileDesigner_VAT_and_CR_No
-                data={profileData.designer_VAT_and_CR_No}
+                data={designer_VAT_and_CR_No}
                 title={"Designer VAT & CR No."}
+                handleChangeDesigner={handleChangeDesigner}
+                saveData_VAT_and_CR={saveData_VAT_and_CR}
               />
 
               <ManageProfileChangeYourEmail
-                data={profileData.changeYourEmail}
+                data={changeYourEmail}
                 title={"Change your email"}
+                handleChangeEmail={handleChangeEmail}
+                updateEmail={updateEmail}
               />
             </div>
           </AdminPanelLayout>

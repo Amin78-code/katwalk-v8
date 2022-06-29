@@ -6,7 +6,7 @@ import styles from "./ManageProfilePaymentSetting.module.css";
 import TitleAndTableCard from "../title-and-table-card/TitleAndTableCard";
 import ChooseImage from "../choose-image/ChooseImage";
 
-function ManageProfilePaymentSetting({ data, title }) {
+function ManageProfilePaymentSetting({ data, title,handleChangePayment }) {
   const basicInfoCardBody = useRef("");
   const openCardBody = () => {
     basicInfoCardBody.current.classList.toggle(styles.slide_card_body);
@@ -34,28 +34,25 @@ function ManageProfilePaymentSetting({ data, title }) {
           className={`max-h-0 h-auto overflow-hidden taPoint6`}
         >
           <CardBody>
-            {data.map((value, index) => {
-              return (
-                <>
-                  {value.value && value.value == "loadImg" ? (
-                    <ChooseImage data={value} shopsPage={true} />
-                  ) : (
-                    <div key={value.name} className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+
+
+
+          <div   className="fwr flex mb-[1rem] flex-col      lg:flex-row">
                       <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
-                        {value.name}
+                 
+                        Cash Payment
                       </p>
                       <div className="w-[100%] px-0     lg:px-[15px]">
-                        {value.name == "Cash Payment" ||
-                        value.name == "Bank Payment" ? (
+                        
                           <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px]">
                             <label
-                              htmlFor={"toggleCashPayment"+index}
+                              htmlFor={"CashPayment"}
                               className="flex items-center cursor-pointer"
                             >
                               <div className="relative">
                                 <input
                                   type="checkbox"
-                                  id={"toggleCashPayment"+index}
+                                  id={"CashPayment"}
                                   className="sr-only"
                                   //  onChange={() => disableSheila("toggleCashPayment")}
                                 />
@@ -64,22 +61,120 @@ function ManageProfilePaymentSetting({ data, title }) {
                               </div>
                             </label>
                           </p>
-                        ) : (
+                      
+                      </div>
+                    </div>
+
+
+
+                    <div   className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                 
+                      Bank Payment
+                      </p>
+                      <div className="w-[100%] px-0     lg:px-[15px]">
+                        
+                          <p className="fwr w-[100%]     lg:w-[12.5%] text-[10px] text-[#6C767D] leading-[2] tracking-[0.5px]">
+                            <label
+                              htmlFor={"Bankayment"}
+                              className="flex items-center cursor-pointer"
+                            >
+                              <div className="relative">
+                                <input
+                                  type="checkbox"
+                                  id={"Bankayment"}
+                                  className="sr-only"
+                                  //  onChange={() => disableSheila("toggleCashPayment")}
+                                />
+                                <div className="block bg-[#e8ebf1] w-[40px] h-[23px] rounded-full"></div>
+                                <div className="dot absolute left-[2px] top-[2.5px] bg-white w-[17px] h-[17px] rounded-full transition"></div>
+                              </div>
+                            </label>
+                          </p>
+                      
+                      </div>
+                    </div>
+
+
+
+
+
+                    <div   className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                      Bank Name
+                      </p>
+                      <div className="w-[100%] px-0     lg:px-[15px]">
+                      
                           <input
                             type="text"
                             className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
-                            value={value.value}
-                            placeholder={
-                              value.placeHolder ? value.placeHolder : ""
-                            }
-                          />
-                        )}
+                            // value={value.value}
+                            placeholder="Bank Name"
+                            value={data[2].value}
+                            onChange={(e) => handleChangePayment(e,2)}
+                            />
+                       
                       </div>
                     </div>
-                  )}
-                </>
-              );
-            })}
+
+
+                    <div   className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                      Bank Account Name
+                      </p>
+                      <div className="w-[100%] px-0     lg:px-[15px]">
+                      
+                          <input
+                            type="text"
+                            className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            // value={value.value}
+                            placeholder="Bank Account Name"
+                            value={data[3].value}
+                            onChange={(e) => handleChangePayment(e,3)}
+                          />
+                       
+                      </div>
+                    </div>
+
+                    <div   className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                      Bank Account Number
+                      </p>
+                      <div className="w-[100%] px-0     lg:px-[15px]">
+                      
+                          <input
+                            type="text"
+                            className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            // value={value.value}
+                            placeholder="Bank Account Number"
+                              value={data[4].value}
+                         handleChangeDesigner
+                              />
+                       
+                      </div>
+                    </div>
+
+
+                      <div   className="fwr flex mb-[1rem] flex-col      lg:flex-row">
+                      <p className="w-[100%]     lg:w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
+                      Bank Routing Number
+                      </p>
+                      <div className="w-[100%] px-0     lg:px-[15px]">
+                      
+                          <input
+                            type="text"
+                            className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            // value={value.value}
+                            placeholder="Bank Routing Number"
+                              value={data[5].value}
+                              onChange={(e) => handleChangePayment(e,5)}
+                              />
+                       
+                      </div>
+                    </div>
+
+
+           
             <div className="flex justify-end">
               <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
                 update profile

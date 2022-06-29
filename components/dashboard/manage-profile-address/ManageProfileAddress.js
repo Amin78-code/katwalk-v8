@@ -294,8 +294,8 @@ const addAddressData = [
   },
 ];
 
-function ManageProfileAddress({ data, title, handleChangeAddress }) {
-  const [isShowModal, setIsShowModal] = useState(false);
+function ManageProfileAddress({ data, title, handleChangeAddress, saveAddress, toggleModal, isShowModal, updateAddress  }) {
+
   const basicInfoCardBody = useRef("");
   const typeSelect = useRef("");
   const [editOrDelete, setEditOrDelete] = useState("");
@@ -306,8 +306,9 @@ function ManageProfileAddress({ data, title, handleChangeAddress }) {
   const setOption = (selectedOption) => {
     // console.log("selectedOption", selectedOption);
     // console.log("optionsIndex", optionsIndex);
-    if (optionsIndex == "edit") {
+    if (selectedOption == "edit") {
       setEditOrDelete(selectedOption);
+      toggleModal()
     } else if (optionsIndex == "delete") {
       setEditOrDelete(selectedOption);
     }
@@ -315,10 +316,6 @@ function ManageProfileAddress({ data, title, handleChangeAddress }) {
 
   const openSelect = (dropdownName) => {
     document.getElementById(dropdownName).classList.toggle("dblock");
-  };
-
-  const toggleModal = () => {
-    setIsShowModal(!isShowModal);
   };
 
   return (
@@ -374,7 +371,7 @@ function ManageProfileAddress({ data, title, handleChangeAddress }) {
                           onClick={() => setOption("edit")}
                           className={`${editOrDelete == "edit" ? styles.active_option : ""
                             }
-                          block text-[#212529] text-[1rem] capitalize py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
+                          block text-[#212529] text-[1rem] capitalize py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] cursor-pointer overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                         >
                           edit
                         </li>
@@ -382,7 +379,7 @@ function ManageProfileAddress({ data, title, handleChangeAddress }) {
                           onClick={() => setOption("delete")}
                           className={`${editOrDelete == "delete" ? styles.active_option : ""
                             }
-                          block text-[#212529] text-[1rem] capitalize py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
+                          block text-[#212529] text-[1rem] capitalize py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] cursor-pointer overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                         >
                           delete
                         </li>
@@ -398,7 +395,7 @@ function ManageProfileAddress({ data, title, handleChangeAddress }) {
             </TitleAndTableCard>
             <AddNewAddress toggleModal={toggleModal} />
             <div className="flex justify-end">
-              <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem] mt-[15px]">
+              <button onClick={()=>updateAddress()} className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem] mt-[15px]">
                 update profile
               </button>
             </div>
@@ -411,6 +408,7 @@ function ManageProfileAddress({ data, title, handleChangeAddress }) {
         toggleModal={toggleModal}
         data={addAddressData}
         handleChangeAddress={handleChangeAddress}
+        saveAddress={saveAddress}
       />
 
     </>

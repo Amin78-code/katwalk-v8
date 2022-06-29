@@ -10,7 +10,15 @@ import img4 from "../../../assets/images/uploaded/IMG_2378.jpg";
 import UploadNewImgCard from "../upload-new-img-card/UploadNewImgCard";
 import ImgLazyLoad from "../../img-lazy-load/ImgLazyLoad";
 
-function ChooseImageModal({ data, currentImages, setCurrentImages }) {
+function ChooseImageModal({
+  data,
+  currentImages,
+  setCurrentImages,
+  shopLogo,
+  designerPicture,
+  banners,
+  mobileBanners
+}) {
   const [uploadedPictures, setUploadedPictures] = useState([
     {
       img: img1,
@@ -112,50 +120,86 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
   }
 
   const hideModal = () => {
-    document.getElementById("upload_overlay").classList.remove("dblock");
+    if (shopLogo) {
+      document.getElementById("upload_overlay1").classList.remove("dblock");
+    } else if (designerPicture) {
+      document.getElementById("upload_overlay2").classList.remove("dblock");
+    } else if (banners) {
+      document.getElementById("upload_overlay3").classList.remove("dblock");
+    } else if (mobileBanners) {
+      document.getElementById("upload_overlay4").classList.remove("dblock");
+    } else {
+      document.getElementById("upload_overlay").classList.remove("dblock");
+    }
   };
 
   const selecImg = (data, id) => {
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
-    for (let i = 0; i < _uploadedPictures.length; i++) {
-      if (_uploadedPictures[i].img == data.img) {
-        console.log("matched");
-        let clickedItem = _uploadedPictures[i];
-        let itemForPush = {
-          img: _uploadedPictures[i].img,
-          name: _uploadedPictures[i].name,
-          sizeInKB: _uploadedPictures[i].sizeInKB,
-          fileType: _uploadedPictures[i].fileType,
-          isSelected: !_uploadedPictures[i].isSelected,
-        };
-        _uploadedPictures.splice(i, 1, itemForPush);
-        setUploadedPictures([..._uploadedPictures]);
+
+     if(Array.isArray(currentImages) == true) {
+
+
+      for (let i = 0; i < _uploadedPictures.length; i++) {
+        if (_uploadedPictures[i].img == data.img) {
+          // console.log("matched");
+          let clickedItem = _uploadedPictures[i];
+          let itemForPush = {
+            img: _uploadedPictures[i].img,
+            name: _uploadedPictures[i].name,
+            sizeInKB: _uploadedPictures[i].sizeInKB,
+            fileType: _uploadedPictures[i].fileType,
+            isSelected: !_uploadedPictures[i].isSelected,
+          };
+          _uploadedPictures.splice(i, 1, itemForPush);
+          setUploadedPictures([..._uploadedPictures]);
+        }
       }
 
-      // if (_uploadedPictures[i].img == data.img) {
-      //   let imgPath = _uploadedPictures[i].img.src.split("/");
-      //   let _imgPath = imgPath[imgPath.length - 1];
-      //   let alreadyExist = false;
-      //   for (let j = 0; j < _selectedImgs.length; j++) {
-      //     if (_selectedImgs[j] == _imgPath) {
-      //       alreadyExist = true;
-      //       _selectedImgs.splice(j, 1);
-      //       setSelectedImgs([]);
-      //       setSelectedImgs(_selectedImgs);
-      //     }
-      //   }
-      //   if (alreadyExist !== true) {
-      //     _selectedImgs.push(_imgPath);
-      //   }
-      // }
-    }
+
+      } else {
+
+        let __uploadedPictures = []
+        for (let i = 0; i < _uploadedPictures.length; i++) {
+          // if (_uploadedPictures[i].img == data.img) {
+            
+          //   console.log("matched");
+            // let clickedItem = _uploadedPictures[i];
+             
+            __uploadedPictures.push({
+              img: _uploadedPictures[i].img,
+              name: _uploadedPictures[i].name,
+              sizeInKB: _uploadedPictures[i].sizeInKB,
+              fileType: _uploadedPictures[i].fileType,
+              isSelected: false,
+            })
+          }
+        for (let i = 0; i < __uploadedPictures.length; i++) {
+          if (__uploadedPictures[i].img == data.img) {
+            // console.log("matched");
+                     let itemForPush = {
+              img: __uploadedPictures[i].img,
+              name: __uploadedPictures[i].name,
+              sizeInKB: __uploadedPictures[i].sizeInKB,
+              fileType: __uploadedPictures[i].fileType,
+              isSelected: !__uploadedPictures[i].isSelected,
+            };
+            __uploadedPictures.splice(i, 1, itemForPush);
+            setUploadedPictures([...__uploadedPictures]);
+          }
+        }
+        console.log("__uploadedPictures",__uploadedPictures)
+
+        
+     }
+
+
+    
 
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
 
-    console.log("setSelectedImgs", selectedImgs);
   };
 
   // const changeHandle =(e)=> {
@@ -258,9 +302,19 @@ function ChooseImageModal({ data, currentImages, setCurrentImages }) {
 
     for (let i = 0; i < uploadedPictures.length; i++) {
       if (uploadedPictures[i].isSelected == true) {
+      
+        if(Array.isArray(currentImages) == true) {
+
         _currentImages.unshift(uploadedPictures[i]);
         setCurrentImages([]);
         setCurrentImages([..._currentImages]);
+
+      }
+      else {
+        
+        setCurrentImages(uploadedPictures[i])
+      }
+
       }
     }
     hideModal();

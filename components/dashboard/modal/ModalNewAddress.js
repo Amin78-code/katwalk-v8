@@ -8,6 +8,7 @@ import CardBody from "../card-body/CardBody";
 function ModalNewAddress({
   isShowModal,
   toggleModal,
+  saveAddress,
   data,
   handleChangeAddress
 }) {
@@ -34,11 +35,13 @@ function ModalNewAddress({
   };
 
   const setCountry = (value) => {
+    handleChangeAddress(value, 4, "select")
     setSelectedCountry(value)
     countrySelect.current.classList.toggle("dblock");
     document.getElementById("countrySelect").classList.remove(styles.red_border);
   }
   const setCity = (value) => {
+    handleChangeAddress(value, 2, "select")
     setSelectedCity(value)
     citySelect.current.classList.toggle("dblock");
     document.getElementById("citySelect").classList.remove(styles.red_border);
@@ -108,8 +111,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Address"
-
-                  onChange={(e) => handleChangeAddress(e, "Your Address", "address")}
+                  value={data[0].value}
+                  onChange={(e) => handleChangeAddress(e, 0)}
                 />
               </div>
             </div>
@@ -216,7 +219,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Area"
-                  onChange={(e) => handleChangeAddress(e, "Your Area", "address")}
+                  value={data[3].value}
+                  onChange={(e) => handleChangeAddress(e, 3)}
                 />
               </div>
             </div>
@@ -231,7 +235,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="Your Postal Code"
-                  onChange={(e) => handleChangeAddress(e, "Your Postal Code", "address")}
+                  value={data[1].value}
+                  onChange={(e) => handleChangeAddress(e, 1)}
                 />
               </div>
             </div>
@@ -246,7 +251,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="+880"
-                  onChange={(e) => handleChangeAddress(e, "Phone", "address")}
+                  value={data[5].value}
+                  onChange={(e) => handleChangeAddress(e, 5)}
                 />
               </div>
             </div>
@@ -256,7 +262,7 @@ function ModalNewAddress({
               <div className="flex justify-end">
 
 
-                <button onClick={() => toggleModal()} className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
+                <button onClick={() => saveAddress()} className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
                   save
                 </button>
               </div>
