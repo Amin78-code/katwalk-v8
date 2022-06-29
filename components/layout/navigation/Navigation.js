@@ -9,6 +9,7 @@ import styles from "./Navigation.module.css";
 import logoSquare from "../../../assets/images/logo/logo-square.png";
 import dress1 from "../../../assets/images/products/dress1.jpg";
 import { useRouter } from "next/router";
+import products from "../../../assets/data/CartProducts";
 
 function Navigation() {
   const router = useRouter();
@@ -303,30 +304,37 @@ function Navigation() {
                         </p>
                       ) : (
                         <div className="flex flex-col justify-start relative">
-                          <div className="flex justify-between pt-[20px] pb-[20px] ">
-                            <div className="max-w-[22%] max-h-[70px] px-[5px ]">
-                              <span className="image_container">
-                                <Image src={dress1} alt="product image" />
-                              </span>
-                            </div>
-                            <div className="text-right">
-                              <div className="flex">
-                                <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
-                                  Floral Embroidery Tulle Sleeve Abaya
-                                </p>
-                                <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mr-[3px]"></div>
-                              </div>
-                              <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
-                                Clue
-                              </p>
-                              <p className="work-regular text-[13px] leading-[1.5] mt-[10px] pl-[10px]">
-                                1x SAR 1,030
-                              </p>
-                            </div>
-                            {/* <div className="absolute right-[-5px]">
-                            <div className="w-[21px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5"></div>
-                          </div> */}
-                          </div>
+                       
+                       {products.map((product)=> {
+              return (
+                <div className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed]">
+                  <div className="max-w-[22%] max-h-[70px] px-[5px ]">
+                    <span className="image_container">
+                      <Image src={product.image} alt="product image" />
+                    </span>
+                  </div>
+
+
+
+                  <div className="text-right">
+                    <div className="flex">
+                      <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
+                      {product.name}
+                      </p>
+                      <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mr-[3px]"></div>
+                    </div>
+                    <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
+                    {product.company}
+                    </p>
+                    <p className="work-regular text-[13px] leading-[1.5] mt-[10px] pl-[10px]">
+                    {product.quantity}x SAR {product.price}
+                    </p>
+                  </div>
+              </div>
+              )
+    })}       
+                       
+                         
 
                           <div className="border-t-[1px] border-[#ededed] flex justify-end">
                             <p
@@ -660,30 +668,38 @@ function Navigation() {
               </div>
             </div>
 
-            <div className="flex flex-col flex-col justify-between h-[89vh]    hidd en">
-              <div className="flex justify-between pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
-                <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
-                  <span className="image_container">
-                    <Image src={dress1} alt="product image" />
-                  </span>
-                </div>
-                <div className="flex">
-                  <div className="text-[#1b1b28]">
-                    <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
-                      Floral Embroidery Tulle Sleeve Abaya
-                    </p>
-                    <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
-                      Clue
-                    </p>
-                    <p className="work-regular text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
-                      1x SAR 1,030
-                    </p>
+            <div className="flex flex-col flex-col justify-between h-[89vh] pt-[20px]    hidd en">
+             
+             <div>
+             {products.map((product)=> {
+              return (
+                <div key={product.name} className="flex justify-between pt-[20px ] pb-[15px] mb-[15px] border-b-[1px] border-[#ededed]">
+                  <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
+                    <span className="image_container">
+                      <Image src={product.image} alt="product image" />
+                    </span>
                   </div>
-                  <div>
-                    <div className="w-[20px] h-[18px] cursor-pointer bgAllIcon mr-[-2px] bg-[left_-22px_top_-37px] tScalePoint5 mt-[-1px]"></div>
+                  <div className="flex">
+                    <div className="text-[#1b1b28]">
+                      <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
+                        {product.name}
+                      </p>
+                      <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
+                      {product.name}
+                      </p>
+                      <p className="work-regular text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
+                      {product.quantity}x SAR  {product.price}
+                      </p>
+                    </div>
+                    <div>
+                      <div className="w-[20px] h-[18px] cursor-pointer bgAllIcon mr-[-2px] bg-[left_-22px_top_-37px] tScalePoint5 mt-[-1px]"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )
+             })}
+             </div>
+             
 
               <div className="w-[100%]">
                 <div className="border-t-[1px] border-[#ededed] flex justify-between">

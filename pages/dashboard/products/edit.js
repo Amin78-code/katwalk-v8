@@ -32,7 +32,7 @@ const productCategoriesInArabic = [
   "فستان",
   "فروة",
   "كيمونو",
-  "Katwalk e-Gift Card"
+  "Katwalk e-Gift Card",
 ];
 
 const productTypes = [
@@ -226,20 +226,24 @@ function AddNewProduct() {
     { name: "sku_Code", value: "SKU Code" },
   ]);
 
+  const [lengthTitle, setLengthTitle] = useState("nothing selected");
+  const [bustTitle, setBustTitle] = useState("nothing selected");
+  const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
+
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSheilaColor, setSelectedSheilaColor] = useState([]);
   const [selectedSheilaLength, setSelectedSheilaLength] = useState([]);
   const [selectedSize, setSelectedSize] = useState([]);
 
-  const [prodPricePlusStock, setProdPricePlusStock] = useState([
+  const [prodPricePlusStock, set_prodPricePlusStock] = useState([
     { name: "Unit Price", value: "500.00" },
-    {
-      name: "variantAndQuantity",
-      values: [
+     
+  ]);
+  const [variantAndQuantity, set_variantAndQuantity] = useState([
+  
         { variantName: "Aqua-52", value: 10 },
         { variantName: "Aqua-52", value: 10 },
-      ],
-    },
+     
   ]);
 
   const [colorTitle, setColorTitle] = useState("nothing selected");
@@ -654,6 +658,7 @@ function AddNewProduct() {
     );
     setProductCategoriesForShow(startsWithN);
   };
+
   const changeHandlerForArabic = (e, values) => {
     let productCategoriesInArabic = values;
     let _productCategoriesInArabic = [];
@@ -669,8 +674,11 @@ function AddNewProduct() {
   const [enableArabic, setEnableArabic] = useState(true);
 
   const toggleLang = (currentlanguage) => {
-    if (currentlanguage == "en") {setEnableArabic(true);}
-    else if (currentlanguage == "ar") {setEnableArabic(false);}
+    if (currentlanguage == "en") {
+      setEnableArabic(true);
+    } else if (currentlanguage == "ar") {
+      setEnableArabic(false);
+    }
   };
 
   const handleChange = (e, name) => {
@@ -691,7 +699,6 @@ function AddNewProduct() {
     }
   };
 
-  
   const handleChangeForArabic = (e, name) => {
     if (name == "productName") {
       let _productInfromationInArabic = productInfromationInArabic;
@@ -709,7 +716,118 @@ function AddNewProduct() {
       setProductInfromationInArabic([..._productInfromationInArabic]);
     }
   };
+
+  const changeHandlerPriceStock =(e,index)=> {
+    let _prodPricePlusStock = prodPricePlusStock;
+    _prodPricePlusStock.splice(index, 1, {
+      name: prodPricePlusStock[index].name,
+      value: e.target.value,
+    });
+    set_prodPricePlusStock([..._prodPricePlusStock]);
+    // console.log("prodPricePlusStock",prodPricePlusStock)
+  }
+  const changeHandlerPriceStockVarant =(e,index)=> {
+    console.log("variantAndQuantity")
+    let _variantAndQuantity = variantAndQuantity;
+    _variantAndQuantity.splice(index, 1, {
+      variantName: variantAndQuantity[index].variantName,
+      value: e.target.value,
+    });
+    set_variantAndQuantity([..._variantAndQuantity]);
+    console.log("variantAndQuantity",variantAndQuantity)
+  }
   
+  const updateProduct = () => {
+    // let _productsInformation = productsInformation;
+    // _productsInformation.splice(1, 1, {
+    //   name: productsInformation[1].name,
+    //   value: selectedCategory,
+    // });
+    // set_productsInformation([..._productsInformation]);
+
+
+    let _productDescription = [
+      {
+        name: "Type",
+        value: selectedType,
+      },
+      {
+        name: "Size & Fit",
+        value: selectedSizeAndFit,
+      },
+      {
+        name: "Fabric Type",
+        value: selectedFabricType,
+      },
+      {
+        name: "Fabric Weight",
+        value: selectedFabricWeight,
+      },
+      {
+        name: "Care Instructions",
+        value: selectedCareInstructions,
+      },
+      {
+        name: "Shipping & Returns",
+        value: selectedShippingAndReturns,
+      },
+      
+    ];
+
+
+
+    let _productVariation = [
+      {
+        name: "color",
+        value: colorTitle?.props?.children,
+      },
+      {
+        name: "sheila colors",
+        value: sheilacolorTitle?.props?.children,
+      },
+      {
+        name: "sheila lengths",
+        value: sheilaLengthTitle?.props?.children,
+      },
+      {
+        name: "size",
+        value: sizeTitle,
+      },
+    
+    ];
+
+    let _anyAlteration = [
+      {
+        name: "length",
+        value: lengthTitle?.props?.children,
+      },
+      {
+        name: "bust",
+        value: bustTitle?.props?.children,
+      },
+      {
+        name: "sleeves",
+        value: sleevesTitle?.props?.children,
+      }
+    
+    ];
+
+    let _prodPricePlusStock = [
+{
+  stock : prodPricePlusStock,
+  variant : variantAndQuantity,
+}
+    ]
+    
+    
+    console.log("Products Information", productInfromation);
+    console.log("Any Alteration",_anyAlteration)
+    console.log("Product Description", _productDescription);
+    console.log("Product Variation", _productVariation);
+    console.log("Product price + stock", _prodPricePlusStock);
+    console.log("Product Images",currentImages)
+  };
+
   return (
     <>
       <Layout>
@@ -815,7 +933,9 @@ function AddNewProduct() {
                             className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                             placeholder="Product Name"
                             value={productInfromationInArabic[0].value}
-                            onChange={(e) => handleChangeForArabic(e, "productName")}
+                            onChange={(e) =>
+                              handleChangeForArabic(e, "productName")
+                            }
                           />
                         </div>
                       </div>
@@ -882,13 +1002,16 @@ function AddNewProduct() {
                             className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                             placeholder="SKU Code"
                             value={productInfromationInArabic[2].value}
-                            onChange={(e) => handleChangeForArabic(e, "sku_Code")}
+                            onChange={(e) =>
+                              handleChangeForArabic(e, "sku_Code")
+                            }
                           />
                         </div>
                       </div>
                     </CardBody>
                   )}
                 </TitleAndTableCard>
+
                 {/* Product Images */}
                 <TitleAndTableCard width={"w-[100%] mb-[20px]"}>
                   <TableHeader>Product Images</TableHeader>
@@ -900,6 +1023,7 @@ function AddNewProduct() {
                     />
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product Variation */}
                 <TitleAndTableCard
                   width={"w-[100% mb-[20px]"}
@@ -1182,6 +1306,7 @@ function AddNewProduct() {
                     </div>
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product price + stock */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>Product price + stock</TableHeader>
@@ -1197,13 +1322,15 @@ function AddNewProduct() {
                           className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           // placeholder="Unit price"
                           value={prodPricePlusStock[0].value}
+                           onChange={(e)=>changeHandlerPriceStock(e,0)}
                           step="0.01"
                         />
                       </div>
                     </div>
-                    <ThinTable data={prodPricePlusStock[1].values} />
+                    <ThinTable data={variantAndQuantity} changeHandlerPriceStockVarant={changeHandlerPriceStockVarant} />
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Any Alteration? */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>Any Alteration?</TableHeader>
@@ -1235,26 +1362,27 @@ function AddNewProduct() {
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      lengthTitle={lengthTitle}
+                      setLengthTitle={setLengthTitle}
                     />
                     <Bust
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      bustTitle={bustTitle}
+                      setBustTitle={setBustTitle}
                     />
                     <Sleeves
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      sleevesTitle={sleevesTitle}
+                      setSleevesTitle={setSleevesTitle}
                     />
                   </CardBody>
                 </TitleAndTableCard>
-                {/* <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br /> */}
               </div>
+
               {/* Product Description */}
               <TitleAndTableCard width={"w-[100%]     lg:w-[37.5%] h-[100%]"}>
                 <TableHeader>Product Description</TableHeader>
@@ -1324,6 +1452,14 @@ function AddNewProduct() {
                   })}
                 </CardBody>
               </TitleAndTableCard>
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => updateProduct()}
+                className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+              >
+                upload product
+              </button>
             </div>
           </AdminPanelLayout>
         </div>

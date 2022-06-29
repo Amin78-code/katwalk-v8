@@ -2,12 +2,12 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./Bust.module.css";
 
-function Bust({ data,isDisableAllAlterations, openAltration }) {
+function Bust({ data,isDisableAllAlterations, openAltration, bustTitle, setBustTitle }) {
   const [isDisableBust, setIsDisableBust] = useState(true);
 
   const bustSelect = useRef("");
   const [selectedBust, setSelectedBust] = useState([]);
-  const [bustTitle, setBustTitle] = useState("nothing selected");
+
 
   const openAnyAlterationSelect = (productionVaraitionName) => {
     if (productionVaraitionName == "bustSelect") {

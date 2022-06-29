@@ -2,12 +2,11 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./Sleeves.module.css";
 
-function Sleeves({ data,isDisableAllAlterations, openAltration }) {
+function Sleeves({ data,isDisableAllAlterations, openAltration, sleevesTitle, setSleevesTitle }) {
   const [isDisableSleeves, setIsDisableSleeves] = useState(true);
 
   const sleevesSelect = useRef("");
   const [selectedSleeves, setSelectedSleeves] = useState([]);
-  const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
 
   const openAnyAlterationSelect = (productionVaraitionName) => {
     if (productionVaraitionName == "sleevesSelect") {

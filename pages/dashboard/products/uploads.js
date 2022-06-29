@@ -163,17 +163,6 @@ const alteration = {
   sleeves: ["25", "26", "27", "28", "29", "30"],
 };
 
-const productPriceStock = [
-  {
-    name: "Unit price",
-  },
-  {
-    name: "Quality",
-  },
-  {
-    name: "SKU",
-  },
-];
 
 const galleryImageData = {
   name: "Gallery Images",
@@ -193,13 +182,38 @@ function AddNewProduct() {
 
   const [matchedOptions, setMatchedOptions] = useState([]);
 
-  // let initialData = [];
-  //  useEffect(() => {
-
-  //   for (let i = 0; i < productCategories.length; i++) {
-  //     initialData.push(productCategories[i])
-  //   }
-  // }, []);
+  const [productsInformation, set_productsInformation] = useState([
+    {
+      name: "Product Name",
+      value: "",
+    },
+    {
+      name: "Category",
+      value: "",
+    },
+    {
+      name: "SKU Code",
+      value: "",
+    },
+  ]);
+  const [productPriceStock, set_productPriceStock] = useState([
+    {
+      name: "Unit price",
+      value: 34
+    },
+    {
+      name: "Quality",
+      value: 7
+    },
+    {
+      name: "SKU",
+      value: "df"
+    },
+  ]);
+ 
+  const [lengthTitle, setLengthTitle] = useState("nothing selected");
+  const [bustTitle, setBustTitle] = useState("nothing selected");
+  const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
 
   const [selectedCategory, setSelectedCategory] = useState("Abaya");
 
@@ -641,6 +655,108 @@ function AddNewProduct() {
     setProductCategoriesForShow(startsWithN);
   };
 
+  const handleChangeProductInformation = (e, index) => {
+    let _productsInformation = productsInformation;
+    _productsInformation.splice(index, 1, {
+      name: productsInformation[index].name,
+      value: e.target.value,
+    });
+    set_productsInformation([..._productsInformation]);
+  };
+
+  
+  const changeHandlerPriceStock =(e,index)=> {
+    console.log("called")
+    let _productPriceStock = productPriceStock;
+    _productPriceStock.splice(index, 1, {
+      name: productPriceStock[index].name,
+      value: e.target.value,
+    });
+    set_productPriceStock([..._productPriceStock]);
+  }
+
+  const updateProduct = () => {
+    let _productsInformation = productsInformation;
+    _productsInformation.splice(1, 1, {
+      name: productsInformation[1].name,
+      value: selectedCategory,
+    });
+    set_productsInformation([..._productsInformation]);
+
+
+    let _productDescription = [
+      {
+        name: "Type",
+        value: selectedType,
+      },
+      {
+        name: "Size & Fit",
+        value: selectedSizeAndFit,
+      },
+      {
+        name: "Fabric Type",
+        value: selectedFabricType,
+      },
+      {
+        name: "Fabric Weight",
+        value: selectedFabricWeight,
+      },
+      {
+        name: "Care Instructions",
+        value: selectedCareInstructions,
+      },
+      {
+        name: "Shipping & Returns",
+        value: selectedShippingAndReturns,
+      },
+    ];
+
+
+
+    let _productVariation = [
+      {
+        name: "color",
+        value: colorTitle?.props?.children,
+      },
+      {
+        name: "sheila colors",
+        value: sheilacolorTitle?.props?.children,
+      },
+      {
+        name: "sheila lengths",
+        value: sheilaLengthTitle?.props?.children,
+      },
+      {
+        name: "size",
+        value: sizeTitle,
+      },
+    
+    ];
+
+    let _anyAlteration = [
+      {
+        name: "length",
+        value: lengthTitle?.props?.children,
+      },
+      {
+        name: "bust",
+        value: bustTitle?.props?.children,
+      },
+      {
+        name: "sleeves",
+        value: sleevesTitle?.props?.children,
+      }
+    
+    ];
+    
+    console.log("Products Information", productsInformation);
+    console.log("Any Alteration",_anyAlteration)
+    console.log("Product Description", _productDescription);
+    console.log("Product Variation", _productVariation);
+    console.log("Product price + stock", productPriceStock);
+    console.log("Product Images",currentImages)
+  };
+
   return (
     <>
       <Layout>
@@ -664,6 +780,7 @@ function AddNewProduct() {
                         <input
                           className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           placeholder="Product Name"
+                          onChange={(e) => handleChangeProductInformation(e, 0)}
                         />
                       </div>
                     </div>
@@ -728,11 +845,13 @@ function AddNewProduct() {
                         <input
                           className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           placeholder="SKU Code"
+                          onChange={(e) => handleChangeProductInformation(e, 2)}
                         />
                       </div>
                     </div>
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product Images */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>Product Images</TableHeader>
@@ -744,6 +863,7 @@ function AddNewProduct() {
                     />
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product Variation */}
                 <TitleAndTableCard
                   width={"w-[100% mb-[20px]"}
@@ -1029,6 +1149,7 @@ function AddNewProduct() {
                     </div>
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product price + stock */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>Product price + stock</TableHeader>
@@ -1036,12 +1157,13 @@ function AddNewProduct() {
                     {productPriceStock.map((value) => {
                       return (
                         <div key={value.name + 1}>
-                          <ProductPriceStock data={value} />
+                          <ProductPriceStock data={value} changeHandlerPriceStock={changeHandlerPriceStock} />
                         </div>
                       );
                     })}
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Any Alteration? */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>Any Alteration?</TableHeader>
@@ -1073,26 +1195,27 @@ function AddNewProduct() {
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      lengthTitle={lengthTitle}
+                      setLengthTitle={setLengthTitle}
                     />
                     <Bust
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      bustTitle={bustTitle}
+                      setBustTitle={setBustTitle}
                     />
                     <Sleeves
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      sleevesTitle={sleevesTitle}
+                      setSleevesTitle={setSleevesTitle}
                     />
                   </CardBody>
                 </TitleAndTableCard>
-                {/* <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br /> */}
               </div>
+
               {/* Product Description */}
               <TitleAndTableCard width={"w-[100%]    lg:w-[37.5%] h-[100%]"}>
                 <TableHeader>Product Description</TableHeader>
@@ -1162,6 +1285,14 @@ function AddNewProduct() {
                   })}
                 </CardBody>
               </TitleAndTableCard>
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => updateProduct()}
+                className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+              >
+                upload product
+              </button>
             </div>
           </AdminPanelLayout>
         </div>

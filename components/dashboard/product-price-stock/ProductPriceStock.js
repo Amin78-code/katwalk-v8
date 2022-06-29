@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import styles from "./ProductPriceStock.module.css";
 
-function ProductPriceStock({ data }) {
+function ProductPriceStock({ data, changeHandlerPriceStock }) {
   return (
     <div
       className="fwr flex mb-[1rem] flex-col      lg:flex-row"
@@ -17,6 +17,8 @@ function ProductPriceStock({ data }) {
             type="number"
             className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
             placeholder={data.name}
+            value={data.value}
+            onChange={(e)=>changeHandlerPriceStock(e,0)}
             step="0.01"
           />
         ) : (
@@ -27,6 +29,8 @@ function ProductPriceStock({ data }) {
             type="number"
             className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
             placeholder={data.name}
+            value={data.value}
+            onChange={(e)=>changeHandlerPriceStock(e,1)}
           />
         ) : (
           ""
@@ -36,6 +40,8 @@ function ProductPriceStock({ data }) {
             type="text"
             className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
             placeholder={data.name}
+            value={data.value}
+            onChange={(e)=>changeHandlerPriceStock(e,2)}
           />
         ) : (
           ""

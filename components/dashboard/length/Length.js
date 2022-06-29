@@ -1,12 +1,11 @@
 import React, { useState, useRef,useEffect } from "react";
 import Image from "next/image";
 import styles from "./Length.module.css";
-function Length({ data, isDisableAllAlterations , openAltration}) {
+function Length({ data, isDisableAllAlterations , openAltration, lengthTitle, setLengthTitle}) {
   const [isDisableLength, setIsDisableLength] = useState(true);
 
   const lengthSelect = useRef("");
   const [selectedLength, setSelectedLength] = useState([]);
-  const [lengthTitle, setLengthTitle] = useState("nothing selected");
 
   // useEffect(() => {
   //   isDisableAllAlterations == true ? disableLength("toggleLength") : "";

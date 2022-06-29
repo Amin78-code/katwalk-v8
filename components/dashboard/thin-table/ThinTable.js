@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./ThinTable.module.css";
 
-function ThinTable({ data }) {
+function ThinTable({ data, changeHandlerPriceStockVarant }) {
   // const [isDisableBust, setIsDisableBust] = useState(false);
 
   // const bustSelect = useRef("");
@@ -20,6 +20,7 @@ function ThinTable({ data }) {
             </td>
           </tr>
         </thead>
+        
         <tbody>
           {data.map((value, index) => {
             return (
@@ -32,6 +33,8 @@ function ThinTable({ data }) {
                     type="number"
                     className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                     value={value.value}
+                           onChange={(e)=>changeHandlerPriceStockVarant(e,index)}
+                           
                     step="1"
                   />
                 </td>

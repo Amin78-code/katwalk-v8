@@ -16,9 +16,10 @@ import AbayaSetwithSideSlet from "../../assets/images/products/Abaya Set with Si
 
 import WishListCard from "../../components/dashboard/wishlist-card/WishListCard";
 import BottomShadowCard from "../../components/dashboard/bottom-shadow-card/BottomShadowCard";
+import products from "../../assets/data/WishListProducts";
 
 function Wishlists() {
-  const [wishlistItems, setWishlistItems] = useState([]);
+  // const [wishlistItems, setWishlistItems] = useState([]);
   // const [wishlistItems, setWishlistItems] = useState([
   //   {
   //     img: ContrastPipingTrimAbaya,
@@ -56,7 +57,7 @@ function Wishlists() {
               heading={"Wishlist"}
               lightHeadingBar={true}
             ></HeadingBar>
-            {wishlistItems && wishlistItems == "" ? (
+            {products && products == [] ? (
               <div className="pb-[40px]">
                 <BottomShadowCard>
                   <h5 className="fwb text-[#1b1b28] text-[13px] leading-[1.5] tracking-[0.5px] text-center mt-[17px]">
@@ -66,7 +67,7 @@ function Wishlists() {
               </div>
             ) : (
               <div className="flex flex-wrap gap-x-[.9%]">
-                {wishlistItems.map((value) => {
+                {products.map((value) => {
                   return <WishListCard key={value + 1} data={value} />;
                 })}
               </div>
