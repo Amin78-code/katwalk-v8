@@ -307,7 +307,7 @@ function Navigation() {
                        
                        {products.map((product)=> {
               return (
-                <div className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed]">
+                <div key={product.name} className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed]">
                   <div className="max-w-[22%] max-h-[70px] px-[5px ]">
                     <span className="image_container">
                       <Image src={product.image} alt="product image" />
