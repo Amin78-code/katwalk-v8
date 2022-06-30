@@ -711,7 +711,7 @@ function AddNewProduct() {
       name: productInfromation[1].name,
       value: selectedCategory,
     });
-    set_productsInformation([..._productInfromation]);
+    setProductInfromation([..._productsInformation]);
 
     let _productDescription = [
       {

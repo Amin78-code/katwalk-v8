@@ -52,7 +52,7 @@ function Wishlists() {
               heading={"Wishlist"}
               lightHeadingBar={true}
             ></HeadingBar>
-            {products && products == [] ? (
+            {products && products == "" ? (
               <div className="pb-[40px]">
                 <BottomShadowCard>
                   <h5 className="fwb text-[#1b1b28] text-[13px] leading-[1.5] tracking-[0.5px] text-center mt-[17px]">

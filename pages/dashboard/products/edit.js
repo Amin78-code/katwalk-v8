@@ -732,10 +732,17 @@ function AddNewProduct() {
   const updateProduct = () => {
     let _productsInformation = productInfromation;
     _productsInformation.splice(1, 1, {
-      name: productsInformation[1].name,
+      name: productInfromation[1].name,
       value: selectedCategory,
     });
-    set_productsInformation([..._productsInformation]);
+    setProductInfromation([..._productsInformation]);
+
+    let _productInfromationInArabic = productInfromationInArabic;
+    _productInfromationInArabic.splice(1, 1, {
+      name: productInfromationInArabic[1].name,
+      value: selectedCategory,
+    });
+    setProductInfromationInArabic([..._productInfromationInArabic]);
 
     let _productDescription = [
       {
@@ -805,7 +812,8 @@ function AddNewProduct() {
       },
     ];
 
-    console.log("Products Information", productInfromation);
+    console.log("Products Information", _productsInformation);
+    console.log("Products Information Arabic", _productInfromationInArabic);
     console.log("Any Alteration", _anyAlteration);
     console.log("Product Description", _productDescription);
     console.log("Product Variation", _productVariation);
