@@ -7,6 +7,7 @@ import profileImg from "../../../../assets/images/icons/profile-img.png";
 function BottomBar({ active, openSidebar }) {
   return (
     <div className="w-[100%] h-[60px] shadow-md border-t-[1px] border-[#dee2e6] bottom-0 fixed bg-[#dee2e6] flex gap-x-[.2%] left-0 z-[10]">
+       <Link href="/dashboard/home">
       <div
         className={`${
           active == "Dashboard" ? styles.active : ""
@@ -14,7 +15,9 @@ function BottomBar({ active, openSidebar }) {
       >
         <i className="text-[1.7em] text-[#1b1b28.] las la-home la-2x"></i>
       </div>
-      <div
+      </Link>
+    <Link href="/dashboard/wishlists">
+    <div
         className={`${
           active == "Wishlists" ? styles.active : ""
         } bg-[#fff] w-[24.9%]  flex justify-center items-center`}
@@ -25,9 +28,11 @@ function BottomBar({ active, openSidebar }) {
           </span>
         </i>
       </div>
+      </Link>
+      <Link href="/checkout">
       <div
         className={`${
-          active == "Dashboard" ? styles.active : ""
+          active == "Checkout" ? styles.active : ""
         } bg-[#fff] w-[24.9%]  flex justify-center items-center`}
       >
         <i className="text-[1.7em] text-[#1b1b28.] las la-shopping-cart la-2x relative flex">
@@ -36,6 +41,7 @@ function BottomBar({ active, openSidebar }) {
           </span>
         </i>
       </div>
+      </Link>
       <div
         className={`bg-[#fff] w-[24.9%] flex justify-center items-center`}
         onClick={() => openSidebar()}
