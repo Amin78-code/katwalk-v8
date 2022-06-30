@@ -304,37 +304,38 @@ function Navigation() {
                         </p>
                       ) : (
                         <div className="flex flex-col justify-start relative">
-                       
-                       {products.map((product)=> {
-              return (
-                <div key={product.name} className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed]">
-                  <div className="max-w-[22%] max-h-[70px] px-[5px ]">
-                    <span className="image_container">
-                      <Image src={product.image} alt="product image" />
-                    </span>
-                  </div>
+                          {products.map((product) => {
+                            return (
+                              <div
+                                key={product.name}
+                                className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed]"
+                              >
+                                <div className="max-w-[22%] max-h-[70px] px-[5px ]">
+                                  <span className="image_container">
+                                    <Image
+                                      src={product.image}
+                                      alt="product image"
+                                    />
+                                  </span>
+                                </div>
 
-
-
-                  <div className="text-right">
-                    <div className="flex">
-                      <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
-                      {product.name}
-                      </p>
-                      <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mr-[3px]"></div>
-                    </div>
-                    <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
-                    {product.company}
-                    </p>
-                    <p className="work-regular text-[13px] leading-[1.5] mt-[10px] pl-[10px]">
-                    {product.quantity}x SAR {product.price}
-                    </p>
-                  </div>
-              </div>
-              )
-    })}       
-                       
-                         
+                                <div className="text-right">
+                                  <div className="flex">
+                                    <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
+                                      {product.name}
+                                    </p>
+                                    <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mr-[3px]"></div>
+                                  </div>
+                                  <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
+                                    {product.company}
+                                  </p>
+                                  <p className="work-regular text-[13px] leading-[1.5] mt-[10px] pl-[10px]">
+                                    {product.quantity}x SAR {product.price}
+                                  </p>
+                                </div>
+                              </div>
+                            );
+                          })}
 
                           <div className="border-t-[1px] border-[#ededed] flex justify-end">
                             <p
@@ -669,37 +670,38 @@ function Navigation() {
             </div>
 
             <div className="flex flex-col flex-col justify-between h-[89vh] pt-[20px]    hidd en">
-             
-             <div>
-             {products.map((product)=> {
-              return (
-                <div key={product.name} className="flex justify-between pt-[20px ] pb-[15px] mb-[15px] border-b-[1px] border-[#ededed]">
-                  <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
-                    <span className="image_container">
-                      <Image src={product.image} alt="product image" />
-                    </span>
-                  </div>
-                  <div className="flex">
-                    <div className="text-[#1b1b28]">
-                      <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
-                        {product.name}
-                      </p>
-                      <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
-                      {product.name}
-                      </p>
-                      <p className="work-regular text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
-                      {product.quantity}x SAR  {product.price}
-                      </p>
+              <div>
+                {products.map((product) => {
+                  return (
+                    <div
+                      key={product.name}
+                      className="flex justify-between pt-[20px ] pb-[15px] mb-[15px] border-b-[1px] border-[#ededed]"
+                    >
+                      <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
+                        <span className="image_container">
+                          <Image src={product.image} alt="product image" />
+                        </span>
+                      </div>
+                      <div className="flex">
+                        <div className="text-[#1b1b28]">
+                          <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px]">
+                            {product.name}
+                          </p>
+                          <p className="work-regular text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
+                            {product.name}
+                          </p>
+                          <p className="work-regular text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
+                            {product.quantity}x SAR {product.price}
+                          </p>
+                        </div>
+                        <div>
+                          <div className="w-[20px] h-[18px] cursor-pointer bgAllIcon mr-[-2px] bg-[left_-22px_top_-37px] tScalePoint5 mt-[-1px]"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="w-[20px] h-[18px] cursor-pointer bgAllIcon mr-[-2px] bg-[left_-22px_top_-37px] tScalePoint5 mt-[-1px]"></div>
-                    </div>
-                  </div>
-                </div>
-              )
-             })}
-             </div>
-             
+                  );
+                })}
+              </div>
 
               <div className="w-[100%]">
                 <div className="border-t-[1px] border-[#ededed] flex justify-between">
@@ -717,10 +719,9 @@ function Navigation() {
                   </p>
                 </div>
                 <button className="add-to-bag-btn relative overflow-hidden w-[100%] text-[14px] text-[#fff] uppercase bg-[#000] px-[10px] py-[10px]">
-                 
-                <Link href="/checkout">
-                              <span className="relative z-[5]">checkout</span>
-                            </Link> 
+                  <Link href="/checkout">
+                    <span className="relative z-[5]">checkout</span>
+                  </Link>
                 </button>
               </div>
             </div>

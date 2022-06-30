@@ -85,7 +85,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages  }) {
 
     for (let i = 0; i < _uploadedPictures.length; i++) {
       if (_uploadedPictures[i].img == data.img) {
-        console.log("matched");
+        // console.log("matched");
         let clickedItem = _uploadedPictures[i];
         let itemForPush = {
           img: _uploadedPictures[i].img,
@@ -119,7 +119,7 @@ function ChooseImageModal({ data, currentImages, setCurrentImages  }) {
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
 
-    console.log("setSelectedImgs", selectedImgs);
+    // console.log("setSelectedImgs", selectedImgs);
   };
 
 

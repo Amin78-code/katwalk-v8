@@ -11,7 +11,6 @@ import styles from "../../../components/Edit.module.css";
 import Length from "../../../components/dashboard/length/Length";
 import Bust from "../../../components/dashboard/bust/Bust";
 import Sleeves from "../../../components/dashboard/sleeves/Sleeves";
-// import ProductPriceStock from "../../../components/dashboard/product-price-stock/ProductPriceStock";
 import ChooseImage from "../../../components/dashboard/choose-image/ChooseImage";
 import ChooseImageModal from "../../../components/dashboard/choose-image-modal/ChooseImageModal";
 import TwoTabs from "../../../components/dashboard/two-tabs/TwoTabs";
@@ -176,13 +175,6 @@ const alteration = {
   sleeves: ["25", "26", "27", "28", "29", "30"],
 };
 
-const productPriceStock = [
-  {
-    name: "Unit price",
-    value: "500.00",
-  },
-];
-
 const galleryImageData = {
   name: "Gallery Images",
   imageResolution: "(900x1200)",
@@ -237,13 +229,10 @@ function AddNewProduct() {
 
   const [prodPricePlusStock, set_prodPricePlusStock] = useState([
     { name: "Unit Price", value: "500.00" },
-     
   ]);
   const [variantAndQuantity, set_variantAndQuantity] = useState([
-  
-        { variantName: "Aqua-52", value: 10 },
-        { variantName: "Aqua-52", value: 10 },
-     
+    { variantName: "Aqua-52", value: 10 },
+    { variantName: "Aqua-52", value: 10 },
   ]);
 
   const [colorTitle, setColorTitle] = useState("nothing selected");
@@ -278,7 +267,10 @@ function AddNewProduct() {
   };
 
   const setCategory = (selectedOption) => {
+    console.log("setCategory called")
+    console.log("selectedOption",selectedOption)
     setSelectedCategory(selectedOption);
+    console.log("selectedCategory",selectedCategory)
     openCategorySelect();
   };
 
@@ -717,7 +709,7 @@ function AddNewProduct() {
     }
   };
 
-  const changeHandlerPriceStock =(e,index)=> {
+  const changeHandlerPriceStock = (e, index) => {
     let _prodPricePlusStock = prodPricePlusStock;
     _prodPricePlusStock.splice(index, 1, {
       name: prodPricePlusStock[index].name,
@@ -725,26 +717,25 @@ function AddNewProduct() {
     });
     set_prodPricePlusStock([..._prodPricePlusStock]);
     // console.log("prodPricePlusStock",prodPricePlusStock)
-  }
-  const changeHandlerPriceStockVarant =(e,index)=> {
-    console.log("variantAndQuantity")
+  };
+  const changeHandlerPriceStockVarant = (e, index) => {
+    console.log("variantAndQuantity");
     let _variantAndQuantity = variantAndQuantity;
     _variantAndQuantity.splice(index, 1, {
       variantName: variantAndQuantity[index].variantName,
       value: e.target.value,
     });
     set_variantAndQuantity([..._variantAndQuantity]);
-    console.log("variantAndQuantity",variantAndQuantity)
-  }
-  
-  const updateProduct = () => {
-    // let _productsInformation = productsInformation;
-    // _productsInformation.splice(1, 1, {
-    //   name: productsInformation[1].name,
-    //   value: selectedCategory,
-    // });
-    // set_productsInformation([..._productsInformation]);
+    console.log("variantAndQuantity", variantAndQuantity);
+  };
 
+  const updateProduct = () => {
+    let _productsInformation = productInfromation;
+    _productsInformation.splice(1, 1, {
+      name: productsInformation[1].name,
+      value: selectedCategory,
+    });
+    set_productsInformation([..._productsInformation]);
 
     let _productDescription = [
       {
@@ -771,10 +762,7 @@ function AddNewProduct() {
         name: "Shipping & Returns",
         value: selectedShippingAndReturns,
       },
-      
     ];
-
-
 
     let _productVariation = [
       {
@@ -793,7 +781,6 @@ function AddNewProduct() {
         name: "size",
         value: sizeTitle,
       },
-    
     ];
 
     let _anyAlteration = [
@@ -808,24 +795,22 @@ function AddNewProduct() {
       {
         name: "sleeves",
         value: sleevesTitle?.props?.children,
-      }
-    
+      },
     ];
 
     let _prodPricePlusStock = [
-{
-  stock : prodPricePlusStock,
-  variant : variantAndQuantity,
-}
-    ]
-    
-    
+      {
+        stock: prodPricePlusStock,
+        variant: variantAndQuantity,
+      },
+    ];
+
     console.log("Products Information", productInfromation);
-    console.log("Any Alteration",_anyAlteration)
+    console.log("Any Alteration", _anyAlteration);
     console.log("Product Description", _productDescription);
     console.log("Product Variation", _productVariation);
     console.log("Product price + stock", _prodPricePlusStock);
-    console.log("Product Images",currentImages)
+    console.log("Product Images", currentImages);
   };
 
   return (
@@ -1322,12 +1307,17 @@ function AddNewProduct() {
                           className="admin-input w-[100%] h-[44px] fwl text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           // placeholder="Unit price"
                           value={prodPricePlusStock[0].value}
-                           onChange={(e)=>changeHandlerPriceStock(e,0)}
+                          onChange={(e) => changeHandlerPriceStock(e, 0)}
                           step="0.01"
                         />
                       </div>
                     </div>
-                    <ThinTable data={variantAndQuantity} changeHandlerPriceStockVarant={changeHandlerPriceStockVarant} />
+                    <ThinTable
+                      data={variantAndQuantity}
+                      changeHandlerPriceStockVarant={
+                        changeHandlerPriceStockVarant
+                      }
+                    />
                   </CardBody>
                 </TitleAndTableCard>
 

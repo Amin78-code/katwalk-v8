@@ -11,7 +11,6 @@ import styles from "../../../../components/rtl/Edit.module.css";
 import Length from "../../../../components/rtl/dashboard/length/Length";
 import Bust from "../../../../components/rtl/dashboard/bust/Bust";
 import Sleeves from "../../../../components/rtl/dashboard/sleeves/Sleeves";
-// import ProductPriceStock from "../../../../components/rtl/dashboard/product-price-stock/ProductPriceStock";
 import ChooseImage from "../../../../components/rtl/dashboard/choose-image/ChooseImage";
 import ChooseImageModal from "../../../../components/rtl/dashboard/choose-image-modal/ChooseImageModal";
 import TwoTabs from "../../../../components/rtl/dashboard/two-tabs/TwoTabs";
@@ -167,13 +166,6 @@ const alteration = {
   sleeves: ["25", "26", "27", "28", "29", "30"],
 };
 
-const productPriceStock = [
-  {
-    name: "سعر الوحدة",
-    value: "500.00",
-  },
-];
-
 const galleryImageData = {
   name: "صور معرض",
   imageResolution: "(900x1200)",
@@ -218,20 +210,21 @@ function AddNewProduct() {
     { name: "sku_Code", value: "SKU Code" },
   ]);
 
+  const [lengthTitle, setLengthTitle] = useState("nothing selected");
+  const [bustTitle, setBustTitle] = useState("nothing selected");
+  const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
+
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSheilaColor, setSelectedSheilaColor] = useState([]);
   const [selectedSheilaLength, setSelectedSheilaLength] = useState([]);
   const [selectedSize, setSelectedSize] = useState([]);
 
-  const [prodPricePlusStock, setProdPricePlusStock] = useState([
+  const [prodPricePlusStock, set_prodPricePlusStock] = useState([
     { name: "Unit Price", value: "500.00" },
-    {
-      name: "variantAndQuantity",
-      values: [
-        { variantName: "Aqua-52", value: 10 },
-        { variantName: "Aqua-52", value: 10 },
-      ],
-    },
+  ]);
+  const [variantAndQuantity, set_variantAndQuantity] = useState([
+    { variantName: "Aqua-52", value: 10 },
+    { variantName: "Aqua-52", value: 10 },
   ]);
 
   const [colorTitle, setColorTitle] = useState("لا شيء محدد");
@@ -265,7 +258,10 @@ function AddNewProduct() {
   };
 
   const setCategory = (selectedOption) => {
+    console.log("setCategory called")
+    console.log("selectedOption",selectedOption)
     setSelectedCategory(selectedOption);
+    console.log("selectedCategory",selectedCategory)
     openCategorySelect();
   };
 
@@ -688,6 +684,111 @@ function AddNewProduct() {
       setProductInfromation([..._productInfromation]);
     }
   };
+
+  const changeHandlerPriceStock = (e, index) => {
+    let _prodPricePlusStock = prodPricePlusStock;
+    _prodPricePlusStock.splice(index, 1, {
+      name: prodPricePlusStock[index].name,
+      value: e.target.value,
+    });
+    set_prodPricePlusStock([..._prodPricePlusStock]);
+    // console.log("prodPricePlusStock",prodPricePlusStock)
+  };
+  const changeHandlerPriceStockVarant = (e, index) => {
+    console.log("variantAndQuantity");
+    let _variantAndQuantity = variantAndQuantity;
+    _variantAndQuantity.splice(index, 1, {
+      variantName: variantAndQuantity[index].variantName,
+      value: e.target.value,
+    });
+    set_variantAndQuantity([..._variantAndQuantity]);
+    console.log("variantAndQuantity", variantAndQuantity);
+  };
+
+  const updateProduct = () => {
+    let _productsInformation = productInfromation;
+    _productsInformation.splice(1, 1, {
+      name: productInfromation[1].name,
+      value: selectedCategory,
+    });
+    set_productsInformation([..._productInfromation]);
+
+    let _productDescription = [
+      {
+        name: "Type",
+        value: selectedType,
+      },
+      {
+        name: "Size & Fit",
+        value: selectedSizeAndFit,
+      },
+      {
+        name: "Fabric Type",
+        value: selectedFabricType,
+      },
+      {
+        name: "Fabric Weight",
+        value: selectedFabricWeight,
+      },
+      {
+        name: "Care Instructions",
+        value: selectedCareInstructions,
+      },
+      {
+        name: "Shipping & Returns",
+        value: selectedShippingAndReturns,
+      },
+    ];
+
+    let _productVariation = [
+      {
+        name: "color",
+        value: colorTitle?.props?.children,
+      },
+      {
+        name: "sheila colors",
+        value: sheilacolorTitle?.props?.children,
+      },
+      {
+        name: "sheila lengths",
+        value: sheilaLengthTitle?.props?.children,
+      },
+      {
+        name: "size",
+        value: sizeTitle,
+      },
+    ];
+
+    let _anyAlteration = [
+      {
+        name: "length",
+        value: lengthTitle?.props?.children,
+      },
+      {
+        name: "bust",
+        value: bustTitle?.props?.children,
+      },
+      {
+        name: "sleeves",
+        value: sleevesTitle?.props?.children,
+      },
+    ];
+
+    let _prodPricePlusStock = [
+      {
+        stock: prodPricePlusStock,
+        variant: variantAndQuantity,
+      },
+    ];
+
+    console.log("Products Information", productInfromation);
+    console.log("Any Alteration", _anyAlteration);
+    console.log("Product Description", _productDescription);
+    console.log("Product Variation", _productVariation);
+    console.log("Product price + stock", _prodPricePlusStock);
+    console.log("Product Images", currentImages);
+  };
+
 
   return (
     <>
@@ -1179,11 +1280,17 @@ function AddNewProduct() {
                           className="admin-input w-[100%] h-[44px]  text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           // placeholder="Unit price"
                           value={prodPricePlusStock[0].value}
+                          onChange={(e) => changeHandlerPriceStock(e, 0)}
                           step="0.01"
                         />
                       </div>
                     </div>
-                    <ThinTable data={prodPricePlusStock[1].values} />
+                    <ThinTable 
+                     data={variantAndQuantity}
+                     changeHandlerPriceStockVarant={
+                       changeHandlerPriceStockVarant
+                     }
+                      />
                   </CardBody>
                 </TitleAndTableCard>
                 {/* Any Alteration? */}
@@ -1217,16 +1324,22 @@ function AddNewProduct() {
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      lengthTitle={lengthTitle}
+                      setLengthTitle={setLengthTitle}
                     />
                     <Bust
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      bustTitle={bustTitle}
+                      setBustTitle={setBustTitle}
                     />
                     <Sleeves
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      sleevesTitle={sleevesTitle}
+                      setSleevesTitle={setSleevesTitle}
                     />
                   </CardBody>
                 </TitleAndTableCard>
@@ -1306,6 +1419,14 @@ function AddNewProduct() {
                   })}
                 </CardBody>
               </TitleAndTableCard>
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => updateProduct()}
+                className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+              >
+                upload product
+              </button>
             </div>
           </AdminPanelLayout>
         </div>

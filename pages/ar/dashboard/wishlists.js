@@ -16,12 +16,13 @@ import AbayaSetwithSideSlet from "../../../assets/images/products/Abaya Set with
 
 import WishListCard from "../../../components/rtl/dashboard/wishlist-card/WishListCard";
 import BottomShadowCard from "../../../components/rtl/dashboard/bottom-shadow-card/BottomShadowCard";
+import productsArabic from "../../../assets/data/wishListProductsArabic";
 
 function Wishlists() {
   useEffect(() => {
     document.querySelector("body").style.direction = 'rtl'
   }, [])
-  const [wishlistItems, setWishlistItems] = useState([]);
+  // const [wishlistItems, setWishlistItems] = useState([]);
   // const [wishlistItems, setWishlistItems] = useState([
   //   {
   //     img: ContrastPipingTrimAbaya,
@@ -59,7 +60,8 @@ function Wishlists() {
               heading={"قائمة الرغبات"}
               lightHeadingBar={true}
             ></HeadingBar>
-            {wishlistItems && wishlistItems == "" ? (
+
+            {productsArabic && productsArabic == "" ? (
               <div className="pb-[40px]">
                 <BottomShadowCard>
                   <h5 className="far text-[#1b1b28] text-[13px] leading-[1.5] tracking-[0.5px] text-center mt-[17px]">
@@ -69,7 +71,7 @@ function Wishlists() {
               </div>
             ) : (
               <div className="flex flex-wrap gap-x-[.9%]">
-                {wishlistItems.map((value) => {
+                {productsArabic.map((value) => {
                   return <WishListCard key={value + 1} data={value} />;
                 })}
               </div>

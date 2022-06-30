@@ -2,12 +2,11 @@ import React, { useState, useRef } from "react";
 import Image from "next/image";
 import styles from "./Bust.module.css";
 
-function Bust({ data, isDisableAllAlterations, openAltration }) {
+function Bust({ data, isDisableAllAlterations, openAltration, bustTitle, setBustTitle }) {
   const [isDisableBust, setIsDisableBust] = useState(true);
 
   const bustSelect = useRef("");
   const [selectedBust, setSelectedBust] = useState([]);
-  const [bustTitle, setBustTitle] = useState("nothing selected");
 
   const openAnyAlterationSelect = (productionVaraitionName) => {
     if (productionVaraitionName == "bustSelect") {
@@ -73,10 +72,10 @@ function Bust({ data, isDisableAllAlterations, openAltration }) {
           <div
             className={`
             
-            $ { isDisableAllAlterations == true ? styles.disable_div :
+            ${isDisableAllAlterations == true ? styles.disable_div :
               isDisableBust ? styles.disable_div : ""}
 
-             admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+             admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
           >
             <span
               // onClick={() => openAltration("bust")}

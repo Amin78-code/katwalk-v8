@@ -11,10 +11,10 @@ const products = [
     {
         name:"Floral Embroidery Tulle Sleeve Abaya",
         company: "Clue",
-        price: "999",
+        price:" 999",
         image:img2,
         quantity: 2,
     }
-]
+] 
 
-export default products;
+export default products

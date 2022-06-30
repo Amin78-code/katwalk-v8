@@ -16,20 +16,6 @@ import ChooseImage from "../../../../components/rtl/dashboard/choose-image/Choos
 import ChooseImageModal from "../../../../components/rtl/dashboard/choose-image-modal/ChooseImageModal";
 import Options from "../../../../components/rtl/dashboard/Options";
 
-const ordersData = [
-  { title: "Total orders", value: "0" },
-  { title: "Pending orders", value: "0" },
-  { title: "Cancelled orders", value: "0" },
-  { title: "Successful orders", value: "0" },
-];
-const productTypes = [
-  "Choose Type",
-  "Made-to-Measure,Made in Bahrain",
-  "Bespoke",
-  "Made-to-Measure (MTM)",
-  "Ready-to-Wear (RTW)",
-];
-
 const productDescription = [
   {
     name: "نوع",
@@ -163,18 +149,6 @@ const alteration = {
   sleeves: ["25", "26", "27", "28", "29", "30"],
 };
 
-const productPriceStock = [
-  {
-    name: "سعر الوحدة",
-  },
-  {
-    name: "جودة",
-  },
-  {
-    name: "SKU",
-  },
-];
-
 const galleryImageData = {
   name: "صور معرض",
   imageResolution: "(900x1200)",
@@ -196,13 +170,38 @@ function AddNewProduct() {
 
   const [matchedOptions, setMatchedOptions] = useState([]);
 
-  // let initialData = [];
-  //  useEffect(() => {
+  const [productsInformation, set_productsInformation] = useState([
+    {
+      name: "اسم المنتج",
+      value: "",
+    },
+    {
+      name: "الفئة",
+      value: "",
+    },
+    {
+      name: "رمز SKU",
+      value: "",
+    },
+  ]);
+  const [productPriceStock, set_productPriceStock] = useState([
+    {
+    name: "سعر الوحدة",
+    value: undefined
+  },
+  {
+    name: "جودة",
+     value: undefined
+  },
+  {
+    name: "SKU",
+     value: undefined
+  },
+  ]);
 
-  //   for (let i = 0; i < productCategories.length; i++) {
-  //     initialData.push(productCategories[i])
-  //   }
-  // }, []);
+  const [lengthTitle, setLengthTitle] = useState("nothing selected");
+  const [bustTitle, setBustTitle] = useState("nothing selected");
+  const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
 
   const [selectedCategory, setSelectedCategory] = useState("Abaya");
   const [selectedType, setSelectedType] = useState("اختر النوع");
@@ -476,7 +475,7 @@ function AddNewProduct() {
       setColorTitle(
         <li
           className={`
-                  block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] py-[0.15rem] px-[1rem] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[25px] before:w-[17px] before:h-[17px] ${selectedColors[0].code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[0px] before:top-[5px]`}
+                  block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] py-[0.15rem] px-[1rem] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pr-[25px] before:w-[17px] before:h-[17px] ${selectedColors[0].code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:right-[0px] before:top-[5px]`}
         >
           {selectedColors[0].name}
         </li>
@@ -517,7 +516,7 @@ function AddNewProduct() {
       setSheilaColorTitle(
         <li
           className={`
-            block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] py-[0.15rem] px-[1rem] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[25px] before:w-[17px] before:h-[17px] ${selectedSheilaColor[0].code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[0px] before:top-[5px]`}
+            block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] py-[0.15rem] px-[1rem] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pr-[25px] before:w-[17px] before:h-[17px] ${selectedSheilaColor[0].code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:right-[0px] before:top-[5px]`}
         >
           {selectedSheilaColor[0].name}
         </li>
@@ -641,6 +640,105 @@ function AddNewProduct() {
     setProductCategoriesForShow(startsWithN);
   };
 
+  const handleChangeProductInformation = (e, index) => {
+    let _productsInformation = productsInformation;
+    _productsInformation.splice(index, 1, {
+      name: productsInformation[index].name,
+      value: e.target.value,
+    });
+    set_productsInformation([..._productsInformation]);
+  };
+
+  const changeHandlerPriceStock =(e,index)=> {
+    let _productPriceStock = productPriceStock;
+    _productPriceStock.splice(index, 1, {
+      name: productPriceStock[index].name,
+      value: e.target.value,
+    });
+    set_productPriceStock([..._productPriceStock]);
+  }
+
+  const updateProduct = () => {
+    let _productsInformation = productsInformation;
+    _productsInformation.splice(1, 1, {
+      name: productsInformation[1].name,
+      value: selectedCategory,
+    });
+    set_productsInformation([..._productsInformation]);
+
+    let _productDescription = [
+      {
+        name: "Type",
+        value: selectedType,
+      },
+      {
+        name: "Size & Fit",
+        value: selectedSizeAndFit,
+      },
+      {
+        name: "Fabric Type",
+        value: selectedFabricType,
+      },
+      {
+        name: "Fabric Weight",
+        value: selectedFabricWeight,
+      },
+      {
+        name: "Care Instructions",
+        value: selectedCareInstructions,
+      },
+      {
+        name: "Shipping & Returns",
+        value: selectedShippingAndReturns,
+      },
+    ];
+
+
+
+    let _productVariation = [
+      {
+        name: "color",
+        value: colorTitle?.props?.children,
+      },
+      {
+        name: "sheila colors",
+        value: sheilacolorTitle?.props?.children,
+      },
+      {
+        name: "sheila lengths",
+        value: sheilaLengthTitle?.props?.children,
+      },
+      {
+        name: "size",
+        value: sizeTitle,
+      },
+    
+    ];
+
+    let _anyAlteration = [
+      {
+        name: "length",
+        value: lengthTitle?.props?.children,
+      },
+      {
+        name: "bust",
+        value: bustTitle?.props?.children,
+      },
+      {
+        name: "sleeves",
+        value: sleevesTitle?.props?.children,
+      }
+    
+    ];
+    
+    console.log("Products Information", productsInformation);
+    console.log("Any Alteration",_anyAlteration)
+    console.log("Product Description", _productDescription);
+    console.log("Product Variation", _productVariation);
+    console.log("Product price + stock", productPriceStock);
+    console.log("Product Images",currentImages)
+  };
+
   return (
     <>
       <Layout>
@@ -664,6 +762,7 @@ function AddNewProduct() {
                         <input
                           className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           placeholder="اسم المنتج"
+                          onChange={(e) => handleChangeProductInformation(e, 0)}
                         />
                       </div>
                     </div>
@@ -673,7 +772,7 @@ function AddNewProduct() {
                       </p>
                       <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                         <div
-                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                           id="categorySelect"
                         >
                           <div
@@ -729,11 +828,13 @@ function AddNewProduct() {
                         <input
                           className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                           placeholder="رمز SKU"
+                          onChange={(e) => handleChangeProductInformation(e, 2)}
                         />
                       </div>
                     </div>
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product Images */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>صور المنتج</TableHeader>
@@ -745,6 +846,7 @@ function AddNewProduct() {
                     />
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product Variation */}
                 <TitleAndTableCard
                   width={"w-[100% mb-[20px]"}
@@ -759,12 +861,12 @@ function AddNewProduct() {
                         value="اللون"
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
+                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("colorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             {colorTitle}
                           </span>
@@ -824,13 +926,13 @@ function AddNewProduct() {
                         <div
                           className={`${
                             isDisableSheila ? styles.disable_div : ""
-                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
                           <span
                             onClick={() =>
                               openProductVariationSelect("sheilaColorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             {sheilacolorTitle}
                           </span>
@@ -899,13 +1001,13 @@ function AddNewProduct() {
                         <div
                           className={`${
                             isDisableSheila ? styles.disable_div : ""
-                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]`}
+                          } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
                           <span
                             onClick={() =>
                               openProductVariationSelect("sheilaLengthSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             {sheilaLengthTitle}
                           </span>
@@ -962,19 +1064,19 @@ function AddNewProduct() {
                         value="بحجم"
                       />
                       <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
+                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("sizeSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             <li
                               className={`
                                         block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] uppercase py-[0.15rem] px-[1rem] pl-0 overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                             >
                               {sizeTitle.length == 0 ? (
-                                <span className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
+                                <span className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block">
                                   لا شيء محدد
                                 </span>
                               ) : (
@@ -1030,6 +1132,7 @@ function AddNewProduct() {
                     </div>
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Product price + stock */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>سعر المنتج + الأسهم</TableHeader>
@@ -1037,12 +1140,13 @@ function AddNewProduct() {
                     {productPriceStock.map((value) => {
                       return (
                         <div key={value.name + 1}>
-                          <ProductPriceStock data={value} />
+                          <ProductPriceStock data={value} changeHandlerPriceStock={changeHandlerPriceStock} />
                         </div>
                       );
                     })}
                   </CardBody>
                 </TitleAndTableCard>
+
                 {/* Any Alteration? */}
                 <TitleAndTableCard width={"w-[100% mb-[20px]"}>
                   <TableHeader>أي تعديل؟</TableHeader>
@@ -1074,25 +1178,26 @@ function AddNewProduct() {
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      lengthTitle={lengthTitle}
+                      setLengthTitle={setLengthTitle}
                     />
                     <Bust
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      bustTitle={bustTitle}
+                      setBustTitle={setBustTitle}
                     />
                     <Sleeves
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
+                      sleevesTitle={sleevesTitle}
+                      setSleevesTitle={setSleevesTitle}
                     />
                   </CardBody>
                 </TitleAndTableCard>
-                {/* <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br /> */}
+                 
               </div>
               {/* Product Description */}
               <TitleAndTableCard width={"w-[100%]    lg:w-[37.5%] h-[100%]"}>
@@ -1111,11 +1216,11 @@ function AddNewProduct() {
 
                         <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                             id={"optionMainDiv" + index}
                           >
                             <div
-                              className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                              className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                               onClick={() =>
                                 openSelect("options" + index, index)
                               }
@@ -1163,6 +1268,14 @@ function AddNewProduct() {
                   })}
                 </CardBody>
               </TitleAndTableCard>
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => updateProduct()}
+                className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]"
+              >
+                upload product
+              </button>
             </div>
           </AdminPanelLayout>
         </div>

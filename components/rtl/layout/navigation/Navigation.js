@@ -9,6 +9,7 @@ import dress1 from "../../../../assets/images/products/dress1.jpg";
 import logoSquare from "../../../../assets/images/logo/logo-square.png";
 import styles from "./Navigation.module.css";
 import { useRouter } from "next/router";
+import productsArabic from "../../../../assets/data/cartProductsArabic";
 
 function Navigation() {
   const router = useRouter();
@@ -287,30 +288,37 @@ function Navigation() {
                           </p>
                         ) : (
                           <div className="flex flex-col justify-start relative">
-                            <div className="flex justify-between pt-[20px] pb-[20px] ">
-                              <div className="max-w-[22%] max-h-[70px] px-[5px ]">
-                                <span className="image_container">
-                                  <Image src={dress1} alt="ploduct image" />
-                                </span>
-                              </div>
-                              <div className="text-left flex flex-col items-end">
-                                <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mt-[-5px] ml-[-5px]"></div>
-                                <div className="pt-[5px]">
-                                  <p className="text-[13px] leading-[1.5] tracking-[0.5px]">
-                                    عباية بأشرطة بلون مغاير
-                                  </p>
+                            {productsArabic.map((product) => {
+                              return (
+                                <div
+                                  key={product.name}
+                                  className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed] "
+                                >
+                                  <div className="max-w-[22%] max-h-[70px] px-[5px ]">
+                                    <span className="image_container">
+                                      <Image
+                                        src={product.image}
+                                        alt="product image"
+                                      />
+                                    </span>
+                                  </div>
+                                  <div className="text-left flex flex-col items-end">
+                                    <div className="w-[26px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5 mt-[-5px] ml-[-5px]"></div>
+                                    <div className="pt-[5px]">
+                                      <p className="text-[13px] leading-[1.5] tracking-[0.5px]">
+                                        {product.name}
+                                      </p>
+                                    </div>
+                                    <p className="text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
+                                      {product.company}
+                                    </p>
+                                    <p className="text-[13px] leading-[1.5] mt-[10px] pl-[10px ]">
+                                      {product.quantity}x ر.س. {product.price}
+                                    </p>
+                                  </div>
                                 </div>
-                                <p className="text-[13px] leading-[1.5] tracking-[0.5px] mt-[7px]">
-                                  Clue
-                                </p>
-                                <p className="text-[13px] leading-[1.5] mt-[10px] pl-[10px ]">
-                                  1x ر.س. 750
-                                </p>
-                              </div>
-                              {/* <div className="absolute right-[-5px]">
-                            <div className="w-[21px] h-[19px] cursor-pointer bgAllIcon bg-[left_-22px_top_-37px] tScalePoint5"></div>
-                          </div> */}
-                            </div>
+                              );
+                            })}
 
                             <div className="border-t-[1px] border-[#ededed] flex justify-end">
                               <p
@@ -649,29 +657,35 @@ function Navigation() {
               </div>
             </div>
 
-            <div className="flex flex-col flex-col justify-between h-[89vh]    hidd en">
-              <div className="flex justify-start pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
-                <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
-                  <span className="image_container">
-                    <Image src={dress1} alt="ploduct image" />
-                  </span>
-                </div>
-                <div className="flex flex-[2] justify-around">
-                  <div className="text-[#1b1b28]">
-                    <p className="text-[13px] leading-[1.5] tracking-[0.5px]">
-                      عباية بأشرطة بلون مغاير
-                    </p>
-                    <p className="text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
-                      Clue
-                    </p>
-                    <p className="text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
-                      1x ر.س. 750
-                    </p>
-                  </div>
-                  <div>
-                    <div className="w-[20px] h-[18px] cursor-pointer bgAllIcon mr-[-2px] bg-[left_-22px_top_-37px] tScalePoint5 mt-[-1px]"></div>
-                  </div>
-                </div>
+            <div className="flex flex-col flex-col justify-between h-[89vh] pt-[20px]    hidd en">
+              <div>
+                {productsArabic.map((product) => {
+                  return (
+                    <div className="flex justify-start pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
+                      <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
+                        <span className="image_container">
+                          <Image src={dress1} alt="ploduct image" />
+                        </span>
+                      </div>
+                      <div className="flex flex-[2] justify-around">
+                        <div className="text-[#1b1b28]">
+                          <p className="text-[13px] leading-[1.5] tracking-[0.5px]">
+                            {product.name}
+                          </p>
+                          <p className="text-[13px] leading-[1.5] tracking-[0.5px] mt-[5px]">
+                            {product.company}
+                          </p>
+                          <p className="text-[13px] leading-[1.5] mt-[13px] pl-[10px ]">
+                            {product.quantity}x ر.س. {product.price}
+                          </p>
+                        </div>
+                        <div>
+                          <div className="w-[20px] h-[18px] cursor-pointer bgAllIcon mr-[-2px] bg-[left_-22px_top_-37px] tScalePoint5 mt-[-1px]"></div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
               <div className="w-[100%]">

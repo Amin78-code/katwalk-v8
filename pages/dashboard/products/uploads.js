@@ -16,20 +16,6 @@ import ChooseImage from "../../../components/dashboard/choose-image/ChooseImage"
 import ChooseImageModal from "../../../components/dashboard/choose-image-modal/ChooseImageModal";
 import Options from "../../../components/dashboard/options";
 
-const ordersData = [
-  { title: "Total orders", value: "0" },
-  { title: "Pending orders", value: "0" },
-  { title: "Cancelled orders", value: "0" },
-  { title: "Successful orders", value: "0" },
-];
-const productTypes = [
-  "Choose Type",
-  "Made-to-Measure,Made in Bahrain",
-  "Bespoke",
-  "Made-to-Measure (MTM)",
-  "Ready-to-Wear (RTW)",
-];
-
 const productDescription = [
   {
     name: "type",
@@ -199,15 +185,15 @@ function AddNewProduct() {
   const [productPriceStock, set_productPriceStock] = useState([
     {
       name: "Unit price",
-      value: 34
+      value: undefined
     },
     {
       name: "Quality",
-      value: 7
+      value: undefined
     },
     {
       name: "SKU",
-      value: "df"
+      value: undefined
     },
   ]);
  
@@ -666,7 +652,6 @@ function AddNewProduct() {
 
   
   const changeHandlerPriceStock =(e,index)=> {
-    console.log("called")
     let _productPriceStock = productPriceStock;
     _productPriceStock.splice(index, 1, {
       name: productPriceStock[index].name,
@@ -682,7 +667,6 @@ function AddNewProduct() {
       value: selectedCategory,
     });
     set_productsInformation([..._productsInformation]);
-
 
     let _productDescription = [
       {
