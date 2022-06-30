@@ -6,7 +6,6 @@ function CurrentImgCard({ data, index, deletethisImg }) {
 
   // console.log("datapppppppppppp", data.sizeInKB, "][][]", data.img);
   
-  
   //   let imgPath = data?.img?.src.split('/')
   //   let _imgPath = imgPath[imgPath.length - 1]
 
