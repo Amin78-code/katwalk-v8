@@ -16,7 +16,7 @@ import AbayaSetwithSideSlet from "../../assets/images/products/Abaya Set with Si
 
 import WishListCard from "../../components/dashboard/wishlist-card/WishListCard";
 import BottomShadowCard from "../../components/dashboard/bottom-shadow-card/BottomShadowCard";
-import products from "../../assets/data/WishListProducts";
+import products from "../../assets/data/wishListProducts";
 
 function Wishlists() {
   // const [wishlistItems, setWishlistItems] = useState([]);

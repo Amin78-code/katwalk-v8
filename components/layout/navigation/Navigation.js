@@ -9,7 +9,7 @@ import styles from "./Navigation.module.css";
 import logoSquare from "../../../assets/images/logo/logo-square.png";
 import dress1 from "../../../assets/images/products/dress1.jpg";
 import { useRouter } from "next/router";
-import products from "../../../assets/data/CartProducts";
+import products from "../../../assets/data/cartProducts";
 
 function Navigation() {
   const router = useRouter();
