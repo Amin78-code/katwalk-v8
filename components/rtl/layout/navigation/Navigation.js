@@ -661,7 +661,7 @@ function Navigation() {
               <div>
                 {productsArabic.map((product) => {
                   return (
-                    <div className="flex justify-start pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
+                    <div key={product.name} className="flex justify-start pt-[20px] pb-[20px] mb-[45px] border-b-[1px] border-[#ededed]">
                       <div className="max-w-[21%] max-h-[70px] px-[5px ] mt-[2px] mr-[16px]">
                         <span className="image_container">
                           <Image src={dress1} alt="ploduct image" />
