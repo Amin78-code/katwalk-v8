@@ -5,6 +5,7 @@ import TableHeader from "../table-header/TableHeader";
 import styles from "./ManageProfileBasicInfo.module.css";
 import TitleAndTableCard from "../title-and-table-card/TitleAndTableCard";
 import ChooseImage from "../choose-image/ChooseImage";
+import CurrentImgCard from "../current-img-card/CurrentImgCard";
 
 function ManageProfileBasicInfo({
   data,
@@ -98,7 +99,6 @@ function ManageProfileBasicInfo({
                   </div>
                 </div>
               </div>
-
               {Array.isArray(currentImages) == true ? (
             <>
               {currentImages ? (
