@@ -204,7 +204,7 @@ function AddNewProduct() {
     { name: "sku_Code", value: "SKU Code" },
   ]);
 
-  const [productInfromationInArabic, setProductInfromationInArabic] = useState([
+  const [productInfromationInEng, setProductInfromationInEng] = useState([
     { name: "productName", value: "text 2" },
     { name: "category", value: "قفطان" },
     { name: "sku_Code", value: "SKU Code" },
@@ -651,19 +651,19 @@ function AddNewProduct() {
 
   const handleChange = (e, name) => {
     if (name == "productName") {
-      let _productInfromationInArabic = productInfromationInArabic;
-      _productInfromationInArabic.splice(0, 1, {
-        name: productInfromationInArabic[0].name,
+      let _productInfromationInEnglish = productInfromationInEng;
+      _productInfromationInEnglish.splice(0, 1, {
+        name: productInfromationInEng[0].name,
         value: e.target.value,
       });
-      setProductInfromationInArabic([..._productInfromationInArabic]);
+      setProductInfromationInEng([..._productInfromationInEnglish]);
     } else if (name == "sku_Code") {
-      let _productInfromationInArabic = productInfromationInArabic;
-      _productInfromationInArabic.splice(2, 1, {
-        name: productInfromationInArabic[2].name,
+      let _productInfromationInEnglish = productInfromationInEng;
+      _productInfromationInEnglish.splice(2, 1, {
+        name: productInfromationInEng[2].name,
         value: e.target.value,
       });
-      setProductInfromationInArabic([..._productInfromationInArabic]);
+      setProductInfromationInEng([..._productInfromationInEnglish]);
     }
   };
 
@@ -712,6 +712,16 @@ function AddNewProduct() {
       value: selectedCategory,
     });
     setProductInfromation([..._productsInformation]);
+
+    
+
+
+    let _productInfromationInEnglish = productInfromationInEng;
+    _productInfromationInEnglish.splice(1, 1, {
+      name: productInfromationInEng[1].name,
+      value: selectedCategoryInArabic,
+    });
+    setProductInfromationInEng([..._productInfromationInEnglish]);
 
     let _productDescription = [
       {
@@ -782,6 +792,7 @@ function AddNewProduct() {
     ];
 
     console.log("Products Information", productInfromation);
+    console.log("Products Information Eng", _productInfromationInEnglish);
     console.log("Any Alteration", _anyAlteration);
     console.log("Product Description", _productDescription);
     console.log("Product Variation", _productVariation);
@@ -817,7 +828,7 @@ function AddNewProduct() {
                           <input
                             className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                             placeholder="اسم المنتج"
-                            value={productInfromationInArabic[0].value}
+                            value={productInfromationInEng[0].value}
                             onChange={(e) => handleChange(e, "productName")}
                           />
                         </div>
@@ -878,7 +889,7 @@ function AddNewProduct() {
                           <input
                             className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                             placeholder="رمز SKU"
-                            value={productInfromationInArabic[2].value}
+                            value={productInfromationInEng[2].value}
                             onChange={(e) => handleChange(e, "sku_Code")}
                           />
                         </div>

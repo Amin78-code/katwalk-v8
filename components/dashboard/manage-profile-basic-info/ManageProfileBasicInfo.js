@@ -13,12 +13,18 @@ function ManageProfileBasicInfo({
   handleChange,
   currentImages,
   updateBasicInfo,
+  setCurrentImages
 }) {
+  console.log("erercurrentImages",currentImages)
+  console.log("erercurrentImages",currentImages?.name)
   const basicInfoCardBody = useRef("");
   const openCardBody = () => {
     basicInfoCardBody.current.classList.toggle(styles.slide_card_body);
   };
 
+  const deletethisSingleImg = () => {
+    setCurrentImages(undefined);
+  };
   return (
     <>
       <TitleAndTableCard
@@ -77,6 +83,7 @@ function ManageProfileBasicInfo({
               <p className="w-[100%] md:w-[23.4%] text-[#1b1b28] text-[13px] px-0        lg:px-[5px] capitalize pt-[7px]">
                 {data[2].name}
               </p>
+              <div className="w-[100%] flex flex-col">
               <div className="w-[100%] px-0     lg:px-[15px]">
                 <div className={`"w-[100%]"`}>
                   <div
@@ -84,13 +91,76 @@ function ManageProfileBasicInfo({
                     onClick={() => showModal()}
                   >
                     <div className="fwl text-[#495057] text-[1rem] py-[0.375rem] px-[0.75rem]">
-                      {currentImages && currentImages.length
-                        ? currentImages[0].name
+                      {currentImages && currentImages.length !== ""
+                        ? currentImages.name
                         : "Choose file"}
                     </div>
                   </div>
                 </div>
               </div>
+
+              {Array.isArray(currentImages) == true ? (
+            <>
+              {currentImages ? (
+                <>
+                  <div className="pt-[8px] flex gap-x-[5px] flex-wrap">
+                    {currentImages.map((value, index) => {
+                      return (
+                        <CurrentImgCard
+                          key={value.sizeInKB + 1}
+                          data={value}
+                          index={index}
+                          deletethisImg={deletethisImg}
+                          // selectedImgs={selectedImgs}
+                          // selecImg={selecImg}
+                        />
+                      );
+                    })}
+                  </div>
+                </>
+              ) : (
+                ""
+              )}
+            </>
+          ) : (
+            <>
+              {currentImages !== undefined ? (
+                <div
+                  className={`relative w-[100px] h-[145px] rounded-[0.25rem] bg-[#fff]     ----- th}  ----- }    border-[#00000020]  border-[1px] mb-[10px] ml-[15px]`}
+                  // onClick={() => selecImg(data, index)}
+                >
+                  <div
+                    className="w-[17px] h-[17px] bg-[#000] rounded-full text-[10px] text-[#fff] absolute right-[-6px] top-[-5px] z-[2] flex justify-center item-center cursor-pointer"
+                    onClick={() => deletethisSingleImg()}
+                  >
+                    x
+                  </div>
+                  <div className={`${styles.card_img_div}`}>
+                    <span className="image_container">
+                      <Image
+                        src={currentImages.img.src}
+                        alt="image"
+                        width="30"
+                        height="30"
+                      />
+                    </span>
+                  </div>
+                  <div className="px-[8px] py-[8px] pb-0">
+                    <p className="fwb text-[#1b1b28] text-[0.8rem] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                      {currentImages.name}
+                    </p>
+                    <p className="text-[9px] text-[#8392a5] mt-[9px]">
+                      {currentImages.sizeInKB}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+            </>
+          )}
+              </div>
+
             </div>
 
             <div className="fwr flex mb-[1rem] flex-col      lg:flex-row">

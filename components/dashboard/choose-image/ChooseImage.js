@@ -161,7 +161,6 @@ function ChooseImage({
           )}
         </div>
       </div>
-      {/* <ChooseImageModal /> */}
     </>
   );
 }

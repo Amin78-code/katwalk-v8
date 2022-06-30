@@ -54,8 +54,8 @@ function Profiles() {
     { name: "Your Email", placeHolder: "azaamam@hotmail.com" },
   ]);
 
-  const [currentImages, setCurrentImages] = useState([]);
-
+  const [currentImages, setCurrentImages] = useState(undefined);
+  const [photo, set_photo] = useState([]);
   const showModal = () => {
     document.getElementById("upload_overlay").classList.add("dblock");
   };
@@ -96,7 +96,9 @@ function Profiles() {
   };
 
   const updateBasicInfo = () => {
-    console.log("basicInfo", basicInfo);
+    // console.log("basicInfo", basicInfo);
+    // console.log("currentImages", currentImages);
+    
     let extractDataFrom = undefined;
     let dataToUpdate = undefined;
 
@@ -108,7 +110,7 @@ function Profiles() {
     } else {
       dataToUpdate.splice(2, 1, {
         name: extractDataFrom[2].name,
-        value: currentImages[0].img,
+        value: currentImages.img,
       });
       setBasicInfo([...dataToUpdate]);
       console.log("basicInfo", basicInfo);
@@ -227,6 +229,7 @@ function Profiles() {
                 handleChange={handleChange}
                 currentImages={currentImages}
                 updateBasicInfo={updateBasicInfo}
+                setCurrentImages={setCurrentImages}
               />
 
               <ManageProfileAddress
@@ -266,6 +269,7 @@ function Profiles() {
         <ChooseImageModal
           currentImages={currentImages}
           setCurrentImages={setCurrentImages}
+          photo
         />
       </div>
     </>

@@ -17,7 +17,7 @@ function ChooseImageModal({
   shopLogo,
   designerPicture,
   banners,
-  mobileBanners
+  mobileBanners,
 }) {
   const [uploadedPictures, setUploadedPictures] = useState([
     {
@@ -137,10 +137,7 @@ function ChooseImageModal({
     let _uploadedPictures = uploadedPictures;
     let _selectedImgs = selectedImgs;
 
-
-     if(Array.isArray(currentImages) == true) {
-
-
+    if (Array.isArray(currentImages) == true) {
       for (let i = 0; i < _uploadedPictures.length; i++) {
         if (_uploadedPictures[i].img == data.img) {
           // console.log("matched");
@@ -156,50 +153,41 @@ function ChooseImageModal({
           setUploadedPictures([..._uploadedPictures]);
         }
       }
+    } else {
+      let __uploadedPictures = [];
+      for (let i = 0; i < _uploadedPictures.length; i++) {
+        // if (_uploadedPictures[i].img == data.img) {
 
+        //   console.log("matched");
+        // let clickedItem = _uploadedPictures[i];
 
-      } else {
-
-        let __uploadedPictures = []
-        for (let i = 0; i < _uploadedPictures.length; i++) {
-          // if (_uploadedPictures[i].img == data.img) {
-            
-          //   console.log("matched");
-            // let clickedItem = _uploadedPictures[i];
-             
-            __uploadedPictures.push({
-              img: _uploadedPictures[i].img,
-              name: _uploadedPictures[i].name,
-              sizeInKB: _uploadedPictures[i].sizeInKB,
-              fileType: _uploadedPictures[i].fileType,
-              isSelected: false,
-            })
-          }
-        for (let i = 0; i < __uploadedPictures.length; i++) {
-          if (__uploadedPictures[i].img == data.img) {
-            // console.log("matched");
-                     let itemForPush = {
-              img: __uploadedPictures[i].img,
-              name: __uploadedPictures[i].name,
-              sizeInKB: __uploadedPictures[i].sizeInKB,
-              fileType: __uploadedPictures[i].fileType,
-              isSelected: !__uploadedPictures[i].isSelected,
-            };
-            __uploadedPictures.splice(i, 1, itemForPush);
-            setUploadedPictures([...__uploadedPictures]);
-          }
+        __uploadedPictures.push({
+          img: _uploadedPictures[i].img,
+          name: _uploadedPictures[i].name,
+          sizeInKB: _uploadedPictures[i].sizeInKB,
+          fileType: _uploadedPictures[i].fileType,
+          isSelected: false,
+        });
+      }
+      for (let i = 0; i < __uploadedPictures.length; i++) {
+        if (__uploadedPictures[i].img == data.img) {
+          // console.log("matched");
+          let itemForPush = {
+            img: __uploadedPictures[i].img,
+            name: __uploadedPictures[i].name,
+            sizeInKB: __uploadedPictures[i].sizeInKB,
+            fileType: __uploadedPictures[i].fileType,
+            isSelected: !__uploadedPictures[i].isSelected,
+          };
+          __uploadedPictures.splice(i, 1, itemForPush);
+          setUploadedPictures([...__uploadedPictures]);
         }
-        console.log("__uploadedPictures",__uploadedPictures)
-
-        
-     }
-
-
-    
+      }
+      console.log("__uploadedPictures", __uploadedPictures);
+    }
 
     setSelectedImgs([]);
     setSelectedImgs(_selectedImgs);
-
   };
 
   // const changeHandle =(e)=> {
@@ -302,19 +290,13 @@ function ChooseImageModal({
 
     for (let i = 0; i < uploadedPictures.length; i++) {
       if (uploadedPictures[i].isSelected == true) {
-      
-        if(Array.isArray(currentImages) == true) {
-
-        _currentImages.unshift(uploadedPictures[i]);
-        setCurrentImages([]);
-        setCurrentImages([..._currentImages]);
-
-      }
-      else {
-        
-        setCurrentImages(uploadedPictures[i])
-      }
-
+        if (Array.isArray(currentImages) == true) {
+          _currentImages.unshift(uploadedPictures[i]);
+          setCurrentImages([]);
+          setCurrentImages([..._currentImages]);
+        } else {
+          setCurrentImages(uploadedPictures[i]);
+        }
       }
     }
     hideModal();

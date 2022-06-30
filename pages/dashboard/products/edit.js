@@ -740,7 +740,7 @@ function AddNewProduct() {
     let _productInfromationInArabic = productInfromationInArabic;
     _productInfromationInArabic.splice(1, 1, {
       name: productInfromationInArabic[1].name,
-      value: selectedCategory,
+      value: selectedCategoryInArabic,
     });
     setProductInfromationInArabic([..._productInfromationInArabic]);
 

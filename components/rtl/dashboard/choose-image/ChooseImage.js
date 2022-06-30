@@ -6,16 +6,28 @@ import CurrentImgCard from "../current-img-card/CurrentImgCard";
 
 function ChooseImage({
   data,
-  editpage,
   shopsPage,
   currentImages,
   setCurrentImages,
+  shopLogo,
+  designerPicture,
+  banners,
+  mobileBanners
 }) {
   const showModal = () => {
-    document.getElementById("upload_overlay").classList.add("dblock");
+    if (shopLogo) {
+      document.getElementById("upload_overlay1").classList.add("dblock");
+    } else if (designerPicture) {
+      document.getElementById("upload_overlay2").classList.add("dblock");
+    } else if (banners) {
+      document.getElementById("upload_overlay3").classList.add("dblock");
+    } else if (mobileBanners) {
+      document.getElementById("upload_overlay4").classList.add("dblock");
+    } else {
+      document.getElementById("upload_overlay").classList.add("dblock");
+    }
   };
   const deletethisImg = (data, index) => {
-    console.log("data,index", data, " - -", index);
     let _currentImages = currentImages;
     // for (let i = 0; i < currentImages.length; i++) {
 
@@ -26,6 +38,10 @@ function ChooseImage({
     _currentImages.splice(index, 1);
     setCurrentImages([]);
     setCurrentImages([..._currentImages]);
+  };
+
+  const deletethisSingleImg = () => {
+    setCurrentImages(undefined);
   };
 
   return (
@@ -60,9 +76,19 @@ function ChooseImage({
               browse
             </p>
             <div className="text-[#b7b7b7] text-[1rem] py-[0.375rem] px-[0.75rem]">
-              {currentImages && currentImages.length > 0
+            {Array.isArray(currentImages) == true ? (
+                <>
+                 {currentImages && currentImages.length > 0
                 ? currentImages.length + " files selected"
                 : "Choose file"}
+                 </>
+              ) : (
+                <>
+                
+                {currentImages !== undefined ? <>{currentImages.name}</> : "Choose file"}
+                
+                </>
+              )}
             </div>
           </div>
           {data && data.note ? (
@@ -72,6 +98,9 @@ function ChooseImage({
           ) : (
             ""
           )}
+
+{Array.isArray(currentImages) == true ? (
+            <>
           {currentImages ? (
             <>
               <div className="pt-[8px] flex gap-x-[5px] flex-wrap">
@@ -92,9 +121,46 @@ function ChooseImage({
           ) : (
             ""
           )}
+             </>
+          ) : (
+            <> 
+              {currentImages !== undefined ? (
+                <div
+                  className={`relative w-[100px] h-[145px] rounded-[0.25rem] bg-[#fff]     ----- th}  ----- }    border-[#00000020]  border-[1px] mb-[10px]`}
+                  // onClick={() => selecImg(data, index)}
+                >
+                  <div
+                    className="w-[17px] h-[17px] bg-[#000] rounded-full text-[10px] text-[#fff] absolute right-[-6px] top-[-5px] z-[2] flex justify-center item-center cursor-pointer"
+                    onClick={() => deletethisSingleImg()}
+                  >
+                    x
+                  </div>
+                  <div className={`${styles.card_img_div}`}>
+                    <span className="image_container">
+                      <Image
+                        src={currentImages.img.src}
+                        alt="image"
+                        width="30"
+                        height="30"
+                      />
+                    </span>
+                  </div>
+                  <div className="px-[8px] py-[8px] pb-0">
+                    <p className="fwb text-[#1b1b28] text-[0.8rem] w-[100%] whitespace-nowrap text-ellipsis overflow-hidden">
+                      {currentImages.name}
+                    </p>
+                    <p className="text-[9px] text-[#8392a5] mt-[9px]">
+                      {currentImages.sizeInKB}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+            </>
+          )}
         </div>
       </div>
-      {/* <ChooseImageModal /> */}
     </>
   );
 }
