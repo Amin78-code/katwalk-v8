@@ -54,6 +54,10 @@ const sheilaColor = [
 
 const selectSize = ["50", "52", "54"];
 
+const alterationLength = [" اختاري الطول", "50", "52", "54", "56", "58"];
+const alterationBust = ["اختاري العرض", "20", "22", "23", "25", "26", "28"];
+const alterationSleeve = [" اختاري طول الكم ", "25", "26", "27", "28", "29"];
+
 const selectSheilaLength = ["200cm", "170cm", "150cm"];
 
 const otherProducts = [
@@ -337,28 +341,28 @@ function ProductDetail() {
 
   const sizeToggler = () => {
     // closing others
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
@@ -366,8 +370,8 @@ function ProductDetail() {
     }
 
     // opening this one
-    if (!togglerSize.includes("dblock")) {
-      settogglerSize(["dblock"]);
+    if (!togglerSize.includes("d-block")) {
+      settogglerSize(["d-block"]);
     } else {
       settogglerSize([]);
     }
@@ -380,28 +384,28 @@ function ProductDetail() {
 
   const sheilaLengthToggler = () => {
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
@@ -409,8 +413,8 @@ function ProductDetail() {
     }
 
     // opening  this one
-    if (!togglerSheilaLength.includes("dblock")) {
-      settogglerSheilaLength(["dblock"]);
+    if (!togglerSheilaLength.includes("d-block")) {
+      settogglerSheilaLength(["d-block"]);
     } else {
       settogglerSheilaLength([]);
     }
@@ -423,36 +427,36 @@ function ProductDetail() {
 
   const lengthToggler = () => {
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
       setTogglerSleevePlusIcon([]);
     }
 
-    if (!togglerLength.includes("dblock")) {
-      setTogglerLength(["dblock"]);
+    if (!togglerLength.includes("d-block")) {
+      setTogglerLength(["d-block"]);
     } else {
       setTogglerLength([]);
     }
@@ -470,36 +474,36 @@ function ProductDetail() {
     // bustToggler
     // sleeveToggler
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
       setTogglerSleevePlusIcon([]);
     }
 
-    if (!togglerBust.includes("dblock")) {
-      setTogglerBust(["dblock"]);
+    if (!togglerBust.includes("d-block")) {
+      setTogglerBust(["d-block"]);
     } else {
       setTogglerBust([]);
     }
@@ -517,36 +521,36 @@ function ProductDetail() {
     // bustToggler
     // sleeveToggler
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (!togglerSleeve.includes("dblock")) {
-      setTogglerSleeve(["dblock"]);
+    if (!togglerSleeve.includes("d-block")) {
+      setTogglerSleeve(["d-block"]);
     } else {
       setTogglerSleeve([]);
     }
@@ -894,7 +898,6 @@ function ProductDetail() {
                     </div>
                   </div>
                 </div>
-
                 <div className={`${togglerAlterationDiv.join(
                   " "
                 )} w-[100%] h-[0] overflow-hidden mt-[15px] taPoint3`}>
@@ -915,10 +918,10 @@ function ProductDetail() {
                           onClick={() => lengthToggler()}
                         >
                           <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                          
-                          
-                          اختاري الطول
-                                                                                                                                       
+                          {selectedAlterationLength &&
+                            selectedAlterationLength !== ""
+                              ? selectedAlterationLength
+                              : "اختاري الطول:"}                                                                                                  
                           </p>
 
                           <BsChevronDown
@@ -931,7 +934,18 @@ function ProductDetail() {
                           className={`${togglerLength.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
                         >
-                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
+                           {alterationLength.map((value) => {
+                            return (
+                              <Options
+                                key={value + 1}
+                                data={value}
+                                variationName={"alteration-length"}
+                                settingVariation={settingVariation}
+                                currectSelectedValue={selectedAlterationLength}
+                              />
+                            );
+                          })}
+                          {/* <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                          
                           اختاري الطول
                                                                          
@@ -950,7 +964,7 @@ function ProductDetail() {
                           </div>
                           <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             58
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -972,8 +986,11 @@ function ProductDetail() {
                           onClick={() => bustToggler()}
                         >
                           <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                           
-                          اختاري العرض                                                                        
+                          {selectedAlterationBust &&
+                            selectedAlterationBust !== ""
+                              ? selectedAlterationBust
+                              : " اختاري العرض :"}
+                                                                                                
                           </p>
 
                           <BsChevronDown
@@ -986,7 +1003,19 @@ function ProductDetail() {
                           className={`${togglerBust.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
                         >
-                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
+
+{alterationBust.map((value) => {
+                            return (
+                              <Options
+                                key={value + 1}
+                                data={value}
+                                variationName={"alteration-bust"}
+                                settingVariation={settingVariation}
+                                currectSelectedValue={selectedAlterationBust}
+                              />
+                            );
+                          })}
+                          {/* <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                          
                           اختاري العرض                                                                        
                           </div>
@@ -1007,7 +1036,7 @@ function ProductDetail() {
                           </div>
                           <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             28
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -1030,8 +1059,10 @@ function ProductDetail() {
                           onClick={() => sleeveToggler()}
                         >
                           <p className="far h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                        
-                          اختاري طول الكم                                                                        
+                          {selectedAlterationSleeve &&
+                            selectedAlterationSleeve !== ""
+                              ? selectedAlterationSleeve
+                              : "اختاري طول الكم:"}                                                          
                           </p>
 
                           <BsChevronDown
@@ -1044,7 +1075,18 @@ function ProductDetail() {
                           className={`${togglerSleeve.join(" ")} ${styles.variation_dropdowns
                             } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[2] hidden`}
                         >
-                          <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
+                             {alterationSleeve.map((value) => {
+                            return (
+                              <Options
+                                key={value + 1}
+                                data={value}
+                                variationName={"alteration-sleeve"}
+                                settingVariation={settingVariation}
+                                currectSelectedValue={selectedAlterationSleeve}
+                              />
+                            );
+                          })}
+                          {/* <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             
                           اختاري طول الكم                                                                        
                           </div>
@@ -1062,7 +1104,7 @@ function ProductDetail() {
                           </div>
                           <div className="far text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pr-[7px]">
                             29
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </div>

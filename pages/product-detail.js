@@ -54,9 +54,8 @@ const sheilaColor = [
 const selectSize = ["50", "52", "54"];
 
 const alterationLength = ["Select Length", "50", "52", "54", "56", "58"];
-
 const alterationBust = ["Select Bust", "20", "22", "23", "25", "26", "28"];
-const alterationSleeve = ["Select Bust", "25", "26", "27", "28", "29"];
+const alterationSleeve = ["Select Sleeves", "25", "26", "27", "28", "29"];
 
 const selectSheilaLength = ["200cm", "170cm", "150cm"];
 
@@ -333,28 +332,28 @@ function ProductDetail() {
 
   const sizeToggler = () => {
     // closing others
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
@@ -362,8 +361,9 @@ function ProductDetail() {
     }
 
     // opening this one
-    if (!togglerSize.includes("dblock")) {
-      settogglerSize(["dblock"]);
+    
+    if (!togglerSize.includes("d-block")) {
+      settogglerSize(["d-block"]);
     } else {
       settogglerSize([]);
     }
@@ -376,28 +376,28 @@ function ProductDetail() {
 
   const sheilaLengthToggler = () => {
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
@@ -405,8 +405,8 @@ function ProductDetail() {
     }
 
     // opening  this one
-    if (!togglerSheilaLength.includes("dblock")) {
-      settogglerSheilaLength(["dblock"]);
+    if (!togglerSheilaLength.includes("d-block")) {
+      settogglerSheilaLength(["d-block"]);
     } else {
       settogglerSheilaLength([]);
     }
@@ -419,36 +419,36 @@ function ProductDetail() {
 
   const lengthToggler = () => {
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
       setTogglerSleevePlusIcon([]);
     }
 
-    if (!togglerLength.includes("dblock")) {
-      setTogglerLength(["dblock"]);
+    if (!togglerLength.includes("d-block")) {
+      setTogglerLength(["d-block"]);
     } else {
       setTogglerLength([]);
     }
@@ -466,36 +466,36 @@ function ProductDetail() {
     // bustToggler
     // sleeveToggler
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerSleeve.includes("dblock")) {
+    if (togglerSleeve.includes("d-block")) {
       setTogglerSleeve([]);
     }
     if (togglerSleevePlusIcon.includes("rotate180")) {
       setTogglerSleevePlusIcon([]);
     }
 
-    if (!togglerBust.includes("dblock")) {
-      setTogglerBust(["dblock"]);
+    if (!togglerBust.includes("d-block")) {
+      setTogglerBust(["d-block"]);
     } else {
       setTogglerBust([]);
     }
@@ -513,36 +513,36 @@ function ProductDetail() {
     // bustToggler
     // sleeveToggler
     // closing others
-    if (togglerSize.includes("dblock")) {
+    if (togglerSize.includes("d-block")) {
       settogglerSize([]);
     }
     if (togglerSizePlusIcon.includes("rotate180")) {
       settogglerSizePlusIcon([]);
     }
 
-    if (togglerSheilaLength.includes("dblock")) {
+    if (togglerSheilaLength.includes("d-block")) {
       settogglerSheilaLength([]);
     }
     if (togglerSheilaLengthPlusIcon.includes("rotate180")) {
       settogglerSheilaLengthPlusIcon([]);
     }
 
-    if (togglerLength.includes("dblock")) {
+    if (togglerLength.includes("d-block")) {
       setTogglerLength([]);
     }
     if (togglerLengthPlusIcon.includes("rotate180")) {
       setTogglerLengthPlusIcon([]);
     }
 
-    if (togglerBust.includes("dblock")) {
+    if (togglerBust.includes("d-block")) {
       setTogglerBust([]);
     }
     if (togglerBustPlusIcon.includes("rotate180")) {
       setTogglerBustPlusIcon([]);
     }
 
-    if (!togglerSleeve.includes("dblock")) {
-      setTogglerSleeve(["dblock"]);
+    if (!togglerSleeve.includes("d-block")) {
+      setTogglerSleeve(["d-block"]);
     } else {
       setTogglerSleeve([]);
     }
