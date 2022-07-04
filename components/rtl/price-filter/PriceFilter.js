@@ -12,15 +12,15 @@ function PriceFilter({
   return (
     <>
       <div
-        className={`w-[100%] lg:w-[320px] border-[#fbf1e8] border-[1px] relative lg:absolute 
+        className={`ddd w-[100%] lg:w-[320px] border-[#fbf1e8] border-[1px] relative lg:absolute 
  pt-[20px] lg:pt-0 z-[2] bg-[#fff] f-out max-h-[350px] overflow-auto`}
         ref={price_dropdown}
       >
-        <div className="w-[100%] px-[20px] py-[15px]">
-          <p className="fwl text-[11px] text-[#1b1b28] capitalize pb-[10px]">
+        <div className="ddd w-[100%] px-[20px] py-[15px]">
+          <p className="ddd fwl text-[11px] text-[#1b1b28] capitalize pb-[10px]">
             size:
           </p>
-          <div className="flex flex-wrap gap-x-[9px] gap-y-[9px]">
+          <div className="ddd flex flex-wrap gap-x-[9px] gap-y-[9px]">
             {data.map((value, index) => {
               return (
                 <PriceFilterItem
@@ -54,7 +54,7 @@ function PriceFilterItem({
     <>
       {/* ${styles.active} */}
       <p
-        className={`${
+        className={`ddd ${
           currentSelectedPricee &&
           currentSelectedPricee.length &&
           currentSelectedPricee.length !== 0

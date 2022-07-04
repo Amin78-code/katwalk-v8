@@ -6,7 +6,12 @@ import styles from "./ManageProfileChangeYourEmail.module.css";
 import TitleAndTableCard from "../title-and-table-card/TitleAndTableCard";
 import ChooseImage from "../choose-image/ChooseImage";
 
-function ManageProfileChangeYourEmail({ data, title,handleChangeEmail, updateEmail }) {
+function ManageProfileChangeYourEmail({
+  data,
+  title,
+  handleChangeEmail,
+  updateEmail,
+}) {
   const basicInfoCardBody = useRef("");
   const openCardBody = () => {
     basicInfoCardBody.current.classList.toggle(styles.slide_card_body);

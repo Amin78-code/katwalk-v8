@@ -8,4 +8,6 @@
 }
 .disable_div::before {
     position: absolute;
+    z-index: 1;
+    border: 0;
 }

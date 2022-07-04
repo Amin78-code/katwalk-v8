@@ -294,7 +294,7 @@ const addAddressData = [
   },
 ];
 
-function ManageProfileAddress({ data, title, handleChangeAddress, saveAddress, toggleModal, isShowModal, updateAddress  }) {
+function ManageProfileAddress({ data, title, handleChangeAddress, saveAddress, toggleModal, isShowModal, updateAddress }) {
 
   const basicInfoCardBody = useRef("");
   const typeSelect = useRef("");

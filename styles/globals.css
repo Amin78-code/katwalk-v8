@@ -301,6 +301,9 @@ html {
 .dblock {
   display: block !important;
 }
+.d-block {
+  display: block !important;
+}
 .dflex {
   display: flex !important;
 }

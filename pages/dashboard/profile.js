@@ -28,10 +28,11 @@ function Profiles() {
     { name: "Country", value: "SA" },
     { name: "Phone", value: "+966508011144" },
   ]);
+
   const [paymentSetting, setPaymentSetting] = useState([
     { name: "Cash Payment", value: "", status: true },
     { name: "Bank Payment", value: "", status: false },
-    { name: "Bank Name", placeHolder: "Bank Name", value: "" },
+    { name: "Bank Name", placeHolder: "Bank Name", value: "sad" },
     { name: "Bank Account Name", placeHolder: "Bank Account Name", value: "" },
     {
       name: "Bank Account Number",
@@ -151,17 +152,21 @@ function Profiles() {
   };
 
   const handleChangePayment = () => (e, index, type) => {
+    console.log(" Fdfdf ")
     let _paymentSetting = paymentSetting;
 
     if (type == "checkbox") {
       _paymentSetting.splice(index, 1, {
         name: paymentSetting[index].name,
         value: e,
-      });
+        status: true
+      }
+      );
     } else {
       _paymentSetting.splice(index, 1, {
         name: paymentSetting[index].name,
         value: e.target.value,
+        placeHolder: paymentSetting[index].placeHolder
       });
     }
 

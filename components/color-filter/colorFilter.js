@@ -11,12 +11,12 @@ function ColorFilter({ data, color_dropdown, choosingFilterOption,
   return (
     <>
       <div
-        className={`w-[100%] lg:w-[320px] border-[#fbf1e8] border-[1px] relative lg:absolute 
+        className={`ddd w-[100%] lg:w-[320px] border-[#fbf1e8] border-[1px] relative lg:absolute 
  pt-[20px] lg:pt-0 z-[2] bg-[#fff] f-out max-h-[350px] overflow-auto`}
         ref={color_dropdown}
       >
-        <div className="w-[100%] px-[20px] py-[20px]">
-          <div className="mt-[10px]">
+        <div className="ddd w-[100%] px-[20px] py-[20px]">
+          <div className="ddd mt-[10px]">
             {data.group1 ? (
               <>
                 {data.group1.map((value, index) => {

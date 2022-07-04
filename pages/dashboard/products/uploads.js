@@ -143,13 +143,6 @@ const productVariations = {
   ],
 };
 
-const alteration = {
-  length: ["50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"],
-  bust: ["20", "22", "23", "25", "26", "28"],
-  sleeves: ["25", "26", "27", "28", "29", "30"],
-};
-
-
 const galleryImageData = {
   name: "Gallery Images",
   imageResolution: "(900x1200)",
@@ -158,6 +151,14 @@ const galleryImageData = {
 const productCategories = ["Abaya", "Kaftan", "Dress", "Farwa", "Kimono"];
 
 function AddNewProduct() {
+  const [anyInputActive, set_anyInputActive] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("click", function (e) {
+      console.log("e", e);
+    });
+  }, []);
+
   const [productCategoriesForShow, setProductCategoriesForShow] = useState([
     "Abaya",
     "Kaftan",
@@ -185,18 +186,25 @@ function AddNewProduct() {
   const [productPriceStock, set_productPriceStock] = useState([
     {
       name: "Unit price",
-      value: undefined
+      value: undefined,
     },
     {
       name: "Quality",
-      value: undefined
+      value: undefined,
     },
     {
       name: "SKU",
-      value: undefined
+      value: undefined,
     },
   ]);
- 
+
+  const [alterationLength, set_alterationLength] = useState(["50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]);
+  const [alterationLengthForShow, set_alterationLengthForShow] = useState(["50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]);
+  const [alterationBust, set_alterationBust] = useState(["20", "22", "23", "25", "26", "28"]);
+  const [alterationBustForShow, set_alterationBustForShow] = useState(["20", "22", "23", "25", "26", "28"]);
+  const [alterationSleeves, set_alterationSleeves] = useState(["25", "26", "27", "28", "29", "30"]);
+  const [alterationSleevesForShow, set_alterationSleevesForShow] = useState(["25", "26", "27", "28", "29", "30"]);
+
   const [lengthTitle, setLengthTitle] = useState("nothing selected");
   const [bustTitle, setBustTitle] = useState("nothing selected");
   const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
@@ -240,7 +248,19 @@ function AddNewProduct() {
   const sheilaLengthSelect = useRef("");
   const sizeSelect = useRef("");
 
+  const lengthSelect = useRef("");
+  const bustSelect = useRef("");
+  const sleevesSelect = useRef("");
+
   const openCategorySelect = () => {
+    if (categorySelect.current.classList.contains("dblock")) {
+      // console.log("contain");
+      // console.log("anyInputActive bef",anyInputActive)
+      set_anyInputActive(true);
+      // console.log("anyInputActive aft",anyInputActive)
+    } else {
+      console.log("not contain");
+    }
     categorySelect.current.classList.toggle("dblock");
     document
       .getElementById("categorySelect")
@@ -626,12 +646,8 @@ function AddNewProduct() {
   };
 
   const changeHandler = (e, filterName) => {
-    // console.log("initialData", e, filterName);
-
     let _productCategories = filterName;
-    // setProductCategories(_productCategories);
     let __productCategories = [];
-    // setProductCategoriesForShow(_productCategories);
     for (let i = 0; i < _productCategories.length; i++) {
       __productCategories.push(filterName[i].toLowerCase());
     }
@@ -640,7 +656,42 @@ function AddNewProduct() {
     );
     setProductCategoriesForShow(startsWithN);
   };
+  
+  const changeHandlerLength = (e, filterName) => {
+    let _productCategories = filterName;
+    let __productCategories = [];
+    for (let i = 0; i < _productCategories.length; i++) {
+      __productCategories.push(filterName[i].toLowerCase());
+    }
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
+    set_alterationLengthForShow(startsWithN);
+  };
 
+  const changeHandlerBust = (e, filterName) => {
+    let _productCategories = filterName;
+    let __productCategories = [];
+    for (let i = 0; i < _productCategories.length; i++) {
+      __productCategories.push(filterName[i].toLowerCase());
+    }
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
+    set_alterationBustForShow(startsWithN);
+  };
+
+  const changeHandlerSleeves = (e, filterName) => {
+    let _productCategories = filterName;
+    let __productCategories = [];
+    for (let i = 0; i < _productCategories.length; i++) {
+      __productCategories.push(filterName[i].toLowerCase());
+    }
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
+    set_alterationSleevesForShow(startsWithN);
+  };
   const handleChangeProductInformation = (e, index) => {
     let _productsInformation = productsInformation;
     _productsInformation.splice(index, 1, {
@@ -650,15 +701,14 @@ function AddNewProduct() {
     set_productsInformation([..._productsInformation]);
   };
 
-  
-  const changeHandlerPriceStock =(e,index)=> {
+  const changeHandlerPriceStock = (e, index) => {
     let _productPriceStock = productPriceStock;
     _productPriceStock.splice(index, 1, {
       name: productPriceStock[index].name,
       value: e.target.value,
     });
     set_productPriceStock([..._productPriceStock]);
-  }
+  };
 
   const updateProduct = () => {
     let _productsInformation = productsInformation;
@@ -695,8 +745,6 @@ function AddNewProduct() {
       },
     ];
 
-
-
     let _productVariation = [
       {
         name: "color",
@@ -714,7 +762,6 @@ function AddNewProduct() {
         name: "size",
         value: sizeTitle,
       },
-    
     ];
 
     let _anyAlteration = [
@@ -729,18 +776,32 @@ function AddNewProduct() {
       {
         name: "sleeves",
         value: sleevesTitle?.props?.children,
-      }
-    
+      },
     ];
-    
+
     console.log("Products Information", productsInformation);
-    console.log("Any Alteration",_anyAlteration)
+    console.log("Any Alteration", _anyAlteration);
     console.log("Product Description", _productDescription);
     console.log("Product Variation", _productVariation);
     console.log("Product price + stock", productPriceStock);
-    console.log("Product Images",currentImages)
+    console.log("Product Images", currentImages);
   };
 
+  const openAnyAlterationSelect = (productionVaraitionName) => {
+    if (productionVaraitionName == "lengthSelect") {
+      bustSelect.current.classList.remove("dblock");
+      sleevesSelect.current.classList.remove("dblock");
+      lengthSelect.current.classList.toggle("dblock");
+    } else if (productionVaraitionName == "bustSelect") {
+      lengthSelect.current.classList.remove("dblock");
+      sleevesSelect.current.classList.remove("dblock");
+      bustSelect.current.classList.toggle("dblock");
+    } else if (productionVaraitionName == "sleevesSelect") {
+      lengthSelect.current.classList.remove("dblock");
+      bustSelect.current.classList.remove("dblock");
+      sleevesSelect.current.classList.toggle("dblock");
+    }
+  };
   return (
     <>
       <Layout>
@@ -772,39 +833,41 @@ function AddNewProduct() {
                       <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                         <span className="text-[#ff0032]">*</span>category
                       </p>
-                      <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
+                      <div className="ddd w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                         <div
-                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                          className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                           id="categorySelect"
                         >
                           <div
                             onClick={() => openCategorySelect()}
-                            className="capitalize"
+                            className="ddd capitalize"
+                            id="functions_div"
                           >
                             {selectedCategory ? selectedCategory : ""}
                           </div>
                           <div
                             ref={categorySelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                            id="select_div"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[1] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
                                 <input
                                   // kam
                                   onChange={(e) =>
                                     changeHandler(e, productCategories)
                                   }
-                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                  className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                                 />
                               </div>
-                              <ul>
+                              <ul className="ddd ">
                                 {productCategoriesForShow.map(
                                   (value, index) => {
                                     return (
                                       <li
                                         key={index * 4}
                                         onClick={() => setCategory(value)}
-                                        className={`${
+                                        className={`ddd ${
                                           value == selectedCategory
                                             ? styles.active_option
                                             : ""
@@ -861,28 +924,28 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="color"
                       />
-                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
+                      <div className="ddd fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("colorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             {colorTitle}
                           </span>
                           <div
                             ref={colorSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
                                 <input
                                   // onChange={() => changeHandler(event,productVariations)}
-                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer"
+                                  className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer"
                                 />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
                                   (value, index) => {
                                     return (
@@ -891,10 +954,10 @@ function AddNewProduct() {
                                         onClick={() =>
                                           settingSelectedColor(value, index)
                                         }
-                                        className={`
+                                        className={`ddd 
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                       >
-                                        <div className="flex justify-between">
+                                        <div className="ddd flex justify-between">
                                           {value.name}
                                           <div
                                             className="dnone"
@@ -918,12 +981,12 @@ function AddNewProduct() {
                     </div>
 
                     {/* sheila colors */}
-                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
+                    <div className="ddd fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="ddd w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="Sheila Colors"
                       />
-                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                      <div className="ddd fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
                           className={`${
                             isDisableSheila ? styles.disable_div : ""
@@ -933,19 +996,19 @@ function AddNewProduct() {
                             onClick={() =>
                               openProductVariationSelect("sheilaColorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             {sheilacolorTitle}
                           </span>
                           <div
                             ref={sheilaColorSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.colors.map((value, inde) => {
                                   return (
                                     <li
@@ -956,7 +1019,7 @@ function AddNewProduct() {
                                       className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                     >
-                                      <div className="flex justify-between">
+                                      <div className="ddd flex justify-between">
                                         {value.name}
                                         <div
                                           className="dnone"
@@ -993,12 +1056,12 @@ function AddNewProduct() {
                     </div>
 
                     {/* sheila length */}
-                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
+                    <div className="ddd fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="ddd w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="Sheila Length"
                       />
-                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                      <div className="ddd fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
                           className={`${
                             isDisableSheila ? styles.disable_div : ""
@@ -1008,19 +1071,19 @@ function AddNewProduct() {
                             onClick={() =>
                               openProductVariationSelect("sheilaLengthSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             {sheilaLengthTitle}
                           </span>
                           <div
                             ref={sheilaLengthSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.sheilaLength.map(
                                   (value, index) => {
                                     return (
@@ -1035,7 +1098,7 @@ function AddNewProduct() {
                                         className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                       >
-                                        <div className="flex justify-between">
+                                        <div className="ddd flex justify-between">
                                           {value}
                                           <div
                                             className="dnone"
@@ -1059,25 +1122,25 @@ function AddNewProduct() {
                     </div>
 
                     {/* size */}
-                    <div className="fwl flex mb-[1rem] flex-col      lg:flex-row">
+                    <div className="ddd fwl flex mb-[1rem] flex-col      lg:flex-row">
                       <input
-                        className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
+                        className="ddd w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef] fwl text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="Size"
                       />
-                      <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
+                      <div className="ddd fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("sizeSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             <li
                               className={`
                                         block relative text-[#b7b7b7] fwl text-[1rem] tracking-0 mt-[-2px] uppercase py-[0.15rem] px-[1rem] pl-0 overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                             >
                               {sizeTitle.length == 0 ? (
-                                <span className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
+                                <span className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
                                   nothing selected
                                 </span>
                               ) : (
@@ -1093,13 +1156,13 @@ function AddNewProduct() {
                           </span>
                           <div
                             ref={sizeSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.size.map((value, index) => {
                                   return (
                                     <li
@@ -1110,13 +1173,13 @@ function AddNewProduct() {
                                       className={`
                                               block relative text-[#212529] fwr text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                     >
-                                      <div className="flex justify-between">
+                                      <div className="ddd flex justify-between">
                                         {value}
                                         <div
-                                          className="dnone"
+                                          className="ddd dnone"
                                           id={"sizeOptions" + index}
                                         >
-                                          <i className="las la-check"></i>
+                                          <i className="ddd las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -1141,7 +1204,10 @@ function AddNewProduct() {
                     {productPriceStock.map((value) => {
                       return (
                         <div key={value.name + 1}>
-                          <ProductPriceStock data={value} changeHandlerPriceStock={changeHandlerPriceStock} />
+                          <ProductPriceStock
+                            data={value}
+                            changeHandlerPriceStock={changeHandlerPriceStock}
+                          />
                         </div>
                       );
                     })}
@@ -1176,25 +1242,40 @@ function AddNewProduct() {
                       </label>
                     </div>
                     <Length
-                      data={alteration}
+                      data={alterationLength}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
                       lengthTitle={lengthTitle}
                       setLengthTitle={setLengthTitle}
+                      openAnyAlterationSelect={openAnyAlterationSelect}
+                      selectName={lengthSelect}
+                      
+                      changeHandler={changeHandlerLength}
+                      alterationLengthForShow={alterationLengthForShow}
                     />
                     <Bust
-                      data={alteration}
+                      data={alterationBust}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
                       bustTitle={bustTitle}
                       setBustTitle={setBustTitle}
+                      openAnyAlterationSelect={openAnyAlterationSelect}
+                      selectName={bustSelect}
+
+                      changeHandler={changeHandlerBust}
+                      alterationBustForShow={alterationBustForShow}
                     />
                     <Sleeves
-                      data={alteration}
+                      data={alterationSleeves}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
                       sleevesTitle={sleevesTitle}
                       setSleevesTitle={setSleevesTitle}
+                      openAnyAlterationSelect={openAnyAlterationSelect}
+                      selectName={sleevesSelect}
+
+                      changeHandler={changeHandlerSleeves}
+                      alterationSleevesForShow={alterationSleevesForShow}
                     />
                   </CardBody>
                 </TitleAndTableCard>
@@ -1215,13 +1296,13 @@ function AddNewProduct() {
                           {value.name}
                         </p>
 
-                        <div className="fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="ddd fwl w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                            className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                             id={"optionMainDiv" + index}
                           >
                             <div
-                              className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                              className="ddd text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                               onClick={() =>
                                 openSelect("options" + index, index)
                               }
@@ -1278,6 +1359,9 @@ function AddNewProduct() {
                 upload product
               </button>
             </div>
+            <br />
+            <br />
+            <br />
           </AdminPanelLayout>
         </div>
       </Layout>

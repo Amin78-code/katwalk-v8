@@ -11,15 +11,15 @@ function SizeFilter({
   return (
     <>
       <div
-        className={`w-[100%] lg:w-[320px] border-[#fbf1e8] border-[1px] relative lg:absolute 
+        className={`ddd w-[100%] lg:w-[320px] border-[#fbf1e8] border-[1px] relative lg:absolute 
  pt-[20px] lg:pt-0 z-[2] bg-[#fff] f-out max-h-[350px] overflow-auto`}
         ref={size_dropdown}
       >
-        <div className="w-[100%] px-[20px] py-[15px]">
-          <p className="fwl text-[11px] text-[#1b1b28] capitalize pb-[10px]">
+        <div className="ddd w-[100%] px-[20px] py-[15px]">
+          <p className="ddd fwl text-[11px] text-[#1b1b28] capitalize pb-[10px]">
             size:
           </p>
-          <div className="flex flex-wrap gap-x-[9px] gap-y-[9px]">
+          <div className="ddd flex flex-wrap gap-x-[9px] gap-y-[9px]">
             {data.map((value, index) => {
               return (
                 <SizeFilterItem
@@ -48,12 +48,11 @@ function SizeFilterItem({
   index,
   currentSelectedSizeee,
 }) {
-  console.log("--> currentSelectedSizeee",currentSelectedSizeee? currentSelectedSizeee[index]?.status:"ggg")
   return (
     <>
       {/* ${styles.active} */}
       <div
-        className={` ${
+        className={`ddd ${
           currentSelectedSizeee.length !== 0
             ? currentSelectedSizeee[index].status == true
               ? styles.active

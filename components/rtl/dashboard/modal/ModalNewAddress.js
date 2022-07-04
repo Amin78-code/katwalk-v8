@@ -8,7 +8,9 @@ import CardBody from "../card-body/CardBody";
 function ModalNewAddress({
   isShowModal,
   toggleModal,
+  saveAddress,
   data,
+  handleChangeAddress
 }) {
 
   const countrySelect = useRef("")
@@ -107,6 +109,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="عنوانك"
+                  value={data[0].value}
+                  onChange={(e) => handleChangeAddress(e, 0)}
                 />
               </div>
             </div>
@@ -116,32 +120,32 @@ function ModalNewAddress({
               <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                 بلد
               </p>
-              <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
+              <div className="ddd w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                 <div
-                  className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                  className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                   id="countrySelect"
                 >
-                  <div onClick={() => openSelect('country')} className="capitalize">
+                  <div onClick={() => openSelect('country')} className="ddd capitalize">
                     {selectedCountry ? selectedCountry : ""}
                   </div>
                   <div
                     ref={countrySelect}
-                    className="absolute w-[100%] right-0 top-[43px] z-[1] dnone"
+                    className="ddd absolute w-[100%] right-0 top-[43px] z-[1] dnone"
                   >
-                    <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                      <div className="py-[4px] px-[8px]">
+                    <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                      <div className="ddd py-[4px] px-[8px]">
                         <input
                           onChange={(e) => countryChangeHandler(e, countryNames)}
-                          className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                          className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                         />
                       </div>
-                      <ul className="h-[300px] overflow-scroll">
+                      <ul className="ddd h-[300px] overflow-scroll">
                         {countryNamesForShow.map((value, index) => {
                           return (
                             <li
                               key={index * 4}
                               onClick={() => setCountry(value)}
-                              className={`${value == selectedCountry
+                              className={`ddd ${value == selectedCountry
                                 ? styles.active_option
                                 : ""
                                 } capitalize block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
@@ -162,32 +166,32 @@ function ModalNewAddress({
               <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                 مدينة
               </p>
-              <div className="w-[100%] lg:w-[68.75%] px-[5px]     lg:px-[15px]">
+              <div className="ddd w-[100%] lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                 <div
-                  className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                  className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                   id="citySelect"
                 >
-                  <div onClick={() => openSelect('city')} className="capitalize">
+                  <div onClick={() => openSelect('city')} className="ddd capitalize">
                     {selectedCity ? selectedCity : ""}
                   </div>
                   <div
                     ref={citySelect}
-                    className="absolute w-[100%] right-0 top-[43px] z-[1] dnone"
+                    className="ddd absolute w-[100%] right-0 top-[43px] z-[1] dnone"
                   >
-                    <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                      <div className="py-[4px] px-[8px]">
+                    <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                      <div className="ddd py-[4px] px-[8px]">
                         <input
                           onChange={(e) => cityChangeHandler(e, cityNames)}
-                          className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                          className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                         />
                       </div>
-                      <ul className="h-[200px] overflow-scroll">
+                      <ul className="ddd h-[200px] overflow-scroll">
                         {cityNamesForShow.map((value, index) => {
                           return (
                             <li
                               key={index * 4}
                               onClick={() => setCity(value)}
-                              className={`${value == selectedCity
+                              className={`ddd ${value == selectedCity
                                 ? styles.active_option
                                 : ""
                                 } capitalize block text-[#212529] text-[1rem] py-[0.25rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] taPoint3`}
@@ -213,6 +217,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="منطقتك"
+                  value={data[3].value}
+                  onChange={(e) => handleChangeAddress(e, 3)}
                 />
               </div>
             </div>
@@ -227,6 +233,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="رمزك البريدي"
+                  value={data[1].value}
+                  onChange={(e) => handleChangeAddress(e, 1)}
                 />
               </div>
             </div>
@@ -241,6 +249,8 @@ function ModalNewAddress({
                 <input
                   className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                   placeholder="+880"
+                  value={data[5].value}
+                  onChange={(e) => handleChangeAddress(e, 5)}
                 />
               </div>
             </div>
@@ -250,7 +260,7 @@ function ModalNewAddress({
               <div className="flex justify-end">
 
 
-                <button onClick={() => toggleModal()} className="light-brown-btn text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
+                <button onClick={() => saveAddress()} className="light-brown-btn text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem]">
                   حفظ
                 </button>
               </div>

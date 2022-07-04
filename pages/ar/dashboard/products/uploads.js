@@ -199,6 +199,13 @@ function AddNewProduct() {
   },
   ]);
 
+  const [alterationLength, set_alterationLength] = useState(["50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]);
+  const [alterationLengthForShow, set_alterationLengthForShow] = useState(["50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]);
+  const [alterationBust, set_alterationBust] = useState(["20", "22", "23", "25", "26", "28"]);
+  const [alterationBustForShow, set_alterationBustForShow] = useState(["20", "22", "23", "25", "26", "28"]);
+  const [alterationSleeves, set_alterationSleeves] = useState(["25", "26", "27", "28", "29", "30"]);
+  const [alterationSleevesForShow, set_alterationSleevesForShow] = useState(["25", "26", "27", "28", "29", "30"]);
+
   const [lengthTitle, setLengthTitle] = useState("nothing selected");
   const [bustTitle, setBustTitle] = useState("nothing selected");
   const [sleevesTitle, setSleevesTitle] = useState("nothing selected");
@@ -239,6 +246,10 @@ function AddNewProduct() {
   const sheilaLengthSelect = useRef("");
   const sizeSelect = useRef("");
 
+  const lengthSelect = useRef("");
+  const bustSelect = useRef("");
+  const sleevesSelect = useRef("");
+  
   const openCategorySelect = () => {
     categorySelect.current.classList.toggle("dblock");
     document
@@ -639,6 +650,42 @@ function AddNewProduct() {
     );
     setProductCategoriesForShow(startsWithN);
   };
+  
+  const changeHandlerLength = (e, filterName) => {
+    let _productCategories = filterName;
+    let __productCategories = [];
+    for (let i = 0; i < _productCategories.length; i++) {
+      __productCategories.push(filterName[i].toLowerCase());
+    }
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
+    set_alterationLengthForShow(startsWithN);
+  };
+
+  const changeHandlerBust = (e, filterName) => {
+    let _productCategories = filterName;
+    let __productCategories = [];
+    for (let i = 0; i < _productCategories.length; i++) {
+      __productCategories.push(filterName[i].toLowerCase());
+    }
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
+    set_alterationBustForShow(startsWithN);
+  };
+
+  const changeHandlerSleeves = (e, filterName) => {
+    let _productCategories = filterName;
+    let __productCategories = [];
+    for (let i = 0; i < _productCategories.length; i++) {
+      __productCategories.push(filterName[i].toLowerCase());
+    }
+    const startsWithN = __productCategories.filter((country) =>
+      country.startsWith(e.target.value.toLowerCase())
+    );
+    set_alterationSleevesForShow(startsWithN);
+  };
 
   const handleChangeProductInformation = (e, index) => {
     let _productsInformation = productsInformation;
@@ -739,6 +786,21 @@ function AddNewProduct() {
     console.log("Product Images",currentImages)
   };
 
+  const openAnyAlterationSelect = (productionVaraitionName) => {
+    if (productionVaraitionName == "lengthSelect") {
+      bustSelect.current.classList.remove("dblock");
+      sleevesSelect.current.classList.remove("dblock");
+      lengthSelect.current.classList.toggle("dblock");
+    } else if (productionVaraitionName == "bustSelect") {
+      lengthSelect.current.classList.remove("dblock");
+      sleevesSelect.current.classList.remove("dblock");
+      bustSelect.current.classList.toggle("dblock");
+    } else if (productionVaraitionName == "sleevesSelect") {
+      lengthSelect.current.classList.remove("dblock");
+      bustSelect.current.classList.remove("dblock");
+      sleevesSelect.current.classList.toggle("dblock");
+    }
+  };
   return (
     <>
       <Layout>
@@ -770,29 +832,29 @@ function AddNewProduct() {
                       <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-[5px] capitalize">
                         <span className="text-[#ff0032]">*</span>الفئة
                       </p>
-                      <div className="w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
+                      <div className="ddd w-[100%]     lg:w-[68.75%] px-[5px]     lg:px-[15px]">
                         <div
-                          className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                          className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                           id="categorySelect"
                         >
                           <div
                             onClick={() => openCategorySelect()}
-                            className="capitalize"
+                            className="ddd capitalize"
                           >
                             {selectedCategory ? selectedCategory : ""}
                           </div>
                           <div
                             ref={categorySelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[1] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
                                 <input
                                   // kam
                                   onChange={(e) =>
                                     changeHandler(e, productCategories)
                                   }
-                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                  className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                                 />
                               </div>
                               <ul>
@@ -802,7 +864,7 @@ function AddNewProduct() {
                                       <li
                                         key={index * 4}
                                         onClick={() => setCategory(value)}
-                                        className={`${
+                                        className={`ddd ${
                                           value == selectedCategory
                                             ? styles.active_option
                                             : ""
@@ -860,28 +922,28 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="اللون"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("colorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             {colorTitle}
                           </span>
                           <div
                             ref={colorSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
                                 <input
                                   // onChange={() => changeHandler(event,productVariations)}
-                                  className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer"
+                                  className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer"
                                 />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
                                   (value, index) => {
                                     return (
@@ -890,16 +952,16 @@ function AddNewProduct() {
                                         onClick={() =>
                                           settingSelectedColor(value, index)
                                         }
-                                        className={`
+                                        className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                       >
-                                        <div className="flex justify-between">
+                                        <div className="ddd flex justify-between">
                                           {value.name}
                                           <div
-                                            className="dnone"
+                                            className="ddd dnone"
                                             id={"colorOptions" + index}
                                           >
-                                            <i className="las la-check"></i>
+                                            <i className="ddd las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -922,9 +984,9 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="ألوان شيلا"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
-                          className={`${
+                          className={`ddd ${
                             isDisableSheila ? styles.disable_div : ""
                           } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
@@ -932,19 +994,19 @@ function AddNewProduct() {
                             onClick={() =>
                               openProductVariationSelect("sheilaColorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             {sheilacolorTitle}
                           </span>
                           <div
                             ref={sheilaColorSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.colors.map((value, inde) => {
                                   return (
                                     <li
@@ -952,16 +1014,16 @@ function AddNewProduct() {
                                       onClick={() =>
                                         settingSelectedSheilaColor(value, inde)
                                       }
-                                      className={`
+                                      className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                     >
-                                      <div className="flex justify-between">
+                                      <div className="ddd flex justify-between">
                                         {value.name}
                                         <div
-                                          className="dnone"
+                                          className="ddd dnone"
                                           id={"sheilaColorOptions" + inde}
                                         >
-                                          <i className="las la-check"></i>
+                                          <i className="ddd las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -997,9 +1059,9 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="طول شيلا"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                         <div
-                          className={`${
+                          className={`ddd ${
                             isDisableSheila ? styles.disable_div : ""
                           } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
@@ -1007,19 +1069,19 @@ function AddNewProduct() {
                             onClick={() =>
                               openProductVariationSelect("sheilaLengthSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             {sheilaLengthTitle}
                           </span>
                           <div
                             ref={sheilaLengthSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.sheilaLength.map(
                                   (value, index) => {
                                     return (
@@ -1031,16 +1093,16 @@ function AddNewProduct() {
                                             index
                                           )
                                         }
-                                        className={`
+                                        className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                       >
-                                        <div className="flex justify-between">
+                                        <div className="ddd flex justify-between">
                                           {value}
                                           <div
-                                            className="dnone"
+                                            className="ddd dnone"
                                             id={"sheilaLengthOptions" + index}
                                           >
-                                            <i className="las la-check"></i>
+                                            <i className="ddd las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -1063,27 +1125,27 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="بحجم"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem]  cursor-pointer       before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("sizeSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                           >
                             <li
-                              className={`
+                              className={`ddd 
                                         block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] uppercase py-[0.15rem] px-[1rem] pl-0 overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                             >
                               {sizeTitle.length == 0 ? (
-                                <span className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block">
+                                <span className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block">
                                   لا شيء محدد
                                 </span>
                               ) : (
                                 <>
                                   {sizeTitle.map((value) => {
                                     return (
-                                      <span key={value * 2}>{value}, </span>
+                                      <span key={value * 2} className="ddd ">{value}, </span>
                                     );
                                   })}
                                 </>
@@ -1092,13 +1154,13 @@ function AddNewProduct() {
                           </span>
                           <div
                             ref={sizeSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.size.map((value, index) => {
                                   return (
                                     <li
@@ -1106,16 +1168,16 @@ function AddNewProduct() {
                                       onClick={() =>
                                         settingSelectedSize(value, index)
                                       }
-                                      className={`
+                                      className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                     >
-                                      <div className="flex justify-between">
+                                      <div className="ddd flex justify-between">
                                         {value}
                                         <div
-                                          className="dnone"
+                                          className="ddd dnone"
                                           id={"sizeOptions" + index}
                                         >
-                                          <i className="las la-check"></i>
+                                          <i className="ddd las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -1175,25 +1237,40 @@ function AddNewProduct() {
                       </label>
                     </div>
                     <Length
-                      data={alteration}
+                      data={alterationLength}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
                       lengthTitle={lengthTitle}
                       setLengthTitle={setLengthTitle}
+                      openAnyAlterationSelect={openAnyAlterationSelect}
+                      selectName={lengthSelect}
+                      
+                      changeHandler={changeHandlerLength}
+                      alterationLengthForShow={alterationLengthForShow}
                     />
                     <Bust
-                      data={alteration}
+                      data={alterationBust}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
                       bustTitle={bustTitle}
                       setBustTitle={setBustTitle}
+                      openAnyAlterationSelect={openAnyAlterationSelect}
+                      selectName={bustSelect}
+                      
+                      changeHandler={changeHandlerBust}
+                      alterationBustForShow={alterationBustForShow}
                     />
                     <Sleeves
-                      data={alteration}
+                      data={alterationSleeves}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
                       sleevesTitle={sleevesTitle}
                       setSleevesTitle={setSleevesTitle}
+                      openAnyAlterationSelect={openAnyAlterationSelect}
+                      selectName={sleevesSelect}
+                      
+                      changeHandler={changeHandlerSleeves}
+                      alterationSleevesForShow={alterationSleevesForShow}
                     />
                   </CardBody>
                 </TitleAndTableCard>
@@ -1214,13 +1291,13 @@ function AddNewProduct() {
                           {value.name}
                         </p>
 
-                        <div className=" w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
+                        <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0     lg:pl-[15px] pr-0    lg:pr-[5px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                            className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                             id={"optionMainDiv" + index}
                           >
                             <div
-                              className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
+                              className="ddd text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[39px] overflow-hidden block"
                               onClick={() =>
                                 openSelect("options" + index, index)
                               }
@@ -1277,6 +1354,9 @@ function AddNewProduct() {
                 upload product
               </button>
             </div>
+            <br />
+            <br />
+            <br />
           </AdminPanelLayout>
         </div>
       </Layout>

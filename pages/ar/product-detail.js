@@ -9,6 +9,16 @@ import img1 from "../../assets/images/products/orange-1/img1.jpg";
 import img2 from "../../assets/images/products/orange-1/img2.jpg";
 import img3 from "../../assets/images/products/orange-1/img3.jpg";
 import img4 from "../../assets/images/products/orange-1/img4.jpg";
+import AbayaSetwithSideSlet from "../../assets/images/products/white-abaya-set/Abaya Set with Side Slet.jpg";
+import AbayaSetwithSideSlet1 from "../../assets/images/products/white-abaya-set/Abaya Set with Side Slet.jpg";
+import AbayaSetwithSideSlet2 from "../../assets/images/products/white-abaya-set/E0O4w2XoNtokGjNw2fQhpfcyB8x4b2zuBLnbHeI1.jpg";
+import AbayaSetwithSideSlet3 from "../../assets/images/products/white-abaya-set/hyxun9TVXPODB99XtMjOglAwbK3b3zfbAu1hAjXq.jpg";
+import AbayaSetwithSideSlet4 from "../../assets/images/products/white-abaya-set/sPoGXgIWzIfcOk1I3viLm1hduFzGuJlS61hIO0Ic.jpg";
+import MulticolorPrintedAbaya from "../../assets/images/products/multicolor-printed-abaya/MulticolorPrintedAbaya.jpg";
+import MulticolorPrintedAbaya1 from "../../assets/images/products/multicolor-printed-abaya/MulticolorPrintedAbaya.jpg";
+import MulticolorPrintedAbaya2 from "../../assets/images/products/multicolor-printed-abaya/fkTVEMAP8QV2btFOZiYJTGpS7RWDZ62vfnSgHcpc.jpg";
+import MulticolorPrintedAbaya3 from "../../assets/images/products/multicolor-printed-abaya/utVcX0Bwr2j3aYaQn5mhoecJ6ChnMuOYeyW9diwf.jpg";
+import MulticolorPrintedAbaya4 from "../../assets/images/products/multicolor-printed-abaya/sduvuVP5LzgQ6qFpIdaNvjBHROBVNDFtD952PwQR.jpg";
 import ColorBox from "../../components/rtl/color-box/ColorBox";
 import { BsChevronDown } from "react-icons/bs";
 import ProductSlider from "../../components/rtl/product-slider/Product-slider";
@@ -17,6 +27,8 @@ import styles from "../../components/rtl/productDetails.module.css";
 import SizeGuideModal from "../../components/rtl/size-guide-modal/SizeGuideModal";
 import MessageModal from "../../components/rtl/message-modal/MessageModal";
 import MSD_Box from "../../components/rtl/msd-box/MSD_Box";
+import ProductSliderForSheila from "../../components/rtl/ProductSliderForSheila/ProductSliderForSheila";
+import SheilaDesignBox from "../../components/rtl/sheila-design-box/SheilaDesignBox";
 
 
 const basicColors = [
@@ -78,19 +90,72 @@ function ProductDetail() {
 
   const [sheila, setSheila] = useState({});
   const [basicColor, setBasicColor] = useState({});
+  const [sheilaStyle, setSheilaStyle] = useState({});
   const [selectedBasicSize, setSelectedBasicSize] = useState("");
   const [selectedSheilaSize, setSelectedSheilaSize] = useState("");
+  const [selectedAlterationLength, setSelectedAlterationLength] = useState("");
+  const [selectedAlterationBust, setSelectedAlterationBust] = useState("");
+  const [selectedAlterationSleeve, setSelectedAlterationSleeve] = useState("");
 
-  const productImages = [
-    { image: img1 },
-    { image: img2 },
-    { image: img3 },
-    { image: img4 },
-  ];
+  const [sheilaStyles, set_sheilaStyles] = useState([
+    {
+      name: "Style 1",
+      img: AbayaSetwithSideSlet,
+      sliderImages: [
+        { image: AbayaSetwithSideSlet1 },
+        { image: AbayaSetwithSideSlet2 },
+        { image: AbayaSetwithSideSlet3 },
+        { image: AbayaSetwithSideSlet4 },
+      ],
+      active: true
+    },
+    {
+      name: "Style 2",
+      img: MulticolorPrintedAbaya,
+      sliderImages: [
+        { image: MulticolorPrintedAbaya1 },
+        { image: MulticolorPrintedAbaya2 },
+        { image: MulticolorPrintedAbaya3 },
+        { image: MulticolorPrintedAbaya4 },
+        
+      ],
+      active: false
+    },
+  ]);
 
   const settingBasicColor = (selectedBasicColor) => {
     setBasicColor({ ...selectedBasicColor });
   };
+
+  const settingSheilaStyle = (selectedSheilaStyle) => {
+    setSheilaStyle({ ...selectedSheilaStyle });
+    let _sheilaStyles = sheilaStyles;
+    let forUpdate = [];
+    for (let i = 0; i < _sheilaStyles.length; i++) {
+      if (_sheilaStyles[i].name == selectedSheilaStyle.name) {
+        console.log("yes");
+        forUpdate.push({
+            name: _sheilaStyles[i].name,
+            img: _sheilaStyles[i].img,
+            sliderImages:_sheilaStyles[i].sliderImages,
+            active: true
+        })
+        
+      } else {
+        console.log("else");
+        forUpdate.push ({
+          name: _sheilaStyles[i].name,
+              img: _sheilaStyles[i].img,
+              sliderImages:_sheilaStyles[i].sliderImages,
+              active: false
+        })
+      }
+    }
+    set_sheilaStyles([...forUpdate])
+    console.log("forUpdate",forUpdate)
+    console.log("sheilaStyles",sheilaStyles)
+  };
+
   const settingSheila = (selectedSheilaColor) => {
     setSheila({ ...selectedSheilaColor });
   };
@@ -102,6 +167,15 @@ function ProductDetail() {
     } else if (variationName == "sheila-size") {
       setSelectedSheilaSize(selectedVariation);
       sheilaLengthToggler();
+    } else if (variationName == "alteration-length") {
+      setSelectedAlterationLength(selectedVariation);
+      lengthToggler();
+    } else if (variationName == "alteration-bust") {
+      setSelectedAlterationBust(selectedVariation);
+      bustToggler();
+    } else if (variationName == "alteration-sleeve") {
+      setSelectedAlterationSleeve(selectedVariation);
+      sleeveToggler();
     }
   };
   const [itemAdded, setItemAdded] = useState("[]");
@@ -118,6 +192,10 @@ function ProductDetail() {
   const [togglerSheilaColorsDiv, settogglerSheilaColorsDiv] = useState([]);
   const [togglerSheilaColorsDivPlusIcon, settogglerSheilaColorsDivPlusIcon] =
     useState([]);
+
+    const [togglerSheilaStyleDiv, settogglerSheilaStyleDiv] = useState([]);
+    const [togglerSheilaStyleDivPlusIcon, settogglerSheilaStyleDivPlusIcon] =
+      useState([]);
 
   const [togglerSize, settogglerSize] = useState([]);
   const [togglerSizePlusIcon, settogglerSizePlusIcon] = useState([]);
@@ -173,6 +251,18 @@ function ProductDetail() {
       settogglerSheilaColorsDivPlusIcon(["rotate45"]);
     } else {
       settogglerSheilaColorsDivPlusIcon([]);
+    }
+  };
+  const sheilaStyleDivToggler = () => {
+    if (!togglerSheilaStyleDiv.includes("show-colors")) {
+      settogglerSheilaStyleDiv(["show-colors"]);
+    } else {
+      settogglerSheilaStyleDiv([]);
+    }
+    if (!togglerSheilaStyleDivPlusIcon.includes("rotate45")) {
+      settogglerSheilaStyleDivPlusIcon(["rotate45"]);
+    } else {
+      settogglerSheilaStyleDivPlusIcon([]);
     }
   };
 
@@ -507,7 +597,14 @@ function ProductDetail() {
         <div className="far container-for-product-detail mt-[60px] lg:mt-[80px] mx-auto">
           <div className="w-[100%] max-w-[ ] flex flex-col      lg:flex-row">
             <div className="max-w-[1090p x] w-[100%] product-slider-div     lg:w-[68%]">
-              <ProductSlider data={productImages} />
+            {sheilaStyles.map((slider)=>{
+                return (
+                  <>
+                  {slider.active == true ?  <ProductSliderForSheila data={slider.sliderImages} /> : ""}
+                  </>
+                )
+              })}
+              {/* <ProductSlider data={productImages} /> */}
             </div>
             <div className="product-detail-content-div min-w-[500p x] w-[100%] pl-[45px] pr-[60px]     lg:w-[32%]">
               <p className=" text-[#1b1b28] text-[12px] tracking-[0.1em] mt-[20px] mb-[10px] hidden      md:block">
@@ -619,6 +716,53 @@ function ProductDetail() {
                             settingSheilaColor={settingSheila}
                             currectSelectedColor={sheila}
                             colorType={"sheilaColor"}
+                          />
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {/* sheila style */}
+              <div className="w-[100%]  cursor-pointer">
+                <div
+                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] mb-[20px]"
+                  onClick={() => sheilaStyleDivToggler()}
+                >
+                  <div>
+                    <h6 className="work-regular text-[12px] mt-[5px] mb-[2px] uppercase">
+                      <span className="text-[#ff0032]">*</span>sheila style:
+                    </h6>
+                    <p className="work-regular text-[11px] text-[#7e7e7e] capitalize py-2px]">
+                      select sheila style
+                    </p>
+                  </div>
+                  <div className="w-[20px] h-[20px] relative">
+                    <div
+                      className={`${togglerSheilaStyleDivPlusIcon.join(
+                        " "
+                      )} taPoint3 w-[20px] h-[20px] cross down`}
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  className={`${togglerSheilaStyleDiv.join(
+                    " "
+                  )} taPoint3 max-h-[0] overflow-hidden`}
+                >
+                  <h6 className="fwb text-[#1b1b28] text-[13px] pt-[10px] pb-[10px]">
+                    Sheila Style:
+                  </h6>
+                  <div className="flex gap-x-[3px] pl-[2px]">
+                    {sheilaStyles.map((value, index) => {
+                      return (
+                        <>
+                          <SheilaDesignBox
+                            key={index}
+                            data={value}
+                            settingSheila={settingSheilaStyle}
+                            currectSelected={sheilaStyle}
                           />
                         </>
                       );

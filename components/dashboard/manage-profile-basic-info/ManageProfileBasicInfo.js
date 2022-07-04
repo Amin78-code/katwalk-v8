@@ -16,8 +16,6 @@ function ManageProfileBasicInfo({
   updateBasicInfo,
   setCurrentImages
 }) {
-  console.log("erercurrentImages",currentImages)
-  console.log("erercurrentImages",currentImages?.name)
   const basicInfoCardBody = useRef("");
   const openCardBody = () => {
     basicInfoCardBody.current.classList.toggle(styles.slide_card_body);
@@ -126,7 +124,7 @@ function ManageProfileBasicInfo({
             <>
               {currentImages !== undefined ? (
                 <div
-                  className={`relative w-[100px] h-[145px] rounded-[0.25rem] bg-[#fff]     ----- th}  ----- }    border-[#00000020]  border-[1px] mb-[10px] ml-[15px]`}
+                  className={`relative w-[100px] h-[145px] rounded-[0.25rem] bg-[#fff]     ----- th}  ----- }    border-[#00000020]  border-[1px] mb-[10px] ml-[15px] mt-[5px]`}
                   // onClick={() => selecImg(data, index)}
                 >
                   <div

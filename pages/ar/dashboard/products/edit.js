@@ -837,34 +837,34 @@ function AddNewProduct() {
                         <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
                           <span className="text-[#ff0032]">*</span>الفئة
                         </p>
-                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                        <div className="ddd w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
+                            className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:right-[10px]"
                             id="categorySelect"
                           >
-                            <div onClick={() => openCategorySelect()}>
+                            <div className="ddd " onClick={() => openCategorySelect()}>
                               {selectedCategory ? selectedCategory : ""}
                             </div>
                             <div
                               ref={categorySelect}
-                              className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                              className="ddd absolute w-[100%] left-0 top-[43px] z-[1] dnone"
                             >
-                              <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                                <div className="py-[4px] px-[8px]">
+                              <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                                <div className="ddd py-[4px] px-[8px]">
                                   <input
                                     onChange={(e) =>
                                       changeHandler(e, productCategories)
                                     }
-                                    className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                    className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                                   />
                                 </div>
-                                <ul>
+                                <ul className="ddd ">
                                   {productCategoriesForShow.map((value) => {
                                     return (
                                       <li
                                         key={value + 1}
                                         onClick={() => setCategory(value)}
-                                        className={`${
+                                        className={`ddd ${
                                           value == selectedCategory
                                             ? styles.active_option
                                             : ""
@@ -901,9 +901,9 @@ function AddNewProduct() {
                         <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
                           <span className="text-[#ff0032]">*</span>اسم المنتج
                         </p>
-                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                        <div className="ddd w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
                           <input
-                            className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                            className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                             placeholder="اسم المنتج"
                             value={productInfromation[0].value}
                             onChange={(e) =>
@@ -912,34 +912,34 @@ function AddNewProduct() {
                           />
                         </div>
                       </div>
-                      <div className=" flex mb-[1rem] flex-col      lg:flex-row">
-                        <p className="w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
-                          <span className="text-[#ff0032]">*</span>الفئة
+                      <div className="ddd  flex mb-[1rem] flex-col      lg:flex-row">
+                        <p className="ddd w-[100%]     lg:w-[24.4%] text-[#1b1b28] text-[13px] px-0     lg:px-[5px] capitalize">
+                          <span className="ddd text-[#ff0032]">*</span>الفئة
                         </p>
-                        <div className="w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
+                        <div className="ddd w-[100%]     lg:w-[68.75%] px-0     lg:px-[15px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                            className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#b7b7b7] text-[1rem] bg-[#fff] border-[1px]  rounded-[.25rem] py-[0.375rem] px-[0.75rem] border-[#ced4da] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                             id="categorySelect"
                           >
-                            <div onClick={() => openCategorySelect()}>
+                            <div className="ddd " onClick={() => openCategorySelect()}>
                               {selectedCategoryInArabic
                                 ? selectedCategoryInArabic
                                 : ""}
                             </div>
                             <div
                               ref={categorySelect}
-                              className="absolute w-[100%] left-0 top-[43px] z-[1] dnone"
+                              className="ddd absolute w-[100%] left-0 top-[43px] z-[1] dnone"
                             >
-                              <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                                <div className="py-[4px] px-[8px]">
+                              <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                                <div className="ddd py-[4px] px-[8px]">
                                   <input
                                     onChange={(e) =>
                                       changeHandler(e, productCategories)
                                     }
-                                    className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
+                                    className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]"
                                   />
                                 </div>
-                                <ul>
+                                <ul className="ddd ">
                                   {productCategoriesForShowInArabic.map(
                                     (value) => {
                                       return (
@@ -948,7 +948,7 @@ function AddNewProduct() {
                                           onClick={() =>
                                             setCategoryForArabic(value)
                                           }
-                                          className={`${
+                                          className={`ddd ${
                                             value == selectedCategory
                                               ? styles.active_option
                                               : ""
@@ -1007,25 +1007,25 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="اللون"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
+                        <div className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("colorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             {colorTitle}
                           </span>
                           <div
                             ref={colorSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.colors.map(
                                   (value, index) => {
                                     return (
@@ -1034,16 +1034,16 @@ function AddNewProduct() {
                                         onClick={() =>
                                           settingSelectedColor(value, index)
                                         }
-                                        className={`
+                                        className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                       >
-                                        <div className="flex justify-between">
+                                        <div className="ddd flex justify-between">
                                           {value.name}
                                           <div
-                                            className="dnone"
+                                            className="ddd dnone"
                                             id={"colorOptions" + index}
                                           >
-                                            <i className="las la-check"></i>
+                                            <i className="ddd las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -1066,9 +1066,9 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="ألوان شيلا"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
                         <div
-                          className={`${
+                          className={`ddd ${
                             isDisableSheila ? styles.disable_div : ""
                           } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
@@ -1076,19 +1076,19 @@ function AddNewProduct() {
                             onClick={() =>
                               openProductVariationSelect("sheilaColorSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             {sheilacolorTitle}
                           </span>
                           <div
                             ref={sheilaColorSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.colors.map((value, inde) => {
                                   return (
                                     <li
@@ -1096,16 +1096,16 @@ function AddNewProduct() {
                                         settingSelectedSheilaColor(value, inde)
                                       }
                                       key={value.name + 1}
-                                      className={`
+                                      className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3 pl-[40px] before:w-[17px] before:h-[17px] ${value.code} before:border-[1px] before:border-[#dee2e6] before:rounded-[.25rem] before:absolute before:left-[15px] before:top-[5px]`}
                                     >
-                                      <div className="flex justify-between">
+                                      <div className="ddd flex justify-between">
                                         {value.name}
                                         <div
-                                          className="dnone"
+                                          className="ddd dnone"
                                           id={"sheilaColorOptions" + inde}
                                         >
-                                          <i className="las la-check"></i>
+                                          <i className="ddd las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -1141,9 +1141,9 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="طول شيلا"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
                         <div
-                          className={`${
+                          className={`ddd ${
                             isDisableSheila ? styles.disable_div : ""
                           } admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]`}
                         >
@@ -1151,19 +1151,19 @@ function AddNewProduct() {
                             onClick={() =>
                               openProductVariationSelect("sheilaLengthSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             {sheilaLengthTitle}
                           </span>
                           <div
                             ref={sheilaLengthSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.sheilaLength.map(
                                   (value, index) => {
                                     return (
@@ -1178,13 +1178,13 @@ function AddNewProduct() {
                                         className={`
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                       >
-                                        <div className="flex justify-between">
+                                        <div className="ddd flex justify-between">
                                           {value}
                                           <div
-                                            className="dnone"
+                                            className="ddd dnone"
                                             id={"sheilaLengthOptions" + index}
                                           >
-                                            <i className="las la-check"></i>
+                                            <i className="ddd las la-check"></i>
                                           </div>
                                         </div>
                                       </li>
@@ -1207,27 +1207,27 @@ function AddNewProduct() {
                         className="w-[100%]     lg:w-[25%] h-[44px] leading-[34px] capitalize bg-[#e9ecef]  text-[#495057] text-[1rem] rounded-[.25rem] py-[.375rem] px-[.75rem] not-allowed"
                         value="بحجم"
                       />
-                      <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
-                        <div className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
+                      <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
+                        <div className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]">
                           <span
                             onClick={() =>
                               openProductVariationSelect("sizeSelect")
                             }
-                            className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                            className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                           >
                             <li
-                              className={`
+                              className={`ddd 
                                         block relative text-[#b7b7b7]  text-[1rem] tracking-0 mt-[-2px] uppercase py-[0.15rem] px-[1rem] pl-0 overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                             >
                               {sizeTitle.length == 0 ? (
-                                <span className="w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
+                                <span className="ddd w-[100%] text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block">
                                   لا شيء محدد
                                 </span>
                               ) : (
                                 <>
                                   {sizeTitle.map((value) => {
                                     return (
-                                      <span key={value + 1}>{value}, </span>
+                                      <span className="ddd " key={value + 1}>{value}, </span>
                                     );
                                   })}
                                 </>
@@ -1236,13 +1236,13 @@ function AddNewProduct() {
                           </span>
                           <div
                             ref={sizeSelect}
-                            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+                            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
                           >
-                            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                              <div className="py-[4px] px-[8px]">
-                                <input className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                              <div className="ddd py-[4px] px-[8px]">
+                                <input className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                               </div>
-                              <ul className="max-h-[160px] overflow-auto">
+                              <ul className="ddd max-h-[160px] overflow-auto">
                                 {productVariations.size.map((value, index) => {
                                   return (
                                     <li
@@ -1250,16 +1250,16 @@ function AddNewProduct() {
                                       onClick={() =>
                                         settingSelectedSize(value, index)
                                       }
-                                      className={`
+                                      className={`ddd 
                                               block relative text-[#212529]  text-[1rem] py-[0.15rem] px-[1rem] hover:bg-[#c53a24] hover:text-[#fff] overflow-hidden overflow-ellipsis whitespace-nowrap taPoint3`}
                                     >
-                                      <div className="flex justify-between">
+                                      <div className="ddd flex justify-between">
                                         {value}
                                         <div
-                                          className="dnone"
+                                          className="ddd dnone"
                                           id={"sizeOptions" + index}
                                         >
-                                          <i className="las la-check"></i>
+                                          <i className="ddd las la-check"></i>
                                         </div>
                                       </div>
                                     </li>
@@ -1331,7 +1331,7 @@ function AddNewProduct() {
                         </div>
                       </label>
                     </div>
-                    <Length
+                    {/* <Length
                       data={alteration}
                       isDisableAllAlterations={isDisableAllAlterations}
                       openAltration={openAltration}
@@ -1351,7 +1351,7 @@ function AddNewProduct() {
                       openAltration={openAltration}
                       sleevesTitle={sleevesTitle}
                       setSleevesTitle={setSleevesTitle}
-                    />
+                    /> */}
                   </CardBody>
                 </TitleAndTableCard>
                 {/* <br />
@@ -1376,13 +1376,13 @@ function AddNewProduct() {
                           {value.name}
                         </p>
 
-                        <div className=" w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
+                        <div className="ddd  w-[100%]     lg:w-[62.5%] pl-0        lg:pl-[15px] pr-0        lg:pr-[5px]">
                           <div
-                            className="admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
+                            className="ddd admin-input relative w-[100%] h-[44px] leading-[30px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#e2e5ec] rounded-[.25rem] py-[0.375rem] px-[0.75rem] cursor-pointer    before:absolute before:w-[0] before:h-[0] before:border-[4px] before:border-t-[#b7b7b7] before:border-l-[transparent] before:border-r-[transparent] before:border-b-[transparent] before:top-[18px] before:left-[10px]"
                             id={"optionMainDiv" + index}
                           >
                             <div
-                              className="text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
+                              className="ddd text-[#b7b7b7] text-[15px] tracking-0 uppercase h-[40px] overflow-hidden block"
                               onClick={() =>
                                 openSelect("options" + index, index)
                               }

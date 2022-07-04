@@ -11,12 +11,12 @@ function SortByFilter({
   return (
     <>
       <div
-        className={`w-[100%] lg:w-[320px] max-w-[100%] border-[#fbf1e8] border-[1px] relative lg:absolute 
+        className={`ddd w-[100%] lg:w-[320px] max-w-[100%] border-[#fbf1e8] border-[1px] relative lg:absolute 
  pt-[20px] lg:pt-0 z-[2] bg-[#fff] f-out max-h-[350px] overflow-auto`}
         ref={sort_by_dropdown}
       >
-        <div className="w-[100%]">
-          <div className="flex flex-wrap ">
+        <div className="ddd w-[100%]">
+          <div className="ddd flex flex-wrap ">
             {data.map((value, index) => {
               return (
                 <SortByFilterItem
@@ -43,13 +43,10 @@ function SortByFilterItem({
   filterName,
   currectSelected,
 }) {
-  console.log("currectSelected", currectSelected);
-  console.log("data", data);
   return (
     <>
-      {/* ${styles.active} */}
       <p
-        className={`${currectSelected == data ? styles.active : ""
+        className={`ddd ${currectSelected == data ? styles.active : ""
           } size-box taPoint3 cursor-pointer w-[100%] h-[48px] border-[#fbf1e8] border-t-[1px] border-b-[1px] mt-[-1px] flex items-center text-[#1b1b28] text-[13px] leading-[13px] p-[5px] pr-[8px]`}
         onClick={() => choosingFilterOption(data, filterName)}
       >

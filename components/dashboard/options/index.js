@@ -32,24 +32,24 @@ export default function Options({ value, index, setOption }) {
     return (
         <div
             ref={typeSelect}
-            className="absolute w-[100%] left-0 top-[43px] z-[2] dnone"
+            className="ddd absolute w-[100%] left-0 top-[43px] z-[2] dnone"
             id={"options" + index}
         >
-            <div className="w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
-                <div className="py-[4px] px-[8px]">
+            <div className="ddd w-[100%] mt-[0px] py-[10px] bg-[#fff] z-[2] border-[1px] border-[#00000026] drop-shadow-[0_0px_50px_rgba(82,63,105,15%)]">
+                <div className="ddd py-[4px] px-[8px]">
                     {/* kam */}
                     <input
                         onChange={(e) => optionsHandler(e, value.options, value)}
-                        className="admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
+                        className="ddd admin-input w-[100%] h-[44px] text-[#495057] text-[1rem] bg-[#fff] border-[1px] border-[#ced4da] rounded-[.25rem] py-[0.375rem] px-[0.75rem]" />
                 </div>
-                <ul>
+                <ul className='ddd '>
                     {
                         (options.length > 0 ? options : value.options).map((valu) => {
                             return (
                                 <li
                                     key={valu + 1}
                                     onClick={() => setOption(valu, index)}
-                                    className={`
+                                    className={`ddd 
             
             ${index == 0
                                             ? valu == selectedType

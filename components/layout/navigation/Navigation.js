@@ -307,7 +307,7 @@ function Navigation() {
                           {products.map((product) => {
                             return (
                               <div
-                                key={product.name}
+                                key={product.name+2}
                                 className="flex justify-between pt-[20px] pb-[20px] border-b-[1px] border-[#ededed]"
                               >
                                 <div className="max-w-[22%] max-h-[70px] px-[5px ]">

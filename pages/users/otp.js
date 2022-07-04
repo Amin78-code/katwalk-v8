@@ -6,9 +6,9 @@ import loginBgImgMob from "../../assets/images/login-bg-mob.jpg";
 import HeadingAndText from "../../components/HeadingAndText/HeadingAndText";
 import styles from "../../components/otp.module.css";
 import ImgLazyLoad from "../../components/img-lazy-load/ImgLazyLoad";
+import Link from "next/link";
 
 function OTP() {
- 
   return (
     <Layout footer={"none"}>
       {/* object-position: 'top' */}
@@ -31,29 +31,33 @@ function OTP() {
             <ImgLazyLoad src={loginBgImgMob} alt={"image"} classes={""} />
           </span>
         </div>
-        <div className="w-[100%] mx-auto h-[210px] bg-[#000000bf] p-[25px] mt-[130px] ml-[15px] mr-[15px]     sm:ml-[50px] sm:mr-[50px] sm:w-[90%] lg:w-[34%] lg:mr-[60px]">
-          <h1 className="fwr text-[#fff] text-[24px] text-center">
+        <div className="w-[100%] mx-auto h-[210px ] bg-[#000000bf] p-[25px] mt-[130px] ml-[15px] mr-[15px]     sm:ml-[50px] sm:mr-[50px] sm:w-[90%] lg:w-[34%] lg:mr-[60px]">
+          <h1 className="fwl text-[#fff] text-[24px] text-center">
             Welcome to katwalk
           </h1>
-          <div className="w-[100%] mt-[25px]">
+          <p className="fwr text-[12px] text-[#fff] leading-[14px] tracking-[0.5px] mb-[16px] text-center">
+            New sms message sent with your new code. *
+          </p>
+          <p className="fwr text-[12px] text-[#fff] leading-[14px] tracking-[0.5px] mb-[16px] text-center">
+            Do you want to change your number?{" "}
+            <a className="text-[#c53a19]">Click Here</a>
+          </p>
+          <div className="w-[100%] mt-[35px]">
             <div className="flex  w-[100%] gap-x-[18px]">
-              <select className="fwl w-[100%] bg-[transparent] border-[1px] border-[#fff] text-[#aaa] text-[15px] p-[8px] mb-[8px] outline-none focus:outline-none">
-                <option>92</option>
-                <option>965</option>
-                <option>968</option>
-                <option>966</option>
-                <option>971</option>
-                <option>973</option>
-                <option>974</option>
-              </select>
               <input
-                placeholder="500000000"
+                placeholder="123456"
                 className="fwl w-[100%] bg-[transparent] border-[1px] border-[#fff] text-[#aaa] text-[15px] p-[8px] mb-[8px]  outline-none focus:outline-none"
               />
             </div>
             <button className="red-on-hover-btn relative overflow-hidden ffr w-[100%] bg-[transparent] border-[1px] border-[#fff] text-[#fff] text-[14px] p-[8px] mb-[8px] uppercase">
-              <span className="z-[2] relative">continue</span>
+             <Link href="/users/registration">
+             <span className="z-[2] relative">continue</span>
+             </Link>
             </button>
+            <p className="fwr text-[12px] text-[#fff] leading-[14px] tracking-[0.5px] mb-[16px] text-center">
+              Click here to resend code{" "}
+              <a className="text-[#c53a19]">Click Here</a>
+            </p>
           </div>
         </div>
       </div>

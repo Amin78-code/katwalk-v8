@@ -536,8 +536,8 @@ const addAddressData = [
   },
 ];
 
-function ManageProfileAddress({ data, title }) {
-  const [isShowModal, setIsShowModal] = useState(false);
+function ManageProfileAddress({ data, title, handleChangeAddress, saveAddress, toggleModal, isShowModal, updateAddress}) {
+
   const basicInfoCardBody = useRef("");
   const typeSelect = useRef("");
   const [editOrDelete, setEditOrDelete] = useState("");
@@ -557,10 +557,6 @@ function ManageProfileAddress({ data, title }) {
 
   const openSelect = (dropdownName) => {
     document.getElementById(dropdownName).classList.toggle("dblock");
-  };
-
-  const toggleModal = () => {
-    setIsShowModal(!isShowModal);
   };
 
   return (
@@ -640,7 +636,7 @@ function ManageProfileAddress({ data, title }) {
             </TitleAndTableCard>
             <AddNewAddress toggleModal={toggleModal} />
             <div className="flex justify-end">
-              <button className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem] mt-[15px]">
+              <button onClick={()=>updateAddress()} className="light-brown-btn ffr text-[0.875rem] text-[#fff] h-[40px] leading-[40px] tracking-[0.5px] uppercase bg-[#c83e27] block px-[15px] m-[.25rem] mt-[15px]">
                 update profile
               </button>
             </div>
@@ -652,6 +648,8 @@ function ManageProfileAddress({ data, title }) {
         isShowModal={isShowModal}
         toggleModal={toggleModal}
         data={addAddressData}
+        handleChangeAddress={handleChangeAddress}
+        saveAddress={saveAddress}
       />
 
     </>

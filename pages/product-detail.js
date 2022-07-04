@@ -9,6 +9,16 @@ import img1 from "../assets/images/products/orange-1/img1.jpg";
 import img2 from "../assets/images/products/orange-1/img2.jpg";
 import img3 from "../assets/images/products/orange-1/img3.jpg";
 import img4 from "../assets/images/products/orange-1/img4.jpg";
+import AbayaSetwithSideSlet from "../assets/images/products/white-abaya-set/Abaya Set with Side Slet.jpg";
+import AbayaSetwithSideSlet1 from "../assets/images/products/white-abaya-set/Abaya Set with Side Slet.jpg";
+import AbayaSetwithSideSlet2 from "../assets/images/products/white-abaya-set/E0O4w2XoNtokGjNw2fQhpfcyB8x4b2zuBLnbHeI1.jpg";
+import AbayaSetwithSideSlet3 from "../assets/images/products/white-abaya-set/hyxun9TVXPODB99XtMjOglAwbK3b3zfbAu1hAjXq.jpg";
+import AbayaSetwithSideSlet4 from "../assets/images/products/white-abaya-set/sPoGXgIWzIfcOk1I3viLm1hduFzGuJlS61hIO0Ic.jpg";
+import MulticolorPrintedAbaya from "../assets/images/products/multicolor-printed-abaya/MulticolorPrintedAbaya.jpg";
+import MulticolorPrintedAbaya1 from "../assets/images/products/multicolor-printed-abaya/MulticolorPrintedAbaya.jpg";
+import MulticolorPrintedAbaya2 from "../assets/images/products/multicolor-printed-abaya/fkTVEMAP8QV2btFOZiYJTGpS7RWDZ62vfnSgHcpc.jpg";
+import MulticolorPrintedAbaya3 from "../assets/images/products/multicolor-printed-abaya/utVcX0Bwr2j3aYaQn5mhoecJ6ChnMuOYeyW9diwf.jpg";
+import MulticolorPrintedAbaya4 from "../assets/images/products/multicolor-printed-abaya/sduvuVP5LzgQ6qFpIdaNvjBHROBVNDFtD952PwQR.jpg";
 import ColorBox from "../components/ColorBox/ColorBox";
 import { BsChevronDown } from "react-icons/bs";
 import ProductSlider from "../components/ProductSlider/ProductSlider";
@@ -17,6 +27,8 @@ import styles from "../styles/ProductDetails.module.css";
 import SizeGuideModal from "../components/size-guide-modal/SizeGuideModal";
 import MessageModal from "../components/MessageModal/MessageModal";
 import MSD_Box from "../components/msd-box/MSD_Box";
+import SheilaDesignBox from "../components/sheila-design-box/SheilaDesignBox";
+import ProductSliderForSheila from "../components/ProductSliderForSheila/ProductSliderForSheila";
 
 const basicColors = [
   {
@@ -41,31 +53,10 @@ const sheilaColor = [
 
 const selectSize = ["50", "52", "54"];
 
-const alterationLength = [ 
-"Select Length",
-"50",
-"52",
-"54",
-"56",
-"58",
-];
+const alterationLength = ["Select Length", "50", "52", "54", "56", "58"];
 
-const alterationBust = [ 
-"Select Bust",
-"20",
-"22",
-"23",
-"25",
-"26",
-"28",
-];
-const alterationSleeve = [ "Select Bust",
-"25",
-"26",
-"27",
-"28",
-"29",
-];
+const alterationBust = ["Select Bust", "20", "22", "23", "25", "26", "28"];
+const alterationSleeve = ["Select Bust", "25", "26", "27", "28", "29"];
 
 const selectSheilaLength = ["200cm", "170cm", "150cm"];
 
@@ -99,23 +90,72 @@ const otherProducts = [
 function ProductDetail() {
   const [sheila, setSheila] = useState({});
   const [basicColor, setBasicColor] = useState({});
+  const [sheilaStyle, setSheilaStyle] = useState({});
   const [selectedBasicSize, setSelectedBasicSize] = useState("");
   const [selectedSheilaSize, setSelectedSheilaSize] = useState("");
   const [selectedAlterationLength, setSelectedAlterationLength] = useState("");
   const [selectedAlterationBust, setSelectedAlterationBust] = useState("");
   const [selectedAlterationSleeve, setSelectedAlterationSleeve] = useState("");
-  selectedAlterationSleeve
 
-  const productImages = [
-    { image: img1 },
-    { image: img2 },
-    { image: img3 },
-    { image: img4 },
-  ];
+  const [sheilaStyles, set_sheilaStyles] = useState([
+    {
+      name: "Style 1",
+      img: AbayaSetwithSideSlet,
+      sliderImages: [
+        { image: AbayaSetwithSideSlet1 },
+        { image: AbayaSetwithSideSlet2 },
+        { image: AbayaSetwithSideSlet3 },
+        { image: AbayaSetwithSideSlet4 },
+      ],
+      active: true
+    },
+    {
+      name: "Style 2",
+      img: MulticolorPrintedAbaya,
+      sliderImages: [
+        { image: MulticolorPrintedAbaya1 },
+        { image: MulticolorPrintedAbaya2 },
+        { image: MulticolorPrintedAbaya3 },
+        { image: MulticolorPrintedAbaya4 },
+        
+      ],
+      active: false
+    },
+  ]);
 
   const settingBasicColor = (selectedBasicColor) => {
     setBasicColor({ ...selectedBasicColor });
   };
+
+  const settingSheilaStyle = (selectedSheilaStyle) => {
+    setSheilaStyle({ ...selectedSheilaStyle });
+    let _sheilaStyles = sheilaStyles;
+    let forUpdate = [];
+    for (let i = 0; i < _sheilaStyles.length; i++) {
+      if (_sheilaStyles[i].name == selectedSheilaStyle.name) {
+        console.log("yes");
+        forUpdate.push({
+            name: _sheilaStyles[i].name,
+            img: _sheilaStyles[i].img,
+            sliderImages:_sheilaStyles[i].sliderImages,
+            active: true
+        })
+        
+      } else {
+        console.log("else");
+        forUpdate.push ({
+          name: _sheilaStyles[i].name,
+              img: _sheilaStyles[i].img,
+              sliderImages:_sheilaStyles[i].sliderImages,
+              active: false
+        })
+      }
+    }
+    set_sheilaStyles([...forUpdate])
+    console.log("forUpdate",forUpdate)
+    console.log("sheilaStyles",sheilaStyles)
+  };
+
   const settingSheila = (selectedSheilaColor) => {
     setSheila({ ...selectedSheilaColor });
   };
@@ -129,19 +169,14 @@ function ProductDetail() {
       sheilaLengthToggler();
     } else if (variationName == "alteration-length") {
       setSelectedAlterationLength(selectedVariation);
-      // sheilaLengthToggler();
       lengthToggler();
     } else if (variationName == "alteration-bust") {
       setSelectedAlterationBust(selectedVariation);
-      // sheilaLengthToggler();
       bustToggler();
     } else if (variationName == "alteration-sleeve") {
       setSelectedAlterationSleeve(selectedVariation);
-      // sheilaLengthToggler();
       sleeveToggler();
     }
-    
-    
   };
   const [itemAdded, setItemAdded] = useState("[]");
   const [isSecureCheckout, setIsSecureCheckout] = useState("[]");
@@ -156,6 +191,10 @@ function ProductDetail() {
 
   const [togglerSheilaColorsDiv, settogglerSheilaColorsDiv] = useState([]);
   const [togglerSheilaColorsDivPlusIcon, settogglerSheilaColorsDivPlusIcon] =
+    useState([]);
+
+  const [togglerSheilaStyleDiv, settogglerSheilaStyleDiv] = useState([]);
+  const [togglerSheilaStyleDivPlusIcon, settogglerSheilaStyleDivPlusIcon] =
     useState([]);
 
   const [togglerSize, settogglerSize] = useState([]);
@@ -208,6 +247,18 @@ function ProductDetail() {
       settogglerSheilaColorsDivPlusIcon(["rotate45"]);
     } else {
       settogglerSheilaColorsDivPlusIcon([]);
+    }
+  };
+  const sheilaStyleDivToggler = () => {
+    if (!togglerSheilaStyleDiv.includes("show-colors")) {
+      settogglerSheilaStyleDiv(["show-colors"]);
+    } else {
+      settogglerSheilaStyleDiv([]);
+    }
+    if (!togglerSheilaStyleDivPlusIcon.includes("rotate45")) {
+      settogglerSheilaStyleDivPlusIcon(["rotate45"]);
+    } else {
+      settogglerSheilaStyleDivPlusIcon([]);
     }
   };
 
@@ -542,7 +593,14 @@ function ProductDetail() {
         <div className="container-for-product-detail mt-[60px] lg:mt-[80px] mx-auto">
           <div className="w-[100%] max-w-[ ] flex flex-col      lg:flex-row">
             <div className="max-w-[1090p x] w-[100%] product-slider-div     lg:w-[68%]">
-              <ProductSlider data={productImages} />
+              {sheilaStyles.map((slider)=>{
+                return (
+                  <>
+                  {slider.active == true ?  <ProductSliderForSheila data={slider.sliderImages} /> : ""}
+                  </>
+                )
+              })}
+              {/* <ProductSlider data={productImages} /> */}
             </div>
             <div className="product-detail-content-div min-w-[500p x] w-[100%] pl-[45px] pr-[60px]     lg:w-[32%]">
               <p className="work-regular text-[#1b1b28] text-[12px] tracking-[0.1em] mt-[20px] mb-[10px] hidden      md:block">
@@ -662,6 +720,53 @@ function ProductDetail() {
                 </div>
               </div>
 
+              {/* sheila style */}
+              <div className="w-[100%]  cursor-pointer">
+                <div
+                  className="w-[100%] flex justify-between items-center border-b-[1px] border-[#ededed] mb-[20px]"
+                  onClick={() => sheilaStyleDivToggler()}
+                >
+                  <div>
+                    <h6 className="work-regular text-[12px] mt-[5px] mb-[2px] uppercase">
+                      <span className="text-[#ff0032]">*</span>sheila style:
+                    </h6>
+                    <p className="work-regular text-[11px] text-[#7e7e7e] capitalize py-2px]">
+                      select sheila style
+                    </p>
+                  </div>
+                  <div className="w-[20px] h-[20px] relative">
+                    <div
+                      className={`${togglerSheilaStyleDivPlusIcon.join(
+                        " "
+                      )} taPoint3 w-[20px] h-[20px] cross down`}
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  className={`${togglerSheilaStyleDiv.join(
+                    " "
+                  )} taPoint3 max-h-[0] overflow-hidden`}
+                >
+                  <h6 className="fwb text-[#1b1b28] text-[13px] pt-[10px] pb-[10px]">
+                    Sheila Style:
+                  </h6>
+                  <div className="flex gap-x-[3px] pl-[2px]">
+                    {sheilaStyles.map((value, index) => {
+                      return (
+                        <>
+                          <SheilaDesignBox
+                            key={index}
+                            data={value}
+                            settingSheila={settingSheilaStyle}
+                            currectSelected={sheilaStyle}
+                          />
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
               {/* size */}
               <div className="w-[100%]  cursor-pointer">
                 <div className="w-[100%] flex justify-start items-center mb-[20px]">
@@ -689,8 +794,9 @@ function ProductDetail() {
                       />
                     </div>
                     <div
-                      className={`${togglerSize.join(" ")} ${styles.variation_dropdowns
-                        } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
+                      className={`${togglerSize.join(" ")} ${
+                        styles.variation_dropdowns
+                      } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                     >
                       {selectSize.map((value) => {
                         return (
@@ -735,8 +841,9 @@ function ProductDetail() {
                       />
                     </div>
                     <div
-                      className={`${togglerSheilaLength.join(" ")} ${styles.variation_dropdowns
-                        } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
+                      className={`${togglerSheilaLength.join(" ")} ${
+                        styles.variation_dropdowns
+                      } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                     >
                       {selectSheilaLength.map((value) => {
                         return (
@@ -785,13 +892,13 @@ function ProductDetail() {
                   </div>
                 </div>
 
-                <div className={`${togglerAlterationDiv.join(
-                  " "
-                )} w-[100%] h-[0] overflow-hidden mt-[15px] taPoint3`}>
+                <div
+                  className={`${togglerAlterationDiv.join(
+                    " "
+                  )} w-[100%] h-[0] overflow-hidden mt-[15px] taPoint3`}
+                >
                   {/* length */}
-                  <div
-                    className={`  taPoint3  overflow-hidde n`}
-                  >
+                  <div className={`  taPoint3  overflow-hidde n`}>
                     <div className="w-[100%] flex items-center mb-[20px]">
                       <div className="min-w-[60px] max-w-[60px]">
                         <h6 className="fwl text-[12px] mb-[2px] uppercase">
@@ -805,9 +912,10 @@ function ProductDetail() {
                           onClick={() => lengthToggler()}
                         >
                           <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            {selectedAlterationLength && selectedAlterationLength !== ""
-                          ? selectedAlterationLength
-                          : "select length:"}
+                            {selectedAlterationLength &&
+                            selectedAlterationLength !== ""
+                              ? selectedAlterationLength
+                              : "select length:"}
                           </p>
 
                           <BsChevronDown
@@ -817,21 +925,22 @@ function ProductDetail() {
                           />
                         </div>
                         <div
-                          className={`${togglerLength.join(" ")} ${styles.variation_dropdowns
-                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
+                          className={`${togglerLength.join(" ")} ${
+                            styles.variation_dropdowns
+                          } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
-                            {alterationLength.map((value) => {
-                              return (
-                                <Options
-                                  key={value + 1}
-                                  data={value}
-                                  variationName={"alteration-length"}
-                                  settingVariation={settingVariation}
-                                  currectSelectedValue={selectedAlterationLength}
-                                />
-                              );
-                            })}
-                            
+                          {alterationLength.map((value) => {
+                            return (
+                              <Options
+                                key={value + 1}
+                                data={value}
+                                variationName={"alteration-length"}
+                                settingVariation={settingVariation}
+                                currectSelectedValue={selectedAlterationLength}
+                              />
+                            );
+                          })}
+
                           {/* <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Length
                           </div>
@@ -855,9 +964,7 @@ function ProductDetail() {
                     </div>
                   </div>
                   {/* bust */}
-                  <div
-                    className={` taPoint3  overflow-hidde n`}
-                  >
+                  <div className={` taPoint3  overflow-hidde n`}>
                     <div className="w-[100%] flex items-center mb-[20px]">
                       <div className="min-w-[60px] max-w-[60px]">
                         <h6 className="fwl text-[12px] mb-[2px] uppercase">
@@ -871,10 +978,10 @@ function ProductDetail() {
                           onClick={() => bustToggler()}
                         >
                           <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            
-                            {selectedAlterationBust && selectedAlterationBust !== ""
-                          ? selectedAlterationBust
-                          : "select bust:"}
+                            {selectedAlterationBust &&
+                            selectedAlterationBust !== ""
+                              ? selectedAlterationBust
+                              : "select bust:"}
                           </p>
 
                           <BsChevronDown
@@ -884,21 +991,21 @@ function ProductDetail() {
                           />
                         </div>
                         <div
-                          className={`${togglerBust.join(" ")} ${styles.variation_dropdowns
-                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
+                          className={`${togglerBust.join(" ")} ${
+                            styles.variation_dropdowns
+                          } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
-
                           {alterationBust.map((value) => {
-                              return (
-                                <Options
-                                  key={value + 1}
-                                  data={value}
-                                  variationName={"alteration-bust"}
-                                  settingVariation={settingVariation}
-                                  currectSelectedValue={selectedAlterationBust}
-                                />
-                              );
-                            })}
+                            return (
+                              <Options
+                                key={value + 1}
+                                data={value}
+                                variationName={"alteration-bust"}
+                                settingVariation={settingVariation}
+                                currectSelectedValue={selectedAlterationBust}
+                              />
+                            );
+                          })}
 
                           {/* <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Bust
@@ -927,9 +1034,7 @@ function ProductDetail() {
                   </div>
 
                   {/* sleeve */}
-                  <div
-                    className={`  taPoint3  overflow-hidde n`}
-                  >
+                  <div className={`  taPoint3  overflow-hidde n`}>
                     <div className="w-[100%] flex items-center mb-[20px]">
                       <div className="min-w-[60px] max-w-[60px]">
                         <h6 className="fwl text-[12px] mb-[2px] uppercase">
@@ -943,10 +1048,10 @@ function ProductDetail() {
                           onClick={() => sleeveToggler()}
                         >
                           <p className="fwr h-[40px] leading-[40px] text-[11px] text-[#7e7e7e] capitalize">
-                            
-                            {selectedAlterationSleeve && selectedAlterationSleeve !== ""
-                          ? selectedAlterationSleeve
-                          : "select sleeve:"}
+                            {selectedAlterationSleeve &&
+                            selectedAlterationSleeve !== ""
+                              ? selectedAlterationSleeve
+                              : "select sleeve:"}
                           </p>
 
                           <BsChevronDown
@@ -956,20 +1061,21 @@ function ProductDetail() {
                           />
                         </div>
                         <div
-                          className={`${togglerSleeve.join(" ")} ${styles.variation_dropdowns
-                            } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
+                          className={`${togglerSleeve.join(" ")} ${
+                            styles.variation_dropdowns
+                          } w-[100%] border-[#fbf1e8] border-[1px] border-b-[0] absolute bg-[#fff] z-[6] hidden`}
                         >
-                           {alterationSleeve.map((value) => {
-                              return (
-                                <Options
-                                  key={value + 1}
-                                  data={value}
-                                  variationName={"alteration-sleeve"}
-                                  settingVariation={settingVariation}
-                                  currectSelectedValue={selectedAlterationSleeve}
-                                />
-                              );
-                            })}
+                          {alterationSleeve.map((value) => {
+                            return (
+                              <Options
+                                key={value + 1}
+                                data={value}
+                                variationName={"alteration-sleeve"}
+                                settingVariation={settingVariation}
+                                currectSelectedValue={selectedAlterationSleeve}
+                              />
+                            );
+                          })}
                           {/* <div className="fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px]">
                             Select Sleeve
                           </div>
@@ -1268,7 +1374,6 @@ function ProductDetail() {
                   <div className="w-[21px] h-[19px] relative z-4 bgAllIcon bg-[left_-47px_top_-260px]"></div>
                 </div>
               </div>
-              
             </div>
           </div>
 
@@ -1293,7 +1398,11 @@ function ProductDetail() {
           ""
         )}
       </Layout>
-      {isVartiationsSelected == true ? <MSD_Box message={"Please choose all the options"} /> : ""}
+      {isVartiationsSelected == true ? (
+        <MSD_Box message={"Please choose all the options"} />
+      ) : (
+        ""
+      )}
     </>
   );
 }
@@ -1307,8 +1416,9 @@ function Options({
   return (
     <div
       key={data + 1}
-      className={` ${currectSelectedValue == data ? "active-variation" : ""
-        } fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px] `}
+      className={` ${
+        currectSelectedValue == data ? "active-variation" : ""
+      } fwr text-[13px] text-[#1b1b28] border-b-[1px] border-b-[#fbf1e8] h-[48px] leading-[48px] pl-[7px] `}
       onClick={() => settingVariation(data, variationName)}
     >
       {data}

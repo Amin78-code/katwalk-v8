@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./ShopFilters.module.css";
 import {
-  IoBagOutline,
-  IoSearchOutline,
-  IoHeartOutline,
-  IoPersonOutline,
   IoChevronDown,
   IoCloseOutline,
 } from "react-icons/io5";
@@ -437,180 +433,180 @@ function ShopFilters({ forDesigner }) {
               className={`${styles.active} single-filter flex-1 relative cursor-pointer`}
             >
               <div
-                className={`flex justify-between items-center border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
+                className={`ddd flex justify-between items-center border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
                 onClick={() => openDropdown(category_dropdown)}
               >
-                <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="ddd fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={categoryPlus}
-                    className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
+                    className={`ddd taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
                   ></div>
                   category
                 </p>
                 <div
                   ref={categoryChevron}
-                  className="taPoint3 hidden     lg:block"
+                  className="ddd taPoint3 hidden     lg:block"
                 >
-                  <IoChevronDown className="mr-[10px] text-[" />
+                  <IoChevronDown className="ddd mr-[10px] text-[" />
                 </div>
               </div>
               <div
-                className={`w-[100%] lg:w-[300px] border-[#fbf1e8] border-[1px] relative lg:absolute 
+                className={`ddd w-[100%] lg:w-[300px] border-[#fbf1e8] border-[1px] relative lg:absolute 
  pt-[20px] lg:pt-0 z-[2] bg-[#fff] f-out`}
                 ref={category_dropdown}
               >
-                <div className="flex px-[15px] w-[100%] max-h-[350px] overflow-auto">
-                  <div className="w-[100%]">
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                <div className="ddd flex px-[15px] w-[100%] max-h-[350px] overflow-auto">
+                  <div className="ddd w-[100%]">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ1"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ1"
                       >
                         abaya
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ2"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ2"
                       >
                         kaftan
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ3"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ3"
                       >
                         dress
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ4"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ4"
                       >
                         farwa
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ5"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ5"
                       >
                         kimaono
                       </label>
                     </div>
 
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ6"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ6"
                       >
                         embroidery
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ7"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ7"
                       >
                         printing bloom
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ8"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ8"
                       >
                         casual
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ9"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ9"
                       >
                         formal
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ10"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ10"
                       >
                         suit
                       </label>
                     </div>
-                    <div className="form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
+                    <div className="ddd form-check taPoint3 cursor-pointer py-[7px] flex items-center relative">
                       <input
-                        className="w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
+                        className="ddd w-[28px] form-check-input appearance-none border border-[#fbf1e8] bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer w-[25px] h-[25px]"
                         type="checkbox"
                         value=""
                         id="categ11"
                       />
                       <label
-                        className="block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
+                        className="ddd block w-[100%] fwr text-[11px] leading-[25px] text-[#000] capitalize form-check-label inline-block text-gray-800 pt-[4px] pl-[5px]"
                         htmlFor="categ11"
                       >
                         lawns
@@ -620,23 +616,23 @@ function ShopFilters({ forDesigner }) {
                 </div>
               </div>
             </div>
-            <div className="flex-1 single-filter relative cursor-pointer">
+            <div className="ddd flex-1 single-filter relative cursor-pointer">
               <div
-                className={`flex justify-between items-center border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
+                className={`ddd flex justify-between items-center border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
                 onClick={() => openDropdown(designer_dropdown)}
               >
-                <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="ddd fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={designerPlus}
-                    className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
+                    className={`ddd taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
                   ></div>
                   designers
                 </p>
                 <div
                   ref={designerChevron}
-                  className="taPoint3 hidden     lg:block"
+                  className="ddd taPoint3 hidden     lg:block"
                 >
-                  <IoChevronDown className="mr-[10px] text-[" />
+                  <IoChevronDown className="ddd mr-[10px] text-[" />
                 </div>
               </div>
               <DesignerFilter
@@ -647,20 +643,20 @@ function ShopFilters({ forDesigner }) {
                 allDesigners={allDesigners}
               />
             </div>
-            <div className="flex-1 single-filter relative cursor-pointer">
+            <div className="ddd flex-1 single-filter relative cursor-pointer">
               <div
                 onClick={() => openDropdown(size_dropdown)}
-                className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
+                className={`ddd flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="ddd fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={sizePlus}
-                    className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
+                    className={`ddd taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
                   ></div>
                   size
                 </p>
-                <div ref={sizeChevron} className="taPoint3 hidden     lg:block">
-                  <IoChevronDown className="mr-[10px] text-[" />
+                <div ref={sizeChevron} className="ddd taPoint3 hidden     lg:block">
+                  <IoChevronDown className="ddd mr-[10px] text-[" />
                 </div>
               </div>
               <SizeFilter
@@ -671,23 +667,23 @@ function ShopFilters({ forDesigner }) {
                 filterName={"sizeFilter"}
               />
             </div>
-            <div className="flex-1 single-filter relative cursor-pointer">
+            <div className="ddd flex-1 single-filter relative cursor-pointer">
               <div
                 onClick={() => openDropdown(color_dropdown)}
-                className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
+                className={`ddd flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="ddd fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={colorPlus}
-                    className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
+                    className={`ddd taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
                   ></div>
                   color
                 </p>
                 <div
                   ref={colorChevron}
-                  className="taPoint3 hidden      lg:block"
+                  className="ddd taPoint3 hidden      lg:block"
                 >
-                  <IoChevronDown className="mr-[10px] text-[" />
+                  <IoChevronDown className="ddd mr-[10px] text-[" />
                 </div>
               </div>
               <ColorFilter
@@ -698,23 +694,23 @@ function ShopFilters({ forDesigner }) {
                 filterName={"colorFilter"}
               />
             </div>
-            <div className="flex-1 single-filter relative cursor-pointer">
+            <div className="ddd flex-1 single-filter relative cursor-pointer">
               <div
                 onClick={() => openDropdown(price_dropdown)}
-                className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
+                className={`ddd flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="ddd fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={pricePlus}
-                    className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
+                    className={`ddd taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
                   ></div>
                   price
                 </p>
                 <div
                   ref={priceChevron}
-                  className="taPoint3 hidden      lg:block"
+                  className="ddd taPoint3 hidden      lg:block"
                 >
-                  <IoChevronDown className="mr-[10px] text-[" />
+                  <IoChevronDown className="ddd mr-[10px] text-[" />
                 </div>
               </div>
               <PriceFilter
@@ -725,21 +721,21 @@ function ShopFilters({ forDesigner }) {
                 filterName={"prizeFilter"}
               />
             </div>
-            <div className="flex-1 single-filter relative cursor-pointer">
+            <div className="ddd flex-1 single-filter relative cursor-pointer">
               <div
                 onClick={() => openDropdown(sort_by_dropdown)}
-                className={`flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
+                className={`ddd flex justify-between items-center  border-[#b1b1b1] border-b-[1px] lg:border-[0]`}
               >
-                <p className="fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
+                <p className="ddd fwl uppercase lg:capitalize text-[#1b1b28] text-[12px] lg:text-[11px] my-[8px] lg:my-[13px] px-[16px] h-[22px] leading-[22px] flex">
                   <div
                     ref={sortByPlus}
-                    className={`taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
+                    className={`ddd taPoint3 hidde n      lg:bloc k ${styles.plus_icon} block lg:hidden w-[20px] mr-[15px]`}
                   ></div>
                   sorty by
                 </p>
                 <div
                   ref={sortByChevron}
-                  className="taPoint3 hidden     lg:block"
+                  className="ddd taPoint3 hidden     lg:block"
                 >
                   <IoChevronDown className={`mr-[10px]`} />
                 </div>
